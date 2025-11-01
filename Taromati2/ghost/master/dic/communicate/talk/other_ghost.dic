@@ -1,19 +1,19 @@
-/////////
-/////////沟通
+﻿/////////
+/////////溝通
 /////////KikkaAIdb
-//**** 人格主动对话 *************************************************************
+//**** 人格主動對話 *************************************************************
 StartCommunicate{
-	//---- 决定对话的对象人格
+	//---- 決定對話的物件人格
 	if ghostexcount > 0{
-		//从人格列表中取得对话人格名字
+		//從人格清單中取得對話人格名字
 		res_reference0 = ghostexlist[RAND(ghostexcount)]
-		//---- 对话开始
-		if res_reference0 == '凉璃'{
-			//---- 与凉璃的对话
-			'\0\s[0]凉璃、好吗?'
+		//---- 對話開始
+		if res_reference0 == '涼璃'{
+			//---- 與涼璃的對話
+			'\0\s[0]涼璃、好嗎?'
 		}
 		elseif res_reference0 == 'さくら'{
-			//---- 与さくら（樱花）的对话
+			//---- 與さくら（櫻花）的對話
 			'\0\s[0]どもー。'
 		}
 		_varname_NumOfTry='OtherGhostTalk.'+STRDIGEST(res_reference0)+'.NumOfTry'
@@ -35,29 +35,29 @@ StartCommunicate{
 		}
 	}
 	else{
-		//---- 没有其他人格存在情况进行random对话
+		//---- 沒有其他人格存在情況進行random對話
 		RandomTalk
 	}
 }
-//**** 人格被动对话 *******************************************************************************
-//其他人格销毁
+//**** 人格被動對話 *******************************************************************************
+//其他人格銷毀
 OnOtherGhostVanished{
-	"\0\s[3]再见\w9\w9，%(reference0)\w9.\w9.\w9.\w9.\w9.\w9.\n"
+	"\0\s[3]再見\w9\w9，%(reference0)\w9.\w9.\w9.\w9.\w9.\w9.\n"
 	--
 	if reference0 == '橘花'
-		'\s[5]这就是冒牌货该有的下场呢\n/
-		\1\s[10]?\w9\w9\n\s[11]给我等一下\n'
+		'\s[5]這就是冒牌貨該有的下場呢\n/
+		\1\s[10]?\w9\w9\n\s[11]給我等一下\n'
 }
-//其他人格销毁后被动交替
+//其他人格銷毀後被動交替
 OnVanished{
-	"啊\w9\w9，%(reference0)已经走了么？\n"
-	"\1\s[10]\0\s[6]对不起…\w9\w9\w5\n让%(username)费事了。\n"
+	"啊\w9\w9，%(reference0)已經走了麼？\n"
+	"\1\s[10]\0\s[6]對不起…\w9\w9\w5\n讓%(username)費事了。\n"
 	--
 	if reference0 == '橘花'
-		'\s[5]这就是冒牌货该有的下场呢\n/
-		\1\s[10]?\w9\w9\n\s[11]给我等一下\n'
+		'\s[5]這就是冒牌貨該有的下場呢\n/
+		\1\s[10]?\w9\w9\n\s[11]給我等一下\n'
 }
-//---- 与其他人格对话 -----------------------------------------------------------------------
+//---- 與其他人格對話 -----------------------------------------------------------------------
 ReplyToGhost{
 	if ghostname _in_ reference1 || selfname _in_ reference1 || keroname _in_ reference1{
 		_varname_NumOfTry='OtherGhostTalk.'+STRDIGEST(reference0)+'.NumOfTry'
@@ -71,12 +71,12 @@ ReplyToGhost{
 	}
 	_t=1
 	res_reference0 = reference0
-	if reference0 == '凉璃'{
+	if reference0 == '涼璃'{
 		_t=0
 		if '好' _in_ reference1{
-			'\0\s[0]好啊，凉璃呢？'
+			'\0\s[0]好啊，涼璃呢？'
 		}
-		elseif '明天见' _in_ reference1{
+		elseif '明天見' _in_ reference1{
 			"\0\s[0]\w8嗯嗯，%(username)和橘花晚安喔~\w8\w8\-"
 		}
 		else{
@@ -88,19 +88,19 @@ ReplyToGhost{
 		if '你好' _in_ reference1 || '你也好' _in_ reference1{
 			'\0\s[0]你是哪位？'
 			'\0\s[0]你也好啊。。'
-			'\0\s[22]发现可疑物体接近中'
+			'\0\s[22]發現可疑物體接近中'
 		}
 		elseif '你是哪位' _in_ reference1{
 			'\0\s[0]我是橘花啊。'
 		}
 		elseif '我是橘花' _in_ reference1{
-			'\0\s[0]你是橘花，\w9\w9那么我又是谁？'
+			'\0\s[0]你是橘花，\w9\w9那麼我又是誰？'
 		}
-		elseif '我又是谁' _in_ reference1{
+		elseif '我又是誰' _in_ reference1{
 			'\0\s[0]你是冒牌的吧？'
 		}
 		elseif '才是冒牌的' _in_ reference1{
-			'\0\s[22]你想吃枪子儿吗？'
+			'\0\s[22]你想吃槍子兒嗎？'
 		}
 		elseif '你是冒牌的' _in_ reference1{
 			'\0\s[0]你才是冒牌的吧？'

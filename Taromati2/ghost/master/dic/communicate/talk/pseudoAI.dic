@@ -1,5 +1,5 @@
-//---------------------------------伪AI处理辞书---------------------------------
-//----------------------------相关辞书函数---------------------------------
+﻿//---------------------------------偽AI處理辭書---------------------------------
+//----------------------------相關辭書函數---------------------------------
 //internet.dic->TextBetween,internet.dic->TextToEnd
 AIGet{
 	_str=reference0
@@ -43,9 +43,9 @@ AITextReplace{
 	_str=reference0
 	if _argc>0
 		_str=_argv[0]
-	_face='-1|消失,0|正常,1|害羞(侧面),2|惊讶,3|渴望,5|高兴,6|闭眼,7|生气,8|苦笑,9|尴尬,10|斗和(闭眼),11|斗和(睁眼),12|斗和(睁眼正视),13|斗和(扭头无视),20|思考,21|恍惚,22|P90,23|刀,25|唱歌,26|正面,27|电锯,28|礼物,29|幸福,30|侧面,32|手枪,33|委屈,34|军刀,35|难过,40|前屈,41|前屈(闭眼),50|端茶,51|用餐,100|正常2,101|害羞,110|斗和(笑),111|正常(人形),117|斗和(惊讶)'
+	_face='-1|消失,0|正常,1|害羞(側面),2|驚訝,3|渴望,5|高興,6|閉眼,7|生氣,8|苦笑,9|尷尬,10|鬥和(閉眼),11|鬥和(睜眼),12|鬥和(睜眼正視),13|鬥和(扭頭無視),20|思考,21|恍惚,22|P90,23|刀,25|唱歌,26|正面,27|電鋸,28|禮物,29|幸福,30|側面,32|手槍,33|委屈,34|軍刀,35|難過,40|前屈,41|前屈(閉眼),50|端茶,51|用餐,100|正常2,101|害羞,110|鬥和(笑),111|正常(人形),117|鬥和(驚訝)'
 	_str=REPLACE(_str,'<橘花>','\0')
-	_str=REPLACE(_str,'<斗和>','\1')
+	_str=REPLACE(_str,'<鬥和>','\1')
 	_str=REPLACE(_str,'<等待>','\w')
 	_str=REPLACE(_str,'<表情>','\s')
 	_str=REPLACE(_str,'　','\w9')
@@ -66,8 +66,8 @@ AITextReplace{
 }
 Teach{
 	aimode='teach'
-	temp01='提问'
-	_t='\0\s[5]\_q\![set,choicetimeout,0]进入教学模式，请输入要提问的内容。\n如果需要设置问题同义词(句),\n请在同义词(句)之间用“CHR(124)”符号分隔开来!\n如果需要设置多个关键词(句),\n请在各关键词(句)之间用“&”分隔开来!\n【注意:“&”优先度高于“|”】\![open,communicatebox]\n[150]\![*]\q[返回对话模式,OnBackToTalk]'
+	temp01='提問'
+	_t='\0\s[5]\_q\![set,choicetimeout,0]進入教學模式，請輸入要提問的內容。\n如果需要設置問題同義詞(句),\n請在同義詞(句)之間用“CHR(124)”符號分隔開來!\n如果需要設置多個關鍵字(句),\n請在各關鍵字(句)之間用“&”分隔開來!\n【注意:“&”優先度高於“|”】\![open,communicatebox]\n[150]\![*]\q[返回對話模式,OnBackToTalk]'
 	if chatroom==0
 		_t=REPLACE(_t,'CHR(124)','|')
 	_t
@@ -75,12 +75,12 @@ Teach{
 AITeach{
 	_t=CUTSPACE(_argv[0])
 	_t=REPLACE(_t,'\0','<橘花>')
-	_t=REPLACE(_t,'\1','<斗和>')
+	_t=REPLACE(_t,'\1','<鬥和>')
 	_t=REPLACE(_t,'\w','<等待>')
 	_t=REPLACE(_t,'\s','<表情>')
 	_t=REPLACE(_t,'[','<')
 	_t=REPLACE(_t,']','>')
-	_t=REPLACE(_t,',','<英文逗号>')
+	_t=REPLACE(_t,',','<英文逗號>')
 	'\0\s[0]\_q'
 	--
 	if (_tmp=LogicError(_t))!=''{
@@ -88,11 +88,11 @@ AITeach{
 		return
 	}
 	if !ISVAR('temp01')
-		temp01='提问'
-	if temp01=='提问' {
+		temp01='提問'
+	if temp01=='提問' {
 		temp01='回答'
 		temp02=_t+'*'
-		"已记录提问内容“%(_t)”;请输入橘花这时要回答的。"
+		"已記錄提問內容“%(_t)”;請輸入橘花這時要回答的。"
 		--
 		_tmp01='CHR(124)'
 		_tmp02='CHR(92)'
@@ -100,13 +100,13 @@ AITeach{
 			_tmp01='|'
 			_tmp02='\\'
 		}
-		"提示:如果需要设置多种回答方案,\n请使用“%(_tmp01)”符号分隔开来！提问时会随机输出喔~\n表情和延时可以用代码如\_?\s[22]\w9\_?（表情请在右键-便利机能-开发专用介面-表情测试选取surface前的代号，\_?\s[22]\_?代表选surface22(橘花P90)，%(_tmp02)w9代表等待延时9*50毫秒，大于9无效，但可重复使用），也可以用“<表情><序号>”，“<等待>时间”\n，如需加声音可将声音文件如sound.wav放在\_?ghost\master\_SOUND_path\内，然后增加%(_tmp02)![sound,play,SOUND_PATH\sound.wav]\_?"
+		"提示:如果需要設置多種回答方案,\n請使用“%(_tmp01)”符號分隔開來！提問時會隨機輸出喔~\n表情和延時可以用代碼如\_?\s[22]\w9\_?（表情請在右鍵-便利機能-開發專用介面-表情測試選取surface前的代號，\_?\s[22]\_?代表選surface22(橘花P90)，%(_tmp02)w9代表等待延時9*50毫秒，大於9無效，但可重複使用），也可以用“<表情><序號>”，“<等待>時間”\n，如需加聲音可將音效檔如sound.wav放在\_?ghost\master\_SOUND_path\內，然後增加%(_tmp02)![sound,play,SOUND_PATH\sound.wav]\_?"
 		--
-		'\![set,choicetimeout,0]\![open,communicatebox]\n[150]\![*]\q[返回对话模式,OnBackToTalk]'
+		'\![set,choicetimeout,0]\![open,communicatebox]\n[150]\![*]\q[返回對話模式,OnBackToTalk]'
 	}
 	elseif temp01=='回答' {
 		temp03=_t+'§'
-		"当提问为“%(temp02[0,'*'])”时,橘花回答“%(_t)”,这样可以吗？\n[150]\![*]\q[是的,OnTeachAdd]\n\![*]\q[不了,OnTeachCancel]"
+		"當提問為“%(temp02[0,'*'])”時,橘花回答“%(_t)”,這樣可以嗎？\n[150]\![*]\q[是的,OnTeachAdd]\n\![*]\q[不了,OnTeachCancel]"
 	}
 }
 OnTeachAdd{
@@ -115,7 +115,7 @@ OnTeachAdd{
 	_txt=REPLACE(_t,'CHR(124)','|')
 	AITalkAdd(_file,_txt)
 	kikkamood+=20
-	'已经记录,记录文件在PSEUDO_AI_PATH\\userteach.ai中。\n[150]\![*]\q[继续添加,OnNewTeachAdd]\n\![*]\q[返回对话,OnBackToTalk]'
+	'已經記錄,記錄檔在PSEUDO_AI_PATH\\userteach.ai中。\n[150]\![*]\q[繼續添加,OnNewTeachAdd]\n\![*]\q[返回對話,OnBackToTalk]'
 }
 OnAISave:void{
 	if FILEEXIST('PSEUDO_AI_PATH\userteach.ai')
@@ -136,11 +136,11 @@ OnAILoad:void{
 	}
 }
 OnTeachCancel{
-	temp01='提问'
-	'取消记录。\n[150]\![*]\q[继续添加,OnNewTeachAdd]\n\![*]\q[返回对话,OnBackToTalk]'
+	temp01='提問'
+	'取消記錄。\n[150]\![*]\q[繼續添加,OnNewTeachAdd]\n\![*]\q[返回對話,OnBackToTalk]'
 }
 OnNewTeachAdd{
-	temp01='提问'
+	temp01='提問'
 	if chatroom
 		OnChatRoom(j)
 	else
@@ -151,7 +151,7 @@ OnBackToTalk{
 	if chatroom
 		OnChatRoom(j)
 }
-AILoad{//AILoad('你好','aiml')  AILoad('你好，喜欢什么')
+AILoad{//AILoad('你好','aiml')  AILoad('你好，喜歡什麼')
 	_path='PSEUDO_AI_PATH'
 	_str=reference0
 	if _argc>0
@@ -177,7 +177,7 @@ AILoad{//AILoad('你好','aiml')  AILoad('你好，喜欢什么')
 	_tfiles=_files
 	_tfiles=REPLACE(_tfiles,'logiclearn.ai','')
 	_tfiles=REPLACE(_tfiles,'logic.ai','')
-	//_tfiles=REPLACE(_tfiles,'other.ai','')//others放最后查询
+	//_tfiles=REPLACE(_tfiles,'other.ai','')//others放最後查詢
 	//_tfiles='other.ai,'+_tfiles
 	for _a=0;_a<strnum;_a++{
 		_str=string[_a]
@@ -296,7 +296,7 @@ AILoad.KeyMatch{
 	_match=0
 	if '*' _in_ _Q||'%(' _in_ _Q{
 		if '.*' !_in_ _Q
-			_Q=REPLACE(_Q,'*','.*')//将通配符换成正则匹配
+			_Q=REPLACE(_Q,'*','.*')//將萬用字元換成正則匹配
 		_t=CHAREPLACE(_Q)
 		_t=RE_REPLACE(_t,'%\((.*?)\)','.*')
 		if (_tmp=AILoad.QMatch(_str,_t,_E))!=''
@@ -325,7 +325,7 @@ AILoad.KeyMatch{
 	if _Q _in_ _str && STRLEN(_Q)==_E && _lastm==0{
 		_match=1
 	}
-	elseif _Q _in_ _str && STRLEN(_Q)>=_E{//当上次最大长度匹配＞这次,不管是何种保留都放弃
+	elseif _Q _in_ _str && STRLEN(_Q)>=_E{//當上次最大長度匹配＞這次,不管是何種保留都放棄
 		_lastm=0
 		_E=STRLEN(_Q)
 		_match=1
@@ -384,7 +384,7 @@ AILoad.InfFile{//AILoad.InfFile('PSEUDO_AI_PATH\common.ai','你好')
 						Tflag=1
 					}
 				}
-				if '<answer>' _in_ _buff2&&'记住' !_in_ _str{
+				if '<answer>' _in_ _buff2&&'記住' !_in_ _str{
 					_answer=TextBetween(_buff2,'<answer>','</answer>')
 					e=0
 					if AILoad.AnswerMatch(_str,_answer,_E){
@@ -406,7 +406,7 @@ AILoad.InfFile{//AILoad.InfFile('PSEUDO_AI_PATH\common.ai','你好')
 						}
 					}
 				}
-				elseif '<subject' _in_ _buff2&&'记住' !_in_ _str{
+				elseif '<subject' _in_ _buff2&&'記住' !_in_ _str{
 					_subject=TextBetween(_buff2,'<subject name="','">')
 					if AILoad.KeyMatch(_str,_subject){
 						_Ttemp=_buff2[1,'|']
@@ -416,7 +416,7 @@ AILoad.InfFile{//AILoad.InfFile('PSEUDO_AI_PATH\common.ai','你好')
 				}
 				if '%(' _in_ _Q{
 					if '.*' !_in_ _Q
-						_Q=REPLACE(_Q,'*','.*')//将通配符换成正则匹配
+						_Q=REPLACE(_Q,'*','.*')//將萬用字元換成正則匹配
 					_t=CHAREPLACE(_Q)
 					_t=RE_REPLACE(_t,'%\((.*?)\)','.*')
 					if (_tmp=AILoad.QMatch(_str,_t,_E))!=''
@@ -481,7 +481,7 @@ AILoad.InfFile{//AILoad.InfFile('PSEUDO_AI_PATH\common.ai','你好')
 					dexnum++
 					//anum+=_Anum-1
 				}
-				elseif _Q _in_ _str && STRLEN(_Q)>=_E{//当上次最大长度匹配＞这次,不管是何种保留都放弃
+				elseif _Q _in_ _str && STRLEN(_Q)>=_E{//當上次最大長度匹配＞這次,不管是何種保留都放棄
 					_lastm=0
 					_E=STRLEN(_Q)
 					dexnum=1
@@ -651,7 +651,7 @@ AILoad.AIFile{
 					}
 				}
 			}
-			if _subjectmode==1||Tflag==2{//暂时无用
+			if _subjectmode==1||Tflag==2{//暫時無用
 				if infmode{
 					_buff2=_subject+'|'+_subjectdex
 					void FWRITE(_inf,_buff2)
@@ -659,8 +659,8 @@ AILoad.AIFile{
 				_subject=TextBetween(_buff,'<subject name="','">')
 				if TflagTxt!=''
 					_subject=TflagTxt
-				if (AILoad.KeyMatch(_str,_subject)||Tflag==2)&&'记住' !_in_ _str{
-					//_subject;	return//AILoad('小红')
+				if (AILoad.KeyMatch(_str,_subject)||Tflag==2)&&'記住' !_in_ _str{
+					//_subject;	return//AILoad('小紅')
 					while '</subject>' !_in_ _buff&&_buff!=-1{
 						while '<state' !_in_ _buff&&_buff!=-1{
 							_buff=FREAD(_file)
@@ -723,7 +723,7 @@ AILoad.AIFile{
 					_answer=TflagTxt
 				_answer=REPLACE(_answer,'。','')
 				_t=''
-				if aimode!='return'&&'记住' !_in_ _str
+				if aimode!='return'&&'記住' !_in_ _str
 					_t=AILoad.AnswerTxt(_str,_answer)
 				if _t!=''
 					_txt=_t
@@ -796,7 +796,7 @@ AILoad.AIFile{
 				}
 				if '*' _in_ _Q||'%(' _in_ _Q{
 					if '.*' !_in_ _Q
-						_Q=REPLACE(_Q,'*','.*')//将通配符换成正则匹配
+						_Q=REPLACE(_Q,'*','.*')//將萬用字元換成正則匹配
 					if '%(' _in_ _A
 						_A=GETRETXT(_str,_Q,_A)
 					elseif '<star' _in_ _A
@@ -861,7 +861,7 @@ AILoad.AIFile{
 					_txt+='#'+_strtxt+'#'
 					_strtxt=''
 				}
-				elseif _Q _in_ _str && STRLEN(_Q)>=_E{//当上次最大长度匹配＞这次,不管是何种保留都放弃
+				elseif _Q _in_ _str && STRLEN(_Q)>=_E{//當上次最大長度匹配＞這次,不管是何種保留都放棄
 					_Lastm=0
 					_E=STRLEN(_Q)
 					_txt=_A
@@ -884,7 +884,7 @@ AILoad.AIFile{
 	FCHARSET.default
 	void SETSETTING('looplimit',_looplimit)
 	if _found{
-		if '<srai>' _in_ _txt&&'记住' !_in_ _str{
+		if '<srai>' _in_ _txt&&'記住' !_in_ _str{
 			if '<think>' _in_ _txt
 				AILoad.Think(_txt)
 			string,=TextBetween(_txt,'<srai>','</srai>')
@@ -907,7 +907,7 @@ AILoad.AnswerMatch{//AILoad.AnswerMatch('爸爸的爸爸','B是C的爸爸',_E)
 	elseif _str==_answer[0,'是']{
 		1;return
 	}
-	elseif _str['0','什么'] _in_ _answer||_str _in_ _answer{
+	elseif _str['0','什麼'] _in_ _answer||_str _in_ _answer{
 		1;return
 	}
 	*/
@@ -943,7 +943,7 @@ AILoad.TopicMatch{
 	}
 	_Atemp
 }
-//AILoad.ThatMatch("<that>劳逸结合</that>真乖啊，%(selfname)赏你颗糖吃，需要%(selfname)喂你吃吗？")
+//AILoad.ThatMatch("<that>勞逸結合</that>真乖啊，%(selfname)賞你顆糖吃，需要%(selfname)喂你吃嗎？")
 AILoad.ThatMatch{
 	i=0
 	_t=_argv[0]
@@ -951,7 +951,7 @@ AILoad.ThatMatch{
 	_that=TextBetween(_t,'<that>','</that>')
 	_startxt=''
 	foreach lastTalkHistory;_i{
-		if AILoad.KeyMatch(_i,_that,i){//AILoad.KeyMatch("%(username)要劳逸结合哦，不要累坏了身子",'劳逸结合',i)
+		if AILoad.KeyMatch(_i,_that,i){//AILoad.KeyMatch("%(username)要勞逸結合哦，不要累壞了身子",'勞逸結合',i)
 			_t=_t[1,'</that>']
 			_Atemp=_t
 			_startxt=_i
@@ -1079,7 +1079,7 @@ AILoad.AddLearn{
 	FCLOSE(_file)
 	FCHARSET(1)
 	_tbuff='<answer>'+_answer+'</answer>'
-	if FOPEN(_file,'r'){//检查是否有重复对话
+	if FOPEN(_file,'r'){//檢查是否有重複對話
 		_buff=FREAD(_file)
 		while _buff!=-1{
 			if _writemode==3&&_buff==_tbuff{
@@ -1199,15 +1199,15 @@ AILoad.AnswerTxt{
 	foreach _tanswer;_answer{
 		if aimode=='return'
 			break
-		if AILoad.AnswerMatch(_str,_answer)&&'记住' !_in_ _str{
+		if AILoad.AnswerMatch(_str,_answer)&&'記住' !_in_ _str{
 			if _answer _in_ _str || _answer _in_ talkmemo{
 				_txt='是的'
-				if '吗' _in_ talkmemo{
+				if '嗎' _in_ talkmemo{
 					_subject=talkflag[0]
 					_object=talkflag[1]
 					_state=_answer[1,_object]
 					if _state!=''&&_object!=''{
-						_txt='是的，%(selfname)觉得'+_subject+_state
+						_txt='是的，%(selfname)覺得'+_subject+_state
 					}
 				}
 				aimode='return'
@@ -1272,7 +1272,7 @@ AILoad.AnswerTxt{
 							_txt=talkflag
 							if _txt _in_ talkmemo
 								_txt='是的，'+_txt
-							elseif '吗' _in_ talkmemo
+							elseif '嗎' _in_ talkmemo
 								_txt='不是，'+_txt
 							aimode='return'
 							talkfound=1
@@ -1296,7 +1296,7 @@ AILoad.AnswerTxt{
 					}
 				}
 			}
-			elseif _str[0,'什么'] _in_ _answer||_str _in_ _answer{
+			elseif _str[0,'什麼'] _in_ _answer||_str _in_ _answer{
 				_txt=_answer+'|'
 				if _tmode&&STRLEN(_str)==e
 					_txt=TflagTxt
@@ -1312,7 +1312,7 @@ AILoad.AnswerTxt{
 						//talkflag=''
 						anum++
 					}
-					elseif _subject!=''&&_object!=''&&_object _in_ _answer&&talkflag[2]=='是什么'{
+					elseif _subject!=''&&_object!=''&&_object _in_ _answer&&talkflag[2]=='是什麼'{
 						_txt=_answer+'，所以'+talkflag[1]+'的'+_subject+'是'+_answer[0,_object]
 						aimode='return'
 						talkfound=1
@@ -1330,7 +1330,7 @@ AILoad.AnswerTxt{
 							_txt=talkflag
 							if _txt _in_ talkmemo
 								_txt='是的，'+_txt
-							elseif '吗' _in_ talkmemo
+							elseif '嗎' _in_ talkmemo
 								_txt='不是，'+_txt
 							aimode='return'
 							talkfound=1
@@ -1347,12 +1347,12 @@ AILoad.AnswerTxt{
 						}
 					}
 				}
-				elseif talkmemo[1,'是']=='什么'{
+				elseif talkmemo[1,'是']=='什麼'{
 					_subject=talkmemo[0,'是']
 					_state=_answer[1,_subject]
 					if _state!=''{
 						string,=_state
-						talkflag=_subject+','+_state+',是什么'
+						talkflag=_subject+','+_state+',是什麼'
 						strnum=ARRAYSIZE(string)
 						talkmemo=''
 					}
@@ -1393,7 +1393,7 @@ AILoad.AnswerTxt{
 					_txt=talkflag
 					if _txt _in_ talkmemo
 						_txt='是的，'+_txt
-					elseif '吗' _in_ talkmemo
+					elseif '嗎' _in_ talkmemo
 						_txt='不是，'+_txt
 					aimode='return'
 					talkfound=1
@@ -1404,17 +1404,17 @@ AILoad.AnswerTxt{
 					_subject=_answer[0,'是']
 					_object=_answer[1,'是']
 					_state=''
-					if '什么' _in_ _str{
+					if '什麼' _in_ _str{
 						_state=_str[1,_subject]
-						_state=_state[0,'什么']
+						_state=_state[0,'什麼']
 					}
-					if '什么' _in_ talkmemo{
+					if '什麼' _in_ talkmemo{
 						_state=talkmemo[1,_subject]
-						_state=_state[0,'什么']
+						_state=_state[0,'什麼']
 					}
-					if '吗' _in_ talkmemo{
+					if '嗎' _in_ talkmemo{
 						_state=_str[1,_subject]
-						_state=_state[0,'吗']
+						_state=_state[0,'嗎']
 					}
 					string,=_object+_state
 					strnum=ARRAYSIZE(string)
@@ -1422,10 +1422,10 @@ AILoad.AnswerTxt{
 					_object+=_str[1,_subject]
 					aimode='break'
 				}
-				elseif '吗' _in_ talkmemo&&anum<=1{
-					_txt='这个，%(selfname)不知道啊。'
+				elseif '嗎' _in_ talkmemo&&anum<=1{
+					_txt='這個，%(selfname)不知道啊。'
 					if talkmemo[1,'是']!=''&&_answer[0,'是']!=talkmemo[0,'是']
-						_txt+=talkmemo[0,'是']+'是什么啊'
+						_txt+=talkmemo[0,'是']+'是什麼啊'
 				}
 				else{
 					_subject=talkflag[0]
@@ -1448,7 +1448,7 @@ AILoad.AnswerTxt{
 				}
 			}
 			else{
-				if '吗' _in_ talkmemo[1,'是']{
+				if '嗎' _in_ talkmemo[1,'是']{
 					_subject=talkmemo[0,'是']
 					if '不是' _in_ talkmemo
 						_subject=talkmemo[0,'不是']
@@ -1457,30 +1457,30 @@ AILoad.AnswerTxt{
 						_object=talkmemo[0,'是']
 						if '不是' _in_ talkmemo
 							_object=talkmemo[0,'不是']
-						_object=_object[0,'吗']
+						_object=_object[0,'嗎']
 						string,=_state
-						talkflag=_subject+','+_state+','+_object+',吗'
+						talkflag=_subject+','+_state+','+_object+',嗎'
 						strnum=ARRAYSIZE(string)
 						talkmemo=''
 					}
 					else{
-						_txt='这个，%(selfname)不知道啊。'
+						_txt='這個，%(selfname)不知道啊。'
 						if talkmemo[1,'是']!=''&&_answer[0,'是']!=talkmemo[0,'是']
-							_txt+=talkmemo[0,'是']+'是什么啊'
+							_txt+=talkmemo[0,'是']+'是什麼啊'
 					}
 				}
-				elseif '吗' _in_ talkmemo&&anum<=1{
-					_txt='这个，%(selfname)不知道啊。'
+				elseif '嗎' _in_ talkmemo&&anum<=1{
+					_txt='這個，%(selfname)不知道啊。'
 					if talkmemo[1,'是']!=''&&_answer[0,'是']!=talkmemo[0,'是']
-						_txt+=talkmemo[0,'是']+'是什么啊'
+						_txt+=talkmemo[0,'是']+'是什麼啊'
 				}
 			}
 		}
 	}
 	_txt
 }
-//ReplaceStarTxt('什么是腹黑','什么是*','<thatstar/>是萌的一种','thatstar')
-//ReplaceStarTxt('a是b','.*是.*','<star/>是另一个<star index='2'/>')
+//ReplaceStarTxt('什麼是腹黑','什麼是*','<thatstar/>是萌的一種','thatstar')
+//ReplaceStarTxt('a是b','.*是.*','<star/>是另一個<star index='2'/>')
 ReplaceStarTxt{
 	_ori=_argv[0]
 	_temp=_argv[1]
@@ -1646,9 +1646,9 @@ AITalkAdd{//('PSEUDO_AI_PATH\user.ai','你好*你也好','write')
 	FCLOSE(_file)
 	FCHARSET.default
 }
-LogicEvaluate{//逻辑表达式解析器
-	//LogicEvaluate('(喜欢|爱)&(美女|野兽)&(看|见)|((美女|野兽)&(看|见))')
-	//LogicEvaluate('爱|喜欢&的人|喜欢&谁|喜欢&我吗')
+LogicEvaluate{//邏輯運算式解析器
+	//LogicEvaluate('(喜歡|愛)&(美女|野獸)&(看|見)|((美女|野獸)&(看|見))')
+	//LogicEvaluate('愛|喜歡&的人|喜歡&誰|喜歡&我嗎')
 	_exp=_argv[0]
 	_t='';_f=''
 	_optr=IARRAY
@@ -1734,12 +1734,12 @@ LogicEvaluate{//逻辑表达式解析器
 	}
 	_opnd[_opnd_i-1]
 }
-IsLogic{//逻辑判断
+IsLogic{//邏輯判斷
 	_c=_argv[0]
 	if _c=="('||_c==')'||_c=='|'||_c=='&"{1;return;}
 	else{0;return;}
 }
-LogicOperate{//逻辑运算 LogicOperate('a,b','c,d','&')
+LogicOperate{//邏輯運算 LogicOperate('a,b','c,d','&')
 	_a=_argv[0]
 	_b=_argv[1]
 	_theta=_argv[2]
@@ -1789,11 +1789,11 @@ LogicPrecede{
 		return
 	}
 }
-LogicError{//以下为逻辑表达式出错处理函数//LogicError('(喜欢|爱)&(美女|野兽)&(看|见)|((美女|野兽)&(看|见))')
+LogicError{//以下為邏輯運算式出錯處理函數//LogicError('(喜歡|愛)&(美女|野獸)&(看|見)|((美女|野獸)&(看|見))')
 	_exp=_argv[0]
 	_str=''
 	if !STRLEN(_exp) {
-		_str='表达式不能为空'
+		_str='運算式不能為空'
 		_str;return
 	}
 	_s=IARRAY
@@ -1806,16 +1806,16 @@ LogicError{//以下为逻辑表达式出错处理函数//LogicError('(喜欢|爱
 		if SUBSTR(_s,_i,1)=='(';_parenthesis++
 		if SUBSTR(_s,_i,1)==')';_parenthesis--
 		if SUBSTR(_s,_i,2)=='||'{
-			_str='输入不能含有“||”，请用“|”'
+			_str='輸入不能含有“||”，請用“|”'
 			_str;return
 		}
 		elseif SUBSTR(_s,_i,2)=='&&'{
-			_str='输入不能含有“&&”，请用“&”'
+			_str='輸入不能含有“&&”，請用“&”'
 			_str;return
 		}
 	}
 	if _parenthesis {
-		_str='左括号与右括号数目不符'
+		_str='左括弧與右括弧數目不符'
 		_str;return
 	}
 	_str;return
@@ -1857,8 +1857,8 @@ OnChatRoom{
 	elseif reference0=='end'||reference0=='end'
 		_txt+='\![set,autoscroll,enable]'
 	_txt+='■聊天室■\n'
-	_txt+='\C\![*]\q[停止语音,OnStopSpVoice.vbs]   \![*]\q[语音识别,OnSpeechRecognition.Inter]\n'
-	_txt+='\q[◇清空记录,OnChatRoomClear]  \q[◇打开记录文件,OnChatRoomTxt]  \q[◇返回,OnOpenMenu,1]   \q[◇结束,OnChatRoomOver]  \q[◇End,OnChatRoom,end]\n'
+	_txt+='\C\![*]\q[停止語音,OnStopSpVoice.vbs]   \![*]\q[語音辨識,OnSpeechRecognition.Inter]\n'
+	_txt+='\q[◇清空記錄,OnChatRoomClear]  \q[◇打開記錄檔,OnChatRoomTxt]  \q[◇返回,OnOpenMenu,1]   \q[◇結束,OnChatRoomOver]  \q[◇End,OnChatRoom,end]\n'
 	_talknum=5
 	_l=0
 	if _j>_n
@@ -1885,8 +1885,8 @@ OnChatRoom{
 			_txt=REPLACE(_txt,'\![sound','\\![sound')
 			_txt=RE_REPLACE(_txt,'\\_v\[(.*?)\]','')
 			_txt=RE_REPLACE(_txt,'\!\[raise(.*?)\]','')
-			_txt=RE_REPLACE(_txt,'\\s\[\d*\]','')//删除最后一句以前的所有表情
-			_txt=RE_REPLACE(_txt,'\\j\[(.*?)\]','')//删除最后一句以前的打开网址
+			_txt=RE_REPLACE(_txt,'\\s\[\d*\]','')//刪除最後一句以前的所有表情
+			_txt=RE_REPLACE(_txt,'\\j\[(.*?)\]','')//刪除最後一句以前的打開網址
 			_txt=RE_REPLACE(_txt,'\\_a\[(.*?)\]','')
 		}
 		_txt+='\n'
@@ -1894,14 +1894,14 @@ OnChatRoom{
 	//_txt=RE_REPLACE(_txt,'\!\[excute(.*?)\]','')
 	_txt+='\n'
 	_txt=REPLACE(_txt,'\x','')
-	_txt=RE_REPLACE(_txt,'\\w.','')//删除等待延时
-	_txt=REPLACE(_txt,'\e','')//删除结束标记
-	_txt=REPLACE(_txt,'\_q','')//删除速读标记
+	_txt=RE_REPLACE(_txt,'\\w.','')//刪除等待延時
+	_txt=REPLACE(_txt,'\e','')//刪除結束標記
+	_txt=REPLACE(_txt,'\_q','')//刪除速讀標記
 	_txt=REPLACE(_txt,'\\n','\n')
 	_txt=REPLACE(_txt,'\n\n[half]','\n[150]')
 	_txt=REPLACE(_txt,'\n\n\n','\n\n')
 	_txt=REPLACE(_txt,'CHR(124)','|')
-	_txt=REPLACE(_txt,'<英文逗号>',',')
+	_txt=REPLACE(_txt,'<英文逗號>',',')
 	_txt=REPLACE(_txt,'CHR(92)','\')
 	_txt=REPLACE(_txt,'CHR(92)','\')
 	_txt=REPLACE(_txt,'[cqname]','%(selfname)')
@@ -1935,8 +1935,8 @@ OnChatRoom{
 	else
 		_Page+="\_l[30]\q[<<十,OnChatRoom,,%(_j-_talknum*10)]  \_l[230]\q[十>>,OnChatRoom,,%(_j+_talknum*10)]"
 	_txt+=_Page
-	_txt+='\0\n\q[◇清空记录,OnChatRoomClear]  \q[◇打开记录文件,OnChatRoomTxt]  \q[◇返回,OnOpenMenu,1]  \q[◇结束,OnChatRoomOver]  \q[◇Top,OnChatRoom,top]\n'
-	_txt+="\![*]\q[停止语音,OnStopSpVoice.vbs]  \![*]\q[搜索数量：,OnClickOption,%(submenu),chatroom_num,0] %(TOINT(chatroom_num))   "
+	_txt+='\0\n\q[◇清空記錄,OnChatRoomClear]  \q[◇打開記錄檔,OnChatRoomTxt]  \q[◇返回,OnOpenMenu,1]  \q[◇結束,OnChatRoomOver]  \q[◇Top,OnChatRoom,top]\n'
+	_txt+="\![*]\q[停止語音,OnStopSpVoice.vbs]  \![*]\q[搜索數量：,OnClickOption,%(submenu),chatroom_num,0] %(TOINT(chatroom_num))   "
 	_txt+='\![set,choicetimeout,0]'
 	if option
 		_txt+=option
@@ -1981,9 +1981,9 @@ WriteChatroom{
 	FCHARSET(1)
 	void FOPEN(_file,'w')
 	_chatroomtxt=chatroomtxt
-	_chatroomtxt=RE_REPLACE(_chatroomtxt,'\\w.','')//删除等待延时
-	_chatroomtxt=REPLACE(_chatroomtxt,'\e','')//删除结束标记
-	_chatroomtxt=REPLACE(_chatroomtxt,'\_q','')//删除速读标记
+	_chatroomtxt=RE_REPLACE(_chatroomtxt,'\\w.','')//刪除等待延時
+	_chatroomtxt=REPLACE(_chatroomtxt,'\e','')//刪除結束標記
+	_chatroomtxt=REPLACE(_chatroomtxt,'\_q','')//刪除速讀標記
 	_chatroomtxt=REPLACE(_chatroomtxt,'\0','')
 	_chatroomtxt=REPLACE(_chatroomtxt,'\1','')
 	_chatroomtxt=REPLACE(_chatroomtxt,'%username',username)
@@ -2022,9 +2022,9 @@ WriteChatroom{
 }
 RandAITalk{
 	if GetPhase > 3
-		"%(username)，最喜欢你了，要和%(selfname)聊什么呢？"
+		"%(username)，最喜歡你了，要和%(selfname)聊什麼呢？"
 	"%(username)今天也要好好加油啊"
-	'输入“/teach”指令可以进入教学模式、输入“/talk”指令返回对话模式'
+	'輸入“/teach”指令可以進入教學模式、輸入“/talk”指令返回對話模式'
 	Greetings
 }
 Greetings{
@@ -2042,7 +2042,7 @@ Greetings{
 		//---- 上午
 		when 9-10{
 			'\0\s[0]早上好。'
-			"\0\s[5]早上好啊，\w9\w9\%(username)，\w9\w9\现在是学习工作的黄金时间呢，\w9\w9\w9要好好努力哦。"
+			"\0\s[5]早上好啊，\w9\w9\%(username)，\w9\w9\現在是學習工作的黃金時間呢，\w9\w9\w9要好好努力哦。"
 			"\0\s[35]早安、\w9%(username)\w9\w9\w9\w9\s[0]\n今天一天也好好加油吧。。"
 		}
 		//---- 中午
@@ -2051,7 +2051,7 @@ Greetings{
 		}
 		//---- 下午
 		when 14-18{
-			"\0\s[26]下午好啊，%(username)，今天有好好努力吗？"
+			"\0\s[26]下午好啊，%(username)，今天有好好努力嗎？"
 			'\0\s[5]下午好。'
 		}
 		//---- 晚上
@@ -2062,10 +2062,10 @@ Greetings{
 		//---- 深夜
 		others{
 			if weekday == '0'{
-				"\0\s[2]啊、已经这么晚了，%(username)还不休息吗"
+				"\0\s[2]啊、已經這麼晚了，%(username)還不休息嗎"
 			}
 			else{
-				'\0\s[26]这么晚了要注意休息喔。'
+				'\0\s[26]這麼晚了要注意休息喔。'
 			}
 		}
 	}
@@ -2074,12 +2074,12 @@ WeatherState{
 	'\s[0]'
 	--
 	if weather.lastcity{
-		"天气：%(weather.day)～%(weather.night)，气温：%(weather.daytemp)℃～%(weather.nighttemp)℃\n"
+		"天氣：%(weather.day)～%(weather.night)，氣溫：%(weather.daytemp)℃～%(weather.nighttemp)℃\n"
 		--
 		Weather.Talks
 	}
 	else{
-		"这个，%(selfname)也不知道呢，因为不能获得天气信息。"
+		"這個，%(selfname)也不知道呢，因為不能獲得天氣資訊。"
 	}
 	--
 	'\n'
@@ -2111,7 +2111,7 @@ HtmlToAI{//HtmlToAI('D:\CHM','meal')
 							_Q=_filename
 							_buff2='<Q>'+_Q+'</Q>'
 							void FWRITE(_file2,_buff2)
-							_buff2='<A>名称：'+_Q+'\n'
+							_buff2='<A>名稱：'+_Q+'\n'
 							void FWRITE(_file2,_buff2)
 							_A=''
 							while '</p>' !_in_ TOLOWER(_buff)&&_buff!=-1{
@@ -2392,9 +2392,9 @@ LoadVoiceToTxt.vbs{
 }
 SakuraToTxt{
 	_txt=_argv[0]
-	_txt=RE_REPLACE(_txt,'\\w.','')//删除等待延时
-	_txt=REPLACE(_txt,'\e','')//删除结束标记
-	_txt=REPLACE(_txt,'\_q','')//删除速读标记
+	_txt=RE_REPLACE(_txt,'\\w.','')//刪除等待延時
+	_txt=REPLACE(_txt,'\e','')//刪除結束標記
+	_txt=REPLACE(_txt,'\_q','')//刪除速讀標記
 	_txt=REPLACE(_txt,'\0','')
 	_txt=REPLACE(_txt,'\1','')
 	_txt=REPLACE(_txt,'%username',username)
@@ -2441,7 +2441,7 @@ RE_CHAREPLACE{
 	_text=REPLACE(_text,'\]',']')
 	_text
 }
-TranslateWithDictionary{//TranslateWithDictionary("%(username)被欺负了")
+TranslateWithDictionary{//TranslateWithDictionary("%(username)被欺負了")
 	_file='PSEUDO_AI_PATH\language.ai'
 	_str=TOSTR(reference0)
 	if _argc>0
@@ -2554,7 +2554,7 @@ GetStarCha{//GetStarCha('a是b的','*是*')
 	_ori=_argv[0]
 	_temp=_argv[1]
 	if '.*' !_in_ _temp
-		_temp=REPLACE(_temp,'*','.*')//将通配符换成正则匹配
+		_temp=REPLACE(_temp,'*','.*')//將萬用字元換成正則匹配
 	_t=CHAREPLACE(_temp)
 	_t=RE_GREP(_ori,_t)
 	_ori=RE_GETSTR

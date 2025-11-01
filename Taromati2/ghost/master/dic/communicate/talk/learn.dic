@@ -1,44 +1,44 @@
-/////////文
-/////////User与Ghost对话部分(包括对话教学)
+﻿/////////文
+/////////User與Ghost對話部分(包括對話教學)
 /////////written by KikkaAIdb.[2009-01-27初版]★
-//字段scope 为2时的数据为正常的对话内容,scope为-1时是被删除了的内容(其实是想用做对橘花[0]或对斗和[1]的谈话内容的)
-//obligate1和2 为保留字段
+//欄位scope 為2時的資料為正常的對話內容,scope為-1時是被刪除了的內容(其實是想用做對橘花[0]或對鬥和[1]的談話內容的)
+//obligate1和2 為保留欄位
 //*************************************************************************************
 //[2009-01-27初版]
-//查询:	①完全匹配
-//②反向模糊查询 (数据库中字串存在于输入的字串时输出)
-//A: 最长匹配原则
-//B: 当单条件匹配和多条件匹配长度相等时,多条件匹配优先
-//C: 存在相等的多条件匹配,则随机输出
-//D: 存在相等的单条件匹配,随机输出
-//③正向模糊查询 (数据库中存在输入的字串则输出,符合记录不唯一时随机输出)
+//查詢:	①完全匹配
+//②反向模糊查詢 (資料庫中字串存在於輸入的字串時輸出)
+//A: 最長匹配原則
+//B: 當單條件匹配和多條件匹配長度相等時,多條件匹配優先
+//C: 存在相等的多條件匹配,則隨機輸出
+//D: 存在相等的單條件匹配,隨機輸出
+//③正向模糊查詢 (資料庫中存在輸入的字串則輸出,符合記錄不唯一時隨機輸出)
 //
 //*************************************************************************************
 //----添加---------------------------
 Select.Teaching{
-	temp01='提问'
+	temp01='提問'
 	Teach00
 }
-//(我||你)&&(喜欢||爱)&&吗
+//(我||你)&&(喜歡||愛)&&嗎
 Teach00{
 	'\0\s[0]\_q'
 	--
-	if temp01=='橘花这时要回答的' {
-		"已设置提问内容：%(formattemp(temp02))\n[150]"
+	if temp01=='橘花這時要回答的' {
+		"已設置提問內容：%(formattemp(temp02))\n[150]"
 	}
 	--
-	"请输入“%(temp01)内容”!\n"
+	"請輸入“%(temp01)內容”!\n"
 	--
-	if temp01=='提问' {
-		'如果需要设置问题同义词(句),\n请在同义词(句)之间用“|”符号分隔开来!\n如果需要设置多个关键词(句),\n请在各关键词(句)之间用“&”分隔开来!\n【注意:“&”优先度高于“|”】'
+	if temp01=='提問' {
+		'如果需要設置問題同義詞(句),\n請在同義詞(句)之間用“|”符號分隔開來!\n如果需要設置多個關鍵字(句),\n請在各關鍵字(句)之間用“&”分隔開來!\n【注意:“&”優先度高於“|”】'
 	}
 	else {
-		'提示:如果需要设置多种回答方案,\n请使用“|”符号分隔开来！提问时会随机输出喔~\n表情和延时可以用代码如\_?\s[22]\w9\_?（表情请在右键-便利机能-开发专用介面-表情测试选取surface前的代号，\_?\s[22]\_?代表选surface22(橘花P90)，\_?\w9\_?等待延时9毫秒，大于9无效，但可重复使用），也可以用“表情<序号>”，“<等待>时间”\n，如需加声音可将声音文件如sound.wav放在\_?master\sounds\kikkavoice\内，然后增加\![sound,play,sounds\kikkavoice\sound.wav]\_?'
+		'提示:如果需要設置多種回答方案,\n請使用“|”符號分隔開來！提問時會隨機輸出喔~\n表情和延時可以用代碼如\_?\s[22]\w9\_?（表情請在右鍵-便利機能-開發專用介面-表情測試選取surface前的代號，\_?\s[22]\_?代表選surface22(橘花P90)，\_?\w9\_?等待延時9毫秒，大於9無效，但可重複使用），也可以用“表情<序號>”，“<等待>時間”\n，如需加聲音可將音效檔如sound.wav放在\_?master\sounds\kikkavoice\內，然後增加\![sound,play,sounds\kikkavoice\sound.wav]\_?'
 	}
 	--
 	'\n\n\![set,choicetimeout,0]\![*]\q[取消,OnoverTeach,OnTeach]\![open,inputbox,OnTeach,-1]'
 }
-formattemp{//输出显示时如有同义词句则把同义词句括起来
+formattemp{//輸出顯示時如有同義詞句則把同義詞句括起來
 	_a=_argv[0]
 	/* SETDELIM(_a,'|')
 	_x=''
@@ -62,7 +62,7 @@ formattemp{//输出显示时如有同义词句则把同义词句括起来
 OnTeach{
 	_a=CUTSPACE(reference0)
 	_a=REPLACE(_a,'%<username>',"%(username)")
-	_a=REPLACE(_a,',','<英文逗号>')
+	_a=REPLACE(_a,',','<英文逗號>')
 	_a=REPLACE(_a,'(','<')
 	_a=REPLACE(_a,')','>')
 	_a=REPLACE(_a,'<','(')
@@ -75,19 +75,19 @@ OnTeach{
 		Teach00
 	}
 	else {
-		if temp01=='提问' {
+		if temp01=='提問' {
 			temp02=_a
 			_g=IARRAY
 			_c=0
-			_c=SQLite('-j',"SELECT ID FROM KikkaAIdb WHERE 提问='%(_a)' AND scope!=-1")//是否存在完全符合'提问'的记录
+			_c=SQLite('-j',"SELECT ID FROM KikkaAIdb WHERE 提問='%(_a)' AND scope!=-1")//是否存在完全符合'提問'的記錄
 			if _c>0 {
 				_g[0]=_c//_g=_c
 			}
-			else {//输入的句子中是否包含有数据库'提问'字段的词语,有的话取出符合的答案,将ID保存在数组_g
+			else {//輸入的句子中是否包含有資料庫'提問'欄位的詞語,有的話取出符合的答案,將ID保存在陣列_g
 				_g=Talksearch(_a)
 			}
 			if !_g[0] {
-				temp01='橘花这时要回答的'
+				temp01='橘花這時要回答的'
 				Teach00
 			}
 			else {
@@ -96,43 +96,43 @@ OnTeach{
 				while _g[_i] {
 					_b=SQLite('-j',"SELECT * FROM KikkaAIdb WHERE ID='%(_g[_i])' AND scope!=-1")
 					_i++
-					_b=REPLACE(_b,'\1','斗和：')
+					_b=REPLACE(_b,'\1','鬥和：')
 					_x=_b[2]
 					_y=_b[3]
 					_z=_b[0]
-					_m +='ID:'+_z+'\n提问: '+formattemp(_x)+'\n回答: '+formattemp(_y)+'\n[200]'
+					_m +='ID:'+_z+'\n提問: '+formattemp(_x)+'\n回答: '+formattemp(_y)+'\n[200]'
 				}
-				"\0\s[0]\b[2]\![set,choicetimeout,0]\![quicksession,true]已经存在下面的提问哦~继续吗?\n\n%(_m)"
+				"\0\s[0]\b[2]\![set,choicetimeout,0]\![quicksession,true]已經存在下面的提問哦~繼續嗎?\n\n%(_m)"
 				--
 				if _c<=0 {
-					'\![*]\q[继续,GoonTeaching]\n'
+					'\![*]\q[繼續,GoonTeaching]\n'
 				}
 				--
-				'\![*]\q[重新设置提问,Teaching]\n/
+				'\![*]\q[重新設置提問,Teaching]\n/
 				\![*]\q[取消,OnoverTeach]'
 			}
 		}
-		elseif temp01=='橘花这时要回答的' {
+		elseif temp01=='橘花這時要回答的' {
 			temp03=_a
 			_i=SQLite.total('KikkaAIdb')
 			_i++
 			_b=write01(_i)
 			if _b==0
-				"\0\s[0]\b[2]记录完毕,现共有%(SQLite.Size('KikkaAIdb'))条教学对话...\n这次增加的为:\n[200]提问: %(formattemp(temp02))\n[150]回答: %(formattemp(temp03))\n[200]\![set,choicetimeout,0]\![*]\q[继续教橘花对话,教学]\n\![*]\q[暂时就这样了,OnoverTeach]"
+				"\0\s[0]\b[2]記錄完畢,現共有%(SQLite.Size('KikkaAIdb'))條教學對話...\n這次增加的為:\n[200]提問: %(formattemp(temp02))\n[150]回答: %(formattemp(temp03))\n[200]\![set,choicetimeout,0]\![*]\q[繼續教橘花對話,教學]\n\![*]\q[暫時就這樣了,OnoverTeach]"
 			else
-				BUGNow('SQL操作失败')
+				BUGNow('SQL操作失敗')
 		}
 	}
 }
 Select.GoonTeaching{
-	temp01='橘花这时要回答的'
+	temp01='橘花這時要回答的'
 	Teach00
 }
 write01{
 	_a=SQLite('-r','SELECT ID FROM KikkaAIdb WHERE scope=-1')
 	_b=valueex0
 	if _a>0 {
-		SQLite("UPDATE KikkaAIdb SET scope=2,提问='%(temp02)',回答='%(temp03)' WHERE ID=%(_b)")
+		SQLite("UPDATE KikkaAIdb SET scope=2,提問='%(temp02)',回答='%(temp03)' WHERE ID=%(_b)")
 	}
 	else {
 		SQLite("INSERT INTO KikkaAIdb VALUES ('%(_argv[0])','2','%(temp02)','%(temp03)','（空）','（空）')")
@@ -143,9 +143,9 @@ OnoverTeach{
 	--
 	'\0\s[0]好的。'
 	'\0\s[3]啊、\w9好的。'
-	'\0\s[3]…\w9是这样啊。'
+	'\0\s[3]…\w9是這樣啊。'
 	'\0\s[9]…\w9…\w9…'
-	'\0\s[0]…\w9\s[9]怎么了？'
+	'\0\s[0]…\w9\s[9]怎麼了？'
 }
 KikkaTalkToUser{
 	talkfound=-1
@@ -153,16 +153,16 @@ KikkaTalkToUser{
 	if _argc>0
 		_a=CUTSPACE(_argv[0])
 	if _a=='' {
-		'\0\s[0]请输入内容喔~\e'
-		"\0\s[0]%(username)请说话喔~\e"
-		"\0\s[0]%(username)请不要和橘花开玩笑哦,请输入内容~\e"
+		'\0\s[0]請輸入內容喔~\e'
+		"\0\s[0]%(username)請說話喔~\e"
+		"\0\s[0]%(username)請不要和橘花開玩笑哦,請輸入內容~\e"
 	}
 	elseif '|' _in_ _a || '&' _in_ _a {
-		'\0\s[0]请不要用＂|＂或＂&＂输入哦,这是保留符号哦~\e'
+		'\0\s[0]請不要用＂|＂或＂&＂輸入哦,這是保留符號哦~\e'
 	} else {
 		_g=IARRAY
 		_c=0
-		_c=SQLite('-j',"SELECT ID FROM KikkaAIdb WHERE 提问='%(_a)' AND scope!=-1")
+		_c=SQLite('-j',"SELECT ID FROM KikkaAIdb WHERE 提問='%(_a)' AND scope!=-1")
 		if _c>0 {
 			_g[0]=_c
 		}
@@ -170,18 +170,18 @@ KikkaTalkToUser{
 			_g=Talksearchleng(_a)
 		}
 		if _g[0]==NULL {
-			if SQLite('-f',"SELECT 回答 FROM KikkaAIdb WHERE 提问 LIKE'%%(_a)%' AND scope!=-1")<=0 {
+			if SQLite('-f',"SELECT 回答 FROM KikkaAIdb WHERE 提問 LIKE'%%(_a)%' AND scope!=-1")<=0 {
 				if !InAIGhostReply{
-					'\0\s[0]这个...橘花不懂哦'
-					'\0\s[0]这个...橘花不明白喔'
-					'\0\s[0]这个...\1\s[10]被问住了啊...\0'
+					'\0\s[0]這個...橘花不懂哦'
+					'\0\s[0]這個...橘花不明白喔'
+					'\0\s[0]這個...\1\s[10]被問住了啊...\0'
 					--
 					if !chatroom
 						'\n[200]\![set,choicetimeout,0]'
 					else
 						'\n'
 					--
-					'\![*]\q[我来教你吧,Teaching]\n'
+					'\![*]\q[我來教你吧,Teaching]\n'
 					--
 					if !chatroom
 						'\![*]\q[取消,MenuCancel]\n\e'
@@ -200,8 +200,8 @@ KikkaTalkToUser{
 					''
 				}
 			}
-			else {//随机取出一句(结果>=2时无法得到第一条记录)
-				_b=SQLite('-r',"SELECT 回答 FROM KikkaAIdb WHERE 提问 LIKE'%%(_a)%' AND scope!=-1")
+			else {//隨機取出一句(結果>=2時無法得到第一條記錄)
+				_b=SQLite('-r',"SELECT 回答 FROM KikkaAIdb WHERE 提問 LIKE'%%(_a)%' AND scope!=-1")
 				_b=valueex0
 				SETDELIM(_b,'|')
 				_b=ANY(_b)
@@ -211,14 +211,14 @@ KikkaTalkToUser{
 					if !chatroom
 						'\0\_q\n[500]'
 					--
-					"这是橘花试着回答的,如果不恰当,\n请%(username)告诉橘花怎么回答哦~"
+					"這是橘花試著回答的,如果不恰當,\n請%(username)告訴橘花怎麼回答哦~"
 					--
 					if !chatroom
 						'\n[150]\![set,choicetimeout,0]'
 					else
 						'\n'
 					--
-					'\![*]\q[我来教你吧,Teaching]'
+					'\![*]\q[我來教你吧,Teaching]'
 					--
 					if !chatroom
 						'            \![*]\q[不用,MenuCancel]\n\e'
@@ -230,25 +230,25 @@ KikkaTalkToUser{
 			_b=SQLite('-j',"SELECT 回答 FROM KikkaAIdb WHERE ID='%(_g)'")
 			SETDELIM(_b,'|')
 			_b=ANY(_b)
-			_b=REPLACE(_b,'<英文逗号>',',')
+			_b=REPLACE(_b,'<英文逗號>',',')
 			"\0%(_b)\e"
 			talkfound=1
 		}
 	}
 }
-Talksearch{//在教学、修改、删除查询时用
+Talksearch{//在教學、修改、刪除查詢時用
 	_a=_argv[0]
 	_g=IARRAY
 	_e=0
 	_n=0
 	_i=SQLite.total('KikkaAIdb')
 	for _d=1;_d<=_i;_d++ {
-		_f=SQLite('-j',"SELECT 提问 FROM KikkaAIdb WHERE ID='%(_d)' AND scope!=-1")
+		_f=SQLite('-j',"SELECT 提問 FROM KikkaAIdb WHERE ID='%(_d)' AND scope!=-1")
 		SETDELIM(_f,'|')
 		_y=0
 		while _f[_y] {
 			_m=0
-			if '&' _in_ _f[_y] {//判断'提问'中有&时,各个关键字是否都存在于_a中
+			if '&' _in_ _f[_y] {//判斷'提問'中有&時,各個關鍵字是否都存在於_a中
 				_j=_f[_y]
 				SETDELIM(_j,'&')
 				_n=ARRAYSIZE(_j)
@@ -277,7 +277,7 @@ Talksearchleng{
 	_lastm=0
 	_i=SQLite.total('KikkaAIdb')
 	for _d=1;_d<=_i;_d++ {
-		_f=SQLite('-j',"SELECT 提问 FROM KikkaAIdb WHERE ID='%(_d)' AND scope!=-1")
+		_f=SQLite('-j',"SELECT 提問 FROM KikkaAIdb WHERE ID='%(_d)' AND scope!=-1")
 		SETDELIM(_f,'|')
 		_y=0
 		while _f[_y] {
@@ -308,7 +308,7 @@ Talksearchleng{
 					_o=ARRAYSIZE(_g)
 					_g[_o]=_d
 				}
-				elseif STRLEN(_f[_y])>_e {//当上次最大长度匹配＞这次,不管是何种保留都放弃
+				elseif STRLEN(_f[_y])>_e {//當上次最大長度匹配＞這次,不管是何種保留都放棄
 					_lastm=0
 					_e=STRLEN(_f[_y])
 					_g=IARRAY
@@ -320,46 +320,46 @@ Talksearchleng{
 	}
 	_g
 }
-//---- 删除&修改 -------------------------------------------------------
+//---- 刪除&修改 -------------------------------------------------------
 Select.TalkDelete{
-	'\q[◇按“提问”关键字搜索进行删除,TalkDeletesearch]\n/
-	\q[◇全部列表,TalkAllDel]\n\n/
+	'\q[◇按“提問”關鍵字搜索進行刪除,TalkDeletesearch]\n/
+	\q[◇全部清單,TalkAllDel]\n\n/
 	\![*]\q[返回,OnUserDatabase,,Return]\n\![*]\q[取消,MenuCancel]'
 }
 Select.TalkUpdate{
-	'\q[◇按“提问”关键字搜索进行修改,TalkAmendesearch]\n/
-	\q[◇全部列表,TalkAllAmend]\n\n/
+	'\q[◇按“提問”關鍵字搜索進行修改,TalkAmendesearch]\n/
+	\q[◇全部清單,TalkAllAmend]\n\n/
 	\![*]\q[返回,OnUserDatabase,,Return]\n\![*]\q[取消,MenuCancel]'
 }
 Select.TalkDeletesearch{
-	temp01='删除该词条'
-	'\0\s[0]\![set,choicetimeout,0]请输入“提问”关键字!\n在这里不会启用正向模糊查询!\n\n\![*]\q[返回,TalkDelete]\n\![*]\q[取消,OnoverTeach,OnTalksearch]\![open,inputbox,OnTalksearch,-1]'
+	temp01='刪除該詞條'
+	'\0\s[0]\![set,choicetimeout,0]請輸入“提問”關鍵字!\n在這裡不會啟用正向模糊查詢!\n\n\![*]\q[返回,TalkDelete]\n\![*]\q[取消,OnoverTeach,OnTalksearch]\![open,inputbox,OnTalksearch,-1]'
 }
 Select.TalkAmendesearch{
-	temp01='修改该词条'
-	'\0\s[0]\![set,choicetimeout,0]请输入“提问”关键字!\n在这里不会启用正向模糊查询!\n\n\![*]\q[返回,TalkUpdate]\n\![*]\q[取消,OnoverTeach,OnTalksearch]\![open,inputbox,OnTalksearch,-1]'
+	temp01='修改該詞條'
+	'\0\s[0]\![set,choicetimeout,0]請輸入“提問”關鍵字!\n在這裡不會啟用正向模糊查詢!\n\n\![*]\q[返回,TalkUpdate]\n\![*]\q[取消,OnoverTeach,OnTalksearch]\![open,inputbox,OnTalksearch,-1]'
 }
 Select.TalkAllDel{
-	temp01='删除该词条'
+	temp01='刪除該詞條'
 	UPDateshow('#-1','1')
 }
 Select.TalkAllAmend{
-	temp01='修改该词条'
+	temp01='修改該詞條'
 	UPDateshow('#-1','1')
 }
 //------------------------------------------------------------------
 OnTalksearch{
 	_a=CUTSPACE(reference0)
 	if _a=='' {
-		'\0\s[0]请输入内容喔~'
-		"\0\s[0]%(username)请说话喔~"
-		"\0\s[0]%(username)怎么不说话,橘花不知道怎么做的哦..."
+		'\0\s[0]請輸入內容喔~'
+		"\0\s[0]%(username)請說話喔~"
+		"\0\s[0]%(username)怎麼不說話,橘花不知道怎麼做的哦..."
 		return
 	}
 	else {
 		_g=IARRAY
 		_c=0
-		_c=SQLite('-j',"SELECT ID FROM KikkaAIdb WHERE 提问='%(_a)' AND scope!=-1")
+		_c=SQLite('-j',"SELECT ID FROM KikkaAIdb WHERE 提問='%(_a)' AND scope!=-1")
 		if _c>0 {
 			_g[0]=_c
 		}
@@ -367,7 +367,7 @@ OnTalksearch{
 			_g=Talksearch(_a)
 		}
 		if _g[0]==NULL {
-			'\0\s[0]\![set,choicetimeout,0]没有符合的记录!\n\n\![*]\q[返回,OnUserDatabase,,Return]           \![*]\q[取消,OnoverTeach]'
+			'\0\s[0]\![set,choicetimeout,0]沒有符合的記錄!\n\n\![*]\q[返回,OnUserDatabase,,Return]           \![*]\q[取消,OnoverTeach]'
 		}
 		else {
 			UPDateshow(_g)
@@ -384,15 +384,15 @@ UPDateshow{
 		_front=TOINT(_argv[1])-10
 		_tola=(TOINT(SQLite.total('KikkaAIdb'))+9)/10
 		if _p!=0
-			_pag+="\_l[20,-]\q[<<上一页,OnAIdbPage,%(_front)]"
-		_pag+="\_l[93,-]\q[◇第%(_p)页,Onselepag]    共%(_tola)页"
+			_pag+="\_l[20,-]\q[<<上一頁,OnAIdbPage,%(_front)]"
+		_pag+="\_l[93,-]\q[◇第%(_p)頁,Onselepag]    共%(_tola)頁"
 		if _next<=SQLite.total('KikkaAIdb')
-			_pag+="\_l[200,-]\q[下一页>>,OnAIdbPage,%(_next)]"
+			_pag+="\_l[200,-]\q[下一頁>>,OnAIdbPage,%(_next)]"
 		_t=SQLite.total('KikkaAIdb')
 		while _i<_next && _i<=_t {
 			_b=SQLite('-j',"SELECT * FROM KikkaAIdb WHERE ID='%(_i)' AND scope!=-1")
 			_i++
-			_b=REPLACE(_b,'\1','斗和：')
+			_b=REPLACE(_b,'\1','鬥和：')
 			_b=REPLACE(_b,'\w','[等待]')
 			_b=REPLACE(_b,'\s','[表情]')
 			_b=REPLACE(_b,'[','<')
@@ -404,7 +404,7 @@ UPDateshow{
 			_y=_b[3]
 			_z=_b[0]
 			if _b {
-				_m +='ID:'+_z+"\_l[150,-]\![*]\q[%(temp01),OnAIdbUpdate,%(_z)]"+'\n提问: '+formattemp(_x)+'\n回答: '+formattemp(_y)+'\n[150]'
+				_m +='ID:'+_z+"\_l[150,-]\![*]\q[%(temp01),OnAIdbUpdate,%(_z)]"+'\n提問: '+formattemp(_x)+'\n回答: '+formattemp(_y)+'\n[150]'
 			}
 		}
 	}
@@ -415,7 +415,7 @@ UPDateshow{
 			_b=SQLite('-j',"SELECT * FROM KikkaAIdb WHERE ID='%(_g[_i])' AND scope!=-1")
 			_i++
 			_b=REPLACE(_b,'\,','，')
-			_b=REPLACE(_b,'\1','斗和：')
+			_b=REPLACE(_b,'\1','鬥和：')
 			_b=REPLACE(_b,'\w','[等待]')
 			_b=REPLACE(_b,'\s','[表情]')
 			_b=REPLACE(_b,'[','<')
@@ -423,10 +423,10 @@ UPDateshow{
 			_x=_b[2]
 			_y=_b[3]
 			_z=_b[0]
-			_m +='ID:'+_z+"\_l[150,-]\![*]\q[%(temp01),OnAIdbUpdate,%(_z)]"+'\n提问: '+formattemp(_x)+'\n回答: '+formattemp(_y)+'\n[150]'
+			_m +='ID:'+_z+"\_l[150,-]\![*]\q[%(temp01),OnAIdbUpdate,%(_z)]"+'\n提問: '+formattemp(_x)+'\n回答: '+formattemp(_y)+'\n[150]'
 		}
 	}
-	"\0\s[0]\b[2]\_q\![set,choicetimeout,0]所有符合条件的词条~\n\n%(_m)\n[130]%(_pag)\n[130]/
+	"\0\s[0]\b[2]\_q\![set,choicetimeout,0]所有符合條件的詞條~\n\n%(_m)\n[130]%(_pag)\n[130]/
 	\![*]\q[返回,OnUserDatabase,,Return]\n\![*]\q[取消,OnoverTeach]"
 }
 OnAIdbPage{
@@ -434,9 +434,9 @@ OnAIdbPage{
 }
 Onselepag{
 	_a=(TOINT(SQLite.total('KikkaAIdb'))+9)/10
-	"\0\s[0]\_q\![set,choicetimeout,20000]请输入页数（半角数字）,共有 %(_a)页!\n[200]\![*]\q[取消,OnoverTeach,Onsp]\![open,inputbox,Onsp,20000,%(reference0),1,%(_a)]"
+	"\0\s[0]\_q\![set,choicetimeout,20000]請輸入頁數（半形數位）,共有 %(_a)頁!\n[200]\![*]\q[取消,OnoverTeach,Onsp]\![open,inputbox,Onsp,20000,%(reference0),1,%(_a)]"
 }
-Onsp{//选页
+Onsp{//選頁
 	_a=CUTSPACE(reference0)
 	_b = RE_REPLACE(_a,'[0123456789]',NULL)
 	if _b || !_a {
@@ -445,7 +445,7 @@ Onsp{//选页
 	else {
 		_a=TOINT(_a)
 		if _a>(TOINT(SQLite.total('KikkaAIdb'))+9)/10
-			"\0\s[0]输入的页数大于总页数,请重新输入~\w8\w8\c%(Onselepag)"
+			"\0\s[0]輸入的頁數大於總頁數,請重新輸入~\w8\w8\c%(Onselepag)"
 		elseif _a<=0 {
 			Onselepag
 		}
@@ -458,40 +458,40 @@ Onsp{//选页
 OnAIdbUpdate{
 	_a=1
 	reference0 = reference.raw[0]
-	if temp01=='删除该词条' {
+	if temp01=='刪除該詞條' {
 		_a=SQLite("UPDATE KikkaAIdb SET scope=-1 WHERE ID=%(reference0)")
 		if !_a
-			"\0\s[0]删除成功!现共有%(SQLite.Size('KikkaAIdb'))条教学对话喔~\n[200]\![*]\q[返回,TalkDelete]\n\![*]\q[取消,OnoverTeach]"
+			"\0\s[0]刪除成功!現共有%(SQLite.Size('KikkaAIdb'))條教學對話喔~\n[200]\![*]\q[返回,TalkDelete]\n\![*]\q[取消,OnoverTeach]"
 		else
-			BUGNow('SQL操作失败')
+			BUGNow('SQL操作失敗')
 	}
-	elseif temp01=='修改该词条' {
+	elseif temp01=='修改該詞條' {
 		temp01=NULL
 		_b=SQLite('-j',"SELECT * FROM KikkaAIdb WHERE ID=%(reference0)")
-		_b=REPLACE(_b,'\1','斗和：')
+		_b=REPLACE(_b,'\1','鬥和：')
 		_b=REPLACE(_b,'\w','[等待]')
 		_b=REPLACE(_b,'\s','[表情]')
 		_b=REPLACE(_b,'[','<')
 		_b=REPLACE(_b,']','>')
 		_x=_b[2]
 		_y=_b[3]
-		"\0\s[0]\![set,choicetimeout,0]\b[2]\_q该词条ID为%(reference0),请问要修改哪一部分?\n[150]/
-		\![*]\q[提问:,OnAIdbUpdate,＆,%(reference0),提问,%(formattemp(_x))]%(formattemp(_x))\__q\n/
+		"\0\s[0]\![set,choicetimeout,0]\b[2]\_q該詞條ID為%(reference0),請問要修改哪一部分?\n[150]/
+		\![*]\q[提問:,OnAIdbUpdate,＆,%(reference0),提問,%(formattemp(_x))]%(formattemp(_x))\__q\n/
 		\![*]\q[回答:,OnAIdbUpdate,＆,%(reference0),回答,%(formattemp(_y))]%(formattemp(_y))\__q\n/
 		\![*]\q[返回列表,TalkAllAmend]\n/
-		\n\![*]\q[放弃,OnoverTeach]\n[200]提示:如果需要设置多种回答方案,\n请使用“|”符号分隔开来！\n【注意:“&”优先度高于“|”】提问时会随机输出喔~\n表情和延时可以用代码如\_?\s[22]\w9\_?（表情请在右键-便利机能-开发专用介面-表情测试选取surface前的代号，\_?\s[22]\_?代表选surface22(橘花P90)，\_?\w9\_?等待延时9毫秒，大于9无效，但可重复使用），也可以用“表情<序号>”，“<等待>时间”\n，如需加声音可将声音文件如sound.wav放在\_?master\sounds\kikkavoice\内，然后增加\![sound,play,sounds\kikkavoice\sound.wav]\_?\_q"
+		\n\![*]\q[放棄,OnoverTeach]\n[200]提示:如果需要設置多種回答方案,\n請使用“|”符號分隔開來！\n【注意:“&”優先度高於“|”】提問時會隨機輸出喔~\n表情和延時可以用代碼如\_?\s[22]\w9\_?（表情請在右鍵-便利機能-開發專用介面-表情測試選取surface前的代號，\_?\s[22]\_?代表選surface22(橘花P90)，\_?\w9\_?等待延時9毫秒，大於9無效，但可重複使用），也可以用“表情<序號>”，“<等待>時間”\n，如需加聲音可將音效檔如sound.wav放在\_?master\sounds\kikkavoice\內，然後增加\![sound,play,sounds\kikkavoice\sound.wav]\_?\_q"
 	}
 	elseif reference0=='＆' {
 		temp01=reference1
 		temp02=reference2
 		temp03=reference3
-		"\0\s[0]\![set,choicetimeout,0]\_q%(username)要把%(reference2)改成?\n[200]\![*]\q[放弃,OnoverTeach,OnAIdbUpdate]\n/
+		"\0\s[0]\![set,choicetimeout,0]\_q%(username)要把%(reference2)改成?\n[200]\![*]\q[放棄,OnoverTeach,OnAIdbUpdate]\n/
 		\![*]\q[返回列表,TalkAllAmend]\n[200]\n/
-		提示:如果需要设置多种回答方案,\n请使用“|”符号分隔开来！\n【注意:“&”优先度高于“|”】提问时会随机输出喔~\n表情和延时可以用代码如\_?\s[22]\w9\_?（表情请在右键-便利机能-开发专用介面-表情测试选取surface前的代号，\_?\s[22]\_?代表选surface22(橘花P90)，\_?\w9\_?等待延时9毫秒，大于9无效，但可重复使用），也可以用“表情<序号>”，“<等待>时间”\n，如需加声音可将声音文件如sound.wav放在\_?master\sounds\kikkavoice\内，然后增加\![sound,play,sounds\kikkavoice\sound.wav]\_?\![open,inputbox,OnAIdbUpdate,-1,%(temp03)]\_q"
+		提示:如果需要設置多種回答方案,\n請使用“|”符號分隔開來！\n【注意:“&”優先度高於“|”】提問時會隨機輸出喔~\n表情和延時可以用代碼如\_?\s[22]\w9\_?（表情請在右鍵-便利機能-開發專用介面-表情測試選取surface前的代號，\_?\s[22]\_?代表選surface22(橘花P90)，\_?\w9\_?等待延時9毫秒，大於9無效，但可重複使用），也可以用“表情<序號>”，“<等待>時間”\n，如需加聲音可將音效檔如sound.wav放在\_?master\sounds\kikkavoice\內，然後增加\![sound,play,sounds\kikkavoice\sound.wav]\_?\![open,inputbox,OnAIdbUpdate,-1,%(temp03)]\_q"
 	}
 	else {
-		reference0=REPLACE(reference0,',','<英文逗号>')
-		reference0=REPLACE(reference0,'斗和：','\1')
+		reference0=REPLACE(reference0,',','<英文逗號>')
+		reference0=REPLACE(reference0,'鬥和：','\1')
 		reference0=REPLACE(reference0,'<','[')
 		reference0=REPLACE(reference0,'>',']')
 		reference0=REPLACE(reference0,'%<username>',"%(username)")
@@ -505,28 +505,28 @@ OnAIdbUpdate{
 		_a=0
 		_m=''
 		_b=temp01
-		temp01='修改该词条'
-		if temp02=='提问' {
-			_c=SQLite('-j',"SELECT ID FROM KikkaAIdb WHERE 提问='%(reference0)' AND scope!=-1")
+		temp01='修改該詞條'
+		if temp02=='提問' {
+			_c=SQLite('-j',"SELECT ID FROM KikkaAIdb WHERE 提問='%(reference0)' AND scope!=-1")
 		}
 		if _c==_b {
-			_m="修改后的提问内容为“%(formattemp(reference0))”与修改前一样,不用变更吗？"
+			_m="修改後的提問內容為“%(formattemp(reference0))”與修改前一樣,不用變更嗎？"
 		}
 		elseif _c>0 {
-			_m="已存在提问内容为“%(formattemp(reference0))”的词条了喔,\n不可修改成重复的提问哦~。"
+			_m="已存在提問內容為“%(formattemp(reference0))”的詞條了喔,\n不可修改成重複的提問哦~。"
 		}
 		elseif (_t=LogicError(reference0))!=''
-			_m=_t+'，更改失败。'
+			_m=_t+'，更改失敗。'
 		else {
 			_a=SQLite("UPDATE KikkaAIdb SET %(temp02)='%(reference0)' WHERE ID=%(_b)")
-			_m="任务完成!已把%(temp02)内容改为“%(formattemp(reference0))”。"
+			_m="任務完成!已把%(temp02)內容改為“%(formattemp(reference0))”。"
 		}
 		if !_a {
-			"\0\s[0]\b[2]\_q%(_m)\n[150]返回该词条继续修改吗?\n[200]/
-			\![set,choicetimeout,0]\![*]\q[返回继续修改,OnAIdbUpdate,%(_b)]   \![*]\q[返回列表,TalkAllAmend]     \![*]\q[不用了,OnoverTeach]"
+			"\0\s[0]\b[2]\_q%(_m)\n[150]返回該詞條繼續修改嗎?\n[200]/
+			\![set,choicetimeout,0]\![*]\q[返回繼續修改,OnAIdbUpdate,%(_b)]   \![*]\q[返回列表,TalkAllAmend]     \![*]\q[不用了,OnoverTeach]"
 		}
 		else {
-			BUGNow('SQL操作失败')
+			BUGNow('SQL操作失敗')
 		}
 	}
 }
