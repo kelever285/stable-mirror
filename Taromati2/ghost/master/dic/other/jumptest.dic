@@ -1,5 +1,5 @@
-///////////////////////////////////////////
-//////////心理测试辞书V2.0
+﻿///////////////////////////////////////////
+//////////心理測試辭書V2.0
 //////////written by fancyang 2013.2.1
 ///////////////////////////////////////////
 Ontestmenu{
@@ -26,11 +26,11 @@ Ontestmenu{
 	}
 	_Page=''
 	if _k!=1
-		_Page+="\_l[0,320]\q[<<上一页,Ontestmenu,%(_k-20)]"
+		_Page+="\_l[0,320]\q[<<上一頁,Ontestmenu,%(_k-20)]"
 	if _k+20<_j
-		_Page+="\_l[60,320]\q[下一页>>,Ontestmenu,%(_k+20)]"
+		_Page+="\_l[60,320]\q[下一頁>>,Ontestmenu,%(_k+20)]"
 	_txt+=_Page+'\n'
-	_txt+='\q[◇返回上一层,OnOpenMenu,1]'
+	_txt+='\q[◇返回上一層,OnOpenMenu,1]'
 	_txt += '\![set,choicetimeout,0]'
 	_txt
 }
@@ -47,7 +47,7 @@ OnTestSelect{
 		_testid=REPLACE(_testid,' ','')
 		_txt += "\__q[OnTestSelect,@%(_testid)]%(_temp[_i, '#'][0])\__q\n"
 	}
-	_txt += '\n\![set,choicetimeout,0]\q[◇返回上一层,Ontestmenu]    \q[◇结束,OnOpenMenu,1]'
+	_txt += '\n\![set,choicetimeout,0]\q[◇返回上一層,Ontestmenu]    \q[◇結束,OnOpenMenu,1]'
 	_txt
 }
 LoadTestNum{

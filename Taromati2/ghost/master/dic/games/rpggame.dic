@@ -1,4 +1,4 @@
-OnRpgGame{
+﻿OnRpgGame{
 	if QuickStartVersion{
 		NeedUpdate
 		return
@@ -50,12 +50,12 @@ OpenRpgGameMenu{
 		battlemode=0
 	--
 	_sub = '◆,◇,◇,◇,◇,◇,◆,◇,◇,◇,◇,◇,◆,◇,◇,◇,◇,◇,◆,◇,◇,◇,◇,◇,◆,◇,◇,◇,◇,◇,◆'
-	"\C\![quicksession,true]\1\b[-1]\0\c\![set,choicetimeout,0]\![set,autoscoll,false]\b[2]\q[%(_sub[_submenu])状态,OnSubRpgGameMenu,0]/
-	\_l[50]\q[%(_sub[_submenu + 5])装备,OnSubRpgGameMenu,1]/
+	"\C\![quicksession,true]\1\b[-1]\0\c\![set,choicetimeout,0]\![set,autoscoll,false]\b[2]\q[%(_sub[_submenu])狀態,OnSubRpgGameMenu,0]/
+	\_l[50]\q[%(_sub[_submenu + 5])裝備,OnSubRpgGameMenu,1]/
 	\_l[100]\q[%(_sub[_submenu + 10])魔法,OnSubRpgGameMenu,2]/
 	\_l[150]\q[%(_sub[_submenu + 15])道具,OnSubRpgGameMenu,3]/
 	\_l[200]\q[%(_sub[_submenu + 20])商店,OnSubRpgGameMenu,4]/
-	\_l[250]\q[%(_sub[_submenu + 25])任务,OnSubRpgGameMenu,5]"
+	\_l[250]\q[%(_sub[_submenu + 25])任務,OnSubRpgGameMenu,5]"
 	--
 	SubRpgGameMenu(_submenu)
 }
@@ -64,13 +64,13 @@ OnSubRpgGameMenu{
 }
 SubRpgGameMenu{
 	_submenu = TOINT(_argv[0])
-	信息参数
+	資訊參數
 	case _submenu {
 		when 0 {
-			状态
+			狀態
 		}
 		when 1 {
-			装备
+			裝備
 		}
 		when 2 {
 			魔法
@@ -271,7 +271,7 @@ rpggamereset{
 	itemAnum[0]=2
 	itemBnum[0]=2
 }
-状态{
+狀態{
 	if hp0==0{
 		hp0=TOINT(0.1*hpmax0)
 	}
@@ -280,7 +280,7 @@ rpggamereset{
 	}
 	RpgGameVar
 	_txt = "\_l[0,20]橘花\n/
-	\f[color,231,171,109]Level   \_l[48,-]\f[color,default]%(lvl0)         \_l[150,-]转生%(TOINT(circle0))级\n/
+	\f[color,231,171,109]Level   \_l[48,-]\f[color,default]%(lvl0)         \_l[150,-]轉生%(TOINT(circle0))級\n/
 	\f[color,231,171,109]HP      \_l[48,-]\f[color,default]%(hp0)/%(hpmax0)   %(ColorBar(6,150,hp0,hpmax0))\n/
 	\f[color,231,171,109]EP      \_l[48,-]\f[color,default]%(ep0)/%(epmax0)    %(ColorBar(3,150,ep0,epmax0))\n/
 	\f[color,231,171,109]CP      \_l[48,-]\f[color,default]%(cp0)/%(cpmax0)    %(ColorBar(9,150,cp0,cpmax0))\n/
@@ -290,8 +290,8 @@ rpggamereset{
 	\f[color,165,203,214]ADF     \_l[48,-]\f[color,default]%(adf0) （%(adf0_)）\n/
 	\f[color,231,171,109]EXP     \_l[48,-]\f[color,default]%(exp0) （%(TOINT(100*exp0/expmax0))%）    \_l[150,-]\f[color,231,171,109]EXPERIENCE \f[color,default]%(exptotal0)\n/
 	\f[color,231,171,109]NEXT    \_l[48,-]\f[color,default]%(nextexp0)    %(ColorBar(1,150,exp0,expmax0))\n\n/
-	斗和\n/
-	\f[color,231,171,109]Level   \_l[48,-]\f[color,default]%(lvl1)         \_l[150,-]转生%(TOINT(circle1))级\n/
+	鬥和\n/
+	\f[color,231,171,109]Level   \_l[48,-]\f[color,default]%(lvl1)         \_l[150,-]轉生%(TOINT(circle1))級\n/
 	\f[color,231,171,109]HP      \_l[48,-]\f[color,default]%(hp1)/%(hpmax1)   %(ColorBar(6,150,hp1,hpmax1))\n/
 	\f[color,231,171,109]EP      \_l[48,-]\f[color,default]%(ep1)/%(epmax1)   %(ColorBar(3,150,ep1,epmax1))\n/
 	\f[color,231,171,109]CP      \_l[48,-]\f[color,default]%(cp1)/%(cpmax1)   %(ColorBar(9,150,cp1,cpmax1))\n/
@@ -301,128 +301,128 @@ rpggamereset{
 	\f[color,165,203,214]ADF     \_l[48,-]\f[color,default]%(adf1) （%(adf1_)）\n/
 	\f[color,231,171,109]EXP     \_l[48,-]\f[color,default]%(exp1) （%(TOINT(100*exp1/expmax1))%）     \_l[150,-]\f[color,231,171,109]EXPERIENCE \f[color,default]%(exptotal1)\n/
 	\f[color,231,171,109]NEXT    \_l[48,-]\f[color,default]%(nextexp1)      %(ColorBar(1,150,exp1,expmax1))\n/
-	\f[color,231,171,109]金钱    \_l[48,-]%(TOINT(money))"
+	\f[color,231,171,109]金錢    \_l[48,-]%(TOINT(money))"
 	_txt
 }
-信息参数{
+資訊參數{
 	weaponA = IARRAY
 	weaponB = IARRAY
 	article = IARRAY
-	weaponA = ("weaponA,0,匕首,%(weaponAnum[0]),1,600,3,7","weaponA,1,黑刃,%(weaponAnum[1]),6,1000,7,10","weaponA,2,军刀,%(weaponAnum[2]),11,2000,10,20","weaponA,3,拳剑,%(weaponAnum[3]),16,5000,20,40","weaponA,4,花剑,%(weaponAnum[4]),21,8000,40,65","weaponA,5,西洋剑,%(weaponAnum[5]),26,9000,65,80","weaponA,6,星透剑,%(weaponAnum[6]),31,10000,80,90","weaponA,7,水纹剑,%(weaponAnum[7]),36,15000,90,120","weaponA,8,水晶剑,%(weaponAnum[8]),41,16000,120,130","weaponA,9,细剑,%(weaponAnum[9]),46,18000,130,150","weaponA,10,弯剑,%(weaponAnum[10]),51,22000,150,180","weaponA,11,长刺剑,%(weaponAnum[11]),56,27000,180,220","weaponA,12,银剑,%(weaponAnum[12]),61,33000,220,270","weaponA,13,诗剑,%(weaponAnum[13]),66,40000,270,320","weaponA,14,军剑,%(weaponAnum[14]),71,46000,320,370","weaponA,15,天琴剑,%(weaponAnum[15]),76,52000,370,420","weaponA,16,七星剑,%(weaponAnum[16]),81,60000,420,460","weaponA,17,亚伦之剑,%(weaponAnum[17]),86,65000,460,500","weaponA,18,古剑,%(weaponAnum[18]),91,70000,500,550","weaponA,19,青龙剑,%(weaponAnum[19]),96,75000,550,600","weaponA,20,常绿,%(weaponAnum[20]),101,80000,600,700","weaponA,21,受难十字剑,%(weaponAnum[21]),106,100000,700,800","weaponA,22,神圣能量剑,%(weaponAnum[22]),111,120000,800,900","weaponA,23,神之骑士剑,%(weaponAnum[23]),116,125000,900,1000","weaponA,24,女武神,%(weaponAnum[24]),121,140000,1100,1100","weaponA,25,常青剑,%(weaponAnum[25]),126,150000,1150,1200","weaponA,26,赛雷斯托,%(weaponAnum[26]),131,160000,1250,1350","weaponA,27,斩首剑,%(weaponAnum[27]),136,170000,1300,400","weaponA,28,断骨剑,%(weaponAnum[28]),141,190000,1450,1550","weaponA,29,神圣新星,%(weaponAnum[29]),146,200000,1500,1600")
-	weaponB = ("weaponB,0,手枪,%(weaponBnum[0]),1,600,7,3","weaponB,1,刺针枪,%(weaponBnum[1]),6,1000,10,7","weaponB,2,狩猎枪,%(weaponBnum[2]),11,2000,20,10","weaponB,3,刺弹枪,%(weaponBnum[3]),16,5000,40,20","weaponB,4,鹰眼枪,%(weaponBnum[4]),21,8000,65,40","weaponB,5,步枪,%(weaponBnum[5]),26,9000,80,65","weaponB,6,冲锋枪,%(weaponBnum[6]),31,10000,90,80","weaponB,7,激光枪,%(weaponBnum[7]),36,15000,120,90","weaponB,8,离子枪,%(weaponBnum[8]),41,16000,130,120","weaponB,9,等粒子光炮,%(weaponBnum[9]),46,18000,150,130","weaponB,10,幻影,%(weaponBnum[10]),51,22000,180,150","weaponB,11,灰狼,%(weaponBnum[11]),56,27000,220,180","weaponB,12,火蜥蜴,%(weaponBnum[12]),61,33000,270,220","weaponB,13,骑兵枪,%(weaponBnum[13]),66,40000,320,270","weaponB,14,独眼巨人,%(weaponBnum[14]),71,46000,370,320","weaponB,15,脉冲炮,%(weaponBnum[15]),76,52000,420,370","weaponB,16,毒牙,%(weaponBnum[16]),81,60000,460,420","weaponB,17,天鹰,%(weaponBnum[17]),86,65000,500,460","weaponB,18,诡异之星,%(weaponBnum[18]),91,70000,550,500","weaponB,19,狙击神,%(weaponBnum[19]),96,75000,600,550","weaponB,20,双星,%(weaponBnum[20]),101,80000,700,600","weaponB,21,天鱼,%(weaponBnum[21]),106,100000,800,700","weaponB,22,世界主宰,%(weaponBnum[22]),111,120000,900,800","weaponB,23,毒针-M,%(weaponBnum[23]),116,125000,1000,900","weaponB,24,幻影-S,%(weaponBnum[24]),121,140000,1100,1100","weaponB,25,和平破坏者,%(weaponBnum[25]),126,150000,1200,1150","weaponB,26,暴徒,%(weaponBnum[26]),131,160000,1350,1250","weaponB,27,第五元素-R,%(weaponBnum[27]),136,170000,1400,300","weaponB,28,小夜曲,%(weaponBnum[28]),141,190000,1550,1450","weaponB,29,神圣之光,%(weaponBnum[29]),146,200000,1600,1500")
-	armorA = ("armorA,0,皮革背心,%(armorAnum[0]),1,100,5,0","armorA,1,金属背心,%(armorAnum[1]),8,800,10,2","armorA,2,皮革上衣,%(armorAnum[2]),16,2000,25,2","armorA,3,防御背心,%(armorAnum[3]),23,5000,45,4","armorA,4,金属夹克,%(armorAnum[4]),31,10000,75,4","armorA,5,防御大衣,%(armorAnum[5]),38,20000,100,6","armorA,6,纤维护铠,%(armorAnum[6]),46,25000,125,0","armorA,7,纤维大衣,%(armorAnum[7]),53,30000,160,4","armorA,8,树脂大衣,%(armorAnum[8]),61,40000,200,6","armorA,9,真空防护服,%(armorAnum[9]),68,50000,250,8","armorA,10,树脂装甲,%(armorAnum[10]),73,65000,310,12","armorA,11,龙皮铠,%(armorAnum[11]),81,75000,350,50","armorA,12,大地女神服,%(armorAnum[12]),88,85000,425,25,10,10","armorA,13,超重装甲服,%(armorAnum[13]),96,90000,455,40","armorA,14,钛服,%(armorAnum[14]),103,95000,500,0","armorA,15,运动外衣,%(armorAnum[15]),111,100000,600,0","armorA,16,龙树连体服,%(armorAnum[16]),118,120000,700,15","armorA,17,无袖外罩,%(armorAnum[17]),126,140000,800,0","armorA,18,汞合金守卫,%(armorAnum[18]),133,160000,900,0","armorA,19,巨人铠甲,%(armorAnum[19]),141,180000,1000,20")
-	armorB = ("armorB,0,兽皮制服,%(armorBnum[0]),1,200,12,20","armorB,1,锁片薄衣,%(armorBnum[1]),8,1000,30,4","armorB,2,战斗服,%(armorBnum[2]),16,3000,50,6","armorB,3,黑大衣,%(armorBnum[3]),23,10000,80,8","armorB,4,反射大衣,%(armorBnum[4]),31,20000,105,10","armorB,5,女武神铠甲,%(armorBnum[5]),38,25000,120,10","armorB,6,蓝色猿羊绒,%(armorBnum[6]),46,30000,150,35","armorB,7,神圣修女服,%(armorBnum[7]),53,35000,155,50,50","armorB,8,女术士战袍,%(armorBnum[8]),61,45000,210,30","armorB,9,金耀晚礼服,%(armorBnum[9]),68,60000,260,30,50","armorB,10,八卦服,%(armorBnum[10]),73,70000,320,40","armorB,11,金色女伯爵,%(armorBnum[11]),81,80000,380,50,-30,100","armorB,12,女机师战甲,%(armorBnum[12]),88,90000,380,30,50,30","armorB,13,炮术师战甲,%(armorBnum[13]),96,120000,600,200","armorB,14,忍者服,%(armorBnum[14]),103,110000,750,0","armorB,15,可爱猫咪套装,%(armorBnum[15]),111,110000,750,0","armorB,16,黑丝绸,%(armorBnum[16]),118,150000,825,150","armorB,17,宇宙装甲,%(armorBnum[17]),126,200000,1100,0","armorB,18,加百列光辉,%(armorBnum[18]),133,200000,1100,25,0,25","armorB,19,尘世巨蟒,%(armorBnum[19]),141,250000,1600,300")
-	bootsA=("bootsA,0,皮靴,%(bootsAnum[0]),1,200,2,0","bootsA,1,防滑靴,%(bootsAnum[1]),11,800,4,0","bootsA,2,工作鞋,%(bootsAnum[2]),21,1500,8,1","bootsA,3,双重防滑靴,%(bootsAnum[3]),31,3000,12,1","bootsA,4,手工鞋,%(bootsAnum[4]),41,5000,20,2","bootsA,5,合成防护靴,%(bootsAnum[5]),51,8000,30,2","bootsA,6,金属靴,%(bootsAnum[6]),61,11000,40,0","bootsA,7,纤维靴,%(bootsAnum[7]),71,14000,50,0","bootsA,8,高级皮靴,%(bootsAnum[8]),81,25000,90,1","bootsA,9,忍者短布鞋,%(bootsAnum[9]),91,30000,105,1","bootsA,10,树脂靴,%(bootsAnum[10]),101,35000,130,1","bootsA,11,机械靴,%(bootsAnum[11]),111,45000,180,2","bootsA,12,骑士护腿,%(bootsAnum[12]),121,50000,190,0","bootsA,13,斯托雷加B,%(bootsAnum[13]),131,55000,200,0","bootsA,14,龙神鞋,%(bootsAnum[14]),141,65000,200,10,0,20")
-	bootsB=("bootsB,0,开孔长靴,%(bootsBnum[0]),1,100,1,3","bootsB,1,编织鞋,%(bootsBnum[1]),11,300,7,1","bootsB,2,工作安全鞋,%(bootsBnum[2]),21,2000,12,0","bootsB,3,军用鞋,%(bootsBnum[3]),31,3000,15,2","bootsB,4,天神之靴,%(bootsBnum[4]),41,10000,30,3","bootsB,5,风神之靴,%(bootsBnum[5]),51,10000,40,3","bootsB,6,流浪者,%(bootsBnum[6]),61,12000,50,3","bootsB,7,双子星,%(bootsBnum[7]),71,15000,60,1","bootsB,8,水晶高跟鞋,%(bootsBnum[8]),81,20000,70,0","bootsB,9,大地护胫,%(bootsBnum[9]),91,30000,115,0","bootsB,10,轻钢靴,%(bootsBnum[10]),101,40000,150,2","bootsB,11,月神之腫,%(bootsBnum[11]),111,50000,160,30,0,30","bootsB,12,英仙神靴,%(bootsBnum[12]),121,55000,205,3","bootsB,13,帕特农神靴,%(bootsBnum[13]),131,70000,195,50","bootsB,14,提坦神靴,%(bootsBnum[14]),141,80000,220,10,0,30")
-	itemA = ("itemA,0,小回复药,%(itemAnum[0]),50,400","itemA,1,回复药,%(itemAnum[1]),100,1000","itemA,2,中回复药,%(itemAnum[2]),200,3000","itemA,3,大回复药,%(itemAnum[3]),300,6000","itemA,4,超回复药,%(itemAnum[4]),400,HP全回复","itemA,5,复苏药,%(itemAnum[5]),500,战斗不能解除","itemA,6,小经验丹,%(itemAnum[6]),10000,500","itemA,7,中经验丹,%(itemAnum[7]),100000,5000","itemA,8,大经验丹,%(itemAnum[8]),1000000,50000","itemA,9,小转生丹,%(itemAnum[9]),100000,5000","itemA,10,中转生丹,%(itemAnum[10]),1000000,50000","itemA,11,大转生丹,%(itemAnum[11]),10000000,500000")
-	itemB = ("itemB,0,小型EP填充剂,%(itemBnum[0]),50,200","itemB,1,EP填充剂,%(itemBnum[1]),100,400","itemB,2,中型EP填充剂,%(itemBnum[2]),200,600","itemB,3,大型EP填充剂,%(itemBnum[3]),300,800","itemB,4,超级EP填充剂,%(itemBnum[4]),400,EP全回复")
+	weaponA = ("weaponA,0,匕首,%(weaponAnum[0]),1,600,3,7","weaponA,1,黑刃,%(weaponAnum[1]),6,1000,7,10","weaponA,2,軍刀,%(weaponAnum[2]),11,2000,10,20","weaponA,3,拳劍,%(weaponAnum[3]),16,5000,20,40","weaponA,4,花劍,%(weaponAnum[4]),21,8000,40,65","weaponA,5,西洋劍,%(weaponAnum[5]),26,9000,65,80","weaponA,6,星透劍,%(weaponAnum[6]),31,10000,80,90","weaponA,7,水紋劍,%(weaponAnum[7]),36,15000,90,120","weaponA,8,水晶劍,%(weaponAnum[8]),41,16000,120,130","weaponA,9,細劍,%(weaponAnum[9]),46,18000,130,150","weaponA,10,彎劍,%(weaponAnum[10]),51,22000,150,180","weaponA,11,長刺劍,%(weaponAnum[11]),56,27000,180,220","weaponA,12,銀劍,%(weaponAnum[12]),61,33000,220,270","weaponA,13,詩劍,%(weaponAnum[13]),66,40000,270,320","weaponA,14,軍劍,%(weaponAnum[14]),71,46000,320,370","weaponA,15,天琴劍,%(weaponAnum[15]),76,52000,370,420","weaponA,16,七星劍,%(weaponAnum[16]),81,60000,420,460","weaponA,17,亞倫之劍,%(weaponAnum[17]),86,65000,460,500","weaponA,18,古劍,%(weaponAnum[18]),91,70000,500,550","weaponA,19,青龍劍,%(weaponAnum[19]),96,75000,550,600","weaponA,20,常綠,%(weaponAnum[20]),101,80000,600,700","weaponA,21,受難十字劍,%(weaponAnum[21]),106,100000,700,800","weaponA,22,神聖能量劍,%(weaponAnum[22]),111,120000,800,900","weaponA,23,神之騎士劍,%(weaponAnum[23]),116,125000,900,1000","weaponA,24,女武神,%(weaponAnum[24]),121,140000,1100,1100","weaponA,25,常青劍,%(weaponAnum[25]),126,150000,1150,1200","weaponA,26,賽雷斯托,%(weaponAnum[26]),131,160000,1250,1350","weaponA,27,斬首劍,%(weaponAnum[27]),136,170000,1300,400","weaponA,28,斷骨劍,%(weaponAnum[28]),141,190000,1450,1550","weaponA,29,神聖新星,%(weaponAnum[29]),146,200000,1500,1600")
+	weaponB = ("weaponB,0,手槍,%(weaponBnum[0]),1,600,7,3","weaponB,1,刺針槍,%(weaponBnum[1]),6,1000,10,7","weaponB,2,狩獵槍,%(weaponBnum[2]),11,2000,20,10","weaponB,3,刺彈槍,%(weaponBnum[3]),16,5000,40,20","weaponB,4,鷹眼槍,%(weaponBnum[4]),21,8000,65,40","weaponB,5,步槍,%(weaponBnum[5]),26,9000,80,65","weaponB,6,衝鋒槍,%(weaponBnum[6]),31,10000,90,80","weaponB,7,鐳射槍,%(weaponBnum[7]),36,15000,120,90","weaponB,8,離子槍,%(weaponBnum[8]),41,16000,130,120","weaponB,9,等粒子光炮,%(weaponBnum[9]),46,18000,150,130","weaponB,10,幻影,%(weaponBnum[10]),51,22000,180,150","weaponB,11,灰狼,%(weaponBnum[11]),56,27000,220,180","weaponB,12,火蜥蜴,%(weaponBnum[12]),61,33000,270,220","weaponB,13,騎兵槍,%(weaponBnum[13]),66,40000,320,270","weaponB,14,獨眼巨人,%(weaponBnum[14]),71,46000,370,320","weaponB,15,脈衝炮,%(weaponBnum[15]),76,52000,420,370","weaponB,16,毒牙,%(weaponBnum[16]),81,60000,460,420","weaponB,17,天鷹,%(weaponBnum[17]),86,65000,500,460","weaponB,18,詭異之星,%(weaponBnum[18]),91,70000,550,500","weaponB,19,狙擊神,%(weaponBnum[19]),96,75000,600,550","weaponB,20,雙星,%(weaponBnum[20]),101,80000,700,600","weaponB,21,天魚,%(weaponBnum[21]),106,100000,800,700","weaponB,22,世界主宰,%(weaponBnum[22]),111,120000,900,800","weaponB,23,毒針-M,%(weaponBnum[23]),116,125000,1000,900","weaponB,24,幻影-S,%(weaponBnum[24]),121,140000,1100,1100","weaponB,25,和平破壞者,%(weaponBnum[25]),126,150000,1200,1150","weaponB,26,暴徒,%(weaponBnum[26]),131,160000,1350,1250","weaponB,27,第五元素-R,%(weaponBnum[27]),136,170000,1400,300","weaponB,28,小夜曲,%(weaponBnum[28]),141,190000,1550,1450","weaponB,29,神聖之光,%(weaponBnum[29]),146,200000,1600,1500")
+	armorA = ("armorA,0,皮革背心,%(armorAnum[0]),1,100,5,0","armorA,1,金屬背心,%(armorAnum[1]),8,800,10,2","armorA,2,皮革上衣,%(armorAnum[2]),16,2000,25,2","armorA,3,防禦背心,%(armorAnum[3]),23,5000,45,4","armorA,4,金屬夾克,%(armorAnum[4]),31,10000,75,4","armorA,5,防禦大衣,%(armorAnum[5]),38,20000,100,6","armorA,6,纖維護鎧,%(armorAnum[6]),46,25000,125,0","armorA,7,纖維大衣,%(armorAnum[7]),53,30000,160,4","armorA,8,樹脂大衣,%(armorAnum[8]),61,40000,200,6","armorA,9,真空防護服,%(armorAnum[9]),68,50000,250,8","armorA,10,樹脂裝甲,%(armorAnum[10]),73,65000,310,12","armorA,11,龍皮鎧,%(armorAnum[11]),81,75000,350,50","armorA,12,大地女神服,%(armorAnum[12]),88,85000,425,25,10,10","armorA,13,超重裝甲服,%(armorAnum[13]),96,90000,455,40","armorA,14,鈦服,%(armorAnum[14]),103,95000,500,0","armorA,15,運動外衣,%(armorAnum[15]),111,100000,600,0","armorA,16,龍樹連體服,%(armorAnum[16]),118,120000,700,15","armorA,17,無袖外罩,%(armorAnum[17]),126,140000,800,0","armorA,18,汞合金守衛,%(armorAnum[18]),133,160000,900,0","armorA,19,巨人鎧甲,%(armorAnum[19]),141,180000,1000,20")
+	armorB = ("armorB,0,獸皮制服,%(armorBnum[0]),1,200,12,20","armorB,1,鎖片薄衣,%(armorBnum[1]),8,1000,30,4","armorB,2,戰鬥服,%(armorBnum[2]),16,3000,50,6","armorB,3,黑大衣,%(armorBnum[3]),23,10000,80,8","armorB,4,反射大衣,%(armorBnum[4]),31,20000,105,10","armorB,5,女武神鎧甲,%(armorBnum[5]),38,25000,120,10","armorB,6,藍色猿羊絨,%(armorBnum[6]),46,30000,150,35","armorB,7,神聖修女服,%(armorBnum[7]),53,35000,155,50,50","armorB,8,女術士戰袍,%(armorBnum[8]),61,45000,210,30","armorB,9,金耀晚禮服,%(armorBnum[9]),68,60000,260,30,50","armorB,10,八卦服,%(armorBnum[10]),73,70000,320,40","armorB,11,金色女伯爵,%(armorBnum[11]),81,80000,380,50,-30,100","armorB,12,女機師戰甲,%(armorBnum[12]),88,90000,380,30,50,30","armorB,13,炮術師戰甲,%(armorBnum[13]),96,120000,600,200","armorB,14,忍者服,%(armorBnum[14]),103,110000,750,0","armorB,15,可愛貓咪套裝,%(armorBnum[15]),111,110000,750,0","armorB,16,黑絲綢,%(armorBnum[16]),118,150000,825,150","armorB,17,宇宙裝甲,%(armorBnum[17]),126,200000,1100,0","armorB,18,加百列光輝,%(armorBnum[18]),133,200000,1100,25,0,25","armorB,19,塵世巨蟒,%(armorBnum[19]),141,250000,1600,300")
+	bootsA=("bootsA,0,皮靴,%(bootsAnum[0]),1,200,2,0","bootsA,1,防滑靴,%(bootsAnum[1]),11,800,4,0","bootsA,2,工作鞋,%(bootsAnum[2]),21,1500,8,1","bootsA,3,雙重防滑靴,%(bootsAnum[3]),31,3000,12,1","bootsA,4,手工鞋,%(bootsAnum[4]),41,5000,20,2","bootsA,5,合成防護靴,%(bootsAnum[5]),51,8000,30,2","bootsA,6,金屬靴,%(bootsAnum[6]),61,11000,40,0","bootsA,7,纖維靴,%(bootsAnum[7]),71,14000,50,0","bootsA,8,高級皮靴,%(bootsAnum[8]),81,25000,90,1","bootsA,9,忍者短布鞋,%(bootsAnum[9]),91,30000,105,1","bootsA,10,樹脂靴,%(bootsAnum[10]),101,35000,130,1","bootsA,11,機械靴,%(bootsAnum[11]),111,45000,180,2","bootsA,12,騎士護腿,%(bootsAnum[12]),121,50000,190,0","bootsA,13,斯托雷加B,%(bootsAnum[13]),131,55000,200,0","bootsA,14,龍神鞋,%(bootsAnum[14]),141,65000,200,10,0,20")
+	bootsB=("bootsB,0,開孔長靴,%(bootsBnum[0]),1,100,1,3","bootsB,1,編織鞋,%(bootsBnum[1]),11,300,7,1","bootsB,2,工作安全鞋,%(bootsBnum[2]),21,2000,12,0","bootsB,3,軍用鞋,%(bootsBnum[3]),31,3000,15,2","bootsB,4,天神之靴,%(bootsBnum[4]),41,10000,30,3","bootsB,5,風神之靴,%(bootsBnum[5]),51,10000,40,3","bootsB,6,流浪者,%(bootsBnum[6]),61,12000,50,3","bootsB,7,雙子星,%(bootsBnum[7]),71,15000,60,1","bootsB,8,水晶高跟鞋,%(bootsBnum[8]),81,20000,70,0","bootsB,9,大地護脛,%(bootsBnum[9]),91,30000,115,0","bootsB,10,輕鋼靴,%(bootsBnum[10]),101,40000,150,2","bootsB,11,月神之腫,%(bootsBnum[11]),111,50000,160,30,0,30","bootsB,12,英仙神靴,%(bootsBnum[12]),121,55000,205,3","bootsB,13,派特農神靴,%(bootsBnum[13]),131,70000,195,50","bootsB,14,提坦神靴,%(bootsBnum[14]),141,80000,220,10,0,30")
+	itemA = ("itemA,0,小回復藥,%(itemAnum[0]),50,400","itemA,1,回復藥,%(itemAnum[1]),100,1000","itemA,2,中回復藥,%(itemAnum[2]),200,3000","itemA,3,大回復藥,%(itemAnum[3]),300,6000","itemA,4,超回復藥,%(itemAnum[4]),400,HP全回復","itemA,5,復蘇藥,%(itemAnum[5]),500,戰鬥不能解除","itemA,6,小經驗丹,%(itemAnum[6]),10000,500","itemA,7,中經驗丹,%(itemAnum[7]),100000,5000","itemA,8,大經驗丹,%(itemAnum[8]),1000000,50000","itemA,9,小轉生丹,%(itemAnum[9]),100000,5000","itemA,10,中轉生丹,%(itemAnum[10]),1000000,50000","itemA,11,大轉生丹,%(itemAnum[11]),10000000,500000")
+	itemB = ("itemB,0,小型EP填充劑,%(itemBnum[0]),50,200","itemB,1,EP填充劑,%(itemBnum[1]),100,400","itemB,2,中型EP填充劑,%(itemBnum[2]),200,600","itemB,3,大型EP填充劑,%(itemBnum[3]),300,800","itemB,4,超級EP填充劑,%(itemBnum[4]),400,EP全回復")
 	magicinfo
 }
-On装备菜单{
+On裝備菜單{
 	equipmenu[reference0]=(TOINT(equipmenu[reference0])+1)%2
 	OpenRpgGameMenu(1)
 }
-装备{
+裝備{
 	_txt = '\n'
-	_txt+=信息参数
+	_txt+=資訊參數
 	_txt+=RpgGameVar
-	_txt+=超出反应
-	_txt += "橘花                                    \_l[140,-]斗和\n/
+	_txt+=超出反應
+	_txt += "橘花                                    \_l[140,-]鬥和\n/
 	武器：\q[%(weapon0),offweapon0]         \_l[140,-]武器：\q[%(weapon1),offweapon1]\n/
-	防具（体）：\q[%(armor0),offarmor0]     \_l[140,-]防具（体）：\q[%(armor1),offarmor1]\n/
-	防具（脚）：\q[%(boots0),offboots0]     \_l[140,-]防具（脚）：\q[%(boots1),offboots1]\n/
+	防具（體）：\q[%(armor0),offarmor0]     \_l[140,-]防具（體）：\q[%(armor1),offarmor1]\n/
+	防具（腳）：\q[%(boots0),offboots0]     \_l[140,-]防具（腳）：\q[%(boots1),offboots1]\n/
 	"
 	_weapon = (weaponA,weaponB)
 	_armor = (armorA,armorB)
 	_boots = (bootsA,bootsB)
-	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On装备菜单,0]───────────武器───────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
+	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On裝備菜單,0]───────────武器───────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
 	if TOINT(equipmenu[0])==1{
-		_txt += '名称   \_l[65,-]数量    \_l[95,-]STR    \_l[125,-]ATS\n'
+		_txt += '名稱   \_l[65,-]數量    \_l[95,-]STR    \_l[125,-]ATS\n'
 		foreach _weapon; _i{
 			if _i[3] > 0{
 				_txt += "\f[color,231,171,109]%(_i[2])\f[color,default]   \_l[65,-]%(_i[3])   \f[color,165,203,214]\_l[95,-]%(_i[6])  \_l[125,-]%(_i[7])    \f[color,default]"
 				if !weapon0 {
-					_txt += "\_l[160,-]\q[◇橘花未装备,Onweapon0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]"
+					_txt += "\_l[160,-]\q[◇橘花未裝備,Onweapon0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]"
 				}
 				elseif weapon0 {
 					if weaponID0==_i[1] && weaponsort0==_i[0]{
-						_txt += "\_l[160,-]\f[color,231,171,109]\q[◇橘花已装备,Onweapon0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\f[color,default]"
+						_txt += "\_l[160,-]\f[color,231,171,109]\q[◇橘花已裝備,Onweapon0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\f[color,default]"
 					}
 					else{
-						_txt += "\_l[160,-]\q[◇橘花未装备,Onweapon0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]"
+						_txt += "\_l[160,-]\q[◇橘花未裝備,Onweapon0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]"
 					}
 				}
 				if !weapon1 {
-					_txt += "\_l[230,-]\q[◇斗和未装备,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\n"
+					_txt += "\_l[230,-]\q[◇鬥和未裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\n"
 				}
 				elseif weapon1 {
 					if weaponID1==_i[1] && weaponsort1==_i[0]{
-						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇斗和已装备,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\f[color,default]\n"
+						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇鬥和已裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\f[color,default]\n"
 					}
 					else{
-						_txt += "\_l[230,-]\q[◇斗和未装备,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\n"
+						_txt += "\_l[230,-]\q[◇鬥和未裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\n"
 					}
 				}
 			}
 		}
 	}
-	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On装备菜单,1]──────────防具（体）─────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
+	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On裝備菜單,1]──────────防具（體）─────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
 	if TOINT(equipmenu[1])==1{
-		_txt += '名称   \_l[65,-]数量    \_l[95,-]DEF    \_l[125,-]ADF\n'
+		_txt += '名稱   \_l[65,-]數量    \_l[95,-]DEF    \_l[125,-]ADF\n'
 		foreach _armor; _i{
 			if _i[3] > 0{
 				_txt += "\f[color,231,171,109]%(_i[2])\f[color,default]   \_l[65,-]%(_i[3])   \f[color,165,203,214]\_l[95,-]%(_i[6])  \_l[125,-]%(_i[7])    \f[color,default]"
 				if !armor0 {
-					_txt += "\_l[160,-]\q[◇橘花未装备,Onarmor0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]"
+					_txt += "\_l[160,-]\q[◇橘花未裝備,Onarmor0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]"
 				}
 				elseif armor0 {
 					if armorID0==_i[1] && armorsort0==_i[0]{
-						_txt += "\_l[160,-]\f[color,231,171,109]\q[◇橘花已装备,Onarmor0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]"
+						_txt += "\_l[160,-]\f[color,231,171,109]\q[◇橘花已裝備,Onarmor0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]"
 					}
 					else{
-						_txt += "\_l[160,-]\q[◇橘花未装备,Onarmor0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]"
+						_txt += "\_l[160,-]\q[◇橘花未裝備,Onarmor0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]"
 					}
 				}
 				if !armor1 {
-					_txt += "\_l[230,-]\q[◇斗和未装备,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
+					_txt += "\_l[230,-]\q[◇鬥和未裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
 				}
 				elseif armor1 {
 					if armorID1==_i[1] && armorsort1==_i[0]{
-						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇斗和已装备,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]\n"
+						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇鬥和已裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]\n"
 					}
 					else{
-						_txt += "\_l[230,-]\q[◇斗和未装备,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
+						_txt += "\_l[230,-]\q[◇鬥和未裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
 					}
 				}
 			}
 		}
 	}
-	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On装备菜单,2]──────────防具（脚）─────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
+	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On裝備菜單,2]──────────防具（腳）─────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
 	if TOINT(equipmenu[2])==1{
-		_txt += '名称   \_l[65,-]数量    \_l[95,-]DEF    \_l[125,-]ADF\n'
+		_txt += '名稱   \_l[65,-]數量    \_l[95,-]DEF    \_l[125,-]ADF\n'
 		foreach _boots; _i{
 			if _i[3] > 0{
 				_txt += "\f[color,231,171,109]%(_i[2])\f[color,default]   \_l[65,-]%(_i[3])   \f[color,165,203,214]\_l[95,-]%(_i[6])  \_l[125,-]%(_i[7])    \f[color,default]"
 				if !boots0 {
-					_txt += "\_l[160,-]\q[◇橘花未装备,Onboots0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]"
+					_txt += "\_l[160,-]\q[◇橘花未裝備,Onboots0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]"
 				}
 				elseif boots0 {
 					if bootsID0==_i[1] && bootssort0==_i[0]{
-						_txt += "\_l[160,-]\f[color,231,171,109]\q[◇橘花已装备,Onboots0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]"
+						_txt += "\_l[160,-]\f[color,231,171,109]\q[◇橘花已裝備,Onboots0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]"
 					}
 					else{
-						_txt += "\_l[160,-]\q[◇橘花未装备,Onboots0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]"
+						_txt += "\_l[160,-]\q[◇橘花未裝備,Onboots0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]"
 					}
 				}
 				if !boots1 {
-					_txt += "\_l[230,-]\q[◇斗和未装备,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
+					_txt += "\_l[230,-]\q[◇鬥和未裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
 				}
 				elseif boots1 {
 					if bootsID1==_i[1] && bootssort1==_i[0]{
-						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇斗和已装备,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]\n"
+						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇鬥和已裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]\n"
 					}
 					else{
-						_txt += "\_l[230,-]\q[◇斗和未装备,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
+						_txt += "\_l[230,-]\q[◇鬥和未裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
 					}
 				}
 			}
@@ -433,7 +433,7 @@ On装备菜单{
 }
 Onweapon0{
 	if weapon1==reference2 && reference3<=1
-		"\0数量不足，先卸载，后装备\x%(OpenRpgGameMenu(1))"
+		"\0數量不足，先卸載，後裝備\x%(OpenRpgGameMenu(1))"
 	else{
 		weaponsort0=reference0
 		weaponID0=reference1
@@ -449,7 +449,7 @@ Onweapon0{
 }
 Onweapon1{
 	if weapon0==reference2 && reference3<=1
-		"\0数量不足，先卸载，后装备\x%(OpenRpgGameMenu(1))"
+		"\0數量不足，先卸載，後裝備\x%(OpenRpgGameMenu(1))"
 	else{
 		weaponsort1=reference0
 		weaponID1=reference1
@@ -466,7 +466,7 @@ Onweapon1{
 }
 Onarmor0{
 	if armor1==reference2 && reference3<=1
-		"\0数量不足，先卸载，后装备\x%(OpenRpgGameMenu(1))"
+		"\0數量不足，先卸載，後裝備\x%(OpenRpgGameMenu(1))"
 	else{
 		armorsort0=reference0
 		armorID0=reference1
@@ -480,7 +480,7 @@ Onarmor0{
 }
 Onarmor1{
 	if armor0==reference2 && reference3<=1
-		"\0数量不足，先卸载，后装备\x%(OpenRpgGameMenu(1))"
+		"\0數量不足，先卸載，後裝備\x%(OpenRpgGameMenu(1))"
 	else{
 		armorsort1=reference0
 		armorID1=reference1
@@ -494,7 +494,7 @@ Onarmor1{
 }
 Onboots0{
 	if boots1==reference2 && reference3<=1
-		"\0数量不足，先卸载，后装备\x%(OpenRpgGameMenu(1))"
+		"\0數量不足，先卸載，後裝備\x%(OpenRpgGameMenu(1))"
 	else{
 		bootssort0=reference0
 		bootsID0=reference1
@@ -507,7 +507,7 @@ Onboots0{
 }
 Onboots1{
 	if boots0==reference2 && reference3<=1
-		"\0数量不足，先卸载，后装备\x%(OpenRpgGameMenu(1))"
+		"\0數量不足，先卸載，後裝備\x%(OpenRpgGameMenu(1))"
 	else{
 		bootssort1=reference0
 		bootsID1=reference1
@@ -561,10 +561,10 @@ Select.offboots1{
 	OpenRpgGameMenu(1)
 }
 magicinfo{
-	水系魔法=('水系魔法,0,回复术,回复,单体,1,10,1000','水系魔法,1,中回复术,回复,单体,30,20,3000','水系魔法,2,大回复术,回复,单体,60,30,6000','水系魔法,3,超回复术,回复,单体,90,40,HP全回复','水系魔法,4,回复术・复,回复,复体,10,20,1000','水系魔法,5,中回复术・复,回复,复体,40,30,3000','水系魔法,6,大回复术・复,回复,复体,70,40,6000','水系魔法,7,超回复术・复,回复,复体,100,50,HP全回复','水系魔法,8,复苏术,回复,单体,30,50,战斗不能解除','水系魔法,9,水之矢,攻击,单体,1,10,0,1','水系魔法,10,冰蓝冲击,攻击,单体,26,30,130,2.3','水系魔法,11,水蓝轰炸,攻击,复体,44,40,220,3.2','水系魔法,12,水星爆发,攻击,复体,62,80,300,4.3','水系魔法,13,冰狱冥嚎,攻击,复体,83,100,360,4.8','水系魔法,14,钻石星尘,攻击,复体,100,120,420,5.3','水系魔法,12,冰狱冥嚎,攻击,复体,100,120,530,6.2')
-	火系魔法=('火系魔法,0,火之矢,攻击,单体,1,10,-25,0.75','火系魔法,1,炎之箭,攻击,单体,16,20,80,1.8','火系魔法,2,火之矢・改,攻击,单体,20,20,100,2','火系魔法,3,燃烧之息,攻击,单体,52,50,260,3.6','火系魔法,4,火山之咆哮,攻击,复体,64,60,320,4.2','火系魔法,5,龙卷火焰,攻击,复体,80,80,400,5','火系魔法,6,新星大爆炸,攻击,复体,120,120,600,7')
-	土系魔法=('土系魔法,0,石之锤,攻击,单体,1,10,0,1','土系魔法,1,岩石之息,攻击,单体,4,10,20,1.2','土系魔法,2,陨石冲击,攻击,单体,6,10,20,1.3','土系魔法,3,大地之障,辅助,单体,12,10,完全防御一次','土系魔法,4,岩石之云,攻击,单体,14,20,70,1.7','土系魔法,5,大地之枪,攻击,单体,28,30,140,2.4','土系魔法,6,泰坦之咆哮,攻击,复体,40,40,200,3','土系魔法,7,大地之毁灭,攻击,复体,60,60,300,4','土系魔法,8,盖亚之盾,辅助,复体,90,90,完全防御一次')
-	风系魔法=('风系魔法,0,风之轮,攻击,单体,1,10,-25,0.75','风系魔法,1,风之领域,攻击,单体,5,10,25,1.25','风系魔法,2,狂怒风暴,攻击,单体,26,20,130,2.3','风系魔法,3,天龙卷,攻击,复体,34,30,170,2.7','风系魔法,4,等离子之波,攻击,复体,48,40,240,3.4','风系魔法,5,审判之雷,攻击,复体,72,70,360,4.6','风系魔法,6,太阳风暴,攻击,复体,100,100,500,6')
+	水系魔法=('水系魔法,0,回復術,回復,單體,1,10,1000','水系魔法,1,中回復術,回復,單體,30,20,3000','水系魔法,2,大回復術,回復,單體,60,30,6000','水系魔法,3,超回復術,回復,單體,90,40,HP全回復','水系魔法,4,回復術・複,回復,複體,10,20,1000','水系魔法,5,中回復術・複,回復,複體,40,30,3000','水系魔法,6,大回復術・複,回復,複體,70,40,6000','水系魔法,7,超回復術・複,回復,複體,100,50,HP全回復','水系魔法,8,復蘇術,回復,單體,30,50,戰鬥不能解除','水系魔法,9,水之矢,攻擊,單體,1,10,0,1','水系魔法,10,冰藍衝擊,攻擊,單體,26,30,130,2.3','水系魔法,11,水藍轟炸,攻擊,複體,44,40,220,3.2','水系魔法,12,水星爆發,攻擊,複體,62,80,300,4.3','水系魔法,13,冰獄冥嚎,攻擊,複體,83,100,360,4.8','水系魔法,14,鑽石星塵,攻擊,複體,100,120,420,5.3','水系魔法,12,冰獄冥嚎,攻擊,複體,100,120,530,6.2')
+	火系魔法=('火系魔法,0,火之矢,攻擊,單體,1,10,-25,0.75','火系魔法,1,炎之箭,攻擊,單體,16,20,80,1.8','火系魔法,2,火之矢・改,攻擊,單體,20,20,100,2','火系魔法,3,燃燒之息,攻擊,單體,52,50,260,3.6','火系魔法,4,火山之咆哮,攻擊,複體,64,60,320,4.2','火系魔法,5,龍卷火焰,攻擊,複體,80,80,400,5','火系魔法,6,新星大爆炸,攻擊,複體,120,120,600,7')
+	土系魔法=('土系魔法,0,石之錘,攻擊,單體,1,10,0,1','土系魔法,1,岩石之息,攻擊,單體,4,10,20,1.2','土系魔法,2,隕石衝擊,攻擊,單體,6,10,20,1.3','土系魔法,3,大地之障,輔助,單體,12,10,完全防禦一次','土系魔法,4,岩石之雲,攻擊,單體,14,20,70,1.7','土系魔法,5,大地之槍,攻擊,單體,28,30,140,2.4','土系魔法,6,泰坦之咆哮,攻擊,複體,40,40,200,3','土系魔法,7,大地之毀滅,攻擊,複體,60,60,300,4','土系魔法,8,蓋亞之盾,輔助,複體,90,90,完全防禦一次')
+	風系魔法=('風系魔法,0,風之輪,攻擊,單體,1,10,-25,0.75','風系魔法,1,風之領域,攻擊,單體,5,10,25,1.25','風系魔法,2,狂怒風暴,攻擊,單體,26,20,130,2.3','風系魔法,3,天龍卷,攻擊,複體,34,30,170,2.7','風系魔法,4,等離子之波,攻擊,複體,48,40,240,3.4','風系魔法,5,審判之雷,攻擊,複體,72,70,360,4.6','風系魔法,6,太陽風暴,攻擊,複體,100,100,500,6')
 }
 魔法{
 	//battlemode=0
@@ -582,7 +582,7 @@ On魔法列表{
 	}
 	elseif magicMenu == 1 {
 		target=1
-		'\n' + ColorText('\__q[OnmagicMenu,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────斗和↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200') + '\n'
+		'\n' + ColorText('\__q[OnmagicMenu,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────鬥和↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200') + '\n'
 		--
 		Magicmenu(1)
 	}
@@ -600,19 +600,19 @@ OnmagicMenu{
 }
 Magicmenu{
 	_txt=''
-	_txt+='\_l[0,-]魔法名称     \_l[80,-]属性    \_l[115,-]范围     \_l[145,-]消耗EP     \_l[185,-]效果\n'
+	_txt+='\_l[0,-]魔法名稱     \_l[80,-]屬性    \_l[115,-]範圍     \_l[145,-]消耗EP     \_l[185,-]效果\n'
 	//_txt+='\_l[120,-]\f[color,65,203,214]水系魔法\f[color,default]\n'
 	_lvl=lvl0
 	if target==1
 		_lvl=lvl1
-	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On魔法菜单,0]──────────水系魔法──────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
+	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On魔法菜單,0]──────────水系魔法──────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
 	if TOINT(magicmenu[0])==1{
 		foreach 水系魔法; _i {
 			if _lvl>=TOINT(_i[5]){
-				if _i[3] == '回复'     {
+				if _i[3] == '回復'     {
 					_txt += "\_l[0,-]\f[color,65,203,214]%(_i[2])      \_l[80,-]%(_i[3])  \_l[115,-]%(_i[4])   \_l[145,-]%(_i[6])     \_l[185,-]%(_i[7])\f[color,default]     \_l[260,-]\q[◇使用,Onusemagic,%(_i[0]),%(_i[2]),%(_i[3]),%(_i[4]),%(_i[5]),%(_i[6]),%(_i[7])]\n"
 				}
-				elseif _i[3] == '攻击'  {
+				elseif _i[3] == '攻擊'  {
 					if battlemode==1
 						_txt += "\_l[0,-]\f[color,65,203,214]%(_i[2])      \_l[80,-]%(_i[3])  \_l[115,-]%(_i[4])   \_l[145,-]%(_i[6])     \_l[185,-]%(_i[7])\f[color,default]     \_l[260,-]\q[◇使用,Onusemagic,%(_i[0]),%(_i[2]),%(_i[3]),%(_i[4]),%(_i[5]),%(_i[6]),%(_i[7]),%(_i[8])]\n"
 					else
@@ -622,7 +622,7 @@ Magicmenu{
 		}
 	}
 	//_txt+='\_l[120,-]\f[color,255,0,0]火系魔法\f[color,default]\n'
-	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On魔法菜单,1]──────────火系魔法──────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
+	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On魔法菜單,1]──────────火系魔法──────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
 	if TOINT(magicmenu[1])==1{
 		foreach 火系魔法; _i {
 			if _lvl>=TOINT(_i[5]){
@@ -634,7 +634,7 @@ Magicmenu{
 		}
 	}
 	//_txt+='\_l[120,-]\f[color,231,171,109]土系魔法\f[color,default]\n'
-	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On魔法菜单,2]──────────土系魔法──────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
+	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On魔法菜單,2]──────────土系魔法──────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
 	if TOINT(magicmenu[2])==1{
 		foreach 土系魔法; _i {
 			if _lvl>=TOINT(_i[5]){
@@ -645,10 +645,10 @@ Magicmenu{
 			}
 		}
 	}
-	//_txt+='\_l[120,-]\f[color,194,243,99]风系魔法\f[color,default]\n'
-	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On魔法菜单,3]──────────风系魔法──────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
+	//_txt+='\_l[120,-]\f[color,194,243,99]風系魔法\f[color,default]\n'
+	_txt+='\f[color,160,160,200]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]\__q[On魔法菜單,3]──────────風系魔法──────────\__q\f[cursorstyle,default]\f[cursorfontcolor,default]\f[default]\n'
 	if TOINT(magicmenu[3])==1{
-		foreach 风系魔法; _i {
+		foreach 風系魔法; _i {
 			if _lvl>=TOINT(_i[5]){
 				if battlemode==1
 					_txt += "\_l[0,-]\f[color,194,243,99]%(_i[2])      \_l[80,-]%(_i[3])  \_l[115,-]%(_i[4])   \_l[145,-]%(_i[6])     \_l[185,-]%(_i[7])\f[color,default]     \_l[260,-]\q[◇使用,Onusemagic,%(_i[0]),%(_i[2]),%(_i[3]),%(_i[4]),%(_i[5]),%(_i[6]),%(_i[7]),%(_i[8])]\n"
@@ -662,7 +662,7 @@ Magicmenu{
 	}
 	_txt
 }
-On魔法菜单{
+On魔法菜單{
 	magicmenu[reference0]=(TOINT(magicmenu[reference0])+1)%2
 	if battlemode==0||battlemode==2{
 		OpenRpgGameMenu(2)
@@ -671,25 +671,25 @@ On魔法菜单{
 		Onmagic(target)
 }
 Onusemagic{
-	if (reference2=='回复'||reference2=='辅助') && reference3=='单体'{
+	if (reference2=='回復'||reference2=='輔助') && reference3=='單體'{
 		if !target
-			"给谁使用\n/
+			"給誰使用\n/
 			\q[◇橘花,Onkikka0,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
-			\q[◇斗和,Ontowa0,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
+			\q[◇鬥和,Ontowa0,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
 			\n[400]\q[◇返回,Onbackusemagic0]"
 		else
-			"给谁使用\n/
+			"給誰使用\n/
 			\q[◇橘花,Onkikka1,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
-			\q[◇斗和,Ontowa1,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
+			\q[◇鬥和,Ontowa1,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
 			\n[400]\q[◇返回,Onbackusemagic1]"
 	}
-	elseif (reference2=='回复'||reference2=='辅助') && reference3=='复体'{
+	elseif (reference2=='回復'||reference2=='輔助') && reference3=='複體'{
 		if !target
 			Ondouble0(reference0,reference1,reference2,reference3,reference4,reference5,reference6)
 		else
 			Ondouble1(reference0,reference1,reference2,reference3,reference4,reference5,reference6)
 	}
-	elseif reference2=='攻击'{
+	elseif reference2=='攻擊'{
 		if !target
 			Onmagicatk0(reference0,reference1,reference2,reference3,reference4,reference5,reference6,reference7)
 		else
@@ -730,7 +730,7 @@ KikkaUsedMagic{
 			Onbattleselect
 		}
 		else{
-			怪物反击
+			怪物反擊
 		}
 	}
 }
@@ -753,7 +753,7 @@ TowaUsedMagic{
 		On休息
 	}
 	else{
-		怪物反击
+		怪物反擊
 	}
 }
 TowaUsedFall{
@@ -768,216 +768,216 @@ TowaUsedFall{
 	}
 }
 Onkikka0{
-	魔法名称=reference1
-	效果数值=TOINT(reference6)
+	魔法名稱=reference1
+	效果數值=TOINT(reference6)
 	EP消耗=TOINT(reference5)
-	if reference6=='HP全回复' && ep0>=EP消耗{
-		"橘花对自己使用了%(魔法名称)，橘花HP回复%(hpmax0-hp0)\x"
+	if reference6=='HP全回復' && ep0>=EP消耗{
+		"橘花對自己使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)\x"
 		hp0=hpmax0
 		ep0-=EP消耗
 		--
 		KikkaUsedMagic
 	}
-	elseif reference6=='战斗不能解除' && ep0>=EP消耗{
-		"不能这样使用%(魔法名称)\x"
+	elseif reference6=='戰鬥不能解除' && ep0>=EP消耗{
+		"不能這樣使用%(魔法名稱)\x"
 		--
 		KikkaUsedFall
 	}
-	elseif reference6=='完全防御一次' && ep0>=EP消耗{
+	elseif reference6=='完全防禦一次' && ep0>=EP消耗{
 		kikkadefend=1
 		ep0-=EP消耗
-		"橘花对自己使用了%(魔法名称)\x"
+		"橘花對自己使用了%(魔法名稱)\x"
 		--
 		KikkaUsedMagic
 	}
 	elseif ep0>=EP消耗{
 		_hp=hp0
-		hp0+=效果数值
+		hp0+=效果數值
 		if hp0>hpmax0
 			hp0=hpmax0
 		ep0-=EP消耗
-		"橘花对自己使用了%(魔法名称)，橘花HP回复%(hp0-_hp)\x"
+		"橘花對自己使用了%(魔法名稱)，橘花HP回復%(hp0-_hp)\x"
 		--
 		KikkaUsedMagic
 	}
 	else{
-		'EP不足，不能驱动魔法\x'
+		'EP不足，不能驅動魔法\x'
 		--
 		KikkaUsedFall
 	}
 }
 Onkikka1{
-	魔法名称=reference1
-	效果数值=TOINT(reference6)
+	魔法名稱=reference1
+	效果數值=TOINT(reference6)
 	EP消耗=TOINT(reference5)
 	if hp0>0{
-		if reference6=='HP全回复' && ep1>=EP消耗{
-			"斗和对橘花使用了%(魔法名称)，橘花HP回复%(hpmax0-hp0)\x"
+		if reference6=='HP全回復' && ep1>=EP消耗{
+			"鬥和對橘花使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)\x"
 			hp0=hpmax0
 			ep1-=EP消耗
 			--
 			TowaUsedMagic
 		}
-		elseif reference6=='战斗不能解除' && ep1>=EP消耗{
-			"不能这样使用%(魔法名称)\x"
+		elseif reference6=='戰鬥不能解除' && ep1>=EP消耗{
+			"不能這樣使用%(魔法名稱)\x"
 			--
 			TowaUsedFall
 		}
-		elseif reference6=='完全防御一次' && ep1>=EP消耗{
+		elseif reference6=='完全防禦一次' && ep1>=EP消耗{
 			kikkadefend=1
-			"斗和对橘花使用了%(魔法名称)\x"
+			"鬥和對橘花使用了%(魔法名稱)\x"
 			ep1-=EP消耗
 			--
 			TowaUsedMagic
 		}
 		elseif ep1>=EP消耗{
 			_hp=hp0
-			hp0+=效果数值
+			hp0+=效果數值
 			if hp0>hpmax0
 				hp0=hpmax0
 			ep1-=EP消耗
-			"斗和对橘花使用了%(魔法名称)，橘花HP回复%(hp0-_hp)\x"
+			"鬥和對橘花使用了%(魔法名稱)，橘花HP回復%(hp0-_hp)\x"
 			--
 			TowaUsedMagic
 		}
 		else{
-			'EP不足，不能驱动魔法\x'
+			'EP不足，不能驅動魔法\x'
 			--
 			TowaUsedFall
 		}
 	}
-	elseif hp0==0 && reference6=='战斗不能解除' && ep1>=EP消耗{
-		"斗和对橘花使用了%(魔法名称)，橘花恢复战斗能力，橘花HP回复%(hpmax0-hp0)\x"
+	elseif hp0==0 && reference6=='戰鬥不能解除' && ep1>=EP消耗{
+		"鬥和對橘花使用了%(魔法名稱)，橘花恢復戰鬥能力，橘花HP回復%(hpmax0-hp0)\x"
 		hp0=hpmax0
 		ep1-=EP消耗
 		--
-		怪物反击
+		怪物反擊
 	}
 	elseif ep1<EP消耗{
-		'EP不足，不能驱动魔法\x'
+		'EP不足，不能驅動魔法\x'
 		--
 		TowaUsedFall
 	}
 	else{
-		"不能对失去战斗能力的橘花使用%(魔法名称)\x"
+		"不能對失去戰鬥能力的橘花使用%(魔法名稱)\x"
 		--
 		TowaUsedFall
 	}
 }
 Ontowa0{
-	魔法名称=reference1
-	效果数值=TOINT(reference6)
+	魔法名稱=reference1
+	效果數值=TOINT(reference6)
 	EP消耗=TOINT(reference5)
 	if hp1>0{
-		if reference6=='HP全回复' && ep0>=EP消耗{
-			"橘花对斗和使用了%(魔法名称)，斗和HP回复%(hpmax1-hp1)\x"
+		if reference6=='HP全回復' && ep0>=EP消耗{
+			"橘花對鬥和使用了%(魔法名稱)，鬥和HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
 			ep0-=EP消耗
 			--
 			KikkaUsedMagic
 		}
-		elseif reference6=='战斗不能解除' && ep0>=EP消耗{
-			"不能这样使用%(魔法名称)\x"
+		elseif reference6=='戰鬥不能解除' && ep0>=EP消耗{
+			"不能這樣使用%(魔法名稱)\x"
 			--
 			KikkaUsedFall
 		}
-		elseif reference6=='完全防御一次' && ep0>=EP消耗{
+		elseif reference6=='完全防禦一次' && ep0>=EP消耗{
 			towadefend=1
 			ep0-=EP消耗
-			"橘花对斗和使用了%(魔法名称)\x"
+			"橘花對鬥和使用了%(魔法名稱)\x"
 			--
 			KikkaUsedMagic
 		}
 		elseif ep0>=EP消耗{
 			_hp=hp1
-			hp1+=效果数值
+			hp1+=效果數值
 			if hp1>hpmax1
 				hp1=hpmax1
 			ep0-=EP消耗
-			"橘花对斗和使用了%(魔法名称)，斗和HP回复%(hp1-_hp)\x"
+			"橘花對鬥和使用了%(魔法名稱)，鬥和HP回復%(hp1-_hp)\x"
 			--
 			KikkaUsedMagic
 		}
 		else{
-			'EP不足，不能驱动魔法\x'
+			'EP不足，不能驅動魔法\x'
 			--
 			KikkaUsedFall
 		}
 	}
-	elseif hp1==0 && reference6=='战斗不能解除' && ep0>=EP消耗{
-		"橘花对斗和使用了%(魔法名称)，斗和恢复战斗能力，斗和HP回复%(hpmax1-hp1)\x"
+	elseif hp1==0 && reference6=='戰鬥不能解除' && ep0>=EP消耗{
+		"橘花對鬥和使用了%(魔法名稱)，鬥和恢復戰鬥能力，鬥和HP回復%(hpmax1-hp1)\x"
 		hp1=hpmax1
 		ep0-=EP消耗
 		--
 		KikkaUsedMagic
 	}
 	elseif ep0<EP消耗{
-		'EP不足，不能驱动魔法\x'
+		'EP不足，不能驅動魔法\x'
 		--
 		KikkaUsedFall
 	}
 	else{
-		"不能对失去战斗能力的斗和使用%(魔法名称)\x"
+		"不能對失去戰鬥能力的鬥和使用%(魔法名稱)\x"
 		--
 		KikkaUsedFall
 	}
 }
 Ontowa1{
-	魔法名称=reference1
-	效果数值=TOINT(reference6)
+	魔法名稱=reference1
+	效果數值=TOINT(reference6)
 	EP消耗=TOINT(reference5)
-	if reference6=='HP全回复' && ep1>=EP消耗{
-		"斗和对自己使用了%(魔法名称)，斗和HP回复%(hpmax1-hp1)\x"
+	if reference6=='HP全回復' && ep1>=EP消耗{
+		"鬥和對自己使用了%(魔法名稱)，鬥和HP回復%(hpmax1-hp1)\x"
 		hp1=hpmax1
 		ep1-=EP消耗
 		--
 		TowaUsedMagic
 	}
-	elseif reference6=='战斗不能解除' && ep1>=EP消耗{
-		"不能这样使用%(魔法名称)\x"
+	elseif reference6=='戰鬥不能解除' && ep1>=EP消耗{
+		"不能這樣使用%(魔法名稱)\x"
 		--
 		TowaUsedFall
 	}
-	elseif reference6=='完全防御一次' && ep1>=EP消耗{
+	elseif reference6=='完全防禦一次' && ep1>=EP消耗{
 		towadefend=1
 		ep1-=EP消耗
-		"斗和对自己使用了%(魔法名称)\x"
+		"鬥和對自己使用了%(魔法名稱)\x"
 		--
 		TowaUsedMagic
 	}
 	elseif ep1>=EP消耗{
 		_hp=hp1
-		hp1+=效果数值
+		hp1+=效果數值
 		if hp1>hpmax1
 			hp1=hpmax1
 		ep1-=EP消耗
-		"斗和对自己使用了%(魔法名称)，斗和HP回复%(hp1-_hp)\x"
+		"鬥和對自己使用了%(魔法名稱)，鬥和HP回復%(hp1-_hp)\x"
 		--
 		TowaUsedMagic
 	}
 	else{
-		'EP不足，不能驱动魔法\x'
+		'EP不足，不能驅動魔法\x'
 		--
 		TowaUsedFall
 	}
 }
 Ondouble0{
-	魔法名称=_argv[1]
-	效果数值=TOINT(_argv[6])
+	魔法名稱=_argv[1]
+	效果數值=TOINT(_argv[6])
 	EP消耗=TOINT(_argv[5])
 	if hp1>0{
-		if _argv[6]=='HP全回复' && ep0>=EP消耗{
-			"橘花使用了%(魔法名称)，橘花HP回复%(hpmax0-hp0)，斗和HP回复%(hpmax1-hp1)\x"
+		if _argv[6]=='HP全回復' && ep0>=EP消耗{
+			"橘花使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)，鬥和HP回復%(hpmax1-hp1)\x"
 			hp0=hpmax0
 			hp1=hpmax1
 			ep0-=EP消耗
 			--
 			KikkaUsedMagic
 		}
-		elseif _argv[6]=='完全防御一次' && ep0>=EP消耗{
+		elseif _argv[6]=='完全防禦一次' && ep0>=EP消耗{
 			kikkadefend=1
 			towadefend=1
-			"橘花使用了%(魔法名称)\x"
+			"橘花使用了%(魔法名稱)\x"
 			ep0-=EP消耗
 			--
 			KikkaUsedMagic
@@ -985,26 +985,26 @@ Ondouble0{
 		elseif ep0>=EP消耗{
 			_hp0=hp0
 			_hp1=hp1
-			hp0+=效果数值
-			hp1+=效果数值
+			hp0+=效果數值
+			hp1+=效果數值
 			if hp0>hpmax0
 				hp0=hpmax0
 			if hp1>hpmax1
 				hp1=hpmax1
 			ep0-=EP消耗
-			"橘花使用了%(魔法名称)，橘花HP回复%(hp0-_hp0)，斗和HP回复%(hp1-_hp1)\x"
+			"橘花使用了%(魔法名稱)，橘花HP回復%(hp0-_hp0)，鬥和HP回復%(hp1-_hp1)\x"
 			--
 			KikkaUsedMagic
 		}
 		else{
-			'EP不足，不能驱动魔法\x'
+			'EP不足，不能驅動魔法\x'
 			--
 			KikkaUsedFall
 		}
 	}
 	elseif hp1==0{
-		if _argv[6]=='HP全回复' && ep0>=EP消耗{
-			"橘花使用了%(魔法名称)，橘花HP回复%(hpmax0-hp0)\x"
+		if _argv[6]=='HP全回復' && ep0>=EP消耗{
+			"橘花使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)\x"
 			hp0=hpmax0
 			ep0-=EP消耗
 			--
@@ -1012,65 +1012,65 @@ Ondouble0{
 		}
 		elseif ep0>=EP消耗{
 			_hp=hp0
-			hp0+=效果数值
+			hp0+=效果數值
 			if hp0>hpmax0
 				hp0=hpmax0
 			ep0-=EP消耗
-			"橘花使用了%(魔法名称)，橘花HP回复%(hp0-_hp)\x"
+			"橘花使用了%(魔法名稱)，橘花HP回復%(hp0-_hp)\x"
 			--
 			KikkaUsedMagic
 		}
 		else{
-			'EP不足，不能驱动魔法\x'
+			'EP不足，不能驅動魔法\x'
 			--
 			KikkaUsedFall
 		}
 	}
 }
 Ondouble1{
-	魔法名称=_argv[1]
-	效果数值=TOINT(_argv[6])
+	魔法名稱=_argv[1]
+	效果數值=TOINT(_argv[6])
 	EP消耗=TOINT(_argv[5])
 	if hp0>0{
-		if _argv[6]=='HP全回复' && ep1>=EP消耗{
-			"斗和使用了%(魔法名称)，橘花HP回复%(hpmax0-hp0)，斗和HP回复%(hpmax1-hp1)\x"
+		if _argv[6]=='HP全回復' && ep1>=EP消耗{
+			"鬥和使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)，鬥和HP回復%(hpmax1-hp1)\x"
 			hp0=hpmax0
 			hp1=hpmax1
 			ep1-=EP消耗
 			--
 			TowaUsedMagic
 		}
-		elseif _argv[6]=='完全防御一次' && ep1>=EP消耗{
+		elseif _argv[6]=='完全防禦一次' && ep1>=EP消耗{
 			kikkadefend=1
 			towadefend=1
 			ep1-=EP消耗
-			"斗和使用了%(魔法名称)\x"
+			"鬥和使用了%(魔法名稱)\x"
 			--
 			TowaUsedMagic
 		}
 		elseif ep0>=EP消耗{
 			_hp0=hp0
 			_hp1=hp1
-			hp0+=效果数值
-			hp1+=效果数值
+			hp0+=效果數值
+			hp1+=效果數值
 			if hp0>hpmax0
 				hp0=hpmax0
 			if hp1>hpmax1
 				hp1=hpmax1
 			ep1-=EP消耗
-			"斗和使用了%(魔法名称)，橘花HP回复%(hp0-_hp0)，斗和HP回复%(hp1-_hp1)\x"
+			"鬥和使用了%(魔法名稱)，橘花HP回復%(hp0-_hp0)，鬥和HP回復%(hp1-_hp1)\x"
 			--
 			TowaUsedMagic
 		}
 		else{
-			'EP不足，不能驱动魔法\x'
+			'EP不足，不能驅動魔法\x'
 			--
 			TowaUsedFall
 		}
 	}
 	elseif hp0==0{
-		if _argv[6]=='HP全回复' && ep1>=EP消耗{
-			"斗和使用了%(魔法名称)，斗和HP回复%(hpmax1-hp1)\x"
+		if _argv[6]=='HP全回復' && ep1>=EP消耗{
+			"鬥和使用了%(魔法名稱)，鬥和HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
 			ep1-=EP消耗
 			--
@@ -1078,28 +1078,28 @@ Ondouble1{
 		}
 		elseif ep1>=EP消耗{
 			_hp=hp1
-			hp1+=效果数值
+			hp1+=效果數值
 			if hp1>hpmax1
 				hp1=hpmax1
 			ep1-=EP消耗
-			"斗和使用了%(魔法名称)，斗和HP回复%(hp1-_hp)\x"
+			"鬥和使用了%(魔法名稱)，鬥和HP回復%(hp1-_hp)\x"
 			--
 			TowaUsedMagic
 		}
 		else{
-			'EP不足，不能驱动魔法\x'
+			'EP不足，不能驅動魔法\x'
 			--
 			TowaUsedFall
 		}
 	}
 }
-准备魔法0{
+準備魔法0{
 	magicready0=0
-	mhp-=魔法伤害0
+	mhp-=魔法傷害0
 	ep0-=EP消耗
-	"橘花对%(怪物名字)使用了%(魔法名称0)，%(怪物名字)损血%(魔法伤害0)\x"
+	"橘花對%(怪物名字)使用了%(魔法名稱0)，%(怪物名字)損血%(魔法傷害0)\x"
 	--
-	if 魔法伤害1>=TOINT(0.33*mhpmax){
+	if 魔法傷害1>=TOINT(0.33*mhpmax){
 		cp0+=3
 	}
 	else{
@@ -1110,101 +1110,101 @@ Ondouble1{
 		Onbattleselect
 	}
 	else{
-		怪物反击
+		怪物反擊
 	}
 }
-准备魔法1{
+準備魔法1{
 	magicready1=0
-	mhp-=魔法伤害1
+	mhp-=魔法傷害1
 	ep1-=EP消耗
-	"斗和对%(怪物名字)使用了%(魔法名称1)，%(怪物名字)损血%(魔法伤害1)\x"
+	"鬥和對%(怪物名字)使用了%(魔法名稱1)，%(怪物名字)損血%(魔法傷害1)\x"
 	--
-	if 魔法伤害1>=TOINT(0.33*mhpmax){
+	if 魔法傷害1>=TOINT(0.33*mhpmax){
 		cp1+=3
 	}
 	else{
 		cp1+=10
 	}
 	--
-	怪物反击
+	怪物反擊
 }
 Onmagicatk0{
-	魔法种类=_argv[0]
-	魔法名称0=_argv[1]
-	效果数值=TOINT(_argv[6])
+	魔法種類=_argv[0]
+	魔法名稱0=_argv[1]
+	效果數值=TOINT(_argv[6])
 	NUMS=_argv[7]
 	EP消耗=TOINT(_argv[5])
 	if ep0>=EP消耗{
-		if 魔法种类=='水系魔法'{
-			魔法伤害=TOINT(ANG*NUMS*水有效率*(4.10*ats0-2.80*madf+效果数值))
+		if 魔法種類=='水系魔法'{
+			魔法傷害=TOINT(ANG*NUMS*水有效率*(4.10*ats0-2.80*madf+效果數值))
 		}
-		elseif 魔法种类=='火系魔法'{
-			魔法伤害=TOINT(ANG*NUMS*火有效率*(4.10*ats0-2.80*madf+效果数值))
+		elseif 魔法種類=='火系魔法'{
+			魔法傷害=TOINT(ANG*NUMS*火有效率*(4.10*ats0-2.80*madf+效果數值))
 		}
-		elseif 魔法种类=='土系魔法'{
-			魔法伤害=TOINT(ANG*NUMS*土有效率*(4.10*ats0-2.80*madf+效果数值))
+		elseif 魔法種類=='土系魔法'{
+			魔法傷害=TOINT(ANG*NUMS*土有效率*(4.10*ats0-2.80*madf+效果數值))
 		}
-		elseif 魔法种类=='风系魔法'{
-			魔法伤害=TOINT(ANG*NUMS*风有效率*(4.10*ats0-2.80*madf+效果数值))
+		elseif 魔法種類=='風系魔法'{
+			魔法傷害=TOINT(ANG*NUMS*風有效率*(4.10*ats0-2.80*madf+效果數值))
 		}
-		if 魔法伤害<0{
-			魔法伤害=0
+		if 魔法傷害<0{
+			魔法傷害=0
 		}
 		if mdefend==1{
-			魔法伤害=0
+			魔法傷害=0
 			mdefend=0
 		}
 		magicready0=1
-		魔法伤害0=魔法伤害
-		'橘花正在准备魔法\x'
+		魔法傷害0=魔法傷害
+		'橘花正在準備魔法\x'
 		--
 		if hp1>0{
 			Onbattleselect
 		}
 		else{
-			怪物反击
+			怪物反擊
 		}
 	}
 	else{
-		'EP不足，不能驱动魔法\x'
+		'EP不足，不能驅動魔法\x'
 		--
 		Onbattleselect0
 	}
 }
 Onmagicatk1{
-	魔法种类=_argv[0]
-	魔法名称1=_argv[1]
-	效果数值=TOINT(_argv[6])
+	魔法種類=_argv[0]
+	魔法名稱1=_argv[1]
+	效果數值=TOINT(_argv[6])
 	NUMS=_argv[7]
 	EP消耗=TOINT(_argv[5])
 	if ep1>=EP消耗{
-		if 魔法种类=='水系魔法'{
-			魔法伤害=TOINT(ANG*NUMS*水有效率*(4.10*ats1-2.80*madf+效果数值))
+		if 魔法種類=='水系魔法'{
+			魔法傷害=TOINT(ANG*NUMS*水有效率*(4.10*ats1-2.80*madf+效果數值))
 		}
-		elseif 魔法种类=='火系魔法'{
-			魔法伤害=TOINT(ANG*NUMS*火有效率*(4.10*ats1-2.80*madf+效果数值))
+		elseif 魔法種類=='火系魔法'{
+			魔法傷害=TOINT(ANG*NUMS*火有效率*(4.10*ats1-2.80*madf+效果數值))
 		}
-		elseif 魔法种类=='土系魔法'{
-			魔法伤害=TOINT(ANG*NUMS*土有效率*(4.10*ats1-2.80*madf+效果数值))
+		elseif 魔法種類=='土系魔法'{
+			魔法傷害=TOINT(ANG*NUMS*土有效率*(4.10*ats1-2.80*madf+效果數值))
 		}
-		elseif 魔法种类=='风系魔法'{
-			魔法伤害=TOINT(ANG*NUMS*风有效率*(4.10*ats1-2.80*madf+效果数值))
+		elseif 魔法種類=='風系魔法'{
+			魔法傷害=TOINT(ANG*NUMS*風有效率*(4.10*ats1-2.80*madf+效果數值))
 		}
-		if 魔法伤害<0{
-			魔法伤害=0
+		if 魔法傷害<0{
+			魔法傷害=0
 		}
 		if mdefend==1{
-			魔法伤害=0
+			魔法傷害=0
 			mdefend=0
 		}
 		magicready1=1
-		魔法伤害1=魔法伤害
-		'斗和正在准备魔法\x'
+		魔法傷害1=魔法傷害
+		'鬥和正在準備魔法\x'
 		--
-		怪物反击
+		怪物反擊
 	}
 	else{
-		'EP不足，不能驱动魔法\x'
+		'EP不足，不能驅動魔法\x'
 		--
 		Onbattleselect1
 	}
@@ -1214,9 +1214,9 @@ Onmagicatk1{
 	On道具列表
 }
 On道具列表{
-	信息参数
+	資訊參數
 	_txt='\b[2]\![quicksession,true]\n'
-	_txt+='\_l[0,-]名称    \_l[80,-]效果   \_l[160,-]买入价格 \_l[215,-]已有数量  \n'
+	_txt+='\_l[0,-]名稱    \_l[80,-]效果   \_l[160,-]買入價格 \_l[215,-]已有數量  \n'
 	foreach itemA; _i {
 		if _i[3]>0{
 			_txt += "\f[color,194,243,99]\_l[0,-]%(_i[2])\f[color,default]    \f[color,194,243,99]\_l[80,-]%(_i[5])\f[color,default]     \f[color,231,171,109]\_l[160,-]%(_i[4])\f[color,default]   \_l[215,-]%(_i[3]) \_l[260,-] \q[◇使用,Onuseitemselect,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
@@ -1234,77 +1234,77 @@ On道具列表{
 	_txt
 }
 Onuseitemselect{
-	"给谁使用\n/
+	"給誰使用\n/
 	\q[◇橘花,Onuseitem0,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
-	\q[◇斗和,Onuseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
+	\q[◇鬥和,Onuseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
 	\n[half]\q[◇返回,OnRpgGame,3]"
 }
 Onuseitemselect0{
-	"给谁使用\n/
+	"給誰使用\n/
 	\q[◇橘花,Onkikkauseitem0,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
-	\q[◇斗和,Onkikkauseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
+	\q[◇鬥和,Onkikkauseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
 	\n[half]\q[◇返回,item0]"
 }
 Onuseitemselect1{
-	"给谁使用\n/
+	"給誰使用\n/
 	\q[◇橘花,Ontowauseitem0,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
-	\q[◇斗和,Ontowauseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
+	\q[◇鬥和,Ontowauseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
 	\n[half]\q[◇返回,item1]"
 }
 Onuseitem0{
-	道具类型=reference0
-	道具代码=reference1
-	道具名称=reference2
-	效果数值=TOINT(reference3)
-	if 道具类型=='itemA'{
-		if reference3=='HP全回复'||reference3=='战斗不能解除'{
-			"对橘花使用了%(道具名称),HP回复%(hpmax0-hp0)\x"
+	道具類型=reference0
+	道具代碼=reference1
+	道具名稱=reference2
+	效果數值=TOINT(reference3)
+	if 道具類型=='itemA'{
+		if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
+			"對橘花使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
 			hp0=hpmax0
-			itemAnum[道具代码]-=1
+			itemAnum[道具代碼]-=1
 		}
-		elseif '经验丹' _in_ 道具名称{
-			"当前橘花经验为%(exp0)\n"
+		elseif '經驗丹' _in_ 道具名稱{
+			"當前橘花經驗為%(exp0)\n"
 			--
-			exp0+=效果数值
-			exptotal0+=效果数值
-			itemAnum[道具代码]-=1
-			"对橘花使用了%(道具名称),橘花经验增加%(效果数值)，橘花经验为%(exp0)\n"
+			exp0+=效果數值
+			exptotal0+=效果數值
+			itemAnum[道具代碼]-=1
+			"對橘花使用了%(道具名稱),橘花經驗增加%(效果數值)，橘花經驗為%(exp0)\n"
 			--
-			橘花升级+'\x'
+			橘花升級+'\x'
 		}
-		elseif '转生丹' _in_ 道具名称{
-			"当前橘花转生修为为%(expcircle0)\n"
+		elseif '轉生丹' _in_ 道具名稱{
+			"當前橘花轉生修為為%(expcircle0)\n"
 			--
-			expcircle0+=效果数值
-			itemAnum[道具代码]-=1
-			"对橘花使用了%(道具名称),橘花转生修为增加%(效果数值)，橘花转生修为为%(expcircle0)\x"
+			expcircle0+=效果數值
+			itemAnum[道具代碼]-=1
+			"對橘花使用了%(道具名稱),橘花轉生修為增加%(效果數值)，橘花轉生修為為%(expcircle0)\x"
 		}
-		elseif hp0+效果数值>=hpmax0{
-			"对橘花使用了%(道具名称),HP回复%(hpmax0-hp0)\x"
+		elseif hp0+效果數值>=hpmax0{
+			"對橘花使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
 			hp0=hpmax0
-			itemAnum[道具代码]-=1
+			itemAnum[道具代碼]-=1
 		}
-		elseif hp0+效果数值<hpmax0{
-			hp0+=效果数值
-			"对橘花使用了%(道具名称),HP回复%(效果数值)\x"
-			itemAnum[道具代码]-=1
+		elseif hp0+效果數值<hpmax0{
+			hp0+=效果數值
+			"對橘花使用了%(道具名稱),HP回復%(效果數值)\x"
+			itemAnum[道具代碼]-=1
 		}
 	}
-	elseif 道具类型=='itemB'{
-		if reference3=='EP全回复'{
-			"对橘花使用了%(道具名称),EP回复%(epmax0-ep0)\x"
+	elseif 道具類型=='itemB'{
+		if reference3=='EP全回復'{
+			"對橘花使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
 			ep0=epmax0
-			itemBnum[道具代码]-=1
+			itemBnum[道具代碼]-=1
 		}
-		elseif ep0+效果数值>=epmax0{
-			"对橘花使用了%(道具名称),EP回复%(epmax0-ep0)\x"
+		elseif ep0+效果數值>=epmax0{
+			"對橘花使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
 			ep0=epmax0
-			itemBnum[道具代码]-=1
+			itemBnum[道具代碼]-=1
 		}
-		elseif ep0+效果数值<epmax0{
-			ep0+=效果数值
-			"对橘花使用了%(道具名称),EP回复%(效果数值)\x"
-			itemBnum[道具代码]-=1
+		elseif ep0+效果數值<epmax0{
+			ep0+=效果數值
+			"對橘花使用了%(道具名稱),EP回復%(效果數值)\x"
+			itemBnum[道具代碼]-=1
 		}
 	}
 	--
@@ -1316,59 +1316,59 @@ Onuseitem0{
 	}
 }
 Onuseitem1{
-	道具类型=reference0
-	道具代码=reference1
-	道具名称=reference2
-	效果数值=TOINT(reference3)
-	if 道具类型=='itemA'{
-		if reference3=='HP全回复'||reference3=='战斗不能解除'{
-			"对斗和使用了%(道具名称),HP回复%(hpmax1-hp1)\x"
+	道具類型=reference0
+	道具代碼=reference1
+	道具名稱=reference2
+	效果數值=TOINT(reference3)
+	if 道具類型=='itemA'{
+		if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
+			"對鬥和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
-			itemAnum[道具代码]-=1
+			itemAnum[道具代碼]-=1
 		}
-		elseif '经验丹' _in_ 道具名称{
-			"当前斗和经验为%(exp1)\n"
+		elseif '經驗丹' _in_ 道具名稱{
+			"當前鬥和經驗為%(exp1)\n"
 			--
-			exp1+=效果数值
-			exptotal1+=效果数值
-			itemAnum[道具代码]-=1
-			"对斗和使用了%(道具名称),斗和经验增加%(效果数值)，斗和经验为%(exp1)\n"
+			exp1+=效果數值
+			exptotal1+=效果數值
+			itemAnum[道具代碼]-=1
+			"對鬥和使用了%(道具名稱),鬥和經驗增加%(效果數值)，鬥和經驗為%(exp1)\n"
 			--
-			斗和升级+'\x'
+			鬥和升級+'\x'
 		}
-		elseif '转生丹' _in_ 道具名称{
-			"当前斗和转生修为为%(expcircle1)\n"
+		elseif '轉生丹' _in_ 道具名稱{
+			"當前鬥和轉生修為為%(expcircle1)\n"
 			--
-			expcircle1+=效果数值
-			itemAnum[道具代码]-=1
-			"对斗和使用了%(道具名称),斗和转生修为增加%(效果数值)，斗和转生修为为%(expcircle1)\x"
+			expcircle1+=效果數值
+			itemAnum[道具代碼]-=1
+			"對鬥和使用了%(道具名稱),鬥和轉生修為增加%(效果數值)，鬥和轉生修為為%(expcircle1)\x"
 		}
-		elseif hp1+效果数值>=hpmax1{
-			"对斗和使用了%(道具名称),HP回复%(hpmax1-hp1)\x"
+		elseif hp1+效果數值>=hpmax1{
+			"對鬥和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
-			itemAnum[道具代码]-=1
+			itemAnum[道具代碼]-=1
 		}
-		elseif hp1+效果数值<hpmax1{
-			hp1+=效果数值
-			"对斗和使用了%(道具名称),HP回复%(效果数值)\x"
-			itemAnum[道具代码]-=1
+		elseif hp1+效果數值<hpmax1{
+			hp1+=效果數值
+			"對鬥和使用了%(道具名稱),HP回復%(效果數值)\x"
+			itemAnum[道具代碼]-=1
 		}
 	}
-	elseif 道具类型=='itemB'{
-		if reference3=='EP全回复'{
-			"对斗和使用了%(道具名称),EP回复%(epmax1-ep1)\x"
+	elseif 道具類型=='itemB'{
+		if reference3=='EP全回復'{
+			"對鬥和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 			ep1=epmax1
-			itemBnum[道具代码]-=1
+			itemBnum[道具代碼]-=1
 		}
-		elseif ep1+效果数值>=epmax1{
-			"对斗和使用了%(道具名称),EP回复%(epmax1-ep1)\x"
+		elseif ep1+效果數值>=epmax1{
+			"對鬥和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 			ep1=epmax1
-			itemBnum[道具代码]-=1
+			itemBnum[道具代碼]-=1
 		}
-		elseif ep1+效果数值<epmax1{
-			ep1+=效果数值
-			"对斗和使用了%(道具名称),EP回复%(效果数值)\x"
-			itemBnum[道具代码]-=1
+		elseif ep1+效果數值<epmax1{
+			ep1+=效果數值
+			"對鬥和使用了%(道具名稱),EP回復%(效果數值)\x"
+			itemBnum[道具代碼]-=1
 		}
 	}
 	--
@@ -1380,42 +1380,42 @@ Onuseitem1{
 	}
 }
 Onkikkauseitem0{
-	道具类型=reference0
-	道具代码=reference1
-	道具名称=reference2
-	效果数值=TOINT(reference3)
-	if 道具类型=='itemA'{
-		if reference3=='HP全回复'||reference3=='战斗不能解除'{
-			"橘花对自己使用了%(道具名称),HP回复%(hpmax0-hp0)\x"
+	道具類型=reference0
+	道具代碼=reference1
+	道具名稱=reference2
+	效果數值=TOINT(reference3)
+	if 道具類型=='itemA'{
+		if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
+			"橘花對自己使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
 			hp0=hpmax0
-			itemAnum[道具代码]-=1
+			itemAnum[道具代碼]-=1
 		}
-		elseif hp0+效果数值>=hpmax0{
-			"橘花对自己使用了%(道具名称),HP回复%(hpmax0-hp0)\x"
+		elseif hp0+效果數值>=hpmax0{
+			"橘花對自己使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
 			hp0=hpmax0
-			itemAnum[道具代码]-=1
+			itemAnum[道具代碼]-=1
 		}
-		elseif hp0+效果数值<hpmax0{
-			hp0+=效果数值
-			"橘花对自己使用了%(道具名称),HP回复%(效果数值)\x"
-			itemAnum[道具代码]-=1
+		elseif hp0+效果數值<hpmax0{
+			hp0+=效果數值
+			"橘花對自己使用了%(道具名稱),HP回復%(效果數值)\x"
+			itemAnum[道具代碼]-=1
 		}
 	}
-	elseif 道具类型=='itemB'{
-		if reference3=='EP全回复'{
-			"橘花对自己使用了%(道具名称),EP回复%(epmax0-ep0)\x"
+	elseif 道具類型=='itemB'{
+		if reference3=='EP全回復'{
+			"橘花對自己使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
 			ep0=epmax0
-			itemBnum[道具代码]-=1
+			itemBnum[道具代碼]-=1
 		}
-		elseif ep0+效果数值>=epmax0{
-			"橘花对自己使用了%(道具名称),EP回复%(epmax0-ep0)\x"
+		elseif ep0+效果數值>=epmax0{
+			"橘花對自己使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
 			ep0=epmax0
-			itemBnum[道具代码]-=1
+			itemBnum[道具代碼]-=1
 		}
-		elseif ep0+效果数值<epmax0{
-			ep0+=效果数值
-			"橘花对自己使用了%(道具名称),EP回复%(效果数值)\x"
-			itemBnum[道具代码]-=1
+		elseif ep0+效果數值<epmax0{
+			ep0+=效果數值
+			"橘花對自己使用了%(道具名稱),EP回復%(效果數值)\x"
+			itemBnum[道具代碼]-=1
 		}
 	}
 	--
@@ -1423,60 +1423,60 @@ Onkikkauseitem0{
 		Onbattleselect
 	}
 	else{
-		怪物反击
+		怪物反擊
 	}
 }
 Onkikkauseitem1{
-	道具类型=reference0
-	道具代码=reference1
-	道具名称=reference2
-	效果数值=TOINT(reference3)
+	道具類型=reference0
+	道具代碼=reference1
+	道具名稱=reference2
+	效果數值=TOINT(reference3)
 	if hp1>0{
-		if 道具类型=='itemA'{
-			if reference3=='HP全回复'||reference3=='战斗不能解除'{
-				"橘花对斗和使用了%(道具名称),HP回复%(hpmax1-hp1)\x"
+		if 道具類型=='itemA'{
+			if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
+				"橘花對鬥和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 				hp1=hpmax1
-				itemAnum[道具代码]-=1
+				itemAnum[道具代碼]-=1
 			}
-			elseif hp1+效果数值>=hpmax1{
-				"橘花对斗和使用了%(道具名称),HP回复%(hpmax1-hp1)\x"
+			elseif hp1+效果數值>=hpmax1{
+				"橘花對鬥和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 				hp1=hpmax1
-				itemAnum[道具代码]-=1
+				itemAnum[道具代碼]-=1
 			}
-			elseif hp1+效果数值<hpmax1{
-				hp1+=效果数值
-				"橘花对斗和使用了%(道具名称),HP回复%(效果数值)\x"
-				itemAnum[道具代码]-=1
+			elseif hp1+效果數值<hpmax1{
+				hp1+=效果數值
+				"橘花對鬥和使用了%(道具名稱),HP回復%(效果數值)\x"
+				itemAnum[道具代碼]-=1
 			}
 		}
-		elseif 道具类型=='itemB'{
-			if reference3=='EP全回复'{
-				"橘花对斗和使用了%(道具名称),EP回复%(epmax1-ep1)\x"
+		elseif 道具類型=='itemB'{
+			if reference3=='EP全回復'{
+				"橘花對鬥和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 				ep1=epmax1
-				itemBnum[道具代码]-=1
+				itemBnum[道具代碼]-=1
 			}
-			elseif ep1+效果数值>=epmax1{
-				"橘花对斗和使用了%(道具名称),EP回复%(epmax1-ep1)\x"
+			elseif ep1+效果數值>=epmax1{
+				"橘花對鬥和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 				ep1=epmax1
-				itemBnum[道具代码]-=1
+				itemBnum[道具代碼]-=1
 			}
-			elseif ep1+效果数值<epmax1{
-				ep1+=效果数值
-				"橘花对斗和使用了%(道具名称),EP回复%(效果数值)\x"
-				itemBnum[道具代码]-=1
+			elseif ep1+效果數值<epmax1{
+				ep1+=效果數值
+				"橘花對鬥和使用了%(道具名稱),EP回復%(效果數值)\x"
+				itemBnum[道具代碼]-=1
 			}
 		}
 	}
 	elseif hp1==0{
-		if 道具类型=='itemA'{
-			if reference3=='战斗不能解除'{
-				"橘花对斗和使用了%(道具名称),斗和恢复战斗能力，并且HP回复%(hpmax1-hp1)\x"
+		if 道具類型=='itemA'{
+			if reference3=='戰鬥不能解除'{
+				"橘花對鬥和使用了%(道具名稱),鬥和恢復戰鬥能力，並且HP回復%(hpmax1-hp1)\x"
 				hp1=hpmax1
-				itemAnum[道具代码]-=1
+				itemAnum[道具代碼]-=1
 			}
 		}
 		else{
-			"不能对失去战斗能力斗和使用%(道具名称)\x"
+			"不能對失去戰鬥能力鬥和使用%(道具名稱)\x"
 			--
 			Onbattleselect0
 			return
@@ -1487,112 +1487,112 @@ Onkikkauseitem1{
 		Onbattleselect
 	}
 	else{
-		怪物反击
+		怪物反擊
 	}
 }
 Ontowauseitem0{
-	道具类型=reference0
-	道具代码=reference1
-	道具名称=reference2
-	效果数值=TOINT(reference3)
+	道具類型=reference0
+	道具代碼=reference1
+	道具名稱=reference2
+	效果數值=TOINT(reference3)
 	if hp0>0{
-		if 道具类型=='itemA'{
-			if reference3=='HP全回复'||reference3=='战斗不能解除'{
-				"斗和对橘花使用了%(道具名称),HP回复%(hpmax0-hp0)\x"
+		if 道具類型=='itemA'{
+			if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
+				"鬥和對橘花使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
 				hp0=hpmax0
-				itemAnum[道具代码]-=1
+				itemAnum[道具代碼]-=1
 			}
-			elseif hp0+效果数值>=hpmax0{
-				"斗和对橘花使用了%(道具名称),HP回复%(hpmax0-hp0)\x"
+			elseif hp0+效果數值>=hpmax0{
+				"鬥和對橘花使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
 				hp0=hpmax0
-				itemAnum[道具代码]-=1
+				itemAnum[道具代碼]-=1
 			}
-			elseif hp0+效果数值<hpmax0{
-				hp0+=效果数值
-				"斗和对橘花使用了%(道具名称),HP回复%(效果数值)\x"
-				itemAnum[道具代码]-=1
+			elseif hp0+效果數值<hpmax0{
+				hp0+=效果數值
+				"鬥和對橘花使用了%(道具名稱),HP回復%(效果數值)\x"
+				itemAnum[道具代碼]-=1
 			}
 		}
-		elseif 道具类型=='itemB'{
-			if reference3=='EP全回复'{
-				"斗和对橘花使用了%(道具名称),EP回复%(epmax0-ep0)\x"
+		elseif 道具類型=='itemB'{
+			if reference3=='EP全回復'{
+				"鬥和對橘花使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
 				ep0=epmax0
-				itemBnum[道具代码]-=1
+				itemBnum[道具代碼]-=1
 			}
-			elseif ep0+效果数值>=epmax0{
-				"斗和对橘花使用了%(道具名称),EP回复%(epmax0-ep0)\x"
+			elseif ep0+效果數值>=epmax0{
+				"鬥和對橘花使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
 				ep0=epmax0
-				itemBnum[道具代码]-=1
+				itemBnum[道具代碼]-=1
 			}
-			elseif ep0+效果数值<epmax0{
-				ep0+=效果数值
-				"斗和对橘花使用了%(道具名称),EP回复%(效果数值)\x"
-				itemBnum[道具代码]-=1
+			elseif ep0+效果數值<epmax0{
+				ep0+=效果數值
+				"鬥和對橘花使用了%(道具名稱),EP回復%(效果數值)\x"
+				itemBnum[道具代碼]-=1
 			}
 		}
 	}
 	elseif hp0==0{
-		if 道具类型=='itemA'{
-			if reference3=='战斗不能解除'{
-				"斗和对橘花使用了%(道具名称),橘花恢复战斗能力，并且HP回复%(hpmax0-hp0)\x"
+		if 道具類型=='itemA'{
+			if reference3=='戰鬥不能解除'{
+				"鬥和對橘花使用了%(道具名稱),橘花恢復戰鬥能力，並且HP回復%(hpmax0-hp0)\x"
 				hp0=hpmax0
-				itemAnum[道具代码]-=1
+				itemAnum[道具代碼]-=1
 			}
 		}
 		else{
-			"不能对失去战斗能力橘花使用%(道具名称)\x"
+			"不能對失去戰鬥能力橘花使用%(道具名稱)\x"
 			--
 			Onbattleselect1
 			return
 		}
 	}
 	--
-	怪物反击
+	怪物反擊
 }
 Ontowauseitem1{
-	道具类型=reference0
-	道具代码=reference1
-	道具名称=reference2
-	效果数值=TOINT(reference3)
-	if 道具类型=='itemA'{
-		if reference3=='HP全回复'||reference3=='战斗不能解除'{
-			"斗和对自己使用了%(道具名称),HP回复%(hpmax1-hp1)\x"
+	道具類型=reference0
+	道具代碼=reference1
+	道具名稱=reference2
+	效果數值=TOINT(reference3)
+	if 道具類型=='itemA'{
+		if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
+			"鬥和對自己使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
-			itemAnum[道具代码]-=1
+			itemAnum[道具代碼]-=1
 		}
-		elseif hp1+效果数值>=hpmax1{
-			"斗和对自己使用了%(道具名称),HP回复%(hpmax1-hp1)\x"
+		elseif hp1+效果數值>=hpmax1{
+			"鬥和對自己使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
-			itemAnum[道具代码]-=1
+			itemAnum[道具代碼]-=1
 		}
-		elseif hp1+效果数值<hpmax1{
-			hp1+=效果数值
-			"斗和对自己使用了%(道具名称),HP回复%(效果数值)\x"
-			itemAnum[道具代码]-=1
+		elseif hp1+效果數值<hpmax1{
+			hp1+=效果數值
+			"鬥和對自己使用了%(道具名稱),HP回復%(效果數值)\x"
+			itemAnum[道具代碼]-=1
 		}
 	}
-	elseif 道具类型=='itemB'{
-		if reference3=='EP全回复'{
-			"斗和对自己使用了%(道具名称),EP回复%(epmax1-ep1)\x"
+	elseif 道具類型=='itemB'{
+		if reference3=='EP全回復'{
+			"鬥和對自己使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 			ep1=epmax1
-			itemBnum[道具代码]-=1
+			itemBnum[道具代碼]-=1
 		}
-		elseif ep1+效果数值>=epmax1{
-			"斗和对自己使用了%(道具名称),EP回复%(epmax1-ep1)\x"
+		elseif ep1+效果數值>=epmax1{
+			"鬥和對自己使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 			ep1=epmax1
-			itemBnum[道具代码]-=1
+			itemBnum[道具代碼]-=1
 		}
-		elseif ep1+效果数值<epmax1{
-			ep1+=效果数值
-			"斗和对自己使用了%(道具名称),EP回复%(效果数值)\x"
-			itemBnum[道具代码]-=1
+		elseif ep1+效果數值<epmax1{
+			ep1+=效果數值
+			"鬥和對自己使用了%(道具名稱),EP回復%(效果數值)\x"
+			itemBnum[道具代碼]-=1
 		}
 	}
 	--
-	怪物反击
+	怪物反擊
 }
-超出反应{
-	信息参数
+超出反應{
+	資訊參數
 	--
 	_weapon = (weaponA,weaponB)
 	_armor = (armorA,armorB)
@@ -1656,7 +1656,7 @@ Ontowauseitem1{
 	}
 }
 kikkashopMenu{
-	信息参数
+	資訊參數
 	--
 	if shopMenu == 0{
 		'\n' + ColorText('\__q[OnshopMenu,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────武器店↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
@@ -1679,7 +1679,7 @@ kikkashopMenu{
 		Hotel
 	}
 	elseif shopMenu == 4{
-		'\n' + ColorText('\__q[OnshopMenu,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]─────────转生系统↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
+		'\n' + ColorText('\__q[OnshopMenu,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]─────────轉生系統↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
 		--
 		Circle
 	}
@@ -1690,36 +1690,36 @@ OnshopMenu{
 }
 weaponshop{
 	if weaponshopmode == 0{
-		'\n' + ColorText('\__q[Onweaponshopmode,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────购买↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
+		'\n' + ColorText('\__q[Onweaponshopmode,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────購買↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
 		--
 		weaponbuy
 	}
 	elseif weaponshopmode == 1{
-		'\n' + ColorText('\__q[Onweaponshopmode,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────卖出↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
+		'\n' + ColorText('\__q[Onweaponshopmode,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────賣出↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
 		--
 		weaponsell
 	}
 }
 armorshop{
 	if armorshopmode == 0{
-		'\n' + ColorText('\__q[Onarmorshopmode,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────购买↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
+		'\n' + ColorText('\__q[Onarmorshopmode,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────購買↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
 		--
 		armorbuy
 	}
 	elseif armorshopmode == 1{
-		'\n' + ColorText('\__q[Onarmorshopmode,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────卖出↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
+		'\n' + ColorText('\__q[Onarmorshopmode,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────賣出↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
 		--
 		armorsell
 	}
 }
 itemshop{
 	if itemshopmode == 0{
-		'\n' + ColorText('\__q[Onitemshopmode,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────购买↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
+		'\n' + ColorText('\__q[Onitemshopmode,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────購買↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
 		--
 		itembuy
 	}
 	elseif itemshopmode == 1{
-		'\n' + ColorText('\__q[Onitemshopmode,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────卖出↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
+		'\n' + ColorText('\__q[Onitemshopmode,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────賣出↓──────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200')
 		--
 		itemsell
 	}
@@ -1732,41 +1732,41 @@ Circle{
 	_circleinfo1=TowaCircleInfo(lvl1,circle1)
 	_newcircleinfo0=KikkaCircleInfo(lvl0,circle0+1)
 	_newcircleinfo1=TowaCircleInfo(lvl1,circle1+1)
-	_txt= "\n\_l[80]橘花当前转生等级：%(circle0)\n/
-	%(lvl0)级时当前转生属性 \_l[160]%(lvl0)级时下阶转生属性\n/
-	物理攻击：%(TOINT(_circleinfo0[3]))  \_l[160]物理攻击：%(TOINT(_newcircleinfo0[3]))\n/
-	魔法攻击：%(TOINT(_circleinfo0[5])) \_l[160]魔法攻击：%(TOINT(_newcircleinfo0[5]))\n/
-	物理防御：%(TOINT(_circleinfo0[4])) \_l[160]物理防御：%(TOINT(_newcircleinfo0[4]))\n/
-	魔法防御：%(TOINT(_circleinfo0[6])) \_l[160]魔法防御：%(TOINT(_newcircleinfo0[6]))\n/
+	_txt= "\n\_l[80]橘花當前轉生等級：%(circle0)\n/
+	%(lvl0)級時當前轉生屬性 \_l[160]%(lvl0)級時下階轉生屬性\n/
+	物理攻擊：%(TOINT(_circleinfo0[3]))  \_l[160]物理攻擊：%(TOINT(_newcircleinfo0[3]))\n/
+	魔法攻擊：%(TOINT(_circleinfo0[5])) \_l[160]魔法攻擊：%(TOINT(_newcircleinfo0[5]))\n/
+	物理防禦：%(TOINT(_circleinfo0[4])) \_l[160]物理防禦：%(TOINT(_newcircleinfo0[4]))\n/
+	魔法防禦：%(TOINT(_circleinfo0[6])) \_l[160]魔法防禦：%(TOINT(_newcircleinfo0[6]))\n/
 	生命上限：%(TOINT(_circleinfo0[2])) \_l[160]生命上限：%(TOINT(_newcircleinfo0[2]))\n/
-	\n[half]消耗修为：%(GetExp(20+10*circle0))    \_l[160]拥有修为：%(expcircle0)\n/
-	\n\_l[80]斗和当前转生等级：%(circle1)\n/
-	%(lvl1)级时当前转生属性 \_l[180]%(lvl1)级时下阶转生属性\n/
-	物理攻击：%(TOINT(_circleinfo1[3]))  \_l[160]物理攻击：%(TOINT(_newcircleinfo1[3]))\n/
-	魔法攻击：%(TOINT(_circleinfo1[5])) \_l[160]魔法攻击：%(TOINT(_newcircleinfo1[5]))\n/
-	物理防御：%(TOINT(_circleinfo1[4])) \_l[160]物理防御：%(TOINT(_newcircleinfo1[4]))\n/
-	魔法防御：%(TOINT(_circleinfo1[6])) \_l[160]魔法防御：%(TOINT(_newcircleinfo1[6]))\n/
+	\n[half]消耗修為：%(GetExp(20+10*circle0))    \_l[160]擁有修為：%(expcircle0)\n/
+	\n\_l[80]鬥和當前轉生等級：%(circle1)\n/
+	%(lvl1)級時當前轉生屬性 \_l[180]%(lvl1)級時下階轉生屬性\n/
+	物理攻擊：%(TOINT(_circleinfo1[3]))  \_l[160]物理攻擊：%(TOINT(_newcircleinfo1[3]))\n/
+	魔法攻擊：%(TOINT(_circleinfo1[5])) \_l[160]魔法攻擊：%(TOINT(_newcircleinfo1[5]))\n/
+	物理防禦：%(TOINT(_circleinfo1[4])) \_l[160]物理防禦：%(TOINT(_newcircleinfo1[4]))\n/
+	魔法防禦：%(TOINT(_circleinfo1[6])) \_l[160]魔法防禦：%(TOINT(_newcircleinfo1[6]))\n/
 	生命上限：%(TOINT(_circleinfo1[2])) \_l[160]生命上限：%(TOINT(_newcircleinfo1[2]))\n/
-	\n[half]消耗修为：%(GetExp(20+10*circle1))    \_l[160]拥有修为：%(expcircle1)\n/
-	\n\q[◇转生说明,OnCircleIntro]                  \q[◇转生,OnCircle]                \q[◇恢复,OnCircleRecover]\n/
+	\n[half]消耗修為：%(GetExp(20+10*circle1))    \_l[160]擁有修為：%(expcircle1)\n/
+	\n\q[◇轉生說明,OnCircleIntro]                  \q[◇轉生,OnCircle]                \q[◇恢復,OnCircleRecover]\n/
 	"
-	_txt=REPLACE(_txt,'物理攻击',ColorText('物理攻击',"color=%(ColorIdx(11))"))
-	_txt=REPLACE(_txt,'魔法攻击',ColorText('魔法攻击',"color=%(ColorIdx(11))"))
-	_txt=REPLACE(_txt,'物理防御',ColorText('物理防御',"color=%(ColorIdx(11))"))
-	_txt=REPLACE(_txt,'魔法防御',ColorText('魔法防御',"color=%(ColorIdx(11))"))
+	_txt=REPLACE(_txt,'物理攻擊',ColorText('物理攻擊',"color=%(ColorIdx(11))"))
+	_txt=REPLACE(_txt,'魔法攻擊',ColorText('魔法攻擊',"color=%(ColorIdx(11))"))
+	_txt=REPLACE(_txt,'物理防禦',ColorText('物理防禦',"color=%(ColorIdx(11))"))
+	_txt=REPLACE(_txt,'魔法防禦',ColorText('魔法防禦',"color=%(ColorIdx(11))"))
 	_txt=REPLACE(_txt,'生命上限',ColorText('生命上限',"color=%(ColorIdx(11))"))
-	_txt=REPLACE(_txt,'消耗修为',ColorText('消耗修为',"color=%(ColorIdx(11))"))
-	_txt=REPLACE(_txt,'拥有修为',ColorText('拥有修为',"color=%(ColorIdx(11))"))
-	_txt=REPLACE(_txt,'当前转生属性 ',ColorText('当前转生属性',"color=%(ColorIdx(12))"))
-	_txt=REPLACE(_txt,'下阶转生属性',ColorText('下阶转生属性',"color=%(ColorIdx(12))"))
-	_txt=REPLACE(_txt,"%(lvl0)级时",ColorText("%(lvl0)级时","color=%(ColorIdx(12))"))
-	_txt=REPLACE(_txt,"%(lvl1)级时",ColorText("%(lvl1)级时","color=%(ColorIdx(12))"))
-	_txt=REPLACE(_txt,"橘花当前转生等级：%(circle0)",ColorText("橘花当前转生等级：%(circle0)","color=%(ColorIdx(13))"))
-	_txt=REPLACE(_txt,"斗和当前转生等级：%(circle1)",ColorText("斗和当前转生等级：%(circle1)","color=%(ColorIdx(13))"))
+	_txt=REPLACE(_txt,'消耗修為',ColorText('消耗修為',"color=%(ColorIdx(11))"))
+	_txt=REPLACE(_txt,'擁有修為',ColorText('擁有修為',"color=%(ColorIdx(11))"))
+	_txt=REPLACE(_txt,'當前轉生屬性 ',ColorText('當前轉生屬性',"color=%(ColorIdx(12))"))
+	_txt=REPLACE(_txt,'下階轉生屬性',ColorText('下階轉生屬性',"color=%(ColorIdx(12))"))
+	_txt=REPLACE(_txt,"%(lvl0)級時",ColorText("%(lvl0)級時","color=%(ColorIdx(12))"))
+	_txt=REPLACE(_txt,"%(lvl1)級時",ColorText("%(lvl1)級時","color=%(ColorIdx(12))"))
+	_txt=REPLACE(_txt,"橘花當前轉生等級：%(circle0)",ColorText("橘花當前轉生等級：%(circle0)","color=%(ColorIdx(13))"))
+	_txt=REPLACE(_txt,"鬥和當前轉生等級：%(circle1)",ColorText("鬥和當前轉生等級：%(circle1)","color=%(ColorIdx(13))"))
 	_txt
 }
 OnCircleIntro{
-	'\_q当游戏进行到后期因等级过高，伤害逐渐饱和很难进行一回和时，就得转生了，转生一次需要最低等级20级以上，转生一次人物等级会降低，但相应属性会比原有人物等级属性更高，人物等级越高，转生增加一级越容易，而转生等级越高，转生经验所需就越高，但是转生人物属性提升越大,转生不影响原有装备，但怪物等级范围也得到相应提升，转生一次花费的金钱为10000，请酌情考虑是否转生。\_q\x'
+	'\_q當遊戲進行到後期因等級過高，傷害逐漸飽和很難進行一回和時，就得轉生了，轉生一次需要最低等級20級以上，轉生一次人物等級會降低，但相應屬性會比原有人物等級屬性更高，人物等級越高，轉生增加一級越容易，而轉生等級越高，轉生經驗所需就越高，但是轉生人物屬性提升越大,轉生不影響原有裝備，但怪物等級範圍也得到相應提升，轉生一次花費的金錢為10000，請酌情考慮是否轉生。\_q\x'
 	--
 	OpenRpgGameMenu(4)
 }
@@ -1809,7 +1809,7 @@ OnCircle{
 	}
 	_level1=GetLevel(_exp)
 	_expcircle1=_expcircle
-	"确定要转生吗？注意转生后橘花等级会变成%(_level0)级，橘花可得修为%(_expcircle0)，斗和等级会变成%(_level1)级，斗和可得修为%(_expcircle1)\n/
+	"確定要轉生嗎？注意轉生後橘花等級會變成%(_level0)級，橘花可得修為%(_expcircle0)，鬥和等級會變成%(_level1)級，鬥和可得修為%(_expcircle1)\n/
 	\q[◇是,OnCircleConfirm]\n/
 	\q[◇否,OnCircleCancel]"
 }
@@ -1823,18 +1823,18 @@ GetExpCircle{
 	_exp
 }
 OnCircleRecover{
-	'确定要恢复吗？注意转生等级会置零。转生丹带来的效果将会消失（恢复为经验），请慎重考虑！！！\n/
+	'確定要恢復嗎？注意轉生等級會置零。轉生丹帶來的效果將會消失（恢復為經驗），請慎重考慮！！！\n/
 	\q[◇是,OnCircleRecoverConfirm]\n/
 	\q[◇否,OnCircleCancel]'
 }
 Onlodging{
-	"确定花%(100+5*(lvl0-1))金住宿？\n/
+	"確定花%(100+5*(lvl0-1))金住宿？\n/
 	\q[◇是,Onyeslodging]\n/
 	\q[◇否,Onnotlodging]"
 }
 Onyeslodging{
 	if money>=100+5*(lvl0-1){
-		'橘花和斗和休息了一晚上,体力和精力全恢复了\x'
+		'橘花和鬥和休息了一晚上,體力和精力全恢復了\x'
 		hp0=hpmax0
 		ep0=epmax0
 		hp1=hpmax1
@@ -1842,7 +1842,7 @@ Onyeslodging{
 		money-=100+5*(lvl0-1)
 	}
 	else
-		'金额不足，不能住宿\x'
+		'金額不足，不能住宿\x'
 	--
 	OpenRpgGameMenu(4)
 }
@@ -1876,10 +1876,10 @@ OnCircleRecoverConfirm{
 		circle0=0
 		expcircle0=0
 		exp0=exptotal0%GetExp(lvl0)
-		"恢复成功，当前橘花等级为%(lvl0)级\x"
+		"恢復成功，當前橘花等級為%(lvl0)級\x"
 	}
 	else
-		'橘花转生等级为0，不能恢复\x'
+		'橘花轉生等級為0，不能恢復\x'
 	--
 	if circle1>0{
 		exptotal1+=expcircletotal1+expcircle1
@@ -1889,10 +1889,10 @@ OnCircleRecoverConfirm{
 		circle1=0
 		expcircle1=0
 		exp1=exptotal1%GetExp(lvl1)
-		"恢复成功，当前斗和等级为%(lvl1)级\x"
+		"恢復成功，當前鬥和等級為%(lvl1)級\x"
 	}
 	else
-		'斗和转生等级为0，不能恢复\x'
+		'鬥和轉生等級為0，不能恢復\x'
 	--
 	OpenRpgGameMenu(4)
 }
@@ -1930,13 +1930,13 @@ OnCircleConfirm{
 			lvl0=GetLevel(_exp)
 			exp0=_exp%GetExp(lvl0)
 			if _n{
-				"转生成功，当前橘花转生等级为%(circle0)级\x"
+				"轉生成功，當前橘花轉生等級為%(circle0)級\x"
 			}
 			else
-				"转生失败，还差%(_expnext)转生修为继续转生，下级修为%(_circle)，当前橘花转生等级为%(circle0)级\x"
+				"轉生失敗，還差%(_expnext)轉生修為繼續轉生，下級修為%(_circle)，當前橘花轉生等級為%(circle0)級\x"
 		}
 		else{
-			'橘花转生失败，未达到20级，不能转生\x'
+			'橘花轉生失敗，未達到20級，不能轉生\x'
 		}
 		--
 		if lvl1>=20{
@@ -1962,17 +1962,17 @@ OnCircleConfirm{
 			lvl1=GetLevel(_exp)
 			exp1=_exp%GetExp(lvl1)
 			if _n{
-				"转生成功，斗和转生等级为%(circle1)级\x"
+				"轉生成功，鬥和轉生等級為%(circle1)級\x"
 			}
 			else
-				"转生失败，还差%(_expnext)转生修为继续转生，下级修为%(_circle)，斗和转生等级为%(circle1)级\x"
+				"轉生失敗，還差%(_expnext)轉生修為繼續轉生，下級修為%(_circle)，鬥和轉生等級為%(circle1)級\x"
 		}
 		else{
-			'斗和转生失败，未达到20级，不能转生\x'
+			'鬥和轉生失敗，未達到20級，不能轉生\x'
 		}
 	}
 	else{
-		'转生失败，金钱不足，不能转生，转生一次花费的金钱为10000，请酌情考虑是否转生。\x'
+		'轉生失敗，金錢不足，不能轉生，轉生一次花費的金錢為10000，請酌情考慮是否轉生。\x'
 	}
 	--
 	OpenRpgGameMenu(4)
@@ -1998,102 +1998,102 @@ Onmissionclass{
 }
 weaponbuy{
 	_txt='\n'
-	_txt+='\_l[0,-]名称    \_l[65,-]STR   \_l[110,-]ATS   \_l[155,-]购买价格   \_l[210,-]已有数量\n'
+	_txt+='\_l[0,-]名稱    \_l[65,-]STR   \_l[110,-]ATS   \_l[155,-]購買價格   \_l[210,-]已有數量\n'
 	foreach weaponA; _i {
 		if lvl>=TOINT(_i[4]-10){
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])   \_l[110,-]%(_i[7])\f[color,default]  \f[color,231,171,109]\_l[155,-]%(_i[5])\f[color,default]  \_l[210,-]%(_i[3]) \_l[260,-] \q[◇购买,Onbuy,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])   \_l[110,-]%(_i[7])\f[color,default]  \f[color,231,171,109]\_l[155,-]%(_i[5])\f[color,default]  \_l[210,-]%(_i[3]) \_l[260,-] \q[◇購買,Onbuy,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
 		}
 	}
 	_txt
 }
 weaponsell{
 	_txt='\n'
-	_txt+='\_l[0,-]名称    \_l[65,-]STR    \_l[110,-]ATS   \_l[155,-]卖出价格   \_l[210,-]已有数量\n'
+	_txt+='\_l[0,-]名稱    \_l[65,-]STR    \_l[110,-]ATS   \_l[155,-]賣出價格   \_l[210,-]已有數量\n'
 	foreach weaponA; _i {
 		if _i[3] > 0{
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[110,-]%(_i[7])\f[color,default]  \f[color,231,171,109]\_l[155,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[210,-]%(_i[3]) \_l[260,-] \q[◇卖出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[110,-]%(_i[7])\f[color,default]  \f[color,231,171,109]\_l[155,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[210,-]%(_i[3]) \_l[260,-] \q[◇賣出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
 		}
 	}
 	foreach weaponB; _i {
 		if _i[3] > 0{
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[110,-]%(_i[7])\f[color,default]  \f[color,231,171,109]\_l[155,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[210,-]%(_i[3]) \_l[260,-] \q[◇卖出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[110,-]%(_i[7])\f[color,default]  \f[color,231,171,109]\_l[155,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[210,-]%(_i[3]) \_l[260,-] \q[◇賣出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
 		}
 	}
 	_txt
 }
 armorbuy{
 	_txt='\n'
-	_txt+='\_l[0,-]名称    \_l[65,-]DEF    \_l[95,-]ADF  \_l[120,-]STR  \_l[145,-]ATS \_l[170,-]购买价格   \_l[220,-]已有数量\n'
-	_txt+='──────────防具（体）─────────\n'
+	_txt+='\_l[0,-]名稱    \_l[65,-]DEF    \_l[95,-]ADF  \_l[120,-]STR  \_l[145,-]ATS \_l[170,-]購買價格   \_l[220,-]已有數量\n'
+	_txt+='──────────防具（體）─────────\n'
 	foreach armorA; _i{
 		if lvl>=TOINT(_i[4]-15){
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]  \f[color,231,171,109]\_l[170,-]%(_i[5])\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇购买,Onbuy,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]  \f[color,231,171,109]\_l[170,-]%(_i[5])\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇購買,Onbuy,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
 		}
 	}
-	_txt+='──────────防具（脚）─────────\n'
+	_txt+='──────────防具（腳）─────────\n'
 	foreach bootsA; _i{
 		if lvl>=TOINT(_i[4]-20){
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]    \f[color,231,171,109]\_l[170,-]%(_i[5])\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇购买,Onbuy,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]    \f[color,231,171,109]\_l[170,-]%(_i[5])\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇購買,Onbuy,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
 		}
 	}
 	_txt
 }
 armorsell{
 	_txt='\n'
-	_txt+='\_l[0,-]名称    \_l[65,-]DEF    \_l[95,-]ADF  \_l[120,-]STR  \_l[145,-]ATS \_l[170,-]卖出价格   \_l[220,-]已有数量\n'
-	_txt+='──────────防具（体）─────────\n'
+	_txt+='\_l[0,-]名稱    \_l[65,-]DEF    \_l[95,-]ADF  \_l[120,-]STR  \_l[145,-]ATS \_l[170,-]賣出價格   \_l[220,-]已有數量\n'
+	_txt+='──────────防具（體）─────────\n'
 	foreach armorA; _i {
 		if _i[3] > 0{
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]   \f[color,231,171,109]\_l[170,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇卖出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]   \f[color,231,171,109]\_l[170,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇賣出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
 		}
 	}
 	foreach armorB; _i {
 		if _i[3] > 0{
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]   \f[color,231,171,109]\_l[170,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇卖出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default] \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]   \f[color,231,171,109]\_l[170,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇賣出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
 		}
 	}
-	_txt+='──────────防具（脚）─────────\n'
+	_txt+='──────────防具（腳）─────────\n'
 	foreach bootsA; _i {
 		if _i[3] > 0{
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default]  \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default] \f[color,231,171,109]\_l[170,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇卖出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default]  \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default] \f[color,231,171,109]\_l[170,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇賣出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
 		}
 	}
 	foreach bootsB; _i {
 		if _i[3] > 0{
-			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default]   \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]  \f[color,231,171,109]\_l[170,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇卖出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
+			_txt += "\f[color,231,171,109]\_l[0,-]%(_i[2])\f[color,default]   \f[color,165,203,214]\_l[65,-]%(_i[6])  \_l[95,-]%(_i[7])  \_l[120,-]%(_i[8])  \_l[145,-]%(_i[9])\f[color,default]  \f[color,231,171,109]\_l[170,-]%(TOINT(0.6*_i[5]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇賣出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[5]))]\n"
 		}
 	}
 	_txt
 }
 itembuy{
 	_txt='\n'
-	_txt+='\_l[0,-]名称    \_l[80,-]效果    \_l[160,-]购买价格   \_l[220,-]已有数量\n'
+	_txt+='\_l[0,-]名稱    \_l[80,-]效果    \_l[160,-]購買價格   \_l[220,-]已有數量\n'
 	foreach itemA; _i {
-		_txt += "\f[color,194,243,99]\_l[0,-]%(_i[2])\f[color,default]   \f[color,194,243,99]\_l[80,-]%(_i[5])\f[color,default]  \f[color,231,171,109]\_l[160,-]%(_i[4])\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇购买,Onitembuynum,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[4])]\n"
+		_txt += "\f[color,194,243,99]\_l[0,-]%(_i[2])\f[color,default]   \f[color,194,243,99]\_l[80,-]%(_i[5])\f[color,default]  \f[color,231,171,109]\_l[160,-]%(_i[4])\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇購買,Onitembuynum,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[4])]\n"
 	}
 	foreach itemB; _i {
-		_txt += "\f[color,165,203,214]\_l[0,-]%(_i[2])\f[color,default]    \f[color,165,203,214]\_l[80,-]%(_i[5])\f[color,default]   \f[color,231,171,109]\_l[160,-]%(_i[4])\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇购买,Onitembuynum,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[4])]\n"
+		_txt += "\f[color,165,203,214]\_l[0,-]%(_i[2])\f[color,default]    \f[color,165,203,214]\_l[80,-]%(_i[5])\f[color,default]   \f[color,231,171,109]\_l[160,-]%(_i[4])\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇購買,Onitembuynum,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[4])]\n"
 	}
 	_txt
 }
 itemsell{
 	_txt='\n'
-	_txt+='\_l[0,-]名称    \_l[80,-]效果    \_l[160,-]卖出价格   \_l[220,-]已有数量\n'
+	_txt+='\_l[0,-]名稱    \_l[80,-]效果    \_l[160,-]賣出價格   \_l[220,-]已有數量\n'
 	foreach itemA; _i {
 		if _i[3] > 0{
-			_txt += "\f[color,194,243,99]\_l[0,-]%(_i[2])\f[color,default]   \f[color,194,243,99]\_l[80,-]%(_i[5])\f[color,default]    \f[color,231,171,109]\_l[160,-]%(TOINT(0.6*_i[4]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇卖出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[4]))]\n"
+			_txt += "\f[color,194,243,99]\_l[0,-]%(_i[2])\f[color,default]   \f[color,194,243,99]\_l[80,-]%(_i[5])\f[color,default]    \f[color,231,171,109]\_l[160,-]%(TOINT(0.6*_i[4]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇賣出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[4]))]\n"
 		}
 	}
 	foreach itemB; _i {
 		if _i[3] > 0{
-			_txt += "\f[color,165,203,214]\_l[0,-]%(_i[2])\f[color,default]   \f[color,165,203,214]\_l[80,-]%(_i[5])\f[color,default]    \f[color,231,171,109]\_l[160,-]%(TOINT(0.6*_i[4]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇卖出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[4]))]\n"
+			_txt += "\f[color,165,203,214]\_l[0,-]%(_i[2])\f[color,default]   \f[color,165,203,214]\_l[80,-]%(_i[5])\f[color,default]    \f[color,231,171,109]\_l[160,-]%(TOINT(0.6*_i[4]))\f[color,default]  \_l[220,-]%(_i[3]) \_l[260,-] \q[◇賣出,Onsellnum,%(_i[0]),%(_i[1]),%(_i[2]),%(TOINT(0.6*_i[4]))]\n"
 		}
 	}
 	_txt
 }
 Onbuy{
 	if reference4==NULL && reference5==NULL{
-		"\0\s[40]确定花%(reference3)购买%(reference2)？\n/
+		"\0\s[40]確定花%(reference3)購買%(reference2)？\n/
 		\q[◇是,Onbuy,%(reference0),%(reference1),%(reference2),%(reference3),＆,1]\n/
 		\q[◇否,Onbuy,%(reference0),%(reference1),%(reference2),%(reference3),＆,0]"
 	}
@@ -2102,21 +2102,21 @@ Onbuy{
 			if reference0=='weaponA'{
 				weaponAnum[reference1]=TOINT(weaponAnum[reference1]+1)
 				money-=TOINT(reference3)
-				"\0\s[5]购买成功,花费%(TOINT(reference3))金\x"
+				"\0\s[5]購買成功,花費%(TOINT(reference3))金\x"
 			}
 			elseif reference0=='armorA'{
 				armorAnum[reference1]=TOINT(armorAnum[reference1]+1)
 				money-=TOINT(reference3)
-				"\0\s[5]购买成功,花费%(TOINT(reference3))金\x"
+				"\0\s[5]購買成功,花費%(TOINT(reference3))金\x"
 			}
 			elseif reference0=='bootsA'{
 				bootsAnum[reference1]=TOINT(bootsAnum[reference1]+1)
 				money-=TOINT(reference3)
-				"\0\s[5]购买成功,花费%(TOINT(reference3))金\x"
+				"\0\s[5]購買成功,花費%(TOINT(reference3))金\x"
 			}
 		}
 		else{
-			'金钱不足，购买失败\x'
+			'金錢不足，購買失敗\x'
 		}
 		--
 		--
@@ -2127,115 +2127,115 @@ Onbuy{
 	}
 }
 Onsellnum{
-	物品种类=reference0
-	物品代码=reference1
-	物品名称=reference2
-	物品价格=reference3
-	if reference4==''&&(物品名称==weapon0||物品名称==armor0||物品名称==boots0||物品名称==weapon1||物品名称==armor1||物品名称==boots1){
-		"当前%(物品名称)正在装备，确定要卖出吗？\n/
-		\q[◇是,Onsellnum,%(物品种类),%(物品代码),%(物品名称),%(物品价格),yes]\n/
-		\q[◇不用了,Onsellnum,%(物品种类),%(物品代码),%(物品名称),%(物品价格),no]"
+	物品種類=reference0
+	物品代碼=reference1
+	物品名稱=reference2
+	物品價格=reference3
+	if reference4==''&&(物品名稱==weapon0||物品名稱==armor0||物品名稱==boots0||物品名稱==weapon1||物品名稱==armor1||物品名稱==boots1){
+		"當前%(物品名稱)正在裝備，確定要賣出嗎？\n/
+		\q[◇是,Onsellnum,%(物品種類),%(物品代碼),%(物品名稱),%(物品價格),yes]\n/
+		\q[◇不用了,Onsellnum,%(物品種類),%(物品代碼),%(物品名稱),%(物品價格),no]"
 	}
 	elseif reference4=='yes'
-		'请输入卖出数量\n\![open,inputbox,Onsell]\n[300]\q[◇取消,cancelshop]'
+		'請輸入賣出數量\n\![open,inputbox,Onsell]\n[300]\q[◇取消,cancelshop]'
 	elseif reference4=='no'
 		OpenRpgGameMenu(4)
 	else
-		'请输入卖出数量\n\![open,inputbox,Onsell]\n[300]\q[◇取消,cancelshop]'
+		'請輸入賣出數量\n\![open,inputbox,Onsell]\n[300]\q[◇取消,cancelshop]'
 }
 Select.cancelshop{
 	OpenRpgGameMenu(4)
 }
 Onsell{
 	if reference0<=0{
-		'请输入大于0的数字\![open,inputbox,Onsell]'
+		'請輸入大於0的數位\![open,inputbox,Onsell]'
 	}
 	else{
-		卖出数量=reference0
+		賣出數量=reference0
 		if reference5==NULL && reference6==NULL{
-			"确定以%(物品价格)的单价卖出%(卖出数量)件%(物品名称)？\n/
-			\q[◇是,Onsell,%(卖出数量),%(物品种类),%(物品代码),%(物品名称),%(物品价格),＆,1]\n/
-			\q[◇否,Onsell,%(卖出数量),%(物品种类),%(物品代码),%(物品名称),%(物品价格),＆,0]"
+			"確定以%(物品價格)的單價賣出%(賣出數量)件%(物品名稱)？\n/
+			\q[◇是,Onsell,%(賣出數量),%(物品種類),%(物品代碼),%(物品名稱),%(物品價格),＆,1]\n/
+			\q[◇否,Onsell,%(賣出數量),%(物品種類),%(物品代碼),%(物品名稱),%(物品價格),＆,0]"
 		}
 		if reference5=='＆' && reference6==1{
 			if reference1=='weaponA'{
-				if weaponAnum[reference2]>=卖出数量{
-					weaponAnum[reference2]=TOINT(weaponAnum[reference2]-卖出数量)
-					"卖出成功,得到%(TOINT(物品价格*卖出数量))金\x"
-					money+=TOINT(物品价格*卖出数量)
+				if weaponAnum[reference2]>=賣出數量{
+					weaponAnum[reference2]=TOINT(weaponAnum[reference2]-賣出數量)
+					"賣出成功,得到%(TOINT(物品價格*賣出數量))金\x"
+					money+=TOINT(物品價格*賣出數量)
 				}
 				else{
-					'数量不足,卖出失败\x'
+					'數量不足,賣出失敗\x'
 				}
 			}
 			elseif reference1=='weaponB'{
-				if weaponBnum[reference2]>=卖出数量{
-					weaponBnum[reference2]=TOINT(weaponBnum[reference2]-卖出数量)
-					"卖出成功,得到%(TOINT(物品价格*卖出数量))金\x"
-					money+=TOINT(物品价格*卖出数量)
+				if weaponBnum[reference2]>=賣出數量{
+					weaponBnum[reference2]=TOINT(weaponBnum[reference2]-賣出數量)
+					"賣出成功,得到%(TOINT(物品價格*賣出數量))金\x"
+					money+=TOINT(物品價格*賣出數量)
 				}
 				else{
-					"%(TOINT(reference2))数量不足,卖出失败\x"
+					"%(TOINT(reference2))數量不足,賣出失敗\x"
 				}
 			}
 			if reference1=='armorA'{
-				if armorAnum[reference2]>=卖出数量{
-					armorAnum[reference2]=TOINT(armorAnum[reference2]-卖出数量)
-					"卖出成功,得到%(TOINT(物品价格*卖出数量))金\x"
-					money+=TOINT(物品价格*卖出数量)
+				if armorAnum[reference2]>=賣出數量{
+					armorAnum[reference2]=TOINT(armorAnum[reference2]-賣出數量)
+					"賣出成功,得到%(TOINT(物品價格*賣出數量))金\x"
+					money+=TOINT(物品價格*賣出數量)
 				}
 				else{
-					'数量不足,卖出失败\x'
+					'數量不足,賣出失敗\x'
 				}
 			}
 			elseif reference1=='armorB'{
-				if armorBnum[reference2]>=卖出数量{
-					armorBnum[reference2]=TOINT(armorBnum[reference2]-卖出数量)
-					"卖出成功,得到%(TOINT(物品价格*卖出数量))金\x"
-					money+=TOINT(物品价格*卖出数量)
+				if armorBnum[reference2]>=賣出數量{
+					armorBnum[reference2]=TOINT(armorBnum[reference2]-賣出數量)
+					"賣出成功,得到%(TOINT(物品價格*賣出數量))金\x"
+					money+=TOINT(物品價格*賣出數量)
 				}
 				else{
-					'数量不足,卖出失败\x'
+					'數量不足,賣出失敗\x'
 				}
 			}
 			elseif reference1=='bootsA'{
-				if bootsAnum[reference2]>=卖出数量{
-					bootsAnum[reference2]=TOINT(bootsAnum[reference2]-卖出数量)
-					"卖出成功,得到%(TOINT(物品价格*卖出数量))金\x"
-					money+=TOINT(物品价格*卖出数量)
+				if bootsAnum[reference2]>=賣出數量{
+					bootsAnum[reference2]=TOINT(bootsAnum[reference2]-賣出數量)
+					"賣出成功,得到%(TOINT(物品價格*賣出數量))金\x"
+					money+=TOINT(物品價格*賣出數量)
 				}
 				else{
-					'数量不足,卖出失败\x'
+					'數量不足,賣出失敗\x'
 				}
 			}
 			elseif reference1=='bootsB'{
-				if bootsBnum[reference2]>=卖出数量{
-					bootsBnum[reference2]=TOINT(bootsBnum[reference2]-卖出数量)
-					"卖出成功,得到%(TOINT(物品价格*卖出数量))金\x"
-					money+=TOINT(物品价格*卖出数量)
+				if bootsBnum[reference2]>=賣出數量{
+					bootsBnum[reference2]=TOINT(bootsBnum[reference2]-賣出數量)
+					"賣出成功,得到%(TOINT(物品價格*賣出數量))金\x"
+					money+=TOINT(物品價格*賣出數量)
 				}
 				else{
-					'数量不足,卖出失败\x'
+					'數量不足,賣出失敗\x'
 				}
 			}
 			elseif reference1=='itemA'{
-				if itemAnum[reference2]>=卖出数量{
-					itemAnum[reference2]=TOINT(itemAnum[reference2]-卖出数量)
-					"卖出成功,得到%(TOINT(物品价格*卖出数量))金\x"
-					money+=TOINT(物品价格*卖出数量)
+				if itemAnum[reference2]>=賣出數量{
+					itemAnum[reference2]=TOINT(itemAnum[reference2]-賣出數量)
+					"賣出成功,得到%(TOINT(物品價格*賣出數量))金\x"
+					money+=TOINT(物品價格*賣出數量)
 				}
 				else{
-					'数量不足,卖出失败\x'
+					'數量不足,賣出失敗\x'
 				}
 			}
 			elseif reference1=='itemB'{
-				if itemBnum[reference2]>=卖出数量{
-					itemBnum[reference2]=TOINT(itemBnum[reference2]-卖出数量)
-					"卖出成功,得到%(TOINT(物品价格*卖出数量))金\x"
-					money+=TOINT(物品价格*卖出数量)
+				if itemBnum[reference2]>=賣出數量{
+					itemBnum[reference2]=TOINT(itemBnum[reference2]-賣出數量)
+					"賣出成功,得到%(TOINT(物品價格*賣出數量))金\x"
+					money+=TOINT(物品價格*賣出數量)
 				}
 				else{
-					'数量不足,卖出失败\x'
+					'數量不足,賣出失敗\x'
 				}
 			}
 			--
@@ -2248,38 +2248,38 @@ Onsell{
 	}
 }
 Onitembuynum{
-	道具种类=reference0
-	道具代码=reference1
-	道具名称=reference2
-	道具价格=reference3
-	'\0\s[40]请输入购买数量\n\![open,inputbox,Onitembuy]\n/
+	道具種類=reference0
+	道具代碼=reference1
+	道具名稱=reference2
+	道具價格=reference3
+	'\0\s[40]請輸入購買數量\n\![open,inputbox,Onitembuy]\n/
 	\n\n\q[◇取消,cancelshop]'
 }
 Onitembuy{
 	if reference0<=0{
-		'\0\s[40]请输入大于0的数字\![open,inputbox,Onsell]'
+		'\0\s[40]請輸入大於0的數位\![open,inputbox,Onsell]'
 	}
 	else{
-		购买数量=reference0
+		購買數量=reference0
 		if reference5==NULL && reference6==NULL{
-			"确定以%(道具价格)的单价购买%(购买数量)件%(道具名称)？\n/
-			\q[◇是,Onitembuy,%(购买数量),%(道具种类),%(道具代码),%(道具名称),%(道具价格),＆,1]\n/
-			\q[◇否,Onitembuy,%(购买数量),%(道具种类),%(道具代码),%(道具名称),%(道具价格),＆,0]"
+			"確定以%(道具價格)的單價購買%(購買數量)件%(道具名稱)？\n/
+			\q[◇是,Onitembuy,%(購買數量),%(道具種類),%(道具代碼),%(道具名稱),%(道具價格),＆,1]\n/
+			\q[◇否,Onitembuy,%(購買數量),%(道具種類),%(道具代碼),%(道具名稱),%(道具價格),＆,0]"
 		}
 		if reference5=='＆' && reference6==1{
-			if money>=TOINT(道具价格*购买数量){
-				money-=TOINT(道具价格*购买数量)
+			if money>=TOINT(道具價格*購買數量){
+				money-=TOINT(道具價格*購買數量)
 				if reference1=='itemA'{
-					itemAnum[reference2]=TOINT(itemAnum[reference2]+购买数量)
-					"购买成功,花费%(道具价格*购买数量)金\x"
+					itemAnum[reference2]=TOINT(itemAnum[reference2]+購買數量)
+					"購買成功,花費%(道具價格*購買數量)金\x"
 				}
 				elseif reference1=='itemB'{
-					itemBnum[reference2]=TOINT(itemBnum[reference2]+购买数量)
-					"购买成功,花费%(道具价格*购买数量)金\x"
+					itemBnum[reference2]=TOINT(itemBnum[reference2]+購買數量)
+					"購買成功,花費%(道具價格*購買數量)金\x"
 				}
 			}
 			else{
-				'金钱不足，购买失败\x'
+				'金錢不足，購買失敗\x'
 			}
 			--
 			--
@@ -2299,142 +2299,142 @@ mission{
 		hp1=TOINT(0.1*hpmax1)
 	}
 	if missionclass == 0{
-		'\n' + ColorText('\__q[Onmissionclass,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────D级任务↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
+		'\n' + ColorText('\__q[Onmissionclass,1]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────D級任務↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
 		--
 		missionclassD
 	}
 	elseif missionclass == 1{
-		'\n' + ColorText('\__q[Onmissionclass,2]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────C级任务↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
+		'\n' + ColorText('\__q[Onmissionclass,2]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────C級任務↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
 		--
 		missionclassC
 	}
 	elseif missionclass == 2{
-		'\n' + ColorText('\__q[Onmissionclass,3]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────B级任务↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
+		'\n' + ColorText('\__q[Onmissionclass,3]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────B級任務↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
 		--
 		missionclassB
 	}
 	elseif missionclass == 3{
-		'\n' + ColorText('\__q[Onmissionclass,4]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────A级任务↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
+		'\n' + ColorText('\__q[Onmissionclass,4]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────A級任務↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
 		--
 		missionclassA
 	}
 	elseif missionclass == 4{
-		'\n' + ColorText('\__q[Onmissionclass,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────S级任务↓───────── \f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
+		'\n' + ColorText('\__q[Onmissionclass,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]──────────S級任務↓───────── \f[cursorstyle,default]\f[cursorfontcolor,default]\__q\n','color=160,160,200')
 		--
 		missionclassS
 	}
 	--
 	battlenum=victorynum+battlefailednum+escapenum
-	"\_l[-,250]\n履历：\n/
-	战斗次数：     %(battlenum)\n/
-	战斗胜利次数： %(victorynum)（%(100.0*victorynum/battlenum)%）\n/
-	战斗不能次数： %(losehpnum)\n/
-	战斗失败次数： %(battlefailednum)（%(100.0*battlefailednum/battlenum)%）\_l[240,-]\q[◇养成界面,OnKikkaMenu,2]\n/
-	逃跑次数：     %(escapenum)（%(100.0*escapenum/battlenum)%）       \_l[240,-]\q[◇退出冒险,Onesc]"
+	"\_l[-,250]\n履歷：\n/
+	戰鬥次數：     %(battlenum)\n/
+	戰鬥勝利次數： %(victorynum)（%(100.0*victorynum/battlenum)%）\n/
+	戰鬥不能次數： %(losehpnum)\n/
+	戰鬥失敗次數： %(battlefailednum)（%(100.0*battlefailednum/battlenum)%）\_l[240,-]\q[◇養成介面,OnKikkaMenu,2]\n/
+	逃跑次數：     %(escapenum)（%(100.0*escapenum/battlenum)%）       \_l[240,-]\q[◇退出冒險,Onesc]"
 }
 missionclassD{
-	"\q[◇领取奖励,Onaward]\n/
-	\__q[Onmission,D,1]在农场消灭10只怪物，赏金%(TOINT(0.5*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.1]在平原消灭10只怪物，赏金%(TOINT(0.5*1.1*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.2]在山地消灭10只怪物，赏金%(TOINT(0.5*1.2*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.3]在河谷消灭10只怪物，赏金%(TOINT(0.5*1.3*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.4]在山谷消灭10只怪物，赏金%(TOINT(0.5*1.4*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.5]在湿地消灭10只怪物，赏金%(TOINT(0.5*1.5*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.6]在地下封印区入口消灭10只怪物，赏金%(TOINT(0.5*1.6*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.7]在地下封印区上层消灭10只怪物，赏金%(TOINT(0.5*1.7*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.8]在地下封印区中层消灭10只怪物，赏金%(TOINT(0.5*1.8*50*lvl))\__q   \n/
-	\__q[Onmission,D,1.9]在地下封印区下层消灭10只怪物，赏金%(TOINT(0.5*1.9*50*lvl))\__q   \n/
-	\__q[Onmission,D,2]在地下封印区核心消灭10只怪物，赏金%(TOINT(0.5*2*50*lvl))/%(TOINT(0.5*4*50*lvl))\__q   \n/
+	"\q[◇領取獎勵,Onaward]\n/
+	\__q[Onmission,D,1]在農場消滅10只怪物，賞金%(TOINT(0.5*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.1]在平原消滅10只怪物，賞金%(TOINT(0.5*1.1*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.2]在山地消滅10只怪物，賞金%(TOINT(0.5*1.2*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.3]在河谷消滅10只怪物，賞金%(TOINT(0.5*1.3*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.4]在山谷消滅10只怪物，賞金%(TOINT(0.5*1.4*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.5]在濕地消滅10只怪物，賞金%(TOINT(0.5*1.5*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.6]在地下封印區入口消滅10只怪物，賞金%(TOINT(0.5*1.6*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.7]在地下封印區上層消滅10只怪物，賞金%(TOINT(0.5*1.7*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.8]在地下封印區中層消滅10只怪物，賞金%(TOINT(0.5*1.8*50*lvl))\__q   \n/
+	\__q[Onmission,D,1.9]在地下封印區下層消滅10只怪物，賞金%(TOINT(0.5*1.9*50*lvl))\__q   \n/
+	\__q[Onmission,D,2]在地下封印區核心消滅10只怪物，賞金%(TOINT(0.5*2*50*lvl))/%(TOINT(0.5*4*50*lvl))\__q   \n/
 	"
 }
 missionclassC{
-	"\q[◇领取奖励,Onaward]\n/
-	\__q[Onmission,C,1]在农场消灭10只怪物，赏金%(TOINT(1*50*lvl))\__q  \n/
-	\__q[Onmission,C,1.1]在平原消灭10只怪物，赏金%(TOINT(1*1.1*50*lvl))\__q   \n/
-	\__q[Onmission,C,1.2]在山地消灭10只怪物，赏金%(TOINT(1*1.2*50*lvl))\__q   \n/
-	\__q[Onmission,C,1.3]在河谷消灭10只怪物，赏金%(TOINT(1*1.3*50*lvl))\__q   \n/
-	\__q[Onmission,C,1.4]在山谷消灭10只怪物，赏金%(TOINT(1*1.4*50*lvl))\__q   \n/
-	\__q[Onmission,C,1.5]在湿地消灭10只怪物，赏金%(TOINT(1*1.5*50*lvl))\__q   \n/
-	\__q[Onmission,C,1.6]在地下封印区入口消灭10只怪物，赏金%(TOINT(1*1.6*50*lvl))\__q   \n/
-	\__q[Onmission,C,1.7]在地下封印区上层消灭10只怪物，赏金%(TOINT(1*1.7*50*lvl))\__q   \n/
-	\__q[Onmission,C,1.8]在地下封印区中层消灭10只怪物，赏金%(TOINT(1*1.8*50*lvl))\__q   \n/
-	\__q[Onmission,C,1.9]在地下封印区下层消灭10只怪物，赏金%(TOINT(1*1.9*50*lvl))\__q   \n/
-	\__q[Onmission,C,2]在地下封印区核心消灭10只怪物，赏金%(TOINT(1*2*50*lvl))/%(TOINT(1*5*50*lvl))\__q   \n/
+	"\q[◇領取獎勵,Onaward]\n/
+	\__q[Onmission,C,1]在農場消滅10只怪物，賞金%(TOINT(1*50*lvl))\__q  \n/
+	\__q[Onmission,C,1.1]在平原消滅10只怪物，賞金%(TOINT(1*1.1*50*lvl))\__q   \n/
+	\__q[Onmission,C,1.2]在山地消滅10只怪物，賞金%(TOINT(1*1.2*50*lvl))\__q   \n/
+	\__q[Onmission,C,1.3]在河谷消滅10只怪物，賞金%(TOINT(1*1.3*50*lvl))\__q   \n/
+	\__q[Onmission,C,1.4]在山谷消滅10只怪物，賞金%(TOINT(1*1.4*50*lvl))\__q   \n/
+	\__q[Onmission,C,1.5]在濕地消滅10只怪物，賞金%(TOINT(1*1.5*50*lvl))\__q   \n/
+	\__q[Onmission,C,1.6]在地下封印區入口消滅10只怪物，賞金%(TOINT(1*1.6*50*lvl))\__q   \n/
+	\__q[Onmission,C,1.7]在地下封印區上層消滅10只怪物，賞金%(TOINT(1*1.7*50*lvl))\__q   \n/
+	\__q[Onmission,C,1.8]在地下封印區中層消滅10只怪物，賞金%(TOINT(1*1.8*50*lvl))\__q   \n/
+	\__q[Onmission,C,1.9]在地下封印區下層消滅10只怪物，賞金%(TOINT(1*1.9*50*lvl))\__q   \n/
+	\__q[Onmission,C,2]在地下封印區核心消滅10只怪物，賞金%(TOINT(1*2*50*lvl))/%(TOINT(1*5*50*lvl))\__q   \n/
 	"
 }
 missionclassB{
-	"\q[◇领取奖励,Onaward]\n/
-	\__q[Onmission,B,1]在农场消灭10只怪物，赏金%(TOINT(2*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.1]在平原消灭10只怪物，赏金%(TOINT(2*1.1*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.2]在山地消灭10只怪物，赏金%(TOINT(2*1.2*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.3]在河谷消灭10只怪物，赏金%(TOINT(2*1.3*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.4]在山谷消灭10只怪物，赏金%(TOINT(2*1.4*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.5]在湿地消灭10只怪物，赏金%(TOINT(2*1.5*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.6]在地下封印区入口消灭10只怪物，赏金%(TOINT(2*1.6*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.7]在地下封印区上层消灭10只怪物，赏金%(TOINT(2*1.7*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.8]在地下封印区中层消灭10只怪物，赏金%(TOINT(2*1.8*50*lvl))\__q   \n/
-	\__q[Onmission,B,1.9]在地下封印区下层消灭10只怪物，赏金%(TOINT(2*1.9*50*lvl))\__q   \n/
-	\__q[Onmission,B,2]在地下封印区核心消灭10只怪物，赏金%(TOINT(2*2*50*lvl))/%(TOINT(2*6*50*lvl))\__q   \n/
+	"\q[◇領取獎勵,Onaward]\n/
+	\__q[Onmission,B,1]在農場消滅10只怪物，賞金%(TOINT(2*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.1]在平原消滅10只怪物，賞金%(TOINT(2*1.1*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.2]在山地消滅10只怪物，賞金%(TOINT(2*1.2*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.3]在河谷消滅10只怪物，賞金%(TOINT(2*1.3*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.4]在山谷消滅10只怪物，賞金%(TOINT(2*1.4*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.5]在濕地消滅10只怪物，賞金%(TOINT(2*1.5*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.6]在地下封印區入口消滅10只怪物，賞金%(TOINT(2*1.6*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.7]在地下封印區上層消滅10只怪物，賞金%(TOINT(2*1.7*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.8]在地下封印區中層消滅10只怪物，賞金%(TOINT(2*1.8*50*lvl))\__q   \n/
+	\__q[Onmission,B,1.9]在地下封印區下層消滅10只怪物，賞金%(TOINT(2*1.9*50*lvl))\__q   \n/
+	\__q[Onmission,B,2]在地下封印區核心消滅10只怪物，賞金%(TOINT(2*2*50*lvl))/%(TOINT(2*6*50*lvl))\__q   \n/
 	"
 }
 missionclassA{
-	"\q[◇领取奖励,Onaward]\n/
-	\__q[Onmission,A,1]在农场消灭10只怪物，赏金%(TOINT(4*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.1]在平原消灭10只怪物，赏金%(TOINT(4*1.1*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.2]在山地消灭10只怪物，赏金%(TOINT(4*1.2*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.3]在河谷消灭10只怪物，赏金%(TOINT(4*1.3*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.4]在山谷消灭10只怪物，赏金%(TOINT(4*1.4*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.5]在湿地消灭10只怪物，赏金%(TOINT(4*1.5*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.6]在地下封印区入口消灭10只怪物，赏金%(TOINT(4*1.6*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.7]在地下封印区上层消灭10只怪物，赏金%(TOINT(4*1.7*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.8]在地下封印区中层消灭10只怪物，赏金%(TOINT(4*1.8*50*lvl))\__q   \n/
-	\__q[Onmission,A,1.9]在地下封印区下层消灭10只怪物，赏金%(TOINT(4*1.9*50*lvl))\__q   \n/
-	\__q[Onmission,A,2]在地下封印区核心消灭10只怪物，赏金%(TOINT(4*2*50*lvl))/%(TOINT(4*7*50*lvl))\__q   \n/
+	"\q[◇領取獎勵,Onaward]\n/
+	\__q[Onmission,A,1]在農場消滅10只怪物，賞金%(TOINT(4*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.1]在平原消滅10只怪物，賞金%(TOINT(4*1.1*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.2]在山地消滅10只怪物，賞金%(TOINT(4*1.2*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.3]在河谷消滅10只怪物，賞金%(TOINT(4*1.3*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.4]在山谷消滅10只怪物，賞金%(TOINT(4*1.4*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.5]在濕地消滅10只怪物，賞金%(TOINT(4*1.5*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.6]在地下封印區入口消滅10只怪物，賞金%(TOINT(4*1.6*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.7]在地下封印區上層消滅10只怪物，賞金%(TOINT(4*1.7*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.8]在地下封印區中層消滅10只怪物，賞金%(TOINT(4*1.8*50*lvl))\__q   \n/
+	\__q[Onmission,A,1.9]在地下封印區下層消滅10只怪物，賞金%(TOINT(4*1.9*50*lvl))\__q   \n/
+	\__q[Onmission,A,2]在地下封印區核心消滅10只怪物，賞金%(TOINT(4*2*50*lvl))/%(TOINT(4*7*50*lvl))\__q   \n/
 	"
 }
 missionclassS{
-	"\q[◇领取奖励,Onaward]\n/
-	\__q[Onmission,S,1]在农场消灭10只怪物，赏金%(TOINT(8*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.1]在平原消灭10只怪物，赏金%(TOINT(8*1.1*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.2]在山地消灭10只怪物，赏金%(TOINT(8*1.2*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.3]在河谷消灭10只怪物，赏金%(TOINT(8*1.3*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.4]在山谷消灭10只怪物，赏金%(TOINT(8*1.4*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.5]在湿地消灭10只怪物，赏金%(TOINT(8*1.5*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.6]在地下封印区入口消灭10只怪物，赏金%(TOINT(8*1.6*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.7]在地下封印区上层消灭10只怪物，赏金%(TOINT(8*1.7*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.8]在地下封印区中层消灭10只怪物，赏金%(TOINT(8*1.8*50*lvl))\__q   \n/
-	\__q[Onmission,S,1.9]在地下封印区下层消灭10只怪物，赏金%(TOINT(8*1.9*50*lvl))\__q   \n/
-	\__q[Onmission,S,2]在地下封印区核心消灭10只怪物，赏金%(TOINT(8*2*50*lvl))/%(TOINT(8*8*50*lvl))\__q   \n/
+	"\q[◇領取獎勵,Onaward]\n/
+	\__q[Onmission,S,1]在農場消滅10只怪物，賞金%(TOINT(8*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.1]在平原消滅10只怪物，賞金%(TOINT(8*1.1*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.2]在山地消滅10只怪物，賞金%(TOINT(8*1.2*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.3]在河谷消滅10只怪物，賞金%(TOINT(8*1.3*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.4]在山谷消滅10只怪物，賞金%(TOINT(8*1.4*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.5]在濕地消滅10只怪物，賞金%(TOINT(8*1.5*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.6]在地下封印區入口消滅10只怪物，賞金%(TOINT(8*1.6*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.7]在地下封印區上層消滅10只怪物，賞金%(TOINT(8*1.7*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.8]在地下封印區中層消滅10只怪物，賞金%(TOINT(8*1.8*50*lvl))\__q   \n/
+	\__q[Onmission,S,1.9]在地下封印區下層消滅10只怪物，賞金%(TOINT(8*1.9*50*lvl))\__q   \n/
+	\__q[Onmission,S,2]在地下封印區核心消滅10只怪物，賞金%(TOINT(8*2*50*lvl))/%(TOINT(8*8*50*lvl))\__q   \n/
 	"
 }
 Onaward{
 	if award==1 && class=='D'{
 		money+=TOINT(0.5*level*50*lvl)
-		"\0\s[5]已领取D级任务奖励，得到%(TOINT(0.5*level*50*lvl))金\x"
+		"\0\s[5]已領取D級任務獎勵，得到%(TOINT(0.5*level*50*lvl))金\x"
 		award=0
 	}
 	elseif award==1 && class=='C'{
 		money+=TOINT(1*level*50*lvl)
-		"\0\s[5]已领取C级任务奖励，得到%(TOINT(level*1*50*lvl))金\x"
+		"\0\s[5]已領取C級任務獎勵，得到%(TOINT(level*1*50*lvl))金\x"
 		award=0
 	}
 	elseif award==1 && class=='B'{
 		money+=TOINT(2*level*50*lvl)
-		"\0\s[5]已领取B级任务奖励，得到%(TOINT(level*2*50*lvl))金\x"
+		"\0\s[5]已領取B級任務獎勵，得到%(TOINT(level*2*50*lvl))金\x"
 		award=0
 	}
 	elseif award==1 && class=='A'{
 		money+=TOINT(4*level*50*lvl)
-		"\0\s[5]已领取A级任务奖励，得到%(TOINT(level*4*50*lvl))金\x"
+		"\0\s[5]已領取A級任務獎勵，得到%(TOINT(level*4*50*lvl))金\x"
 		award=0
 	}
 	elseif award==1 && class=='S'{
 		money+=TOINT(8*level*50*lvl)
-		"\0\s[5]已领取S级任务奖励，得到%(TOINT(level*8*50*lvl))金\x"
+		"\0\s[5]已領取S級任務獎勵，得到%(TOINT(level*8*50*lvl))金\x"
 		award=0
 	}
 	else{
-		'\0\s[8]未达到奖励条件，领取失败\x'
+		'\0\s[8]未達到獎勵條件，領取失敗\x'
 	}
 	--
 	--
@@ -2447,37 +2447,37 @@ Onmission{
 	mnum=0
 	award=0
 	if level==1{
-		'橘花和斗和来到了农场\x'
+		'橘花和鬥和來到了農場\x'
 	}
 	elseif level==1.1{
-		'橘花和斗和来到了平原\x'
+		'橘花和鬥和來到了平原\x'
 	}
 	elseif level==1.2{
-		'橘花和斗和来到了山地\x'
+		'橘花和鬥和來到了山地\x'
 	}
 	elseif level==1.3{
-		'橘花和斗和来到了河谷\x'
+		'橘花和鬥和來到了河谷\x'
 	}
 	elseif level==1.4{
-		'橘花和斗和来到了山谷\x'
+		'橘花和鬥和來到了山谷\x'
 	}
 	elseif level==1.5{
-		'橘花和斗和来到了湿地\x'
+		'橘花和鬥和來到了濕地\x'
 	}
 	elseif level==1.6{
-		'橘花和斗和来到了地下封印区入口\x'
+		'橘花和鬥和來到了地下封印區入口\x'
 	}
 	elseif level==1.7{
-		'橘花和斗和来到了在地下封印区上层\x'
+		'橘花和鬥和來到了在地下封印區上層\x'
 	}
 	elseif level==1.8{
-		'橘花和斗和来到了地下封印区中层\x'
+		'橘花和鬥和來到了地下封印區中層\x'
 	}
 	elseif level==1.9{
-		'橘花和斗和来到了地下封印区下层\x'
+		'橘花和鬥和來到了地下封印區下層\x'
 	}
 	elseif level==2{
-		'橘花和斗和来到了地下封印区核心\x'
+		'橘花和鬥和來到了地下封印區核心\x'
 	}
 	--
 	Onbattle
@@ -2486,31 +2486,31 @@ Onbattle{
 	battlemode=2
 	f=RAND(100)
 	if f>15 && f<=50{
-		'什么也没发现。\n/
-		\q[◇继续逛,Onbattle]\n/
+		'什麼也沒發現。\n/
+		\q[◇繼續逛,Onbattle]\n/
 		\q[◇休息一下,On休息]\n/
 		\q[◇回去吧,back]'
 	}
 	elseif f>5 && f<=15{
 		i=RAND(9)
 		if i<5{
-			"发现%(itemA[(mlv/18)%5][2])\n/
-			\q[◇继续逛,Onbattle]\n/
+			"發現%(itemA[(mlv/18)%5][2])\n/
+			\q[◇繼續逛,Onbattle]\n/
 			\q[◇休息一下,On休息]\n/
 			\q[◇回去吧,back]"
 			itemAnum[(mlv/18)%5]=TOINT(itemAnum[(mlv/18)%5]+1)
 		}
 		elseif i>=5{
-			"发现%(itemB[(mlv/18)%5][2])\n/
-			\q[◇继续逛,Onbattle]\n/
+			"發現%(itemB[(mlv/18)%5][2])\n/
+			\q[◇繼續逛,Onbattle]\n/
 			\q[◇休息一下,On休息]\n/
 			\q[◇回去吧,back]"
 			itemBnum[(mlv/18)%5]=TOINT(itemBnum[(mlv/18)%5]+1)
 		}
 	}
 	elseif f<=5{
-		"发现%(5*mlv)金\n/
-		\q[◇继续逛,Onbattle]\n/
+		"發現%(5*mlv)金\n/
+		\q[◇繼續逛,Onbattle]\n/
 		\q[◇休息一下,On休息]\n/
 		\q[◇回去吧,back]"
 		money+=5*mlv
@@ -2519,21 +2519,21 @@ Onbattle{
 		if mnum==9{
 			b=RAND(2)
 			if b==1 && level==2{
-				怪物名字='幻想乐曲复合体'
-				"发现终级BOSS：%(怪物名字),要退却吗？\n/
-				\q[◇退却,Onbattle]\n/
-				\q[◇迎战,Onbossfight]"
+				怪物名字='幻想樂曲複合體'
+				"發現終級BOSS：%(怪物名字),要退卻嗎？\n/
+				\q[◇退卻,Onbattle]\n/
+				\q[◇迎戰,Onbossfight]"
 			}
 			else{
 				怪物名字=monster
-				"发现%(怪物名字),进入战斗\x"
+				"發現%(怪物名字),進入戰鬥\x"
 				--
 				Onbattleinter
 			}
 		}
 		else{
 			怪物名字=monster
-			"发现%(怪物名字),进入战斗\x"
+			"發現%(怪物名字),進入戰鬥\x"
 			--
 			Onbattleinter
 		}
@@ -2600,54 +2600,54 @@ Onbossfight{
 }
 monster{
 	if level==1{
-		'黄鼠狼怪'
+		'黃鼠狼怪'
 		'田鼠怪'
-		'菠萝怪'
+		'鳳梨怪'
 	}
 	elseif level==1.1{
-		'野猪怪'
+		'野豬怪'
 		'黑熊怪'
 		'大蜥蜴'
 	}
 	elseif level==1.2{
 		'野狼怪'
-		'剑齿兽'
+		'劍齒獸'
 		'食人怪'
 	}
 	elseif level==1.3{
 		'剪刀蟹'
-		'暴躁气泡'
-		'骸骨鱼'
+		'暴躁氣泡'
+		'骸骨魚'
 	}
 	elseif level==1.4{
-		'剑齿吸血魔'
+		'劍齒吸血魔'
 		'烈炎草'
 	}
 	elseif level==1.5{
-		'贪婪锷鱼'
-		'凶暴巨锷'
+		'貪婪鍔魚'
+		'兇暴巨鍔'
 	}
 	elseif level==1.6{
-		'侦察飞行器'
-		'机械守卫'
+		'偵察飛行器'
+		'機械守衛'
 	}
 	elseif level==1.7{
-		'光子裁决'
-		'高能装甲'
+		'光子裁決'
+		'高能裝甲'
 	}
 	elseif level==1.8{
-		'毁灭者D型'
-		'毁灭者S型'
-		'毁灭者M型'
+		'毀滅者D型'
+		'毀滅者S型'
+		'毀滅者M型'
 	}
 	elseif level==1.9{
-		'守护之臂R'
-		'守护之臂L'
+		'守護之臂R'
+		'守護之臂L'
 	}
 	elseif level==2{
-		'幻想乐曲'
-		'幻想乐曲II'
-		'幻想乐曲III'
+		'幻想樂曲'
+		'幻想樂曲II'
+		'幻想樂曲III'
 	}
 }
 battleinfo{
@@ -2657,21 +2657,21 @@ battleinfo{
 	if cp1>200{
 		cp1=200
 	}
-	战技0=('0,助威,辅助,复体,3,20,STR+50%','1,双管齐下,攻击,单体,15,20,-100,2','2,列波三连射,攻击,单体,20,20,325,3','3,金刚击,攻击,单体,25,20,驱动解除,1','4,欢乐激发,回复,复体,26,20,3000','5,樱花排击炮,攻击S,单体,3,100,1000,10','6,橘花排击炮,攻击S,单体,24,100,1200,12','7,真・双管齐下,攻击,单体,43,30,600,6','8,真・列波三连射,攻击,单体,67,40,900,9','9,真・金刚击,攻击,单体,70,50,驱动解除,9','10,欢乐激发2,回复,复体,67,25,6000','11,真・樱花排击炮,攻击S,单体,80,100,2800,28','13,真・橘花排击炮,攻击S,单体,100,100,3200,32','14,奥义・天下无双,攻击S,单体,120,100,4800,48')
-	战技1=('0,双连击,攻击,单体,3,20,-100,2','1,烈火取栗,攻击,单体,15,20,-100,3','2,爱的轨迹,攻击,单体,26,20,325,3','3,安魂曲,攻击S,单体,3,100,1000,10','4,女王之怒,攻击S,单体,24,100,1200,12','5,真・烈火取栗,攻击,单体,43,30,600,6','6,真・爱的轨迹,攻击,单体,67,40,900,9','7,真・安魂曲,攻击S,单体,80,100,2800,28','8,真・女王之怒,攻击S,单体,100,100,3200,32','9,奥义・量子风暴,攻击S,单体,120,100,4800,48')
+	戰技0=('0,助威,輔助,複體,3,20,STR+50%','1,雙管齊下,攻擊,單體,15,20,-100,2','2,列波三連射,攻擊,單體,20,20,325,3','3,金剛擊,攻擊,單體,25,20,驅動解除,1','4,歡樂激發,回復,複體,26,20,3000','5,櫻花排擊炮,攻擊S,單體,3,100,1000,10','6,橘花排擊炮,攻擊S,單體,24,100,1200,12','7,真・雙管齊下,攻擊,單體,43,30,600,6','8,真・列波三連射,攻擊,單體,67,40,900,9','9,真・金剛擊,攻擊,單體,70,50,驅動解除,9','10,歡樂激發2,回復,複體,67,25,6000','11,真・櫻花排擊炮,攻擊S,單體,80,100,2800,28','13,真・橘花排擊炮,攻擊S,單體,100,100,3200,32','14,奧義・天下無雙,攻擊S,單體,120,100,4800,48')
+	戰技1=('0,雙連擊,攻擊,單體,3,20,-100,2','1,烈火取栗,攻擊,單體,15,20,-100,3','2,愛的軌跡,攻擊,單體,26,20,325,3','3,安魂曲,攻擊S,單體,3,100,1000,10','4,女王之怒,攻擊S,單體,24,100,1200,12','5,真・烈火取栗,攻擊,單體,43,30,600,6','6,真・愛的軌跡,攻擊,單體,67,40,900,9','7,真・安魂曲,攻擊S,單體,80,100,2800,28','8,真・女王之怒,攻擊S,單體,100,100,3200,32','9,奧義・量子風暴,攻擊S,單體,120,100,4800,48')
 	--
-	"\![quicksession,true]\1\![set,choicetimeout,0]\_l[0,0]橘花%(kikka)\f[color,231,171,109]等级\f[color,default]%(lvl0) \f[color,231,171,109]Next\f[color,default]%(nextexp0) \_l[150,-]斗和%(towa)\f[color,231,171,109]等级\f[color,default]%(lvl1) \f[color,231,171,109]Next\f[color,default]%(nextexp1)\n/
+	"\![quicksession,true]\1\![set,choicetimeout,0]\_l[0,0]橘花%(kikka)\f[color,231,171,109]等級\f[color,default]%(lvl0) \f[color,231,171,109]Next\f[color,default]%(nextexp0) \_l[150,-]鬥和%(towa)\f[color,231,171,109]等級\f[color,default]%(lvl1) \f[color,231,171,109]Next\f[color,default]%(nextexp1)\n/
 	\f[color,231,171,109]HP\f[color,default]\_l[30,-]%(hp0)/%(hpmax0) %(ColorBar(6,20,hp0,hpmax0)) \_l[150,-]\f[color,231,171,109]HP\f[color,default]\_l[180,-]%(hp1)/%(hpmax1) %(ColorBar(6,170,hp1,hpmax1))\n/
 	\f[color,231,171,109]EP\f[color,default]\_l[30,-]%(ep0)/%(epmax0) %(ColorBar(3,20,ep0,epmax0)) \_l[150,-]\f[color,231,171,109]EP\f[color,default]\_l[180,-]%(ep1)/%(epmax1) %(ColorBar(3,170,ep1,epmax1))\n/
 	\f[color,231,171,109]CP\f[color,default]\_l[30,-]%(cp0)/%(cpmax0) %(ColorBar(9,20,cp0,cpmax0)) \_l[150,-]\f[color,231,171,109]CP\f[color,default]\_l[180,-]%(cp1)/%(cpmax1) %(ColorBar(9,170,cp1,cpmax1))\n/
 	\_l[0,-]\__q[OnMonsterInfo]Class%(class)怪物\__q  \f[color,231,171,109]Level \f[color,default]%(mlv)  \_l[150,-]\f[color,231,171,109]HP \f[color,default]  %(ColorBar(6,170,mhp,mhpmax)) \_l[180,-]%(mhp)/%(mhpmax)\n"
 }
 OnMonsterInfo{
-	"\1%(怪物名字)属性攻击有效率：\n/
+	"\1%(怪物名字)屬性攻擊有效率：\n/
 	水：%(TOINT(100*水有效率))\n/
 	火：%(TOINT(100*火有效率))\n/
 	土：%(TOINT(100*土有效率))\n/
-	风：%(TOINT(100*风有效率))\_l[170,-]\q[◇返回,backtoinfo]"
+	風：%(TOINT(100*風有效率))\_l[170,-]\q[◇返回,backtoinfo]"
 }
 Select.backtoinfo{
 	if battlemode==1{
@@ -2698,13 +2698,13 @@ battlebegin{
 	助威回合=-1
 	嚎叫回合=-1
 	示威回合=-1
-	黑暗诅咒回合=-1
-	噬血诅咒回合=-1
-	威胁回合=-1
+	黑暗詛咒回合=-1
+	噬血詛咒回合=-1
+	威脅回合=-1
 	挑逗回合=-1
 	忽略回合=-1
-	敌视回合=-1
-	愤怒暴发回合=-1
+	敵視回合=-1
+	憤怒暴發回合=-1
 	禁寂之音回合=-1
 	mstr=_argv[1]
 	mdef=_argv[2]
@@ -2724,55 +2724,55 @@ battlebegin{
 		水有效率=1.3
 		火有效率=1.3
 		土有效率=1
-		风有效率=1
+		風有效率=1
 	}
 	elseif level==1.1{
 		水有效率=1.3
 		火有效率=1.3
 		土有效率=1
-		风有效率=1
+		風有效率=1
 	}
 	elseif level==1.2{
 		水有效率=1.3
 		火有效率=1.3
 		土有效率=1
-		风有效率=1
+		風有效率=1
 	}
 	elseif level==1.3{
 		水有效率=0.6
 		火有效率=1.4
 		土有效率=1
-		风有效率=1
+		風有效率=1
 	}
 	elseif level==1.4{
 		水有效率=1.5
 		火有效率=0.6
 		土有效率=1
-		风有效率=1
+		風有效率=1
 	}
 	elseif level==1.5{
 		水有效率=0.5
 		火有效率=1.5
 		土有效率=1
-		风有效率=1
+		風有效率=1
 	}
 	elseif level==1.6{
 		水有效率=1
 		火有效率=1
 		土有效率=1.2
-		风有效率=0.8
+		風有效率=0.8
 	}
 	elseif level==1.7{
 		水有效率=1.2
 		火有效率=1.2
 		土有效率=1.2
-		风有效率=1.2
+		風有效率=1.2
 	}
 	else{
 		水有效率=1
 		火有效率=1
 		土有效率=1
-		风有效率=1
+		風有效率=1
 	}
 	RpgGameVar
 	--
@@ -2787,13 +2787,13 @@ Onbattleselect{
 		hp0=0
 		losehpnum+=1
 		magicready0=0
-		_txt+='\0\s[35]橘花失去战斗能力\x'
+		_txt+='\0\s[35]橘花失去戰鬥能力\x'
 	}
 	if hp1<0{
 		hp1=0
 		losehpnum+=1
 		magicready1=0
-		_txt+='斗和失去战斗能力\x'
+		_txt+='鬥和失去戰鬥能力\x'
 	}
 	if battleturn==0 && hp0>0  && mhp>0{
 		kikka=1
@@ -2808,7 +2808,7 @@ Onbattleselect{
 		_txt+=Onbattleselect1
 	}
 	elseif battleturn==1 && hp1>0  && mhp>0{
-		_txt+=战技回合判定
+		_txt+=戰技回合判定
 		kikka=0
 		towa=1
 		battleturn=(battleturn+1)%2
@@ -2821,36 +2821,36 @@ Onbattleselect{
 		_txt+=Onbattleselect0
 	}
 	elseif hp0==0 && hp1==0 && mhp>0{
-		_txt+='战斗失败，回到主目录\x'
+		_txt+='戰鬥失敗，回到主目錄\x'
 		battlefailednum+=1
 		battlemode=0
 		_txt+=OpenRpgGameMenu(5)
 	}
 	elseif hp0+hp1>0 && mhp==0{
-		_txt+='\t\0\s[5]战斗胜利了。\x'
-		_txt+=战斗结束
+		_txt+='\t\0\s[5]戰鬥勝利了。\x'
+		_txt+=戰鬥結束
 	}
 	_txt+=battleinfo
 	_txt
 }
 Onbattleselect0{
 	if magicready0==1{
-		准备魔法0
+		準備魔法0
 	}
 	else{
-		'\0\s[26]橘花应该\n'
+		'\0\s[26]橘花應該\n'
 		--
 		if SILENT==1
-			'\f[color,192,192,192]攻击\f[color,default]\n'
+			'\f[color,192,192,192]攻擊\f[color,default]\n'
 		else
-			'\q[◇攻击,attack0]\n'
+			'\q[◇攻擊,attack0]\n'
 		--
 		'\q[◇魔法,Onmagic,0,targetmode]\n'
 		--
 		if SILENT==1
-			'\f[color,192,192,192]战技\f[color,default]\n'
+			'\f[color,192,192,192]戰技\f[color,default]\n'
 		else
-			'\q[◇战技,spattack0]\n'
+			'\q[◇戰技,spattack0]\n'
 		--
 		'\q[◇道具,item0]\n/
 		\q[◇逃跑,escape]'
@@ -2860,66 +2860,66 @@ Onbattleselect0{
 }
 Onbattleselect1{
 	if magicready1==1{
-		准备魔法1
+		準備魔法1
 	}
 	else{
 		if towashell==0{
-			'\0\s[26]当前斗和形态为人形态,斗和应该\n'
+			'\0\s[26]當前鬥和形態為人形態,鬥和應該\n'
 			--
 			if SILENT==1
-				'\f[color,192,192,192]攻击\f[color,default]\n'
+				'\f[color,192,192,192]攻擊\f[color,default]\n'
 			else
-				'\q[◇攻击,attack1]\n'
+				'\q[◇攻擊,attack1]\n'
 			--
-			'\q[◇吸烟,smoke]\n/
+			'\q[◇吸煙,smoke]\n/
 			\q[◇魔法,Onmagic,1,targetmode]\n'
 			--
 			if SILENT==1
-				'\f[color,192,192,192]战技\f[color,default]\n'
+				'\f[color,192,192,192]戰技\f[color,default]\n'
 			else
-				'\q[◇战技,spattack1]\n'
+				'\q[◇戰技,spattack1]\n'
 			--
 			'\q[◇道具,item1]\n/
 			\q[◇逃跑,escape]'
 		}
 		if towashell==1{
-			'\0\s[26]当前斗和形态为动物形态,斗和应该\n'
+			'\0\s[26]當前鬥和形態為動物形態,鬥和應該\n'
 			--
 			if SILENT==1
-				'\f[color,192,192,192]攻击\f[color,default]\n'
+				'\f[color,192,192,192]攻擊\f[color,default]\n'
 			else
-				'\q[◇攻击,attack1]\n'
+				'\q[◇攻擊,attack1]\n'
 			--
-			'\q[◇吸烟,smoke]\n'
+			'\q[◇吸煙,smoke]\n'
 			--
 			if SILENT==1
-				'\f[color,192,192,192]兽技\f[color,default]\n'
+				'\f[color,192,192,192]獸技\f[color,default]\n'
 			else
-				'\q[◇兽技,beastsp]\n'
+				'\q[◇獸技,beastsp]\n'
 			--
 			'\q[◇道具,item1]\n/
 			\q[◇逃跑,escape]'
 		}
 		if towashell==2{
-			'\0\s[26]当前斗和形态为半兽形态,斗和应该\n'
+			'\0\s[26]當前鬥和形態為半獸形態,鬥和應該\n'
 			--
 			if SILENT==1
-				'\f[color,192,192,192]攻击\f[color,default]\n'
+				'\f[color,192,192,192]攻擊\f[color,default]\n'
 			else
-				'\q[◇攻击,attack1]\n'
+				'\q[◇攻擊,attack1]\n'
 			--
-			'\q[◇吸烟,smoke]\n/
+			'\q[◇吸煙,smoke]\n/
 			\q[◇魔法,Onmagic,1,targetmode]\n'
 			--
 			if SILENT==1
-				'\f[color,192,192,192]战技\f[color,default]\n'
+				'\f[color,192,192,192]戰技\f[color,default]\n'
 			else
-				'\q[◇战技,spattack1]\n'
+				'\q[◇戰技,spattack1]\n'
 			--
 			if SILENT==1
-				'\f[color,192,192,192]兽技\f[color,default]\n'
+				'\f[color,192,192,192]獸技\f[color,default]\n'
 			else
-				'\q[◇兽技,beastsp]\n'
+				'\q[◇獸技,beastsp]\n'
 			--
 			'\q[◇道具,item1]\n/
 			\q[◇逃跑,escape]'
@@ -2932,51 +2932,51 @@ Select.smoke{
 	if towashell==0{
 		if smoke==NULL{
 			smoke=1
-			'斗和正在抽烟，尼古丁含量上升中。\x'
+			'鬥和正在抽煙，尼古丁含量上升中。\x'
 		}
 		elseif smoke==1{
 			smoke=2
-			"斗和正在抽烟，尼古丁含量50%。\x"
+			"鬥和正在抽煙，尼古丁含量50%。\x"
 		}
 		elseif smoke==2{
 			towashell=1
 			smoke=NULL
-			"斗和正在抽烟，尼古丁含量100%。斗和转变形态,当前为动物形态。\x"
+			"鬥和正在抽煙，尼古丁含量100%。鬥和轉變形態,當前為動物形態。\x"
 		}
 	}
 	elseif towashell==1{
 		if smoke==NULL{
 			smoke=1
-			'斗和正在抽烟，尼古丁含量上升中。\x'
+			'鬥和正在抽煙，尼古丁含量上升中。\x'
 		}
 		elseif smoke==1{
 			smoke=2
-			"斗和正在抽烟，尼古丁含量50%。\x"
+			"鬥和正在抽煙，尼古丁含量50%。\x"
 		}
 		elseif smoke==2{
 			towashell=2
 			smoke=NULL
-			"斗和正在抽烟，尼古丁含量100%。斗和转变形态，当前为半兽形态。\x"
+			"鬥和正在抽煙，尼古丁含量100%。鬥和轉變形態，當前為半獸形態。\x"
 		}
 	}
 	elseif towashell==2{
 		if smoke==NULL{
 			smoke=1
-			'斗和正在抽烟，尼古丁含量上升中。\x'
+			'鬥和正在抽煙，尼古丁含量上升中。\x'
 		}
 		elseif smoke==1{
 			smoke=2
-			"斗和正在抽烟，尼古丁含量50%。\x"
+			"鬥和正在抽煙，尼古丁含量50%。\x"
 		}
 		elseif smoke==2{
 			towashell=0
 			smoke=NULL
-			"斗和正在抽烟，尼古丁含量100%。斗和转变形态，当前为人形态\x"
+			"鬥和正在抽煙，尼古丁含量100%。鬥和轉變形態，當前為人形態\x"
 		}
 	}
 	--
 	if battlemode==1{
-		怪物反击
+		怪物反擊
 	}
 	elseif battlemode==2{
 		On休息
@@ -2985,29 +2985,29 @@ Select.smoke{
 Select.attack0{
 	m=RAND(100)
 	if m>=10{
-		伤害 = TOINT(ANG*3.9*str0-2.82*mdef)
-		if 伤害<0
-			伤害=0
+		傷害 = TOINT(ANG*3.9*str0-2.82*mdef)
+		if 傷害<0
+			傷害=0
 		if mdefend==1{
-			伤害=0
+			傷害=0
 			mdefend=0
 		}
-		mhp-=伤害
-		"\0\s[32]橘花命中目标，%(怪物名字)损血%(伤害)\x"
+		mhp-=傷害
+		"\0\s[32]橘花命中目標，%(怪物名字)損血%(傷害)\x"
 	}
 	else{
-		伤害 = TOINT(1.5*ANG*(3.9*str0-2.82*mdef))
-		if 伤害<0
-			伤害=0
+		傷害 = TOINT(1.5*ANG*(3.9*str0-2.82*mdef))
+		if 傷害<0
+			傷害=0
 		if mdefend==1{
-			伤害=0
+			傷害=0
 			mdefend=0
 		}
-		mhp-=伤害
-		"\0\s[32]橘花对目标发动会心一击，%(怪物名字)损血%(伤害)\x"
+		mhp-=傷害
+		"\0\s[32]橘花對目標發動會心一擊，%(怪物名字)損血%(傷害)\x"
 	}
 	--
-	if 伤害>=TOINT(0.33*mhpmax){
+	if 傷害>=TOINT(0.33*mhpmax){
 		cp0+=3
 	}
 	else{
@@ -3018,7 +3018,7 @@ Select.attack0{
 		Onbattleselect
 	}
 	else{
-		怪物反击
+		怪物反擊
 	}
 	--
 	battleinfo
@@ -3026,36 +3026,36 @@ Select.attack0{
 Select.attack1{
 	m=RAND(100)
 	if m>=10{
-		伤害 = TOINT(3.9*ANG*str1-2.82*mdef)
-		if 伤害<0
-			伤害=0
+		傷害 = TOINT(3.9*ANG*str1-2.82*mdef)
+		if 傷害<0
+			傷害=0
 		if mdefend==1{
-			伤害=0
+			傷害=0
 			mdefend=0
 		}
-		mhp-=伤害
-		"\0\s[26]斗和命中目标，%(怪物名字)损血%(伤害)\x"
+		mhp-=傷害
+		"\0\s[26]鬥和命中目標，%(怪物名字)損血%(傷害)\x"
 	}
 	else{
-		伤害 = TOINT(1.5*ANG*(3.9*str1-2.82*mdef))
-		if 伤害<0
-			伤害=0
+		傷害 = TOINT(1.5*ANG*(3.9*str1-2.82*mdef))
+		if 傷害<0
+			傷害=0
 		if mdefend==1{
-			伤害=0
+			傷害=0
 			mdefend=0
 		}
-		mhp-=伤害
-		"\0\s[26]斗和对目标发动会心一击，%(怪物名字)损血%(伤害)\x"
+		mhp-=傷害
+		"\0\s[26]鬥和對目標發動會心一擊，%(怪物名字)損血%(傷害)\x"
 	}
 	--
-	if 伤害>=TOINT(0.33*mhpmax){
+	if 傷害>=TOINT(0.33*mhpmax){
 		cp1+=3
 	}
 	else{
 		cp1+=10
 	}
 	--
-	怪物反击
+	怪物反擊
 	--
 	battleinfo
 }
@@ -3075,8 +3075,8 @@ Onmagic{
 }
 Select.spattack0{
 	_txt='\![quicksession,true]\b[2]\n'
-	_txt+='\_l[0,-]战技名称     \_l[90,-]属性    \_l[130,-]范围     \_l[170,-]消耗CP     \_l[210,-]效果\n'
-	foreach 战技0; _i{
+	_txt+='\_l[0,-]戰技名稱     \_l[90,-]屬性    \_l[130,-]範圍     \_l[170,-]消耗CP     \_l[210,-]效果\n'
+	foreach 戰技0; _i{
 		if lvl0>=TOINT(_i[4]){
 			_txt += "\_l[0,-]%(_i[1])     \_l[90,-]%(_i[2])   \_l[130,-]%(_i[3])   \_l[170,-]%(_i[5])  \_l[210,-]%(_i[6]) \_l[260,-]\q[◇使用,Onusesp0,%(_i[1]),%(_i[2]),%(_i[3]),%(_i[4]),%(_i[5]),%(_i[6]),%(_i[7])]\n"
 		}
@@ -3088,8 +3088,8 @@ Select.spattack0{
 }
 Select.spattack1{
 	_txt='\![quicksession,true]\b[2]\n'
-	_txt+='\_l[0,-]战技名称     \_l[90,-]属性    \_l[130,-]范围     \_l[170,-]消耗CP     \_l[210,-]效果\n'
-	foreach 战技1; _i {
+	_txt+='\_l[0,-]戰技名稱     \_l[90,-]屬性    \_l[130,-]範圍     \_l[170,-]消耗CP     \_l[210,-]效果\n'
+	foreach 戰技1; _i {
 		if lvl0>=TOINT(_i[4]){
 			_txt += "\_l[0,-]%(_i[1])     \_l[90,-]%(_i[2])   \_l[130,-]%(_i[3])   \_l[170,-]%(_i[5])  \_l[210,-]%(_i[6]) \_l[260,-]\q[◇使用,Onusesp1,%(_i[1]),%(_i[2]),%(_i[3]),%(_i[4]),%(_i[5]),%(_i[6]),%(_i[7])]\n"
 		}
@@ -3100,80 +3100,80 @@ Select.spattack1{
 	battleinfo
 }
 Onusesp0{
-	战技名称=reference0
-	属性=reference1
-	效果数值=reference5
+	戰技名稱=reference0
+	屬性=reference1
+	效果數值=reference5
 	NUMS=reference6
 	CP消耗=TOINT(reference4)
 	if cp0>=CP消耗{
-		if 属性=='辅助'{
+		if 屬性=='輔助'{
 			cp0-=CP消耗
 			STRADD=1.5
 			助威回合=3
-			"橘花发动了%(战技名称)，橘花STR上升50%，斗和STR上升50%。\x"
+			"橘花發動了%(戰技名稱)，橘花STR上升50%，鬥和STR上升50%。\x"
 		}
-		elseif 属性=='回复'{
-			效果数值=TOINT(效果数值)
+		elseif 屬性=='回復'{
+			效果數值=TOINT(效果數值)
 			if hp1>0{
-				if hp0+效果数值>=hpmax0 &&  hp1+效果数值>=hpmax1 && cp1>=CP消耗{
-					"橘花发动了%(战技名称)，橘花HP回复%(hpmax0-hp0)，斗和HP回复%(hpmax1-hp1)\x"
+				if hp0+效果數值>=hpmax0 &&  hp1+效果數值>=hpmax1 && cp1>=CP消耗{
+					"橘花發動了%(戰技名稱)，橘花HP回復%(hpmax0-hp0)，鬥和HP回復%(hpmax1-hp1)\x"
 					hp0=hpmax0
 					hp1=hpmax1
 					cp0-=CP消耗
 				}
-				elseif hp0+效果数值<hpmax0 && hp1+效果数值<hpmax1 && cp1>=CP消耗{
-					"橘花发动了%(战技名称)，橘花HP回复%(效果数值)，斗和HP回复%(效果数值)\x"
-					hp0+=效果数值
-					hp1+=效果数值
+				elseif hp0+效果數值<hpmax0 && hp1+效果數值<hpmax1 && cp1>=CP消耗{
+					"橘花發動了%(戰技名稱)，橘花HP回復%(效果數值)，鬥和HP回復%(效果數值)\x"
+					hp0+=效果數值
+					hp1+=效果數值
 					cp0-=CP消耗
 				}
-				elseif hp0+效果数值>=hpmax0 &&  hp1+效果数值<hpmax1 && cp1>=CP消耗{
-					"橘花发动了%(战技名称)，橘花HP回复%(hpmax0-hp0)，斗和HP回复%(效果数值)\x"
+				elseif hp0+效果數值>=hpmax0 &&  hp1+效果數值<hpmax1 && cp1>=CP消耗{
+					"橘花發動了%(戰技名稱)，橘花HP回復%(hpmax0-hp0)，鬥和HP回復%(效果數值)\x"
 					hp0=hpmax0
-					hp1+=效果数值
+					hp1+=效果數值
 					cp0-=CP消耗
 				}
-				elseif hp0+效果数值<hpmax0 &&  hp1+效果数值>=hpmax1 && cp1>=CP消耗{
-					"橘花发动了%(战技名称)，橘花HP回复%(效果数值)，斗和HP回复%(hpmax1-hp1)\x"
-					hp0+=效果数值
+				elseif hp0+效果數值<hpmax0 &&  hp1+效果數值>=hpmax1 && cp1>=CP消耗{
+					"橘花發動了%(戰技名稱)，橘花HP回復%(效果數值)，鬥和HP回復%(hpmax1-hp1)\x"
+					hp0+=效果數值
 					hp1=hpmax1
 					cp0-=CP消耗
 				}
 			}
 			else{
-				if hp0+效果数值>=hpmax0 && cp1>=CP消耗{
-					"橘花发动了%(战技名称)，HP回复%(hpmax0-hp0)\x"
+				if hp0+效果數值>=hpmax0 && cp1>=CP消耗{
+					"橘花發動了%(戰技名稱)，HP回復%(hpmax0-hp0)\x"
 					hp0=hpmax0
 					cp0-=CP消耗
 				}
-				elseif hp0+效果数值<hpmax0 && cp1>=CP消耗{
-					"橘花发动了%(战技名称)，HP回复%(效果数值)\x"
-					hp0+=效果数值
+				elseif hp0+效果數值<hpmax0 && cp1>=CP消耗{
+					"橘花發動了%(戰技名稱)，HP回復%(效果數值)\x"
+					hp0+=效果數值
 					cp0-=CP消耗
 				}
 			}
 		}
-		elseif 属性=='攻击'{
-			if 效果数值=='驱动解除'{
-				战技伤害=TOINT(ANG*NUMS*(3.9*str0-2.82*mdef))
-				if 战技伤害<0{
-					战技伤害=0
+		elseif 屬性=='攻擊'{
+			if 效果數值=='驅動解除'{
+				戰技傷害=TOINT(ANG*NUMS*(3.9*str0-2.82*mdef))
+				if 戰技傷害<0{
+					戰技傷害=0
 				}
 				if mdefend==1{
-					战技伤害=0
+					戰技傷害=0
 					mdefend=0
 				}
-				mhp-=战技伤害
+				mhp-=戰技傷害
 				cp0-=CP消耗
 				if mmagicready!=-1{
 					mmagicready=-1
-					"橘花对%(怪物名字)使用了%(战技名称)，%(怪物名字)损血%(战技伤害),%(怪物名字)驱动的魔法解除\x"
+					"橘花對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害),%(怪物名字)驅動的魔法解除\x"
 				}
 				else{
-					"橘花对%(怪物名字)使用了%(战技名称)，%(怪物名字)损血%(战技伤害)\x"
+					"橘花對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 				}
 				--
-				if 战技伤害>=(1/3)*mhpmax{
+				if 戰技傷害>=(1/3)*mhpmax{
 					cp0+=3
 				}
 				else{
@@ -3181,19 +3181,19 @@ Onusesp0{
 				}
 			}
 			else{
-				战技伤害=TOINT(ANG*NUMS*(3.9*str0-2.82*mdef+效果数值))
-				if 战技伤害<0{
-					战技伤害=0
+				戰技傷害=TOINT(ANG*NUMS*(3.9*str0-2.82*mdef+效果數值))
+				if 戰技傷害<0{
+					戰技傷害=0
 				}
 				if mdefend==1{
-					战技伤害=0
+					戰技傷害=0
 					mdefend=0
 				}
-				mhp-=战技伤害
+				mhp-=戰技傷害
 				cp0-=CP消耗
-				"橘花对%(怪物名字)使用了%(战技名称)，%(怪物名字)损血%(战技伤害)\x"
+				"橘花對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 				--
-				if 战技伤害>=(1/3)*mhpmax{
+				if 戰技傷害>=(1/3)*mhpmax{
 					cp0+=3
 				}
 				else{
@@ -3201,21 +3201,21 @@ Onusesp0{
 				}
 			}
 		}
-		elseif 属性=='攻击S'{
+		elseif 屬性=='攻擊S'{
 			if cp0>=100 && cp0<200{
-				战技伤害=TOINT(ANG*NUMS*(3.9*str0-2.82*mdef+效果数值))
-				if 战技伤害<0{
-					战技伤害=0
+				戰技傷害=TOINT(ANG*NUMS*(3.9*str0-2.82*mdef+效果數值))
+				if 戰技傷害<0{
+					戰技傷害=0
 				}
 				if mdefend==1{
-					战技伤害=0
+					戰技傷害=0
 					mdefend=0
 				}
-				mhp-=战技伤害
+				mhp-=戰技傷害
 				cp0-=CP消耗
-				"橘花对%(怪物名字)使用了%(战技名称)，%(怪物名字)损血%(战技伤害)\x"
+				"橘花對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 				--
-				if 战技伤害>=(1/3)*mhpmax{
+				if 戰技傷害>=(1/3)*mhpmax{
 					cp0+=3
 				}
 				else{
@@ -3223,24 +3223,24 @@ Onusesp0{
 				}
 			}
 			elseif cp0==200{
-				if 战技名称=='奥义・天下无双'{
-					战技伤害=TOINT(ANG*3*NUMS*(3.9*str0-2.82*mdef+1.5*效果数值))
+				if 戰技名稱=='奧義・天下無雙'{
+					戰技傷害=TOINT(ANG*3*NUMS*(3.9*str0-2.82*mdef+1.5*效果數值))
 				}
 				else{
-					战技伤害=TOINT(ANG*2*NUMS*(3.9*str0-2.82*mdef+1.5*效果数值))
+					戰技傷害=TOINT(ANG*2*NUMS*(3.9*str0-2.82*mdef+1.5*效果數值))
 				}
-				if 战技伤害<0{
-					战技伤害=0
+				if 戰技傷害<0{
+					戰技傷害=0
 				}
 				if mdefend==1{
-					战技伤害=0
+					戰技傷害=0
 					mdefend=0
 				}
-				mhp-=战技伤害
+				mhp-=戰技傷害
 				cp0-=200
-				"橘花对%(怪物名字)使用了%(战技名称)，%(怪物名字)损血%(战技伤害)\x"
+				"橘花對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 				--
-				if 战技伤害>=(1/3)*mhpmax{
+				if 戰技傷害>=(1/3)*mhpmax{
 					cp0+=3
 				}
 				else{
@@ -3255,57 +3255,57 @@ Onusesp0{
 			Onbattleselect
 		}
 		else{
-			怪物反击
+			怪物反擊
 		}
 	}
 	else{
-		'CP不足，不能发动战技\x'
+		'CP不足，不能發動戰技\x'
 		--
 		Onbattleselect0
 	}
 }
 Onusesp1{
-	战技名称=reference0
-	属性=reference1
-	效果数值=reference5
+	戰技名稱=reference0
+	屬性=reference1
+	效果數值=reference5
 	NUMS=reference6
 	CP消耗=TOINT(reference4)
 	if cp1>=CP消耗{
-		if 属性=='攻击'{
-			战技伤害=TOINT(ANG*NUMS*(3.9*str1-2.82*mdef+效果数值))
-			if 战技伤害<0{
-				战技伤害=0
+		if 屬性=='攻擊'{
+			戰技傷害=TOINT(ANG*NUMS*(3.9*str1-2.82*mdef+效果數值))
+			if 戰技傷害<0{
+				戰技傷害=0
 			}
 			if mdefend==1{
-				战技伤害=0
+				戰技傷害=0
 				mdefend=0
 			}
-			mhp-=战技伤害
+			mhp-=戰技傷害
 			cp1-=CP消耗
-			"斗和对%(怪物名字)使用了%(战技名称)，%(怪物名字)损血%(战技伤害)\x"
+			"鬥和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 			--
-			if 战技伤害>=(1/3)*mhpmax{
+			if 戰技傷害>=(1/3)*mhpmax{
 				cp1+=3
 			}
 			else{
 				cp1+=10
 			}
 		}
-		elseif 属性=='攻击S'{
+		elseif 屬性=='攻擊S'{
 			if cp1>=100 && cp1<200{
-				战技伤害=TOINT(ANG*NUMS*(3.9*str1-2.82*mdef+效果数值))
-				if 战技伤害<0{
-					战技伤害=0
+				戰技傷害=TOINT(ANG*NUMS*(3.9*str1-2.82*mdef+效果數值))
+				if 戰技傷害<0{
+					戰技傷害=0
 				}
 				if mdefend==1{
-					战技伤害=0
+					戰技傷害=0
 					mdefend=0
 				}
-				mhp-=战技伤害
+				mhp-=戰技傷害
 				cp1-=CP消耗
-				"斗和对%(怪物名字)使用了%(战技名称)，%(怪物名字)损血%(战技伤害)\x"
+				"鬥和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 				--
-				if 战技伤害>=(1/3)*mhpmax{
+				if 戰技傷害>=(1/3)*mhpmax{
 					cp1+=3
 				}
 				else{
@@ -3313,24 +3313,24 @@ Onusesp1{
 				}
 			}
 			elseif cp1==200{
-				if 战技名称=='奥义・量子风暴'{
-					战技伤害=TOINT(ANG*3*NUMS*(3.9*str1-2.82*mdef+1.5*效果数值))
+				if 戰技名稱=='奧義・量子風暴'{
+					戰技傷害=TOINT(ANG*3*NUMS*(3.9*str1-2.82*mdef+1.5*效果數值))
 				}
 				else{
-					战技伤害=TOINT(ANG*2*NUMS*(3.9*str1-2.82*mdef+1.5*效果数值))
+					戰技傷害=TOINT(ANG*2*NUMS*(3.9*str1-2.82*mdef+1.5*效果數值))
 				}
-				if 战技伤害<0{
-					战技伤害=0
+				if 戰技傷害<0{
+					戰技傷害=0
 				}
 				if mdefend==1{
-					战技伤害=0
+					戰技傷害=0
 					mdefend=0
 				}
-				mhp-=战技伤害
+				mhp-=戰技傷害
 				cp1-=200
-				"斗和对%(怪物名字)使用了%(战技名称)，%(怪物名字)损血%(战技伤害)\x"
+				"鬥和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 				--
-				if 战技伤害>=(1/3)*mhpmax{
+				if 戰技傷害>=(1/3)*mhpmax{
 					cp1+=3
 				}
 				else{
@@ -3341,75 +3341,75 @@ Onusesp1{
 		--
 		RpgGameVar
 		--
-		怪物反击
+		怪物反擊
 	}
 	else{
-		'CP不足，不能发动战技\x'
+		'CP不足，不能發動戰技\x'
 		--
 		Onbattleselect1
 	}
 }
 Select.beastsp{
-	"\b[2]\![set,choicetimeout,0]\![quicksession,true]\__q[Onusebeastsp,0,25]猫爪三连击：攻击三次，消耗CP25\__q\n/
-	\__q[Onusebeastsp,1,30]嚎叫：我方物理防御提升50%，有效三回合，消耗CP30\__q\n/
-	\__q[Onusebeastsp,2,20]示威：下一次攻击时，无视对方防御力，消耗CP20\__q\n/
-	\__q[Onusebeastsp,3,30]黑暗诅咒：对方物理防御减50%，有效三回合，消耗CP30\__q\n/
-	\__q[Onusebeastsp,4,20]噬血诅咒：攻击时给予对方的伤害翻倍，有效一回合，消耗CP20\__q\n/
-	\__q[Onusebeastsp,5,100]牺牲：用自身HP的50%换取敌方HP的50%，消耗CP100\__q\n/
-	\__q[Onusebeastsp,6,50]偷取：偷取对方20%的HP。消耗CP50\n/
+	"\b[2]\![set,choicetimeout,0]\![quicksession,true]\__q[Onusebeastsp,0,25]貓爪三連擊：攻擊三次，消耗CP25\__q\n/
+	\__q[Onusebeastsp,1,30]嚎叫：我方物理防禦提升50%，有效三回合，消耗CP30\__q\n/
+	\__q[Onusebeastsp,2,20]示威：下一次攻擊時，無視對方防禦力，消耗CP20\__q\n/
+	\__q[Onusebeastsp,3,30]黑暗詛咒：對方物理防禦減50%，有效三回合，消耗CP30\__q\n/
+	\__q[Onusebeastsp,4,20]噬血詛咒：攻擊時給予對方的傷害翻倍，有效一回合，消耗CP20\__q\n/
+	\__q[Onusebeastsp,5,100]犧牲：用自身HP的50%換取敵方HP的50%，消耗CP100\__q\n/
+	\__q[Onusebeastsp,6,50]偷取：偷取對方20%的HP。消耗CP50\n/
 	\n[400]\q[◇返回,Onbattleselect1]\n/
 	"
 }
 Onusebeastsp{
-	兽技ID=reference0
+	獸技ID=reference0
 	消耗SP=TOINT(reference1)
 	if cp1>=消耗SP{
-		if 兽技ID==0{
-			兽技伤害=TOINT(ANG*3*(3.9*str1-2.82*mdef))
-			if 兽技伤害<0{
-				兽技伤害=0
+		if 獸技ID==0{
+			獸技傷害=TOINT(ANG*3*(3.9*str1-2.82*mdef))
+			if 獸技傷害<0{
+				獸技傷害=0
 			}
 			if mdefend==1{
-				兽技伤害=0
+				獸技傷害=0
 				mdefend=0
 			}
-			mhp-=兽技伤害
-			"斗和对%(怪物名字)使用了猫爪三连击，%(怪物名字)损血%(兽技伤害)\x"
+			mhp-=獸技傷害
+			"鬥和對%(怪物名字)使用了貓爪三連擊，%(怪物名字)損血%(獸技傷害)\x"
 		}
-		elseif 兽技ID==1{
+		elseif 獸技ID==1{
 			DEFADD=1.5
 			嚎叫回合=3
-			"斗和使用了嚎叫，DEF提升50%。\x"
+			"鬥和使用了嚎叫，DEF提升50%。\x"
 		}
-		elseif 兽技ID==2{
+		elseif 獸技ID==2{
 			IGN=0
 			示威回合=1
-			"斗和使用了示威，%(怪物名字)DEF被无视了。\x"
+			"鬥和使用了示威，%(怪物名字)DEF被無視了。\x"
 		}
-		elseif 兽技ID==3{
+		elseif 獸技ID==3{
 			MDEFMINUS=0.5
-			黑暗诅咒回合=3
-			"斗和使用了黑暗诅咒，%(怪物名字)DEF降低50%。\x"
+			黑暗詛咒回合=3
+			"鬥和使用了黑暗詛咒，%(怪物名字)DEF降低50%。\x"
 		}
-		elseif 兽技ID==4{
+		elseif 獸技ID==4{
 			ANG=2
-			噬血诅咒回合=1
-			'斗和使用了噬血诅咒\x'
+			噬血詛咒回合=1
+			'鬥和使用了噬血詛咒\x'
 		}
-		elseif 兽技ID==5{
+		elseif 獸技ID==5{
 			hp1=TOINT(0.5*hp1)
 			mhp=TOINT(0.5*mhp)
-			"斗和使用了牺牲，斗和HP减少%(TOINT(0.5*hp1)),%(怪物名字)HP减少%(TOINT(0.5*mhp))\x"
+			"鬥和使用了犧牲，鬥和HP減少%(TOINT(0.5*hp1)),%(怪物名字)HP減少%(TOINT(0.5*mhp))\x"
 		}
-		elseif 兽技ID==6{
+		elseif 獸技ID==6{
 			if hp1+0.2*mhp>=hpmax1{
-				"斗和使用了偷取，斗和HP增加%(TOINT(hpmax1-hp1)),%(怪物名字)HP减少%(TOINT(0.2*mhp))\x"
+				"鬥和使用了偷取，鬥和HP增加%(TOINT(hpmax1-hp1)),%(怪物名字)HP減少%(TOINT(0.2*mhp))\x"
 				--
 				hp1=hpmax1
 			}
 			else{
 				hp1+=0.2*mhp
-				"斗和使用了偷取，斗和HP增加%(TOINT(0.2*mhp)),%(怪物名字)HP减少%(TOINT(0.2*mhp))\x"
+				"鬥和使用了偷取，鬥和HP增加%(TOINT(0.2*mhp)),%(怪物名字)HP減少%(TOINT(0.2*mhp))\x"
 			}
 			--
 			mhp=TOINT(0.8*mhp)
@@ -3434,7 +3434,7 @@ Onusebeastsp{
 			mdef=mdefS
 		}
 		--
-		怪物反击
+		怪物反擊
 	}
 	else{
 		'CP不足\x'
@@ -3442,7 +3442,7 @@ Onusebeastsp{
 		Onbattleselect1
 	}
 }
-战技回合判定{
+戰技回合判定{
 	if 助威回合>0{
 		助威回合--
 	}
@@ -3460,7 +3460,7 @@ Onusebeastsp{
 		嚎叫回合=-1
 		--
 		DEFADD=1
-		'斗和使用的嚎叫技能失效了\x'
+		'鬥和使用的嚎叫技能失效了\x'
 	}
 	--
 	if 示威回合>0{
@@ -3470,35 +3470,35 @@ Onusebeastsp{
 		示威回合=-1
 		--
 		IGN=1
-		'斗和使用的示威技能失效了\x'
+		'鬥和使用的示威技能失效了\x'
 	}
 	--
-	if 黑暗诅咒回合>0{
-		黑暗诅咒回合--
+	if 黑暗詛咒回合>0{
+		黑暗詛咒回合--
 	}
-	elseif 黑暗诅咒回合==0{
-		黑暗诅咒回合=-1
+	elseif 黑暗詛咒回合==0{
+		黑暗詛咒回合=-1
 		--
 		MDEFMINUS=1
-		'斗和使用的黑暗诅咒技能失效了\x'
+		'鬥和使用的黑暗詛咒技能失效了\x'
 	}
 	--
-	if 噬血诅咒回合>0{
-		噬血诅咒回合--
+	if 噬血詛咒回合>0{
+		噬血詛咒回合--
 	}
-	elseif 噬血诅咒回合==0{
-		噬血诅咒回合=-1
+	elseif 噬血詛咒回合==0{
+		噬血詛咒回合=-1
 		--
 		ANG=1
-		'斗和使用的噬血诅咒技能失效了\x'
+		'鬥和使用的噬血詛咒技能失效了\x'
 	}
 	--
 	RpgGameVar
 }
 Select.item0{
-	信息参数
+	資訊參數
 	_txt='\![quicksession,true]\b[2]\n'
-	_txt+='\_l[0,-]名称    \_l[80,-]效果   \_l[155,-]买入价格 \_l[210,-]已有数量  \n'
+	_txt+='\_l[0,-]名稱    \_l[80,-]效果   \_l[155,-]買入價格 \_l[210,-]已有數量  \n'
 	foreach itemA; _i {
 		if _i[3]>0{
 			_txt += "\f[color,194,243,99]\_l[0,-]%(_i[2]) \_l[80,-]%(_i[5])\f[color,default]  \f[color,231,171,109]\_l[155,-]%(_i[4])\f[color,default]   \_l[210,-]%(_i[3]) \_l[260,-] \q[◇使用,Onuseitemselect0,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
@@ -3515,9 +3515,9 @@ Select.item0{
 	battleinfo
 }
 Select.item1{
-	信息参数
+	資訊參數
 	_txt='\![quicksession,true]\b[2]\n'
-	_txt+='\_l[0,-]名称    \_l[80,-]效果   \_l[155,-]买入价格 \_l[210,-]已有数量  \n'
+	_txt+='\_l[0,-]名稱    \_l[80,-]效果   \_l[155,-]買入價格 \_l[210,-]已有數量  \n'
 	foreach itemA; _i {
 		if _i[3]>0{
 			_txt += "\f[color,194,243,99]\_l[0,-]%(_i[2]) \_l[80,-]%(_i[5])\f[color,default]  \f[color,231,171,109]\_l[155,-]%(_i[4])\f[color,default]  \_l[210,-]%(_i[3]) \_l[260,-] \q[◇使用,Onuseitemselect1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[5])]\n"
@@ -3542,105 +3542,105 @@ Select.escape{
 		OpenRpgGameMenu(5)
 	}
 	elseif e >= 50{
-		'\0\s[9]逃跑失败。\x'
+		'\0\s[9]逃跑失敗。\x'
 		--
-		怪物反击
+		怪物反擊
 	}
 }
-怪物反击{
-	怪物战技回合判定
+怪物反擊{
+	怪物戰技回合判定
 	--
 	if mhp>0{
 		if mmagicready==0{
-			怪物准备魔法0
+			怪物準備魔法0
 		}
 		elseif mmagicready==1{
-			怪物准备魔法1
+			怪物準備魔法1
 		}
 		elseif mmagicready==2{
-			怪物准备魔法2
+			怪物準備魔法2
 		}
 		else{
 			_temp = RAND(100)
 			if (_temp <= 50 && hp0>0) || hp1==0{
-				反击(0)
+				反擊(0)
 			}
 			elseif (_temp > 50 && hp1>0) || hp0==0{
-				反击(1)
+				反擊(1)
 			}
 		}
 	}
 	else{
-		'\0\s[5]战斗胜利了\x'
+		'\0\s[5]戰鬥勝利了\x'
 		--
-		战斗结束
+		戰鬥結束
 	}
 	--
 	battleinfo
 }
-怪物准备魔法0{
+怪物準備魔法0{
 	mmagicready=-1
-	_魔法伤害=TOINT(MNUMS*MANG*(4.10*mats-2.80*adf0+反击效果数值))
-	if _魔法伤害<0{
-		_魔法伤害=0
+	_魔法傷害=TOINT(MNUMS*MANG*(4.10*mats-2.80*adf0+反擊效果數值))
+	if _魔法傷害<0{
+		_魔法傷害=0
 	}
-	反击魔法伤害=_魔法伤害
+	反擊魔法傷害=_魔法傷害
 	if kikkadefend==1;{
-		反击魔法伤害=0
+		反擊魔法傷害=0
 		kikkadefend=0
 	}
-	hp0-=反击魔法伤害
-	"\0\s[33]%(怪物名字)对橘花发动了%(反击魔法名称)，橘花损血%(反击魔法伤害)\x"
+	hp0-=反擊魔法傷害
+	"\0\s[33]%(怪物名字)對橘花發動了%(反擊魔法名稱)，橘花損血%(反擊魔法傷害)\x"
 	--
 	Onbattleselect
 }
-怪物准备魔法1{
+怪物準備魔法1{
 	mmagicready=-1
-	_魔法伤害=TOINT(MNUMS*MANG*(4.10*mats-2.80*adf0+反击效果数值))
-	if _魔法伤害<0{
-		_魔法伤害=0
+	_魔法傷害=TOINT(MNUMS*MANG*(4.10*mats-2.80*adf0+反擊效果數值))
+	if _魔法傷害<0{
+		_魔法傷害=0
 	}
-	反击魔法伤害=_魔法伤害
+	反擊魔法傷害=_魔法傷害
 	if towadefend==1;{
-		反击魔法伤害=0
+		反擊魔法傷害=0
 		towadefend=0
 	}
-	hp1-=反击魔法伤害
-	"\0%(怪物名字)对斗和发动了%(反击魔法名称)，斗和损血%(反击魔法伤害)\x"
+	hp1-=反擊魔法傷害
+	"\0%(怪物名字)對鬥和發動了%(反擊魔法名稱)，鬥和損血%(反擊魔法傷害)\x"
 	--
 	Onbattleselect
 }
-怪物准备魔法2{
+怪物準備魔法2{
 	mmagicready=-1
-	"\0\s[33]%(怪物名字)发动了%(反击魔法名称)，"
+	"\0\s[33]%(怪物名字)發動了%(反擊魔法名稱)，"
 	--
-	_魔法伤害=TOINT(MNUMS*MANG*(4.10*mats-2.80*adf0+反击效果数值))
-	if _魔法伤害<0{
-		_魔法伤害=0
+	_魔法傷害=TOINT(MNUMS*MANG*(4.10*mats-2.80*adf0+反擊效果數值))
+	if _魔法傷害<0{
+		_魔法傷害=0
 	}
-	反击魔法伤害=_魔法伤害
+	反擊魔法傷害=_魔法傷害
 	if kikkadefend==1;{
-		反击魔法伤害=0
+		反擊魔法傷害=0
 		kikkadefend=0
 	}
-	hp0-=反击魔法伤害
-	"橘花损血%(反击魔法伤害)，"
+	hp0-=反擊魔法傷害
+	"橘花損血%(反擊魔法傷害)，"
 	--
-	_魔法伤害=TOINT(MNUMS*MANG*(4.10*mats-2.80*adf1+反击效果数值))
-	if _魔法伤害<0{
-		_魔法伤害=0
+	_魔法傷害=TOINT(MNUMS*MANG*(4.10*mats-2.80*adf1+反擊效果數值))
+	if _魔法傷害<0{
+		_魔法傷害=0
 	}
-	反击魔法伤害=_魔法伤害
+	反擊魔法傷害=_魔法傷害
 	if towadefend==1;{
-		反击魔法伤害=0
+		反擊魔法傷害=0
 		towadefend=0
 	}
-	hp1-=反击魔法伤害
-	"斗和损血%(反击魔法伤害)\x"
+	hp1-=反擊魔法傷害
+	"鬥和損血%(反擊魔法傷害)\x"
 	--
 	Onbattleselect
 }
-反击{
+反擊{
 	_target=_argv[0]
 	_mmagic=IARRAY
 	m=RAND(100)
@@ -3658,26 +3658,26 @@ Select.escape{
 				if x>0{
 					x=RAND(x)+1
 				}
-				反击效果数值=_mmagic[x][7]
-				反击魔法名称=_mmagic[x][2]
+				反擊效果數值=_mmagic[x][7]
+				反擊魔法名稱=_mmagic[x][2]
 				MNUMS=_mmagic[x][8]
-				反击范围=_mmagic[x][4]
-				if 反击效果数值=='完全防御一次'{
+				反擊範圍=_mmagic[x][4]
+				if 反擊效果數值=='完全防禦一次'{
 					mdefend=1
-					"%(怪物名字)发动了%(反击魔法名称)\x"
+					"%(怪物名字)發動了%(反擊魔法名稱)\x"
 				}
 				else{
 					if _target==0
 						mmagicready=0
 					elseif _target==1
 						mmagicready=1
-					if 反击范围=='复体'&&hp0>0&&hp1>0
+					if 反擊範圍=='複體'&&hp0>0&&hp1>0
 						mmagicready=2
-					"%(怪物名字)正在准备魔法\x"
+					"%(怪物名字)正在準備魔法\x"
 				}
 			}
 			else{
-				foreach 风系魔法; _i{
+				foreach 風系魔法; _i{
 					if mlv>=TOINT(_i[5]){
 						_mmagic,=_i
 					}
@@ -3687,22 +3687,22 @@ Select.escape{
 				if x>0{
 					x=RAND(x)+1
 				}
-				反击效果数值=_mmagic[x][7]
-				反击魔法名称=_mmagic[x][2]
+				反擊效果數值=_mmagic[x][7]
+				反擊魔法名稱=_mmagic[x][2]
 				MNUMS=_mmagic[x][8]
-				反击范围=_mmagic[x][4]
+				反擊範圍=_mmagic[x][4]
 				if _target==0
 					mmagicready=0
 				elseif _target==1
 					mmagicready=1
-				if 反击范围=='复体'&&hp0>0&&hp1>0
+				if 反擊範圍=='複體'&&hp0>0&&hp1>0
 					mmagicready=2
-				"%(怪物名字)正在准备魔法\x"
+				"%(怪物名字)正在準備魔法\x"
 			}
 		}
 		elseif level==1.3 || level==1.5{
 			foreach 水系魔法; _i{
-				if mlv>=TOINT(_i[5]) && _i[3]=='攻击'{
+				if mlv>=TOINT(_i[5]) && _i[3]=='攻擊'{
 					_mmagic,=_i
 				}
 			}
@@ -3711,17 +3711,17 @@ Select.escape{
 			if x>0{
 				x=RAND(x)+1
 			}
-			反击效果数值=_mmagic[x][7]
-			反击魔法名称=_mmagic[x][2]
+			反擊效果數值=_mmagic[x][7]
+			反擊魔法名稱=_mmagic[x][2]
 			MNUMS=_mmagic[x][8]
-			反击范围=_mmagic[x][4]
+			反擊範圍=_mmagic[x][4]
 			if _target==0
 				mmagicready=0
 			elseif _target==1
 				mmagicready=1
-			if 反击范围=='复体'&&hp0>0&&hp1>0
+			if 反擊範圍=='複體'&&hp0>0&&hp1>0
 				mmagicready=2
-			"%(怪物名字)正在准备魔法\x"
+			"%(怪物名字)正在準備魔法\x"
 		}
 		elseif level==1.4{
 			foreach 火系魔法; _i{
@@ -3734,20 +3734,20 @@ Select.escape{
 			if x>0{
 				x=RAND(x)+1
 			}
-			反击效果数值=_mmagic[x][7]
-			反击魔法名称=_mmagic[x][2]
+			反擊效果數值=_mmagic[x][7]
+			反擊魔法名稱=_mmagic[x][2]
 			MNUMS=_mmagic[x][8]
-			反击范围=_mmagic[x][4]
+			反擊範圍=_mmagic[x][4]
 			if _target==0
 				mmagicready=0
 			elseif _target==1
 				mmagicready=1
-			if 反击范围=='复体'&&hp0>0&&hp1>0
+			if 反擊範圍=='複體'&&hp0>0&&hp1>0
 				mmagicready=2
-			"%(怪物名字)正在准备魔法\x"
+			"%(怪物名字)正在準備魔法\x"
 		}
 		elseif level==1.6{
-			foreach 风系魔法; _i{
+			foreach 風系魔法; _i{
 				if mlv>=TOINT(_i[5]){
 					_mmagic,=_i
 				}
@@ -3757,23 +3757,23 @@ Select.escape{
 			if x>0{
 				x=RAND(x)+1
 			}
-			反击效果数值=_mmagic[x][7]
-			反击魔法名称=_mmagic[x][2]
+			反擊效果數值=_mmagic[x][7]
+			反擊魔法名稱=_mmagic[x][2]
 			MNUMS=_mmagic[x][8]
-			反击范围=_mmagic[x][4]
+			反擊範圍=_mmagic[x][4]
 			if _target==0
 				mmagicready=0
 			elseif _target==1
 				mmagicready=1
-			if 反击范围=='复体'&&hp0>0&&hp1>0
+			if 反擊範圍=='複體'&&hp0>0&&hp1>0
 				mmagicready=2
-			"%(怪物名字)正在准备魔法\x"
+			"%(怪物名字)正在準備魔法\x"
 		}
 		else{
 			c=RAND(9)
 			if c>=8 && c<=9{
 				foreach 水系魔法; _i{
-					if mlv>=TOINT(_i[5]) && _i[3]=='回复'{
+					if mlv>=TOINT(_i[5]) && _i[3]=='回復'{
 						_mmagic,=_i
 					}
 				}
@@ -3782,31 +3782,31 @@ Select.escape{
 				if x>0{
 					x=RAND(x)+1
 				}
-				反击效果数值=TOINT(_mmagic[x][7])
-				if _mmagic[x][7]=='战斗不能解除' || _mmagic[x][7]=='HP全回复'{
-					怪伤害0 = TOINT(3.9*mstr-2.82*def0)
-					if 怪伤害0<0{
-						怪伤害0=0
+				反擊效果數值=TOINT(_mmagic[x][7])
+				if _mmagic[x][7]=='戰鬥不能解除' || _mmagic[x][7]=='HP全回復'{
+					怪傷害0 = TOINT(3.9*mstr-2.82*def0)
+					if 怪傷害0<0{
+						怪傷害0=0
 					}
 					if kikkadefend==1;{
-						怪伤害0=0
+						怪傷害0=0
 						kikkadefend=0
 					}
-					hp0 -= 怪伤害0
-					"\0\s[33]橘花被攻击了，损血%(怪伤害0)\x"
+					hp0 -= 怪傷害0
+					"\0\s[33]橘花被攻擊了，損血%(怪傷害0)\x"
 				}
-				elseif mhp + 反击效果数值>=mhpmax{
+				elseif mhp + 反擊效果數值>=mhpmax{
 					mhp=mhpmax
-					"%(怪物名字)发动了%(_mmagic[x][2])，HP回复%(mhpmax-mhp)\x"
+					"%(怪物名字)發動了%(_mmagic[x][2])，HP回復%(mhpmax-mhp)\x"
 				}
-				elseif mhp + 反击效果数值<mhpmax{
-					mhp+=反击效果数值
-					"%(怪物名字)发动了%(_mmagic[x][2])，HP回复%(反击效果数值)\x"
+				elseif mhp + 反擊效果數值<mhpmax{
+					mhp+=反擊效果數值
+					"%(怪物名字)發動了%(_mmagic[x][2])，HP回復%(反擊效果數值)\x"
 				}
 			}
 			elseif c>=6 && c<=7{
 				foreach 水系魔法; _i{
-					if mlv>=TOINT(_i[5]) && _i[3]=='攻击'{
+					if mlv>=TOINT(_i[5]) && _i[3]=='攻擊'{
 						_mmagic,=_i
 					}
 				}
@@ -3815,17 +3815,17 @@ Select.escape{
 				if x>0{
 					x=RAND(x)+1
 				}
-				反击效果数值=_mmagic[x][7]
-				反击魔法名称=_mmagic[x][2]
+				反擊效果數值=_mmagic[x][7]
+				反擊魔法名稱=_mmagic[x][2]
 				MNUMS=_mmagic[x][8]
-				反击范围=_mmagic[x][4]
+				反擊範圍=_mmagic[x][4]
 				if _target==0
 					mmagicready=0
 				elseif _target==1
 					mmagicready=1
-				if 反击范围=='复体'&&hp0>0&&hp1>0
+				if 反擊範圍=='複體'&&hp0>0&&hp1>0
 					mmagicready=2
-				"%(怪物名字)正在准备魔法\x"
+				"%(怪物名字)正在準備魔法\x"
 			}
 			elseif c>=4 && c<=5{
 				foreach 火系魔法; _i{
@@ -3838,17 +3838,17 @@ Select.escape{
 				if x>0{
 					x=RAND(x)+1
 				}
-				反击效果数值=_mmagic[x][7]
-				反击魔法名称=_mmagic[x][2]
+				反擊效果數值=_mmagic[x][7]
+				反擊魔法名稱=_mmagic[x][2]
 				MNUMS=_mmagic[x][8]
-				反击范围=_mmagic[x][4]
+				反擊範圍=_mmagic[x][4]
 				if _target==0
 					mmagicready=0
 				elseif _target==1
 					mmagicready=1
-				if 反击范围=='复体'&&hp0>0&&hp1>0
+				if 反擊範圍=='複體'&&hp0>0&&hp1>0
 					mmagicready=2
-				"%(怪物名字)正在准备魔法\x"
+				"%(怪物名字)正在準備魔法\x"
 			}
 			elseif c>=2 && c<=3{
 				foreach 土系魔法; _i{
@@ -3861,26 +3861,26 @@ Select.escape{
 				if x>0{
 					x=RAND(x)+1
 				}
-				反击效果数值=_mmagic[x][7]
-				反击魔法名称=_mmagic[x][2]
+				反擊效果數值=_mmagic[x][7]
+				反擊魔法名稱=_mmagic[x][2]
 				MNUMS=_mmagic[x][8]
-				反击范围=_mmagic[x][4]
-				if 反击效果数值=='完全防御一次'{
+				反擊範圍=_mmagic[x][4]
+				if 反擊效果數值=='完全防禦一次'{
 					mdefend=1
-					"%(怪物名字)发动了%(反击魔法名称)\x"
+					"%(怪物名字)發動了%(反擊魔法名稱)\x"
 				}
 				else{
 					if _target==0
 						mmagicready=0
 					elseif _target==1
 						mmagicready=1
-					if 反击范围=='复体'&&hp0>0&&hp1>0
+					if 反擊範圍=='複體'&&hp0>0&&hp1>0
 						mmagicready=2
-					"%(怪物名字)正在准备魔法\x"
+					"%(怪物名字)正在準備魔法\x"
 				}
 			}
 			elseif c>=0 && c<=1{
-				foreach 风系魔法; _i{
+				foreach 風系魔法; _i{
 					if mlv>=TOINT(_i[5]){
 						_mmagic,=_i
 					}
@@ -3890,17 +3890,17 @@ Select.escape{
 				if x>0{
 					x=RAND(x)+1
 				}
-				反击效果数值=_mmagic[x][7]
-				反击魔法名称=_mmagic[x][2]
+				反擊效果數值=_mmagic[x][7]
+				反擊魔法名稱=_mmagic[x][2]
 				MNUMS=_mmagic[x][8]
-				反击范围=_mmagic[x][4]
+				反擊範圍=_mmagic[x][4]
 				if _target==0
 					mmagicready=0
 				elseif _target==1
 					mmagicready=1
-				if 反击范围=='复体'&&hp0>0&&hp1>0
+				if 反擊範圍=='複體'&&hp0>0&&hp1>0
 					mmagicready=2
-				"%(怪物名字)正在准备魔法\x"
+				"%(怪物名字)正在準備魔法\x"
 			}
 		}
 	}
@@ -3941,53 +3941,53 @@ Select.escape{
 		return
 	}
 	elseif m>=0 && m<10 && mlv>=15&&_target==0{
-		怪伤害0 = TOINT(1.5*MANG*(3.9*mstr-2.82*def0))
-		if 怪伤害0<0{
-			怪伤害0=0
+		怪傷害0 = TOINT(1.5*MANG*(3.9*mstr-2.82*def0))
+		if 怪傷害0<0{
+			怪傷害0=0
 		}
 		if kikkadefend==1;{
-			怪伤害0=0
+			怪傷害0=0
 			kikkadefend=0
 		}
-		hp0 -= 怪伤害0
-		"\0\s[33]%(怪物名字)对橘花发动会心一击，橘花损血%(怪伤害0)\x"
+		hp0 -= 怪傷害0
+		"\0\s[33]%(怪物名字)對橘花發動會心一擊，橘花損血%(怪傷害0)\x"
 	}
 	elseif m>=0 && m<10 && mlv>=15&&_target==1{
-		怪伤害1 = TOINT(1.5*MANG*(3.9*mstr-2.82*def1))
-		if 怪伤害1<0{
-			怪伤害1=0
+		怪傷害1 = TOINT(1.5*MANG*(3.9*mstr-2.82*def1))
+		if 怪傷害1<0{
+			怪傷害1=0
 		}
 		if towadefend==1;{
-			怪伤害1=0
+			怪傷害1=0
 			towadefend=0
 		}
-		hp1 -= 怪伤害1
-		"%(怪物名字)对斗和发动会心一击，斗和损血%(怪伤害1)\x"
+		hp1 -= 怪傷害1
+		"%(怪物名字)對鬥和發動會心一擊，鬥和損血%(怪傷害1)\x"
 	}
 	else{
 		if _target==0{
-			怪伤害0 = TOINT(MANG*(3.9*mstr-2.82*def0))
-			if 怪伤害0<0{
-				怪伤害0=0
+			怪傷害0 = TOINT(MANG*(3.9*mstr-2.82*def0))
+			if 怪傷害0<0{
+				怪傷害0=0
 			}
 			if kikkadefend==1;{
-				怪伤害0=0
+				怪傷害0=0
 				kikkadefend=0
 			}
-			hp0 -= 怪伤害0
-			"\0\s[33]橘花被攻击了，损血%(怪伤害0)\x"
+			hp0 -= 怪傷害0
+			"\0\s[33]橘花被攻擊了，損血%(怪傷害0)\x"
 		}
 		elseif _target==1{
-			怪伤害1 = TOINT(MANG*(3.9*mstr-2.82*def1))
-			if 怪伤害1<0{
-				怪伤害1=0
+			怪傷害1 = TOINT(MANG*(3.9*mstr-2.82*def1))
+			if 怪傷害1<0{
+				怪傷害1=0
 			}
 			if towadefend==1;{
-				怪伤害1=0
+				怪傷害1=0
 				towadefend=0
 			}
-			hp1 -= 怪伤害1
-			"斗和被攻击了，损血%(怪伤害1)\x"
+			hp1 -= 怪傷害1
+			"鬥和被攻擊了，損血%(怪傷害1)\x"
 		}
 	}
 	--
@@ -3996,78 +3996,78 @@ Select.escape{
 	battleinfo
 }
 Onmspattack{
-	战技ID=reference0
+	戰技ID=reference0
 	_target=TOINT(reference1)
 	if hp0<=0
-		指定人格='斗和'
+		指定人格='鬥和'
 	elseif hp1<=0
 		指定人格='橘花'
 	else
-		指定人格='橘花和斗和'
-	if 战技ID==0{
+		指定人格='橘花和鬥和'
+	if 戰技ID==0{
 		MSTRADD=1.5
-		威胁回合=3
-		"%(怪物名字)使用了威胁，%(怪物名字)STR提升50%。\x"
+		威脅回合=3
+		"%(怪物名字)使用了威脅，%(怪物名字)STR提升50%。\x"
 	}
-	elseif 战技ID==1{
+	elseif 戰技ID==1{
 		if _target==0{
-			战技伤害=TOINT(MANG*2*(3.9*mstr-2.82*def0))
-			if 战技伤害<0
-				战技伤害=0
+			戰技傷害=TOINT(MANG*2*(3.9*mstr-2.82*def0))
+			if 戰技傷害<0
+				戰技傷害=0
 			if kikkadefend==1;{
-				战技伤害=0
+				戰技傷害=0
 				kikkadefend=0
 			}
-			hp0-=战技伤害
+			hp0-=戰技傷害
 			指定人格='橘花'
 		}
 		elseif _target==1{
-			战技伤害=TOINT(MANG*2*(3.9*mstr-2.82*def1))
-			if 战技伤害<0
-				战技伤害=0
+			戰技傷害=TOINT(MANG*2*(3.9*mstr-2.82*def1))
+			if 戰技傷害<0
+				戰技傷害=0
 			if towadefend==1;{
-				战技伤害=0
+				戰技傷害=0
 				towadefend=0
 			}
-			hp1-=战技伤害
-			指定人格='斗和'
+			hp1-=戰技傷害
+			指定人格='鬥和'
 		}
-		"%(怪物名字)对%(指定人格)使用了双连击，%(指定人格)损血%(战技伤害)\x"
+		"%(怪物名字)對%(指定人格)使用了雙連擊，%(指定人格)損血%(戰技傷害)\x"
 	}
-	elseif 战技ID==2{
+	elseif 戰技ID==2{
 		MDEFADD=1.5
 		挑逗回合=3
 		"%(怪物名字)使用了挑逗，DEF提升50%。\x"
 	}
-	elseif 战技ID==3{
+	elseif 戰技ID==3{
 		IGN=0
 		忽略回合=1
-		"%(怪物名字)使用了忽略，%(指定人格)DEF被无视了。\x"
+		"%(怪物名字)使用了忽略，%(指定人格)DEF被無視了。\x"
 	}
-	elseif 战技ID==4{
+	elseif 戰技ID==4{
 		DEFMINUS=0.5
-		敌视回合=3
-		"%(怪物名字)使用了敌视，%(指定人格)DEF降低50%。\x"
+		敵視回合=3
+		"%(怪物名字)使用了敵視，%(指定人格)DEF降低50%。\x"
 	}
-	elseif 战技ID==5{
+	elseif 戰技ID==5{
 		MANG=2
-		愤怒暴发回合=1
-		"%(怪物名字)使用了愤怒暴发\x"
+		憤怒暴發回合=1
+		"%(怪物名字)使用了憤怒暴發\x"
 	}
-	elseif 战技ID==6{
+	elseif 戰技ID==6{
 		禁寂之音回合=3
 		SILENT=1
 		"%(怪物名字)使用了禁寂之音，%(指定人格)被封技了\x"
 	}
 	--
 	RpgGameVar
-	怪物属性
+	怪物屬性
 	--
 	Onbattleselect
 	--
 	battleinfo
 }
-怪物属性{
+怪物屬性{
 	if class=='D'{
 		mstr=mstrD
 		mdef=mdefD
@@ -4089,15 +4089,15 @@ Onmspattack{
 		mdef=mdefS
 	}
 }
-怪物战技回合判定{
-	if 威胁回合>0{
-		威胁回合--
+怪物戰技回合判定{
+	if 威脅回合>0{
+		威脅回合--
 	}
-	elseif 威胁回合==0{
-		威胁回合=-1
+	elseif 威脅回合==0{
+		威脅回合=-1
 		--
 		MSTRADD=1
-		"%(怪物名字)使用的威胁技能失效了\x"
+		"%(怪物名字)使用的威脅技能失效了\x"
 	}
 	--
 	if 挑逗回合>0{
@@ -4120,14 +4120,14 @@ Onmspattack{
 		"%(怪物名字)使用的忽略技能失效了\x"
 	}
 	--
-	if 敌视回合>0{
-		敌视回合--
+	if 敵視回合>0{
+		敵視回合--
 	}
-	elseif 敌视回合==0{
-		敌视回合=-1
+	elseif 敵視回合==0{
+		敵視回合=-1
 		--
 		DEFMINUS=1
-		"%(怪物名字)使用的敌视技能失效了\x"
+		"%(怪物名字)使用的敵視技能失效了\x"
 	}
 	--
 	if 禁寂之音回合>0{
@@ -4141,9 +4141,9 @@ Onmspattack{
 	}
 	--
 	RpgGameVar
-	怪物属性
+	怪物屬性
 }
-战斗结束{
+戰鬥結束{
 	battlemode=2
 	if mhp <= 0{
 		mhp = 0
@@ -4201,25 +4201,25 @@ Onmspattack{
 		if i>=5{
 			if mlv<80{
 				i=RAND(mlv/16)
-				"获得%(itemA[i][2])\n"
+				"獲得%(itemA[i][2])\n"
 			}
 			else{
 				_a=ARRAYSIZE(itemA)
 				if mlv<100
 					_a=5
 				i=RAND(_a)
-				"获得%(itemA[i][2])\n"
+				"獲得%(itemA[i][2])\n"
 			}
 			itemAnum[i]=TOINT(itemAnum[i]+1)
 		}
 		elseif i<5{
 			if mlv<80{
 				i=RAND(mlv/20)
-				"获得%(itemB[i][2])\n"
+				"獲得%(itemB[i][2])\n"
 			}
 			else{
 				i=RAND(4)
-				"获得%(itemB[i][2])\n"
+				"獲得%(itemB[i][2])\n"
 			}
 			itemBnum[i]=TOINT(itemBnum[i]+1)
 		}
@@ -4227,53 +4227,53 @@ Onmspattack{
 	elseif w>6 && w<=10{
 		if mlv<130{
 			i=RAND(2+mlv/10)
-			"获得%(bootsB[i][2])\n"
+			"獲得%(bootsB[i][2])\n"
 		}
 		else{
 			i=RAND(14)
-			"获得%(bootsB[i][2])\n"
+			"獲得%(bootsB[i][2])\n"
 		}
 		bootsBnum[i]=TOINT(bootsBnum[i]+1)
 	}
 	elseif w>2 && w<=6{
 		if mlv<130{
 			i=RAND(2+mlv/5)
-			"获得%(weaponB[i][2])\n"
+			"獲得%(weaponB[i][2])\n"
 		}
 		else{
 			i=RAND(29)
-			"获得%(weaponB[i][2])\n"
+			"獲得%(weaponB[i][2])\n"
 		}
 		weaponBnum[i]=TOINT(weaponBnum[i]+1)
 	}
 	elseif w<=2{
 		if mlv<126{
 			i=RAND(2+mlv/7)
-			"获得%(armorB[i][2])\n"
+			"獲得%(armorB[i][2])\n"
 		}
 		else{
 			i=RAND(19)
-			"获得%(armorB[i][2])\n"
+			"獲得%(armorB[i][2])\n"
 		}
 		armorBnum[i]=TOINT(armorBnum[i]+1)
 	}
 	--
-	"橘花获得经验%(TOINT(2*_reward))，斗和获得经验%(TOINT(2*_reward))\n"
+	"橘花獲得經驗%(TOINT(2*_reward))，鬥和獲得經驗%(TOINT(2*_reward))\n"
 	--
-	"获得金钱%(TOINT(4*_reward))\n"
+	"獲得金錢%(TOINT(4*_reward))\n"
 	--
-	橘花升级+斗和升级
+	橘花升級+鬥和升級
 	--
 	if mnum<10{
-		'\t\0\q[◇继续逛,Onbattle]\n/
+		'\t\0\q[◇繼續逛,Onbattle]\n/
 		\q[◇休息一下,On休息]\n/
 		\q[◇回去吧,back]'
 	}
 	elseif mnum>=10{
 		award=1
-		'任务完成,回去领取奖励？\n/
+		'任務完成,回去領取獎勵？\n/
 		\q[◇回去吧,back]\n/
-		\q[◇继续逛,Onbattle]'
+		\q[◇繼續逛,Onbattle]'
 	}
 	--
 	battleinfo
@@ -4281,7 +4281,7 @@ Onmspattack{
 Select.back{
 	OpenRpgGameMenu(5)
 }
-橘花升级{
+橘花升級{
 	nextexp0 = expmax0 - exp0
 	_txt=''
 	while nextexp0<=0{
@@ -4291,23 +4291,23 @@ Select.back{
 		RpgGameVar
 		hp0=hpmax0
 		ep0=epmax0
-		_txt+="\0\s[5]橘花升级了！\n\w9目前等级：%(lvl0)\n"
-		_魔法0 = (水系魔法,火系魔法,土系魔法,风系魔法)
+		_txt+="\0\s[5]橘花升級了！\n\w9目前等級：%(lvl0)\n"
+		_魔法0 = (水系魔法,火系魔法,土系魔法,風系魔法)
 		foreach _魔法0; _i{
 			if lvl0==TOINT(_i[5]){
-				_txt+="\0\s[5]橘花学得新魔法%(_i[2])\n"
+				_txt+="\0\s[5]橘花學得新魔法%(_i[2])\n"
 			}
 		}
-		foreach 战技0; _i{
+		foreach 戰技0; _i{
 			if lvl0==TOINT(_i[4]){
-				_txt+="\0\s[5]橘花学得新战技%(_i[1])\n"
+				_txt+="\0\s[5]橘花學得新戰技%(_i[1])\n"
 			}
 		}
 		nextexp0 = expmax0 - exp0
 	}
 	_txt
 }
-斗和升级{
+鬥和升級{
 	nextexp1 = expmax1 - exp1
 	_txt=''
 	while nextexp1<=0{
@@ -4317,16 +4317,16 @@ Select.back{
 		RpgGameVar
 		hp1=hpmax1
 		ep1=epmax1
-		_txt+="\0\s[5]斗和升级了！\n\w9目前等级：%(lvl1)\n"
-		_魔法1 = (水系魔法,火系魔法,土系魔法,风系魔法)
+		_txt+="\0\s[5]鬥和升級了！\n\w9目前等級：%(lvl1)\n"
+		_魔法1 = (水系魔法,火系魔法,土系魔法,風系魔法)
 		foreach _魔法1; _i{
 			if lvl1==TOINT(_i[5]){
-				_txt+="斗和学得新魔法%(_i[2])\n"
+				_txt+="鬥和學得新魔法%(_i[2])\n"
 			}
 		}
-		foreach 战技1; _i{
+		foreach 戰技1; _i{
 			if lvl1==TOINT(_i[4]){
-				_txt+="\0\s[5]斗和学得新战技%(_i[1])\n"
+				_txt+="\0\s[5]鬥和學得新戰技%(_i[1])\n"
 			}
 		}
 		nextexp1 = expmax1 - exp1
@@ -4334,7 +4334,7 @@ Select.back{
 	_txt
 }
 Onesc{
-	'\0\s[40]确定退出冒险吗？\n/
+	'\0\s[40]確定退出冒險嗎？\n/
 	\q[◇是,yesesc]\n/
 	\q[◇否,noesc]'
 }
@@ -4348,11 +4348,11 @@ Select.noesc{
 }
 On休息{
 	battlemode=2
-	'\0休息一下回复体力吧，接下来要做什么呢？\n/
-	\q[◇吸烟,smoke]\n/
+	'\0休息一下回復體力吧，接下來要做什麼呢？\n/
+	\q[◇吸煙,smoke]\n/
 	\q[◇使用道具,On道具列表]\n/
 	\q[◇使用魔法,On魔法列表]\n/
-	\q[◇继续逛,Onbattle]\n/
+	\q[◇繼續逛,Onbattle]\n/
 	\q[◇回去吧,back]'
 	--
 	battleinfo
@@ -4374,12 +4374,12 @@ ClearRpgGameVar{
 	ERASEVAR('水系魔法')
 	ERASEVAR('火系魔法')
 	ERASEVAR('土系魔法')
-	ERASEVAR('风系魔法')
+	ERASEVAR('風系魔法')
 	ERASEVAR('weapon')
 	ERASEVAR('armor')
 	ERASEVAR('boots')
-	ERASEVAR('战技0')
-	ERASEVAR('战技1')
+	ERASEVAR('戰技0')
+	ERASEVAR('戰技1')
 	ERASEVAR('魔法0')
 	ERASEVAR('魔法1')
 	ERASEVAR('spattack0')
@@ -4450,36 +4450,36 @@ ClearRpgGameVar{
 	ERASEVAR('nextexp1')
 	ERASEVAR('ANG')
 	ERASEVAR('ADD')
-	ERASEVAR('魔法名称')
-	ERASEVAR('效果数值')
+	ERASEVAR('魔法名稱')
+	ERASEVAR('效果數值')
 	ERASEVAR('EP消耗')
 	ERASEVAR('magicready0')
 	ERASEVAR('mhp')
-	ERASEVAR('魔法伤害0')
-	ERASEVAR('魔法伤害1')
+	ERASEVAR('魔法傷害0')
+	ERASEVAR('魔法傷害1')
 	ERASEVAR('mhpmax')
 	ERASEVAR('magicready1')
-	ERASEVAR('魔法种类')
-	ERASEVAR('魔法名称0')
+	ERASEVAR('魔法種類')
+	ERASEVAR('魔法名稱0')
 	ERASEVAR('NUMS')
-	ERASEVAR('魔法伤害')
+	ERASEVAR('魔法傷害')
 	ERASEVAR('水有效率')
 	ERASEVAR('madf')
 	ERASEVAR('火有效率')
 	ERASEVAR('土有效率')
-	ERASEVAR('风有效率')
-	ERASEVAR('魔法名称')
-	ERASEVAR('道具类型')
-	ERASEVAR('道具代码')
-	ERASEVAR('道具名称')
-	ERASEVAR('物品种类')
-	ERASEVAR('物品代码')
-	ERASEVAR('物品名称')
-	ERASEVAR('物品价格')
-	ERASEVAR('卖出数量')
-	ERASEVAR('道具种类')
-	ERASEVAR('道具价格')
-	ERASEVAR('购买数量')
+	ERASEVAR('風有效率')
+	ERASEVAR('魔法名稱')
+	ERASEVAR('道具類型')
+	ERASEVAR('道具代碼')
+	ERASEVAR('道具名稱')
+	ERASEVAR('物品種類')
+	ERASEVAR('物品代碼')
+	ERASEVAR('物品名稱')
+	ERASEVAR('物品價格')
+	ERASEVAR('賣出數量')
+	ERASEVAR('道具種類')
+	ERASEVAR('道具價格')
+	ERASEVAR('購買數量')
 	ERASEVAR('award')
 	ERASEVAR('class')
 	ERASEVAR('mnum')
@@ -4490,30 +4490,30 @@ ClearRpgGameVar{
 	ERASEVAR('助威回合')
 	ERASEVAR('嚎叫回合')
 	ERASEVAR('示威回合')
-	ERASEVAR('黑暗诅咒回合')
-	ERASEVAR('噬血诅咒回合')
+	ERASEVAR('黑暗詛咒回合')
+	ERASEVAR('噬血詛咒回合')
 	ERASEVAR('mstr')
 	ERASEVAR('mdef')
 	ERASEVAR('mats')
 	ERASEVAR('bata')
 	ERASEVAR('battleturn')
 	ERASEVAR('mmagicready')
-	ERASEVAR('伤害')
-	ERASEVAR('战技名称')
-	ERASEVAR('属性')
+	ERASEVAR('傷害')
+	ERASEVAR('戰技名稱')
+	ERASEVAR('屬性')
 	ERASEVAR('CP消耗')
-	ERASEVAR('战技伤害')
-	ERASEVAR('兽技ID')
+	ERASEVAR('戰技傷害')
+	ERASEVAR('獸技ID')
 	ERASEVAR('消耗SP')
-	ERASEVAR('兽技伤害')
+	ERASEVAR('獸技傷害')
 	ERASEVAR('e')
-	ERASEVAR('反击魔法伤害')
+	ERASEVAR('反擊魔法傷害')
 	ERASEVAR('c')
-	ERASEVAR('反击效果数值')
-	ERASEVAR('反击魔法名称')
+	ERASEVAR('反擊效果數值')
+	ERASEVAR('反擊魔法名稱')
 	ERASEVAR('MNUMS')
-	ERASEVAR('怪伤害0')
-	ERASEVAR('怪伤害1')
+	ERASEVAR('怪傷害0')
+	ERASEVAR('怪傷害1')
 	ERASEVAR('w')
 	ERASEVAR('j')
 	ERASEVAR('nextexp_0')
@@ -4543,28 +4543,28 @@ ClearRpgGameVar{
 	ERASEVAR('STR1')
 	ERASEVAR('DEF0')
 	ERASEVAR('DEF1')
-	ERASEVAR('防御回合')
+	ERASEVAR('防禦回合')
 	ERASEVAR('神威祈福回合')
 	ERASEVAR('呐喊回合')
-	ERASEVAR('赎罪回合')
+	ERASEVAR('贖罪回合')
 	ERASEVAR('天使之光回合')
 	ERASEVAR('天使之怒回合')
 	ERASEVAR('沉默回合')
-	ERASEVAR('威胁回合')
+	ERASEVAR('威脅回合')
 	ERASEVAR('挑逗回合')
 	ERASEVAR('忽略回合')
-	ERASEVAR('愤怒暴发回合')
+	ERASEVAR('憤怒暴發回合')
 	ERASEVAR('禁寂之音回合')
 	ERASEVAR('SILENT0')
 	ERASEVAR('SILENT1')
 	ERASEVAR('DEF')
-	ERASEVAR('物理伤害')
-	ERASEVAR('战技ID')
+	ERASEVAR('物理傷害')
+	ERASEVAR('戰技ID')
 	ERASEVAR('t')
 	ERASEVAR('HP2')
-	ERASEVAR('攻击者')
-	ERASEVAR('其他人格数量')
-	ERASEVAR('战败者')
+	ERASEVAR('攻擊者')
+	ERASEVAR('其他人格數量')
+	ERASEVAR('戰敗者')
 	ERASEVAR('DEF2')
 	ERASEVAR('自身名字')
 	ERASEVAR('target')

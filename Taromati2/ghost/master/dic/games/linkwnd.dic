@@ -1,7 +1,7 @@
-//伪春菜连连看V2.5.3
+﻿//偽春菜連連看V2.5.3
 #define		BLANK_STATE		-1
 #define		PATH			DATA_PATH\Game\LinkWnd
-OnLinkWnd{//入口函数
+OnLinkWnd{//入口函數
 	if QuickStartVersion{
 		NeedUpdate
 		return
@@ -9,7 +9,7 @@ OnLinkWnd{//入口函数
 	_txt=''
 	playLinkWnd=1
 	_w=LoadMapSeed
-	levelmax=(30,36,36,36,36,LinkWndMapNum[0]+LinkWndMapNum[0]/2,LinkWndMapNum[1]+LinkWndMapNum[1]/2,LinkWndMapNum[2],LinkWndMapNum[3],LinkWndMapNum[4],LinkWndMapNum[5],LinkWndMapNum[6],LinkWndMapNum[7])//关卡总数
+	levelmax=(30,36,36,36,36,LinkWndMapNum[0]+LinkWndMapNum[0]/2,LinkWndMapNum[1]+LinkWndMapNum[1]/2,LinkWndMapNum[2],LinkWndMapNum[3],LinkWndMapNum[4],LinkWndMapNum[5],LinkWndMapNum[6],LinkWndMapNum[7])//關卡總數
 	levelmax=(levelmax,levelmax,levelmax)
 	playlinkmusic=linkmusic
 	musicid=0
@@ -23,8 +23,8 @@ OnLinkWnd{//入口函数
 	_txt+='\![raise,OnInitLinkWnd]'
 	_txt
 }
-CheckLinkWnd{//参数检查
-	LinkBallInfo=("0,34,%(mylinkball[0]),绯红之眼","1,19,%(mylinkball[1]),魅力之眼","2,5,%(mylinkball[2]),黄金之瞳","3,23,%(mylinkball[3]),守护之眼","4,7,%(mylinkball[4]),空之眼","5,21,%(mylinkball[5]),海之瞳","6,25,%(mylinkball[6]),魔幻之瞳","7,11,%(mylinkball[7]),光明之瞳","8,18,%(mylinkball[8]),幸运之瞳","9,31,%(mylinkball[9]),神圣之瞳","10,35,%(mylinkball[10]),上帝之眼")
+CheckLinkWnd{//參數檢查
+	LinkBallInfo=("0,34,%(mylinkball[0]),緋紅之眼","1,19,%(mylinkball[1]),魅力之眼","2,5,%(mylinkball[2]),黃金之瞳","3,23,%(mylinkball[3]),守護之眼","4,7,%(mylinkball[4]),空之眼","5,21,%(mylinkball[5]),海之瞳","6,25,%(mylinkball[6]),魔幻之瞳","7,11,%(mylinkball[7]),光明之瞳","8,18,%(mylinkball[8]),幸運之瞳","9,31,%(mylinkball[9]),神聖之瞳","10,35,%(mylinkball[10]),上帝之眼")
 	/*
 	m_dir[0] = 1
 	m_dir[1] = 2
@@ -36,8 +36,8 @@ CheckLinkWnd{//参数检查
 	if LinkWndMode==0{
 		LinkWnd_LEFT	= -20
 		LinkWnd_TOP		= -5
-		m_nCol=6+2//水平数量
-		m_nRow=6+2//竖直数量
+		m_nCol=6+2//水準數量
+		m_nRow=6+2//豎直數量
 		LinkWndWIDTH=42
 		LinkWndHigh=48
 	}
@@ -70,11 +70,11 @@ CheckLinkWnd{//参数检查
 	if !ISVAR('LinkWndnd')
 		LinkWndnd=0
 	if LinkWndnd==0
-		LinkWnd.Difficulty='简单'
+		LinkWnd.Difficulty='簡單'
 	elseif LinkWndnd==1
 		LinkWnd.Difficulty='普通'
 	elseif LinkWndnd==2
-		LinkWnd.Difficulty='困难'
+		LinkWnd.Difficulty='困難'
 	_timemode=0
 	if link_timemode==0||link_timemode==1
 		_timemode=link_timemode+1
@@ -107,7 +107,7 @@ CheckLinkWnd{//参数检查
 			m_levels[levelsort]=TOINT(LinkWndMapNum[LinkWndMode+4])
 	}
 }
-OnInitLinkWnd{//新游戏入口
+OnInitLinkWnd{//新遊戲入口
 	_txt='\C\![quicksession,1]\c\b[2]'
 	mess=''
 	playLinkWnd=1
@@ -156,7 +156,7 @@ OnInitLinkWnd{//新游戏入口
 		_txt+=BGMusic
 	_txt
 }
-m_MapSeed.Load{//地图种子读取
+m_MapSeed.Load{//地圖種子讀取
 	_m_MapSeed.Seed=IARRAY
 	if freemode==0{
 		if levelname==2{
@@ -202,7 +202,7 @@ m_MapSeed.Load{//地图种子读取
 	}
 	_m_MapSeed.Seed
 }
-Loadm_map{//加载地图
+Loadm_map{//載入地圖
 	_mode=_argv[0]
 	_maplevel=_argv[1]
 	m_MapSeed.Num=0
@@ -217,11 +217,11 @@ Loadm_map{//加载地图
 	if freemode==1
 		m_MapSeed.Seed=_m_MapSeed.Seed
 	if _m_MapSeed.Seed=='error'{
-		mess='地图错误，地图文件不存在'
+		mess='地圖錯誤，地圖檔不存在'
 		return
 	}
 	if _m_MapSeed.Seed=='error01'{
-		mess='错误的地图方块数量'
+		mess='錯誤的地圖方塊數量'
 		return
 	}
 	for _i=0; _i<m_nRow; _i++{
@@ -238,7 +238,7 @@ Loadm_map{//加载地图
 	}
 	m_Map.nLeft = m_MapSeed.Num
 	if m_MapSeed.Num % 2{
-		mess='错误的地图,方块数量不为偶数'
+		mess='錯誤的地圖,方塊數量不為偶數'
 		return
 	}
 	_num=m_MapSeed.Num/2
@@ -247,17 +247,17 @@ Loadm_map{//加载地图
 		_nElemID[_i * 2] = _nElemID[_i * 2 + 1]
 	}
 	Clean_map
-	//将方块填入地图
+	//將方塊填入地圖
 	for _i=1; _i<m_nRow-1; _i++{
 		for _j=1; _j<m_nCol-1; _j++{
-			//如果地图种子的_i行_j列是true，则从入围方块里随机选一块填进去
+			//如果地圖種子的_i行_j列是true，則從入圍方塊裡隨機選一塊填進去
 			if TOINT(_m_MapSeed.Seed[(_i-1)*(m_nCol-2)+_j-1])==1{
 				_tmp = RAND(m_MapSeed.Num)
-				//如果之前已被选进去，则重选
+				//如果之前已被選進去，則重選
 				while _nElemID[_tmp] == -1{
 					_tmp = RAND(m_MapSeed.Num)
 				}
-				//将tmp的id填进去并且将其设置为已选
+				//將tmp的id填進去並且將其設置為已選
 				m_map[_i*m_nCol+_j] = _nElemID[_tmp]
 				_nElemID[_tmp] = -1
 			}
@@ -266,11 +266,11 @@ Loadm_map{//加载地图
 		}
 	}
 	if CheckNum!=m_Map.nLeft{
-		mess='错误的地图，方块数量不一致'
+		mess='錯誤的地圖，方塊數量不一致'
 		return
 	}
 }
-Clean_map{//地图清空
+Clean_map{//地圖清空
 	m_map=IARRAY
 	for _i=0; _i<m_nRow; _i++{
 		for _j=0; _j<m_nCol; _j++{
@@ -278,7 +278,7 @@ Clean_map{//地图清空
 		}
 	}
 }
-RandomMapSeed{//随机地图种子
+RandomMapSeed{//隨機地圖種子
 	_cnt=TOINT(_argv[0])
 	_num=(m_nRow-2)*(m_nCol-2)
 	if _cnt>_num{
@@ -300,7 +300,7 @@ RandomMapSeed{//随机地图种子
 	}
 	_mapseed
 }
-OnDrawLinkWnd{//绘图
+OnDrawLinkWnd{//繪圖
 	playLinkWnd=1
 	_txt='\C\![quicksession,1]\c\![set,choicetimeout,0]\b[2]'
 	if reference0=='return'
@@ -359,7 +359,7 @@ Resort{
 	for _i=1; _i<m_nRow-1; _i++{
 		for _j=1; _j<m_nCol-1; _j++{
 			if m_map[_i*m_nCol+_j] != -1{
-				//产生随机数
+				//產生亂數
 				_tmp=RAND(_pos)
 				while _nElemID[_tmp] == -1{
 					_tmp=RAND(_pos)
@@ -370,7 +370,7 @@ Resort{
 		}
 	}
 }
-BGMusic{//音乐
+BGMusic{//音樂
 	_txt=''
 	if freemode==0{
 		//TOINT(m_levels[levelsort])/(levelsort/levelsort*3)%3
@@ -413,7 +413,7 @@ BGMusic{//音乐
 	}
 	_txt
 }
-linkmusic{//音乐列表
+linkmusic{//音樂清單
 	_a='bg.mid,easy.mid,normal.mid,hard.mid,bg_01.mid,bg_02.mid,bg_03.mid,bg_04.mid,Rich16.mid,Rich22.mid,Rich19.mid,Canon8.mid'
 	_music=''
 	for _i=0; _i<12; _i++{
@@ -442,23 +442,23 @@ linkmusic{//音乐列表
 	*/
 
 }
-LinkWndMenu{//游戏目录
+LinkWndMenu{//遊戲目錄
 	//_txt='\C\![quicksession,true]\c\![set,choicetimeout,0]\b[2]'
-	_txt='\0\s[26]\_l[10,0]\q[◇新游戏,OnInitLinkWnd]  \_l[75,0]\q[◇设定,OnLinkWndOption]'
+	_txt='\0\s[26]\_l[10,0]\q[◇新遊戲,OnInitLinkWnd]  \_l[75,0]\q[◇設定,OnLinkWndOption]'
 	if freemode
 		_txt+="\_l[120,0]N:%(m_MapSeed.Num) C:%(CheckNum) L：%(m_Map.nLeft)"
 	else
 		_txt+="\_l[120,0]◆%(TOINT(m_levels[levelsort])+1),N:%(m_MapSeed.Num),L:%(m_Map.nLeft)"
-	_txt+='\_l[230,-]\q[◇终了,OnLinkWndGameOver]'
+	_txt+='\_l[230,-]\q[◇終了,OnLinkWndGameOver]'
 	_timeleft=link_timebar/1000
 	if !link_timemode ||link_timemode==1
 		_txt+="\n\_l[10,-]\__q[OnLinkBar,%(_timeleft)]%(LinkBar(link_timebar,link_timebase))\__q\_l[15,-]%(_timeleft)"
 	else{
-		_txt+="\n\_l[10,-]生命数:%(LinkWndLife)"
+		_txt+="\n\_l[10,-]生命數:%(LinkWndLife)"
 		if freemode
-			_txt+=" \_l[75,-]\__q[OnBuyLinkSeed]种子数:%(LinkWndSeed)\__q"
+			_txt+=" \_l[75,-]\__q[OnBuyLinkSeed]種子數:%(LinkWndSeed)\__q"
 		else
-			_txt+="\_l[75,-]种子数:%(LinkWndSeed)"
+			_txt+="\_l[75,-]種子數:%(LinkWndSeed)"
 	}
 	_txt+=CheckLinkWnd
 	if LinkWndLife>=0&&LinkWndSeed>=1
@@ -473,39 +473,39 @@ LinkWndMenu{//游戏目录
 		_txt+='\_l[180,-]\f[color,192,192,192]重排\f[color,default]'
 	if !link_timemode
 		_txt+=":%(LinkWndLife)"
-	_txt+='\_l[230,-]\q[◇帮助,OnLinkWndHelp]'
+	_txt+='\_l[230,-]\q[◇幫助,OnLinkWndHelp]'
 	if mess!=''
 		_txt+='\n'+mess
 	_txt
 }
 OnLinkBar{
-	"还剩%(reference0)秒\x"
+	"還剩%(reference0)秒\x"
 	--
 	OnDrawLinkWnd
 }
-OnBuyLinkSeed{//种子购买
+OnBuyLinkSeed{//種子購買
 	_txt='\C\![quicksession,true]\c\![set,choicetimeout,0]\b[2]'
 	if reference0=='buy'{
 		if money>=TOINT(reference1){
 			money-=TOINT(reference1)
 			LinkWndSeed+=TOINT(reference2)
-			_txt+="购买%(reference2)粒种子，花费%(reference1)金钱。\n"
+			_txt+="購買%(reference2)粒種子，花費%(reference1)金錢。\n"
 		}
 		else
-			_txt+='金钱不足，不能购买\n'
+			_txt+='金錢不足，不能購買\n'
 	}
 	else
 		_txt+='\n'
 	_txt+=ShowMoney+'\n'
 	_txt+=CheckLinkWnd
-	_txt+='\种子购买（购买后请在休闲模式使用完，否则数量会重置。）\n'
-	_txt+="生命数:%(LinkWndLife)  种子数:%(LinkWndSeed)\n"
-	_txt+='\0\s[40]种子可以金钱来购买，价格是10粒/1000金钱，种子数量超过3能自动转换为生命，要购买多少种子呢？\n'
+	_txt+='\種子購買（購買後請在休閒模式使用完，否則數量會重置。）\n'
+	_txt+="生命數:%(LinkWndLife)  種子數:%(LinkWndSeed)\n"
+	_txt+='\0\s[40]種子可以金錢來購買，價格是10粒/1000金錢，種子數量超過3能自動轉換為生命，要購買多少種子呢？\n'
 	_txt+='\q[◇10,OnBuyLinkSeed,buy,1000,10]  \q[◇20,OnBuyLinkSeed,buy,2000,20]  \q[◇40,OnBuyLinkSeed,buy,4000,40]  \q[◇50,OnBuyLinkSeed,buy,5000,50]  \q[◇60,OnBuyLinkSeed,buy,6000,60]  \q[◇80,OnBuyLinkSeed,buy,8000,80]  \q[◇100,OnBuyLinkSeed,buy,10000,100]\n'
 	_txt+='\n[400]\q[◇返回,OnDrawLinkWnd]'
 	_txt
 }
-OnLinkWndOption{//设定
+OnLinkWndOption{//設定
 	//_txt='\![quicksession,1]\![set,choicetimeout,0]\b[2]'
 	//if playLinkWnd==2
 		_txt='\C\![quicksession,1]\c\![set,choicetimeout,0]\b[2]'
@@ -587,21 +587,21 @@ OnLinkWndOption{//设定
 		shiftmode=TOINT((shiftmode+1)%4)
 	}
 	_t = '◇,◆'
-	_txt+="休闲模式：\q[%(_t[TOINT(freemode)]) ON,OnLinkWndOption,free,1]  \q[%(_t[1 - TOINT(freemode)]) OFF,OnLinkWndOption,free,0]\n"
+	_txt+="休閒模式：\q[%(_t[TOINT(freemode)]) ON,OnLinkWndOption,free,1]  \q[%(_t[1 - TOINT(freemode)]) OFF,OnLinkWndOption,free,0]\n"
 	_m_levels=''
 	_txt+=CheckLinkWnd
 	_txt+=CheckLinkMapNum
 	if !freemode {
 		_t = '◆,◇,◇,◇,◆,◇,◇,◇,◆,◇,◇,◇,◆,◇,◇,◇,◆'
-		_txt+="游戏模式：\n\q[%(_t[TOINT(LinkWndMode)])人眼,OnLinkWndOption,ms,0,人眼]   \q[%(_t[TOINT(LinkWndMode)+3])地眼,OnLinkWndOption,ms,1,地眼]   \q[%(_t[TOINT(LinkWndMode)+6])天眼,OnLinkWndOption,ms,2,天眼]   \q[%(_t[TOINT(LinkWndMode)+9])神眼,OnLinkWndOption,ms,3,神眼]\n"
+		_txt+="遊戲模式：\n\q[%(_t[TOINT(LinkWndMode)])人眼,OnLinkWndOption,ms,0,人眼]   \q[%(_t[TOINT(LinkWndMode)+3])地眼,OnLinkWndOption,ms,1,地眼]   \q[%(_t[TOINT(LinkWndMode)+6])天眼,OnLinkWndOption,ms,2,天眼]   \q[%(_t[TOINT(LinkWndMode)+9])神眼,OnLinkWndOption,ms,3,神眼]\n"
 		_t = '◆,◇,◇,◆,◇,◇,◆,◇,◇,◆,◇,◇,◆'
-		_txt+="游戏难度：\n\q[%(_t[TOINT(LinkWndnd)])简单,OnLinkWndOption,nd,0,简单] \q[%(_t[TOINT(LinkWndnd)+2])普通,OnLinkWndOption,nd,1,普通]  \q[%(_t[TOINT(LinkWndnd)+4])困难,OnLinkWndOption,nd,2,困难]\n"
+		_txt+="遊戲難度：\n\q[%(_t[TOINT(LinkWndnd)])簡單,OnLinkWndOption,nd,0,簡單] \q[%(_t[TOINT(LinkWndnd)+2])普通,OnLinkWndOption,nd,1,普通]  \q[%(_t[TOINT(LinkWndnd)+4])困難,OnLinkWndOption,nd,2,困難]\n"
 		_t = '◆,◇,◇,◆,◇,◇,◆,◇,◇,◆,◇,◇,◆'
-		_txt+="时间模式：\q[%(_t[TOINT(link_timemode)])普通模式,OnLinkWndOption,link_timemode,0]  \q[%(_t[TOINT(link_timemode)+2])争分获秒模式,OnLinkWndOption,link_timemode,1]  \q[%(_t[TOINT(link_timemode)+4])生命模式,OnLinkWndOption,link_timemode,2]\n"
+		_txt+="時間模式：\q[%(_t[TOINT(link_timemode)])普通模式,OnLinkWndOption,link_timemode,0]  \q[%(_t[TOINT(link_timemode)+2])爭分獲秒模式,OnLinkWndOption,link_timemode,1]  \q[%(_t[TOINT(link_timemode)+4])生命模式,OnLinkWndOption,link_timemode,2]\n"
 		_m_levels=''
 		_levelname=''
-		_n='金钱模式,成就模式,地图模式'
-		_txt+='关卡类型：'
+		_n='金錢模式,成就模式,地圖模式'
+		_txt+='關卡類型：'
 		for _i=0;_i<3;_i++{
 			if levelname==_i
 				_levelname[_i]="◆%(_n[_i])"
@@ -615,7 +615,7 @@ OnLinkWndOption{//设定
 		}
 		_txt+='\n'
 		if levelname==0{
-			_txt+='金钱模式关卡：(完成神眼3个难度模式方能进入下一关）\n'
+			_txt+='金錢模式關卡：(完成神眼3個難度模式方能進入下一關）\n'
 			for _i=0;_i<30;_i++{
 				if TOINT(m_levels[levelsort])==_i
 					_m_levels[_i]=" ◆%(_i+1) "
@@ -632,11 +632,11 @@ OnLinkWndOption{//设定
 			}
 		}
 		elseif levelname==1{
-			_txt+='成就模式关卡：（请选择要完成的游戏模式）\n'
+			_txt+='成就模式關卡：（請選擇要完成的遊戲模式）\n'
 			for _j=0;_j<4;_j++{
 				if LinkWndMode== _j{
 					_t='人眼,地眼,天眼,神眼'
-					_txt+="%(_t[_j])成就关卡：\n"
+					_txt+="%(_t[_j])成就關卡：\n"
 					for _i=0;_i<36;_i++{
 						if TOINT(m_levels[levelsort])==_i
 							_m_levels[_i]=" ◆%(_i+1) "
@@ -654,8 +654,8 @@ OnLinkWndOption{//设定
 				}
 			}
 			_PIC='PATH\bmp1302.png'
-			_shift=('合并,下,两个','转换,上,一个','全部合并,下,所有','全部转换,上,所有')
-			_txt+="获得水晶球成就(点击水晶球可将其%(_shift[shiftmode][2])该水晶球\f[color,108,129,182]\__q[OnLinkWndOption,shift]%(_shift[shiftmode][0])\__q\f[color,default]为%(_shift[1-shiftmode][2])%(_shift[shiftmode][1])颜色的水晶球，或使用键盘数字选择）\n"
+			_shift=('合併,下,兩個','轉換,上,一個','全部合併,下,所有','全部轉換,上,所有')
+			_txt+="獲得水晶球成就(點擊水晶球可將其%(_shift[shiftmode][2])該水晶球\f[color,108,129,182]\__q[OnLinkWndOption,shift]%(_shift[shiftmode][0])\__q\f[color,default]為%(_shift[1-shiftmode][2])%(_shift[shiftmode][1])顏色的水晶球，或使用鍵盤數位選擇）\n"
 			foreach LinkBallInfo;_i{
 				_x = _i[0]*(LinkBallWIDTH-1)
 				_y = _i[0]*(LinkBallHigh-1)
@@ -674,14 +674,14 @@ OnLinkWndOption{//设定
 				_allrewards+=TOINT(_i[2])*_a
 				_a=_a*2
 			}
-			_txt+="\n总成就：%(_allrewards)\n"
+			_txt+="\n總成就：%(_allrewards)\n"
 		}
 		elseif levelname==2{
 			if uselinkselfmap==0{
 				for _j=0;_j<4;_j++{
 					if LinkWndMode== _j{
 						_t='人眼,地眼,天眼,神眼'
-						_txt+="%(_t[_j])地图关卡：\n"
+						_txt+="%(_t[_j])地圖關卡：\n"
 						_n=0
 						if LinkWndMode==2||LinkWndMode==3
 							_n=LinkWndMapNum[_j]
@@ -708,7 +708,7 @@ OnLinkWndOption{//设定
 				for _j=0;_j<4;_j++{
 					if LinkWndMode== _j{
 						_t='人眼,地眼,天眼,神眼'
-						_txt+="%(_t[_j])自建地图：\n"
+						_txt+="%(_t[_j])自建地圖：\n"
 						_n=LinkWndMapNum[4+_j]
 						for _i=0;_i<_n;_i++{
 							if TOINT(m_levels[levelsort])==_i
@@ -726,14 +726,14 @@ OnLinkWndOption{//设定
 			}
 			_txt+='\n'
 			_t = '◇,◆'
-			_txt+="自建地图：\q[%(_t[TOINT(uselinkselfmap)]) ON,OnLinkWndOption,uselinkselfmap,1]  \q[%(_t[1-TOINT(uselinkselfmap)]) OFF,OnLinkWndOption,uselinkselfmap,0]\n"
+			_txt+="自建地圖：\q[%(_t[TOINT(uselinkselfmap)]) ON,OnLinkWndOption,uselinkselfmap,1]  \q[%(_t[1-TOINT(uselinkselfmap)]) OFF,OnLinkWndOption,uselinkselfmap,0]\n"
 			if uselinkselfmap
-				_txt+="\q[◇删除最新,OnLinkMapSave,del,%(LinkWndMode),%(LinkWndMapNum[LinkWndMode+4])]\n"
+				_txt+="\q[◇刪除最新,OnLinkMapSave,del,%(LinkWndMode),%(LinkWndMapNum[LinkWndMode+4])]\n"
 		}
-		_txt+="该模式下最高闯关数:%(TOINT(m_levelstop[levelsort]))\n"
+		_txt+="該模式下最高闖關數:%(TOINT(m_levelstop[levelsort]))\n"
 	}
 	else{
-		_txt+='方块类型：\n'
+		_txt+='方塊類型：\n'
 		_matchnum=IARRAY
 		for _i=5;_i<=36;_i++{
 			if TOINT(MatchNum)==_i
@@ -749,23 +749,23 @@ OnLinkWndOption{//设定
 		_txt+='\n'
 	}
 	_t = '◆,◇,◇,◆,◇,◇,◆'
-	_txt+="背景音乐：\q[%(_t[TOINT(linkwndmusic)]) ON,OnLinkWndOption,linkwndmusic,0]  \q[%(_t[TOINT(linkwndmusic+2)]) OFF,OnLinkWndOption,linkwndmusic,1]  \q[%(_t[TOINT(linkwndmusic+4)])静音,OnLinkWndOption,linkwndmusic,2]\n"
-	_txt+="方块类型：%(MatchNum)   方块总数：%(m_MapSeed.Num)   剩余方块数：%(m_Map.nLeft)\n"
-	_txt += '\_l[0,-]\q[◇新游戏,OnLinkWnd]'
+	_txt+="背景音樂：\q[%(_t[TOINT(linkwndmusic)]) ON,OnLinkWndOption,linkwndmusic,0]  \q[%(_t[TOINT(linkwndmusic+2)]) OFF,OnLinkWndOption,linkwndmusic,1]  \q[%(_t[TOINT(linkwndmusic+4)])靜音,OnLinkWndOption,linkwndmusic,2]\n"
+	_txt+="方塊類型：%(MatchNum)   方塊總數：%(m_MapSeed.Num)   剩餘方塊數：%(m_Map.nLeft)\n"
+	_txt += '\_l[0,-]\q[◇新遊戲,OnLinkWnd]'
 	if LinkWndFlag!='optionchange'
 		_txt += '\_l[60,-]\q[◇返回,OnDrawLinkWnd,return]'
 	if levelname==2&&(TOINT(m_levels[levelsort])!=TOINT(ClearMode[levelsort])||uselinkselfmap)||freemode
-		_txt +='\_l[120,-]\q[◇地图编辑器,OnLinkMapEditor]'
-	_txt +='\_l[220,-]\q[◇终了,OnLinkWndGameOver]'
+		_txt +='\_l[120,-]\q[◇地圖編輯器,OnLinkMapEditor]'
+	_txt +='\_l[220,-]\q[◇終了,OnLinkWndGameOver]'
 	_txt
 	playLinkWnd=2
 }
-OnLinkWndGameOver{//游戏结束
+OnLinkWndGameOver{//遊戲結束
 	ClearLinkWndVar
 	--
-	'\0\s[0]\b[0]不玩了吗。'
+	'\0\s[0]\b[0]不玩了嗎。'
 }
-ClearLinkWndVar{//变量消除
+ClearLinkWndVar{//變數消除
 	if !linkwndmusic {
 		'\![sound,stop]'
 	}
@@ -864,20 +864,20 @@ Onremind{//提醒
 	_txt+=_rm
 	_txt
 }
-OnLinkWndHelp{//帮助
+OnLinkWndHelp{//幫助
 	'\C\![quicksession,1]\c\![set,choicetimeout,0]\b[2]/
-	伪春菜版连连看（V2.5）游戏规则\n/
-	选择一对相同的水晶球进行连线，但此线应避开其他水晶球，并其所呈现的连线路径不超过二转弯（见范例图示）。如符合规定则消除此对水晶球；游戏模式有人眼，地眼，天眼，神眼四个模式，其中，关卡又分为金钱、成就、地图三个模式。金钱模式中完成神眼三个难度模式才会追加新关卡。V2.5版增加普通时间模式和争分获秒模式,原有关卡移至生命模式,普通模式为在规定时间完成,消除方块时间不会增加,争分获秒模式时间较少,但是消除方块时间可以增加,而使用提式时间就会减少,在生命模式中，一生命含3种子，消耗1种子可使用提示一次，消耗三种子生命值减一。注意，当出现残局时，会消耗一生命进行重排，生命值及种子为零游戏结束，休闲模式不会强制重排消耗生命，但种子数不会重设，以便购买获得种子/
+	偽春菜版連連看（V2.5）遊戲規則\n/
+	選擇一對相同的水晶球進行連線，但此線應避開其他水晶球，並其所呈現的連線路徑不超過二轉彎（見範例圖示）。如符合規定則消除此對水晶球；遊戲模式有人眼，地眼，天眼，神眼四個模式，其中，關卡又分為金錢、成就、地圖三個模式。金錢模式中完成神眼三個難度模式才會追加新關卡。V2.5版增加普通時間模式和爭分獲秒模式,原有關卡移至生命模式,普通模式為在規定時間完成,消除方塊時間不會增加,爭分獲秒模式時間較少,但是消除方塊時間可以增加,而使用提式時間就會減少,在生命模式中，一生命含3種子，消耗1種子可使用提示一次，消耗三種子生命值減一。注意，當出現殘局時，會消耗一生命進行重排，生命值及種子為零遊戲結束，休閒模式不會強制重排消耗生命，但種子數不會重設，以便購買獲得種子/
 	\n\_b[PATH\bmp141.png,inline,--option=opaque]/
-	\n[150]\q[◇返回,OnDrawLinkWnd,return]  \q[◇终了,OnLinkWndGameOver]'
+	\n[150]\q[◇返回,OnDrawLinkWnd,return]  \q[◇終了,OnLinkWndGameOver]'
 }
-OnLButtonDown{//鼠标操作
+OnLButtonDown{//滑鼠操作
 	_txt='\C\![quicksession,1]\c\![set,choicetimeout,0]\b[2]'
 	_x=reference0
 	_xx=reference0
 	_y=reference1
 	_yy=reference1
-	//2.在游戏区域内并且该区域还有该区域不是空的区域
+	//2.在遊戲區域內並且該區域還有該區域不是空的區域
 	if TOINT(m_levels[levelsort]+1)%6>0
 		m_level=TOINT(m_levels[levelsort]+1)%6
 	else
@@ -894,7 +894,7 @@ OnLButtonDown{//鼠标操作
 	}
 	if m_nX1 != -1 && m_nY1 != -1 && (m_nX1 != _x || m_nY1 != _y){
 		if m_map[m_nY1*m_nCol+m_nX1]==m_map[_y*m_nCol+_x]{
-			//已经找到一对 ,检查是否能连
+			//已經找到一對 ,檢查是否能連
 			m_nY = m_nY1
 			m_nX = m_nX1
 			m_ny = _y
@@ -911,7 +911,7 @@ OnLButtonDown{//鼠标操作
 				select=-1
 			}
 			else{
-				//还原上次选择,并记录当前选择
+				//還原上次選擇,並記錄當前選擇
 				m_nY1 = _y
 				m_nX1 = _x
 				select=m_nY1*m_nCol+m_nX1
@@ -920,7 +920,7 @@ OnLButtonDown{//鼠标操作
 			}
 		}
 		else{
-			//还原上次选择,并记录当前选择
+			//還原上次選擇,並記錄當前選擇
 			m_nY1 = _y
 			m_nX1 = _x
 			select=m_nY1*m_nCol+m_nX1
@@ -1004,7 +1004,7 @@ DrawHint{
 	//return 1
 }
 */
-WinCheck{//胜利检查
+WinCheck{//勝利檢查
 	_txt='\C\![quicksession,1]\c\![set,choicetimeout,0]\b[2]'
 	if freemode==1{
 		if IsWin{
@@ -1017,7 +1017,7 @@ WinCheck{//胜利检查
 		if LinkWndLife>0&&freemode==0&&link_timemode==2{
 			playLinkWnd=4
 			LinkWndLife--
-			_txt+='\c\0\s[8]残局，消耗一生命进行重排\x'
+			_txt+='\c\0\s[8]殘局，消耗一生命進行重排\x'
 			while !CheckPath{
 				_txt+=Resort
 			}
@@ -1031,7 +1031,7 @@ WinCheck{//胜利检查
 				m_levels[levelsort]=ClearMode[levelsort]
 			if TOINT(m_levels[levelsort])>=TOINT(levelmax[levelsort])
 				m_levels[levelsort]=TOINT(levelmax[levelsort]-1)
-			_txt+='\c\0\s[8]游戏结束\x'
+			_txt+='\c\0\s[8]遊戲結束\x'
 			_txt+=OnLinkWnd
 		}
 	}
@@ -1041,7 +1041,7 @@ WinCheck{//胜利检查
 			m_levels[levelsort]=ClearMode[levelsort]
 		if TOINT(m_levels[levelsort])>=TOINT(levelmax[levelsort])
 			m_levels[levelsort]=TOINT(levelmax[levelsort]-1)
-		_txt+='\c\0\s[8]时间用完,游戏结束\x'
+		_txt+='\c\0\s[8]時間用完,遊戲結束\x'
 		_txt+=OnLinkWnd
 	}
 	if IsWin{
@@ -1049,7 +1049,7 @@ WinCheck{//胜利检查
 		if levelname==0{
 			playLinkWnd=4
 			money+=TOINT(linkwndmoney)
-			_txt+="\c\0\s[5]恭喜%(username)胜利闯关,获得金钱%(linkwndmoney)。即将开始新局\x"
+			_txt+="\c\0\s[5]恭喜%(username)勝利闖關,獲得金錢%(linkwndmoney)。即將開始新局\x"
 			if LinkWndnd<2
 				LinkWndnd++
 			else{
@@ -1067,16 +1067,16 @@ WinCheck{//胜利检查
 						m_levels[levelsort]=ClearMode[levelsort]
 						LinkWndnd=0
 						LinkWndMode=0
-						_txt+="\c恭喜%(username)爆关，新关卡及新选项设定追加,继续下一等级。\x"
+						_txt+="\c恭喜%(username)爆關，新關卡及新選項設定追加,繼續下一等級。\x"
 					}
 					elseif TOINT(ClearMode[levelsort]+1)==TOINT(levelmax[levelsort])&&TOINT(m_levels[levelsort]==ClearMode[levelsort]){
 						ClearMode[levelsort]=TOINT(ClearMode[levelsort])+1
 						m_levels[levelsort]=ClearMode[levelsort]
-						_txt+="\c恭喜%(username)完成全部关卡,继续下一等级。\x"
+						_txt+="\c恭喜%(username)完成全部關卡,繼續下一等級。\x"
 					}
 					else{
 						m_levels[levelsort]=TOINT(m_levels[levelsort])+1
-						_txt+="\c恭喜%(username)胜利闯关,继续下一等级。\x"
+						_txt+="\c恭喜%(username)勝利闖關,繼續下一等級。\x"
 					}
 				}
 			}
@@ -1091,16 +1091,16 @@ WinCheck{//胜利检查
 			if TOINT(ClearMode[levelsort]+1)<TOINT(levelmax[levelsort])&&TOINT(m_levels[levelsort])==TOINT(ClearMode[levelsort]){
 				ClearMode[levelsort]=TOINT(ClearMode[levelsort])+1
 				m_levels[levelsort]=ClearMode[levelsort]
-				_txt+="\c恭喜%(username)胜利闯关,获得%(_linkballname)×%(m_levels[levelsort])。即将开始新局，新关卡及新选项设定追加\x"
+				_txt+="\c恭喜%(username)勝利闖關,獲得%(_linkballname)×%(m_levels[levelsort])。即將開始新局，新關卡及新選項設定追加\x"
 			}
 			elseif TOINT(ClearMode[levelsort]+1)==TOINT(levelmax[levelsort])&&TOINT(m_levels[levelsort])==TOINT(ClearMode[levelsort]){
 				ClearMode[levelsort]=TOINT(ClearMode[levelsort])+1
 				m_levels[levelsort]=ClearMode[levelsort]
-				_txt+="\c恭喜%(username)完成全部关卡,获得%(_linkballname)×%(m_levels[levelsort])。继续下一等级。\x"
+				_txt+="\c恭喜%(username)完成全部關卡,獲得%(_linkballname)×%(m_levels[levelsort])。繼續下一等級。\x"
 			}
 			else{
 				m_levels[levelsort]=TOINT(m_levels[levelsort])+1
-				_txt+="\c恭喜%(username)胜利闯关,获得%(_linkballname)×%(m_levels[levelsort])。继续下一等级。\x"
+				_txt+="\c恭喜%(username)勝利闖關,獲得%(_linkballname)×%(m_levels[levelsort])。繼續下一等級。\x"
 			}
 			mylinkball[LinkWndMode]=TOINT(mylinkball[LinkWndMode])+m_levels[levelsort]
 		}
@@ -1109,16 +1109,16 @@ WinCheck{//胜利检查
 			if TOINT(ClearMode[levelsort]+1)<TOINT(levelmax[levelsort])&&TOINT(m_levels[levelsort])==TOINT(ClearMode[levelsort]){
 				ClearMode[levelsort]=TOINT(ClearMode[levelsort])+1
 				m_levels[levelsort]=ClearMode[levelsort]
-				_txt+="\c恭喜%(username)胜利闯关,即将开始新局，新关卡及新选项设定追加\x"
+				_txt+="\c恭喜%(username)勝利闖關,即將開始新局，新關卡及新選項設定追加\x"
 			}
 			elseif TOINT(ClearMode[levelsort]+1)==TOINT(levelmax[levelsort])&&TOINT(m_levels[levelsort])==TOINT(ClearMode[levelsort]){
 				ClearMode[levelsort]=TOINT(ClearMode[levelsort])+1
 				m_levels[levelsort]=ClearMode[levelsort]
-				_txt+="\c恭喜%(username)完成全部关卡。\x"
+				_txt+="\c恭喜%(username)完成全部關卡。\x"
 			}
 			else{
 				m_levels[levelsort]=TOINT(m_levels[levelsort])+1
-				_txt+="\c恭喜%(username)胜利闯关,继续下一关。\x"
+				_txt+="\c恭喜%(username)勝利闖關,繼續下一關。\x"
 			}
 			if m_levels[levelsort]>=levelmax[levelsort]{
 				m_levels[levelsort]=0
@@ -1130,7 +1130,7 @@ WinCheck{//胜利检查
 		if LinkWndPlayNum%10==0{
 			playLinkWnd=4
 			_linkballname=LinkBallInfo[0][3]
-			_txt+="\c恭喜%(username)完成闯关次数10次，获得额外%(_linkballname)×100，额外金钱1000\x"
+			_txt+="\c恭喜%(username)完成闖關次數10次，獲得額外%(_linkballname)×100，額外金錢1000\x"
 			mylinkball[0]=TOINT(mylinkball[0])+100
 			money+=1000
 		}
@@ -1138,7 +1138,7 @@ WinCheck{//胜利检查
 	}
 	_txt
 }
-CheckNum{//方块数量检查
+CheckNum{//方塊數量檢查
 	_num=0
 	for _i=0; _i<m_nRow; _i++{
 		for _j=0; _j<m_nCol; _j++{
@@ -1148,7 +1148,7 @@ CheckNum{//方块数量检查
 	}
 	_num
 }
-CheckPath{//路径搜索1.0
+CheckPath{//路徑搜索1.0
 	for  _i=1; _i<m_nRow-1; _i++{
 		for _j=1; _j<m_nCol-1; _j++{
 			if m_map[_i*m_nCol+_j]==BLANK_STATE
@@ -1199,7 +1199,7 @@ CheckPath{//路径搜索1.0
 	}
 	0;return
 }
-Find2Block{//路径搜索2.0
+Find2Block{//路徑搜索2.0
 	for  _i=1; _i<m_nRow-1; _i++{
 		for _j=1; _j<m_nCol-1; _j++{
 			if m_map[_i*m_nCol+_j]==BLANK_STATE
@@ -1210,22 +1210,22 @@ Find2Block{//路径搜索2.0
 			if m_map[(_i-1)*m_nCol+_j]!=BLANK_STATE && m_map[_i*m_nCol+_j]==m_map[(_i-1)*m_nCol+_j]{hint[1]=_i;hint[0]=_j;hint[3]=_i-1;hint[2]=_j;1;return}
 		}
 	}
-	//第一个方块从地图的0位置开始
+	//第一個方塊從地圖的0位置開始
 	for _i = 0; _i <m_nRow*m_nCol; _i++{
 		if m_map[_i] == BLANK_STATE
 			continue
-		//第二个方块从前一个方块的后面开始
+		//第二個方塊從前一個方塊的後面開始
 		for _j = _i + 1; _j <m_nRow*m_nCol; _j++{
 			if m_map[_j] == BLANK_STATE
 				continue
-			//第二个方块不为空 且与第一个方块的图形相同
+			//第二個方塊不為空 且與第一個方塊的圖形相同
 			if m_map[_i] == m_map[_j]{
-				//算出对应的虚拟行列位置
+				//算出對應的虛擬行列位置
 				_x1 = _i%m_nCol
 				_y1 = _i/m_nCol
 				_x2 = _j%m_nCol
 				_y2 = _j/m_nCol
-				//判断是否可以连通
+				//判斷是否可以連通
 				if IsLink(_x1,_y1,_x2,_y2){
 					hint[0]=_x1;hint[1]=_y1;hint[2]=_x2;hint[3]=_y2;1;return
 				}
@@ -1314,9 +1314,9 @@ StackEmpty{
 		_S,=_argv[_i]
 	}
 	if _S[_i]==_S[0]
-		1//为空
+		1//為空
 	else
-		0//不为空
+		0//不為空
 }
 SetDirect{
 	_ci=_argv[0]
@@ -1386,7 +1386,7 @@ Pass{
 }
 */
 //
-//消去这两块
+//消去這兩塊
 //
 ClearTwo{
 	_txt='\C\![quicksession,1]\c\![set,choicetimeout,0]\b[2]'
@@ -1637,41 +1637,41 @@ ClearTwo{
 	_txt
 }
 //
-//判断选中的两个方块是否可以消除
+//判斷選中的兩個方塊是否可以消除
 //
 IsLink{
 	_x1=_argv[0]
 	_y1=_argv[1]
 	_x2=_argv[2]
 	_y2=_argv[3]
-	//X直连方式
+	//X直連方式
 	if _x1==_x2{
 		if X1_Link_X2(_x1,_y1,_y2){1;return}
 	}
-	//Y直连方式
+	//Y直連方式
 	elseif _y1==_y2{
 		if Y1_Link_Y2(_x1,_x2,_y1){1;return}
 	}
-	//一个转弯直角的联通方式
+	//一個轉彎直角的聯通方式
 	if OneCornerLink(_x1,_y1,_x2,_y2){
 		1;return
 	}
-	//两个转弯直角的联通方式
+	//兩個轉彎直角的聯通方式
 	elseif TwoCornerLink(_x1,_y1,_x2,_y2){
 		1;return
 	}
 	0;return
 }
 //
-//X直接连通
+//X直接連通
 //
 X1_Link_X2{
 	_x=_argv[0]
 	_y1=_argv[1]
 	_y2=_argv[2]
-	//保证_y1的值小于_y2
+	//保證_y1的值小於_y2
 	if _y1>_y2{
-		//数据交换
+		//資料交換
 		_n=_y1
 		_y1=_y2
 		_y2=_n
@@ -1692,7 +1692,7 @@ X1_Link_X2{
 	0;return
 }
 //
-//Y直接连通
+//Y直接連通
 //
 Y1_Link_Y2{
 	_x1=_argv[0]
@@ -1717,7 +1717,7 @@ Y1_Link_Y2{
 	0;return
 }
 //
-//是否同一直线通
+//是否同一直線通
 //
 LineX{
 	_x=_argv[0]
@@ -1736,7 +1736,7 @@ LineX{
 	0;return
 }
 //
-//是否同一直线通
+//是否同一直線通
 //
 LineY{
 	_x1=_argv[0]
@@ -1755,7 +1755,7 @@ LineY{
 	0;return
 }
 //
-//1直角接口连通
+//1直角介面連通
 //
 OneCornerLink{
 	_x1=_argv[0]
@@ -1787,7 +1787,7 @@ OneCornerLink{
 	0;return
 }
 //
-//2直角接口连通
+//2直角介面連通
 //
 TwoCornerLink{
 	_x1=_argv[0]
@@ -1872,7 +1872,7 @@ YThrough{
 	}
 	1;return
 }
-CheckLinkMapNum{//地图数量检查
+CheckLinkMapNum{//地圖數量檢查
 	LinkWndMapNum=(0,0,0,0,0,0,0,0)
 	_mapfile = 'PATH\mapseed.txt'
 	if FOPEN(_mapfile,'r'){
@@ -1938,17 +1938,17 @@ LoadMapSeed{
 	}
 }
 //
-//检测是否已经赢得了游戏
+//檢測是否已經贏得了遊戲
 //
 IsWin{
-	//检测所有是否尚有非未被消除的方块
-	//(非BLANK_STATE状态)
+	//檢測所有是否尚有非未被消除的方塊
+	//(非BLANK_STATE狀態)
 	for _i=0;_i<m_nRow*m_nCol;_i++{
 		if m_map[_i] != BLANK_STATE{0;return;}
 	}
 	1;return
 }
-//连连看地图编辑器
+//連連看地圖編輯器
 OnLinkMapEditor{
 	CheckLinkWnd
 	CheckLinkMapNum
@@ -1957,7 +1957,7 @@ OnLinkMapEditor{
 		m_MapSeed.Seed=m_MapSeed.Load
 	LinkMapEditorShow
 }
-LinkMapEditorShow{//地图绘图
+LinkMapEditorShow{//地圖繪圖
 	_txt='\C\![quicksession,1]\c\![set,choicetimeout,0]\b[2]'
 	_PIC=('PATH\0.png','PATH\1.png','PATH\border.png')
 	m_MapSeed.Num=0
@@ -1992,11 +1992,11 @@ LinkMapEditorShow{//地图绘图
 	_txt+=LinkMapMenu
 	_txt
 }
-LinkMapMenu{//地图目录
+LinkMapMenu{//地圖目錄
 	_txt='\0\s[26]'
 	CheckLinkMapNum
 	if m_MapSeed.Num%2==0{
-		_txt+='\_l[0,0]\q[◇新游戏,OnInitLinkWnd]'
+		_txt+='\_l[0,0]\q[◇新遊戲,OnInitLinkWnd]'
 		if uselinkselfmap==1{
 			_txt+="\_l[40,0]\q[◇保存,OnLinkMapSave,save,%(LinkWndMode),%(m_levels[levelsort]+1)]"
 			_txt+="\_l[70,0]\q[◇另存,OnLinkMapSave,saveas,%(LinkWndMode),%(LinkWndMapNum[LinkWndMode+4]+1)]"
@@ -2007,19 +2007,19 @@ LinkMapMenu{//地图目录
 		}
 	}
 	else{
-		_txt='\_l[0,0]\f[color,192,192,192]新游戏\f[color,default]'
+		_txt='\_l[0,0]\f[color,192,192,192]新遊戲\f[color,default]'
 		_txt+='\_l[70,0]\f[color,192,192,192]保存\f[color,default]'
 	}
-	_t=' 普通  ,地图种子插件'[TOINT(linkmapmode)]
+	_t=' 普通  ,地圖種子外掛程式'[TOINT(linkmapmode)]
 	_txt+="\_l[100,0]\q[%(_t),OnSetLinkMap,linkmapmode]"
-	_txt+="\_l[180,0]\q[◇设定,OnLinkWndOption]  方块数：%(m_MapSeed.Num)"
+	_txt+="\_l[180,0]\q[◇設定,OnLinkWndOption]  方塊數：%(m_MapSeed.Num)"
 	_PIC=('PATH\0.png','PATH\1.png','PATH\border.png','PATH\border_select.png')
 	if TOINT(linkmapmode)==0{
-		_txt+='\_l[00,28]\q[◇互换,OnSetLinkMap,exchange]'
-		_txt+='\_l[35,-]\q[◇Y对称,OnSetLinkMap,Y-copy]'
-		_txt+='\_l[75,-]\q[◇X对称,OnSetLinkMap,X-copy]'
-		_txt+='\_l[120,-]\q[◇斜线对称,OnSetLinkMap,Z-copy]'
-		_txt+='\_l[180,-]\q[◇镜像,OnSetLinkMap,mirror]'
+		_txt+='\_l[00,28]\q[◇互換,OnSetLinkMap,exchange]'
+		_txt+='\_l[35,-]\q[◇Y對稱,OnSetLinkMap,Y-copy]'
+		_txt+='\_l[75,-]\q[◇X對稱,OnSetLinkMap,X-copy]'
+		_txt+='\_l[120,-]\q[◇斜線對稱,OnSetLinkMap,Z-copy]'
+		_txt+='\_l[180,-]\q[◇鏡像,OnSetLinkMap,mirror]'
 		_txt+='\_l[220,-]\q[◇倒置,OnSetLinkMap,invert]'
 		_txt+='\_l[260,-]\q[◇斜角,OnSetLinkMap,corner]'
 		_txt+="\_l[0,50]\__q[OnSetLinkMap,select.mapseed,0]\_b[%(_PIC[0]),inline,--option=opaque,--clipping=0 0 20 20]\__q"
@@ -2043,7 +2043,7 @@ LinkMapMenu{//地图目录
 	}
 	_txt
 }
-OnSetLinkMap{//地图设定
+OnSetLinkMap{//地圖設定
 	_mode=reference0
 	select.mapseed=reference1
 	_j=reference2
@@ -2158,7 +2158,7 @@ OnSetLinkMap{//地图设定
 	}
 	LinkMapEditorShow
 }
-OnLinkMapSave{//地图保存
+OnLinkMapSave{//地圖保存
 	CheckLinkMapNum
 	_save=reference0
 	_mode= '#'+reference1
@@ -2170,7 +2170,7 @@ OnLinkMapSave{//地图保存
 	FCHARSET(1)
 	if !FOPEN(_mapfile,'r') {
 		void FOPEN(_mapfile,'w')
-		void FWRITE(_mapfile,'自建连连看地图文本')
+		void FWRITE(_mapfile,'自建連連看地圖文本')
 		FCLOSE(_mapfile)
 	}
 	FCLOSE(_mapfile)
@@ -2187,7 +2187,7 @@ OnLinkMapSave{//地图保存
 			void FWRITE(_mapfile,_buff)
 		}
 		FCLOSE(_mapfile)
-		'成功另存为新地图\x'
+		'成功另存為新地圖\x'
 		--
 		LinkMapEditorShow
 	}

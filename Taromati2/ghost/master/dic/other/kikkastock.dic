@@ -1,9 +1,9 @@
-OnKikkaStockMenu{
-	Option.InputCreat('查询','OnStockSearch')
+﻿OnKikkaStockMenu{
+	Option.InputCreat('查詢','OnStockSearch')
 	--
-	Option.Creat('自选','OnKikkaStockFound')
+	Option.Creat('自選','OnKikkaStockFound')
 	--
-	Option.Creat('自选中心','OnKikkaStockSelect')
+	Option.Creat('自選中心','OnKikkaStockSelect')
 	--
 	Option.Creat('退出','OnKikkaStockOver')
 	kikkastock=1
@@ -34,7 +34,7 @@ OnOption.Input{
 	stockid=0
 	if reference0=='OnStockSearch'
 		kikkastock=3
-	"\![open,inputbox,%(reference0),-1,请输入股票数字代码] "
+	"\![open,inputbox,%(reference0),-1,請輸入股票數位代碼] "
 }
 OnStockSearch{
 	_name=reference0
@@ -46,9 +46,9 @@ OnStockSearch{
 		SETDELIM(_name,'*')
 		_n=ARRAYSIZE(_name)-1
 		for  _i=0;_i<_n;_i++{
-			_股票代码=SUBSTR(_name[_i],STRLEN(_name[_i])-8,8)
-			if _股票代码!=''{
-				stocklist+=','+_股票代码
+			_股票代碼=SUBSTR(_name[_i],STRLEN(_name[_i])-8,8)
+			if _股票代碼!=''{
+				stocklist+=','+_股票代碼
 			}
 		}
 		//_n=ARRAYSIZE(stocklist)
@@ -80,10 +80,10 @@ OnStockSearch{
 	//_name="http://web.juhe.cn:8080/finance/stock/hs?gid=%(_stocks)&key=%(_key)"
 	_stocks='sh600325\,sh601007\,sh601008'
 	_name="http://hq.sinajs.cn/list=%(_stocks)"
-	//'minurl':'http://image.sinajs.cn/newchart/min/n/sh601009.gif',/*分时K线图*/
-	//'dayurl':'http://image.sinajs.cn/newchart/daily/n/sh601009.gif',/*日K线图*/
-	//'weekurl':'http://image.sinajs.cn/newchart/weekly/n/sh601009.gif',/*周K线图*/
-	//'monthurl':'http://image.sinajs.cn/newchart/monthly/n/sh601009.gif'/*月K线图*/
+	//'minurl':'http://image.sinajs.cn/newchart/min/n/sh601009.gif',/*分時K線圖*/
+	//'dayurl':'http://image.sinajs.cn/newchart/daily/n/sh601009.gif',/*日K線圖*/
+	//'weekurl':'http://image.sinajs.cn/newchart/weekly/n/sh601009.gif',/*周K線圖*/
+	//'monthurl':'http://image.sinajs.cn/newchart/monthly/n/sh601009.gif'/*月K線圖*/
 	if _stocks!=''
 		"\C\0\b[2]\![excute,http-get,%(_name),--param-charset=UTF-8,--file=kikkastock.kst,--timeout=200,--async=kikkastock]"
 	elseif (hour>9&&(hour<=11&&minute<=30))||(hour>=13&&hour<15)||reference1=='get'
@@ -114,7 +114,7 @@ OnKikkaStockSelect{
 	}
 	kikkastock=2
 	_t='\C\![quicksession,true]\c\b[2]\![set,choicetimeout,15000]'
-	_t+='               最新：   涨幅：   涨跌：   今开：   昨收：\n'
+	_t+='               最新：   漲幅：   漲跌：   今開：   昨收：\n'
 	OnStockSearch(_stocklist,'list')
 	_buff=OnKikkaStockFile.Read
 	_buff=REPLACE(_buff,'"','')
@@ -124,41 +124,41 @@ OnKikkaStockSelect{
 	_i=0
 	_n=ARRAYSIZE(_buff)-2
 	foreach _buff;_txt{
-		_股票代码=_txt[0,'=']
-		_股票代码=SUBSTR(_股票代码,0,8)
-		_股票代码=_txt[11]
+		_股票代碼=_txt[0,'=']
+		_股票代碼=SUBSTR(_股票代碼,0,8)
+		_股票代碼=_txt[11]
 		_股票名字=_txt[18]
-		_涨幅=_txt[16]
-		_涨跌=_txt[15]
-		_今日开盘价=_txt[20]
-		_昨日收盘价=_txt[10]
-		_当前价格=_txt[19]
-		_今日最高价=_txt[30]
-		_今日最低价=_txt[31]
-		_竞买价=_txt[12]
-		_竞卖价=_txt[13]
+		_漲幅=_txt[16]
+		_漲跌=_txt[15]
+		_今日開盤價=_txt[20]
+		_昨日收盤價=_txt[10]
+		_當前價格=_txt[19]
+		_今日最高價=_txt[30]
+		_今日最低價=_txt[31]
+		_競買價=_txt[12]
+		_競賣價=_txt[13]
 		_成交量=TOINT(_txt[33])/1000000.0
 		_成交量=OnDelFloatIndex(_成交量,2)
-		_成交金额=TOINT(_txt[32])/100000000.0
-		_成交金额=OnDelFloatIndex(_成交金额,2)
+		_成交金額=TOINT(_txt[32])/100000000.0
+		_成交金額=OnDelFloatIndex(_成交金額,2)
 		if _i<_n
-			_t+="\__q[OnKikkaStockFound,%(_股票代码),$,%(_i)]"+_股票名字+'\__q'+'\_l[65]'+_当前价格+'\_l[110]'+_涨幅+'%\_l[155]'+_涨跌+'\_l[200]'+_今日开盘价+'\_l[245]'+_昨日收盘价+'\n'
+			_t+="\__q[OnKikkaStockFound,%(_股票代碼),$,%(_i)]"+_股票名字+'\__q'+'\_l[65]'+_當前價格+'\_l[110]'+_漲幅+'%\_l[155]'+_漲跌+'\_l[200]'+_今日開盤價+'\_l[245]'+_昨日收盤價+'\n'
 		_i++
 	}
-	_股票代码=reference0
+	_股票代碼=reference0
 	_t+="\q[◇返回,OnKikkaStockMenu]     \q[◇刷新,OnKikkaStockSelect,'fresh']      "
-	_t+=Option.InputCreat('查询','OnStockSearch')
+	_t+=Option.InputCreat('查詢','OnStockSearch')
 	_t
 }
 OnKikkaStockFound{
 	kikkastock=3
 	_br='\n'
 	_stocklist=OnKikkaStockFile.Read
-	_股票代码=_stocklist[stockid]
+	_股票代碼=_stocklist[stockid]
 	if reference1=='$'{
 		stockid=0
-		_股票代码=reference0;a=_股票代码
-		stock=OnStockNameCheck(_股票代码)
+		_股票代碼=reference0;a=_股票代碼
+		stock=OnStockNameCheck(_股票代碼)
 		stockmode=2
 	}
 	if stockmode
@@ -169,65 +169,65 @@ OnKikkaStockFound{
 	_stock=_stocklist[stockid]
 	_txt=_stock
 	_股票名字=_txt[18]
-	_涨幅=_txt[16]
-	_涨跌=_txt[15]
-	_今日开盘价=_txt[20]
-	_昨日收盘价=_txt[10]
-	_当前价格=_txt[19]
-	_今日最高价=_txt[33]
-	_今日最低价=_txt[34]
-	_竞买价=_txt[12]
-	_竞卖价=_txt[13]
+	_漲幅=_txt[16]
+	_漲跌=_txt[15]
+	_今日開盤價=_txt[20]
+	_昨日收盤價=_txt[10]
+	_當前價格=_txt[19]
+	_今日最高價=_txt[33]
+	_今日最低價=_txt[34]
+	_競買價=_txt[12]
+	_競賣價=_txt[13]
 	_成交量=TOINT(_txt[36])/1000000.0
 	_成交量=OnDelFloatIndex(_成交量,2)
-	_成交金额=TOINT(_txt[35])/100000000.0
-	_成交金额=OnDelFloatIndex(_成交金额,2)
+	_成交金額=TOINT(_txt[35])/100000000.0
+	_成交金額=OnDelFloatIndex(_成交金額,2)
 	_name=_txt[11]
 	_name=OnStockNameCheck(_name)
-	_股票代码=_name
-	_买一数=TOINT(_txt[1]/100.0)
-	_买一=_txt[0]
-	_买二数=TOINT(_txt[3]/100.0)
-	_买二=_txt[2]
-	_买三数=TOINT(_txt[5]/100.0)
-	_买三=_txt[4]
-	_买四数=TOINT(_txt[7]/100.0)
-	_买四=_txt[6]
-	_买五数=TOINT(_txt[9]/100.0)
-	_买五=_txt[8]
-	_卖一数=TOINT(_txt[22]/100.0)
-	_卖一=_txt[21]
-	_卖二数=TOINT(_txt[24]/100.0)
-	_卖二=_txt[23]
-	_卖三数=TOINT(_txt[26]/100.0)
-	_卖三=_txt[25]
-	_卖四数=TOINT(_txt[28]/100.0)
-	_卖四=_txt[27]
-	_卖五数=TOINT(_txt[30]/100.0)
-	_卖五=_txt[29]
+	_股票代碼=_name
+	_買一數=TOINT(_txt[1]/100.0)
+	_買一=_txt[0]
+	_買二數=TOINT(_txt[3]/100.0)
+	_買二=_txt[2]
+	_買三數=TOINT(_txt[5]/100.0)
+	_買三=_txt[4]
+	_買四數=TOINT(_txt[7]/100.0)
+	_買四=_txt[6]
+	_買五數=TOINT(_txt[9]/100.0)
+	_買五=_txt[8]
+	_賣一數=TOINT(_txt[22]/100.0)
+	_賣一=_txt[21]
+	_賣二數=TOINT(_txt[24]/100.0)
+	_賣二=_txt[23]
+	_賣三數=TOINT(_txt[26]/100.0)
+	_賣三=_txt[25]
+	_賣四數=TOINT(_txt[28]/100.0)
+	_賣四=_txt[27]
+	_賣五數=TOINT(_txt[30]/100.0)
+	_賣五=_txt[29]
 	_txt='\C\![quicksession,true]\c\b[2]\![set,choicetimeout,15000]'
-	_txt+=_股票名字+_股票代码+_br
-	_txt+=_当前价格+'   最高： '+_今日最高价+'   开盘： '+_今日开盘价+'   成交量： '+_成交量+'万'+_br
-	_txt+='   最低： '+_今日最低价+'   收盘： '+_昨日收盘价+'   成交额： '+_成交金额+'亿'+_br
-	_txt+='卖'+_br
-	_txt+='5  '+_卖五+'      '+_卖五数+_br
-	_txt+='4  '+_卖四+'      '+_卖四数+_br
-	_txt+='3  '+_卖三+'      '+_卖三数+_br
-	_txt+='2  '+_卖二+'      '+_卖二数+_br
-	_txt+='1  '+_卖一+'      '+_卖一数+_br
-	_txt+='买'+_br
-	_txt+='1  '+_买一+'      '+_买一数+_br
-	_txt+='2  '+_买二+'      '+_买二数+_br
-	_txt+='3  '+_买三+'      '+_买三数+_br
-	_txt+='4  '+_买四+'      '+_买四数+_br
-	_txt+='5  '+_买五+'      '+_买五数+_br
+	_txt+=_股票名字+_股票代碼+_br
+	_txt+=_當前價格+'   最高： '+_今日最高價+'   開盤： '+_今日開盤價+'   成交量： '+_成交量+'萬'+_br
+	_txt+='   最低： '+_今日最低價+'   收盤： '+_昨日收盤價+'   成交額： '+_成交金額+'億'+_br
+	_txt+='賣'+_br
+	_txt+='5  '+_賣五+'      '+_賣五數+_br
+	_txt+='4  '+_賣四+'      '+_賣四數+_br
+	_txt+='3  '+_賣三+'      '+_賣三數+_br
+	_txt+='2  '+_賣二+'      '+_賣二數+_br
+	_txt+='1  '+_賣一+'      '+_賣一數+_br
+	_txt+='買'+_br
+	_txt+='1  '+_買一+'      '+_買一數+_br
+	_txt+='2  '+_買二+'      '+_買二數+_br
+	_txt+='3  '+_買三+'      '+_買三數+_br
+	_txt+='4  '+_買四+'      '+_買四數+_br
+	_txt+='5  '+_買五+'      '+_買五數+_br
 	_txt+="\q[◇返回,OnKikkaStockMenu]            \q[◇刷新,OnKikkaStockFound,,'get']"
 	_buff=OnKikkaStockList.Read
-	_arr=_股票代码
+	_arr=_股票代碼
 	if !IsExistArray(_buff,_arr,'*')
-		_txt+="\q[◇加自选,OnKikkaStockAdd,%(_股票代码)]"
+		_txt+="\q[◇加自選,OnKikkaStockAdd,%(_股票代碼)]"
 	else
-		_txt+="\q[◇删自选,OnKikkaStockDel,%(_股票代码)]"
+		_txt+="\q[◇刪自選,OnKikkaStockDel,%(_股票代碼)]"
 	_txt
 }
 IsExistArray{
@@ -260,17 +260,17 @@ OnDelRepeatArray{
 	_buff
 }
 OnKikkaStockAdd{
-	_股票代码=reference0
+	_股票代碼=reference0
 	_kikkastocklist=''
 	_stocklist=''
 	_buff=OnKikkaStockList.Read
 	SETDELIM(_buff,'*')
 	foreach _buff;_i{
-		_自选代码=SUBSTR(_i,0,8)
-		_kikkastocklist+=_自选代码+'*'
-		_stocklist,=_自选代码
+		_自選代碼=SUBSTR(_i,0,8)
+		_kikkastocklist+=_自選代碼+'*'
+		_stocklist,=_自選代碼
 	}
-	_kikkastocklist+=_股票代码+'*'
+	_kikkastocklist+=_股票代碼+'*'
 	_buff=_kikkastocklist
 	SETDELIM(_buff,'*')
 	_n=ARRAYSIZE(_buff)-1
@@ -283,7 +283,7 @@ OnKikkaStockAdd{
 		}
 	}
 	_kikkastocklist=_buff
-	_stocklist,=_股票代码
+	_stocklist,=_股票代碼
 	OnKikkaStockList.Write(_kikkastocklist)
 	if kikkastock==3
 		OnKikkaStockFound
@@ -291,14 +291,14 @@ OnKikkaStockAdd{
 		OnKikkaStockSelect
 }
 OnKikkaStockDel{
-	_股票代码=reference0
+	_股票代碼=reference0
 	_kikkastocklist=''
 	_stocklist=''
 	_buff=OnKikkaStockList.Read
 	SETDELIM(_buff,'*')
 	_n=ARRAYSIZE(_buff)-1
 	for _i=0;_i<_n;_i++{
-		if _buff[_i]==_股票代码{
+		if _buff[_i]==_股票代碼{
 			_buff[_i]=IARRAY
 		}
 	}

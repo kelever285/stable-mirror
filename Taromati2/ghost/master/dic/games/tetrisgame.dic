@@ -1,4 +1,4 @@
-//俄罗斯方块V1.0 by fancyang 2012.4.18
+﻿//俄羅斯方塊V1.0 by fancyang 2012.4.18
 #define		PICFILE		PATH/Blocks.png
 #define		BGPFILE		PATH/BankGround.png
 #define		PATH		DATA_PATH/Game/Tetris
@@ -9,12 +9,12 @@
 #define		btmCW		4
 #define		btmCCW		5
 
-OnTetris.NewGame{//游戏入口
+OnTetris.NewGame{//遊戲入口
 	if QuickStartVersion{
 		NeedUpdate
 		return
 	}
-	DiscordCustomSet.CustomDetail('俄罗斯方块')
+	DiscordCustomSet.CustomDetail('俄羅斯方塊')
 	--
 	CleartetrisVar
 	playingtetris=1
@@ -45,7 +45,7 @@ OnTetris.NewGame{//游戏入口
 	--
 	'\C\![quicksession,true]\c\0\s[26]\b[2]'+OnTetris.PaintBox
 }
-OnTetris.Timer{//自动下降。
+OnTetris.Timer{//自動下降。
 	_txt=''
 	if !GameOver && Started && !Paused{
 		stroke++
@@ -58,7 +58,7 @@ OnTetris.Timer{//自动下降。
 	_txt+=OnTetris.PaintBox
 	_txt
 }
-OnTetris.KeyPress{//键盘输入
+OnTetris.KeyPress{//鍵盤輸入
 	_txt =''
 	if reference0 == 'n'		{_txt+=OnTetris.NewGame;}
 	elseif reference0 == 'l'	{_txt+=OnTetris.HighScores;}
@@ -84,7 +84,7 @@ OnTetris.KeyPress{//键盘输入
 		_txt+=OnTetris.PaintBox
 	_txt
 }
-TetrisUnits{//方块数据
+TetrisUnits{//方塊數據
 	BaseUnits = /
 	( /
 	((((0,0,0,0),(0,0,0,0),(1,1,1,1),(0,0,0,0)),/
@@ -117,11 +117,11 @@ TetrisUnits{//方块数据
 	((0,0,0,0),(0,7,7,0),(0,7,7,0),(0,0,0,0)))),/
 	)
 }
-OnTetris.PaintBox{//图形显示
+OnTetris.PaintBox{//圖形顯示
 	_txt='\C\![quicksession,true]\c\b[2]\![set,choicetimeout,0]'
 	if !GameOver && Started && !Paused
 		_txt='\C\![quicksession,true]\c\b[2]\![set,choicetimeout,17]'
-	_txt+='游戏操作:\n左，右，下移光标键。空格或上: 顺时针旋转。\n回车：快速下降。键盘N：新游戏。键盘L：排行榜。键盘P：暂停/继续游戏。键盘E：退出游戏'
+	_txt+='遊戲操作:\n左，右，下移游標鍵。空格或上: 順時針旋轉。\n回車：快速下降。鍵盤N：新遊戲。鍵盤L：排行榜。鍵盤P：暫停/繼續遊戲。鍵盤E：退出遊戲'
 	_txt+='\_l[10,60]\_b[BGPFILE,inline,--option=opaque]'
 	for _y=0; _y<MapYsize; _y++{
 		for _x=0; _x<MapXsize; _x++{
@@ -141,11 +141,11 @@ OnTetris.PaintBox{//图形显示
 	}
 	_x=180
 	_txt+="\_l[%(_x),120]L:%(Lines)\n\_l[%(_x),-]S:%(Score)\n\_l[%(_x),-]H:%(Scores[0])"
-	_txt+="\n\n\_l[%(_x),-]友情提示:\n\_l[%(_x),-]\_l[%(_x),-]不玩游戏时一定要\n\_l[%(_x),-]退出游戏"
-	_txt+="\n\n\_l[%(_x),-]\q[◇设定,OnTetris.Option]\n\_l[%(_x),-]\q[◇终了,OnTetris.GameOver]"
+	_txt+="\n\n\_l[%(_x),-]友情提示:\n\_l[%(_x),-]\_l[%(_x),-]不玩遊戲時一定要\n\_l[%(_x),-]退出遊戲"
+	_txt+="\n\n\_l[%(_x),-]\q[◇設定,OnTetris.Option]\n\_l[%(_x),-]\q[◇終了,OnTetris.GameOver]"
 	_txt
 }
-OnTetris.PaintBox.Base{//绘图
+OnTetris.PaintBox.Base{//繪圖
 	_txt=''
 	_x=0
 	_y=0
@@ -189,12 +189,12 @@ OnTetris.PaintBox.Base{//绘图
 	}
 	_txt
 }
-TBaseTetris{//定义方块位置
+TBaseTetris{//定義方塊位置
 	Ux0 = MapXsize/2-2
 	Uy0 = -2
 	GenNewUnit
 }
-GenNewUnit{//得到新方块
+GenNewUnit{//得到新方塊
 	CurrUnit = IncmUnit
 	CurrUnit.x = IncmUnit.x
 	CurrUnit.y = IncmUnit.y
@@ -207,7 +207,7 @@ GenNewUnit{//得到新方块
 	IncmUnit.y = Uy0
 	IncmUnit.r = RAND(4)
 }
-DispTetris{//方块处理
+DispTetris{//方塊處理
 	DispBuffer = BlockBuffer
 	if !Removing{
 		for _i=0; _i<4; _i++{
@@ -219,7 +219,7 @@ DispTetris{//方块处理
 		}
 	}
 }
-Tetris.Move{//方块移动
+Tetris.Move{//方塊移動
 	_txt=''
 	iMdir=_argv[0]
 	if Started{
@@ -269,7 +269,7 @@ Tetris.Move{//方块移动
 	}
 	_txt
 }
-Tetris.CheckUnit{//方块判定
+Tetris.CheckUnit{//方塊判定
 	_x=_argv[0]
 	_y=_argv[1]
 	_r=_argv[2]
@@ -302,7 +302,7 @@ Tetris.CheckUnit{//方块判定
 	}
 	_v
 }
-Tetris.TryToRemove{//方块消除
+Tetris.TryToRemove{//方塊消除
 	if Removing{
 		Removing--
 		if !Removing{
@@ -360,15 +360,15 @@ Tetris.AddScore{//加分
 		when 3{ Score+=TOINT(Tetris.speed)*50;}
 		when 4{ Score+=TOINT(Tetris.speed)*80;}
 	}
-	DiscordCustomSet.CustomDetail('俄罗斯方块：得分'+Score)
+	DiscordCustomSet.CustomDetail('俄羅斯方塊：得分'+Score)
 	--
 	Lines+=iRmv
 }
-Tetris.CheckGameStatus{//游戏状态
+Tetris.CheckGameStatus{//遊戲狀態
 	if GameOver{
 		ck=0
 		if Score>0
-			"\c\b[2]获得奖励金钱%(TOINT(2*Score))\x"
+			"\c\b[2]獲得獎勵金錢%(TOINT(2*Score))\x"
 		--
 		money+=TOINT(2*Score)
 		_iChanged = -1
@@ -387,7 +387,7 @@ Tetris.CheckGameStatus{//游戏状态
 		//OnTetris.HighScores
 	}
 }
-OnTetris.HighScores{//显示排行榜
+OnTetris.HighScores{//顯示排行榜
 	_s='\b[0]'
 	for _i=0; _i<NumScores; _i++{
 		if Scores[_i]{
@@ -399,17 +399,17 @@ OnTetris.HighScores{//显示排行榜
 		}
 	}
 	if _s==''{
-		_s = '没有记录'
+		_s = '沒有記錄'
 	}
 	_s+='\x'
 	_s
 }
-OnTetris.GameOver{//游戏结束
+OnTetris.GameOver{//遊戲結束
 	playingtetris=0
 	CleartetrisVar
-	'\0\s[0]\b[0]不玩了吗。'
+	'\0\s[0]\b[0]不玩了嗎。'
 }
-CleartetrisVar:void{//消除变量
+CleartetrisVar:void{//消除變數
 	ERASEVAR('playingtetris')
 	ERASEVAR('DispBuffer')
 	ERASEVAR('BlockBuffer')
@@ -457,6 +457,6 @@ OnTetris.Option{
 		Tetris.timespeed=reference2
 	}
 	"\![quicksession,true]\![set,choicetimeout,0]\b[2]/
-	游戏速度：当前为%(Tetris.speed)\n\q[◇1,OnTetris.Option,sp,1,40] \q[◇2,OnTetris.Option,sp,2,36] \q[◇3,OnTetris.Option,sp,3,32] \q[◇4,OnTetris.Option,sp,4,28] \q[◇5,OnTetris.Option,sp,5,24] \q[◇6,OnTetris.Option,sp,6,20] \q[◇7,OnTetris.Option,sp,7,16] \q[◇8,OnTetris.Option,sp,8,12] \q[◇9,OnTetris.Option,sp,9,8]/
-	\n\n\q[◇返回,OnTetris.Timer]\n\n\q[◇终了,OnTetris.GameOver]"
+	遊戲速度：當前為%(Tetris.speed)\n\q[◇1,OnTetris.Option,sp,1,40] \q[◇2,OnTetris.Option,sp,2,36] \q[◇3,OnTetris.Option,sp,3,32] \q[◇4,OnTetris.Option,sp,4,28] \q[◇5,OnTetris.Option,sp,5,24] \q[◇6,OnTetris.Option,sp,6,20] \q[◇7,OnTetris.Option,sp,7,16] \q[◇8,OnTetris.Option,sp,8,12] \q[◇9,OnTetris.Option,sp,9,8]/
+	\n\n\q[◇返回,OnTetris.Timer]\n\n\q[◇終了,OnTetris.GameOver]"
 }

@@ -1,6 +1,6 @@
-/////////
+﻿/////////
 /////////Other
-/////////五十音,记事本,大头贴,占卜
+/////////五十音,記事本,大頭貼,占卜
 /////////by KikkaAIdb.
 ///---- 五十音[2010-3-22_by KikkaAIdb] -------------------------------------------------------------------------------------
 //あ い う え お
@@ -19,18 +19,18 @@ Onjap_v{
 		return
 	}
 	_kana=('あ,い,う,え,お,か,き,く,け,こ,さ,し,す,せ,そ,た,ち,つ,て,と,な,に,ぬ,ね,の,は,ひ,ふ,へ,ほ,ま,み,む,め,も,や,　,ゆ,　,よ,ら,り,る,れ,ろ,わ')
-	_w="\b[2]\![quicksession,true]\![set,choicetimeout,0]\c\0\s[26]%(username)要学习日语五十音吗，点击下面的假名就可以了哦~\n[150]"
+	_w="\b[2]\![quicksession,true]\![set,choicetimeout,0]\c\0\s[26]%(username)要學習日語五十音嗎，點擊下面的假名就可以了哦~\n[150]"
 	_b='';_v='';_j=1
 	if reference1
 		_j=reference1+1
-	_mt="\f[color,110,110,110] ◢ 只播放点击(当前状态)\_l[155,-]\f[color,100,10,220]\q[◥ 顺序播放,Onjap_X,%(_j)]\_l[240,-]\f[color,250,0,0]\q[■ 停止,Onjap_s]\f[default] \n[150] "
+	_mt="\f[color,110,110,110] ◢ 只播放點擊(當前狀態)\_l[155,-]\f[color,100,10,220]\q[◥ 順序播放,Onjap_X,%(_j)]\_l[240,-]\f[color,250,0,0]\q[■ 停止,Onjap_s]\f[default] \n[150] "
 	_b=reference0
 	if _argv[0] {
 		_b=_kana[_argv[0]-1]
 		_v='\![sound,wait]'
-		_mt=' \f[color,100,10,220]\q[◢ 只播放点击,Onjap_s]\_l[100,-]\f[color,110,110,110]◥ 顺序播放(当前状态)\_l[240,-]\f[color,250,0,0]\q[■ 停止,Onjap_s]\f[default] \n[150] '
+		_mt=' \f[color,100,10,220]\q[◢ 只播放點擊,Onjap_s]\_l[100,-]\f[color,110,110,110]◥ 順序播放(當前狀態)\_l[240,-]\f[color,250,0,0]\q[■ 停止,Onjap_s]\f[default] \n[150] '
 	}
-	_w+="%(_mt)\f[bold,true]当前播放：\f[color,250,0,0]%(_b)\f[default]\n[150] "
+	_w+="%(_mt)\f[bold,true]當前播放：\f[color,250,0,0]%(_b)\f[default]\n[150] "
 	for _i=0;_i<46;_i++ {
 		_n=''
 		if (_i+1)%5==0
@@ -72,13 +72,13 @@ OnCanceljap_v{
 	ERASEVAR('japkanamode')
 	'\![sound,stop]\0\s[1]'
 	--
-	'这样吗,嗯嗯...'
-	'不学了吗,好的哦...'
+	'這樣嗎,嗯嗯...'
+	'不學了嗎,好的哦...'
 }
-//---- 记事本[2010-3-31_by KikkaAIdb] -----------------------------------------------------------------------------------------
-//使用记事本
+//---- 記事本[2010-3-31_by KikkaAIdb] -----------------------------------------------------------------------------------------
+//使用記事本
 //表：notes
-//字段：ID,title,date,content
+//欄位：ID,title,date,content
 Onnotebook{
 	_w=''
 	_k=0
@@ -87,12 +87,12 @@ Onnotebook{
 	if reference1
 		_k=TOINT(reference1)
 	if reference0==0 || reference0!=1
-		_w='\0\s[26]\_q\b[2]嗯嗯,这是橘花的记事本哦~\n[150]\![*]\q[添加记事,Onaddnotebook]\_l[130,-]\![*]\q[返回,OnOpenMenu,0]\_l[187,-]\![*]\q[修改,Onnotebook,1]\_l[240,-]\![*]\q[退出,Onovernotebook]\n[200]'
+		_w='\0\s[26]\_q\b[2]嗯嗯,這是橘花的記事本哦~\n[150]\![*]\q[添加記事,Onaddnotebook]\_l[130,-]\![*]\q[返回,OnOpenMenu,0]\_l[187,-]\![*]\q[修改,Onnotebook,1]\_l[240,-]\![*]\q[退出,Onovernotebook]\n[200]'
 	elseif reference0==1 || reference0!=0
-		_w='\0\s[26]\_q\b[2]嗯嗯,这是橘花的记事本哦~\n[150]\![*]\q[添加记事,Onaddnotebook]\_l[130,-]\![*]\q[返回,OnOpenMenu,0]\_l[187,-]\![*]\q[删除,Onnotebook,0]\_l[240,-]\![*]\q[退出,Onovernotebook]\n[200]'
+		_w='\0\s[26]\_q\b[2]嗯嗯,這是橘花的記事本哦~\n[150]\![*]\q[添加記事,Onaddnotebook]\_l[130,-]\![*]\q[返回,OnOpenMenu,0]\_l[187,-]\![*]\q[刪除,Onnotebook,0]\_l[240,-]\![*]\q[退出,Onovernotebook]\n[200]'
 	_j=SQLite('-f','SELECT title FROM notes')
 	if !_j
-		_w+='\s[3]没有数据呢...\n[110]'
+		_w+='\s[3]沒有資料呢...\n[110]'
 	else {
 		if _k+20<=_j
 			_l=_k+20
@@ -113,16 +113,16 @@ Onnotebook{
 			elseif reference0==1 || reference0!=0
 				_w+="\f[color,255,0,0]%(_i+1).\f[default]\q[%(_t1),Onclicknotebook,%(_t)]/
 				\f[color,110,110,110]\_l[120,-][%(_d)] /
-				\f[color,255,0,0]\__q[Ondelnotebook,%(_t)][删除]\__q\f[default]\n[110]"
+				\f[color,255,0,0]\__q[Ondelnotebook,%(_t)][刪除]\__q\f[default]\n[110]"
 			state='input'
 		}
 	}
 	--
 	_Page=''
 	if _k-20>0
-		_Page+="\_l[0,350]\q[<<上一页,Onnotebook,,%(_k-20)]"
+		_Page+="\_l[0,350]\q[<<上一頁,Onnotebook,,%(_k-20)]"
 	if _k+20<_j
-		_Page+="\_l[60,350]\q[下一页>>,Onnotebook,,%(_k+20)]"
+		_Page+="\_l[60,350]\q[下一頁>>,Onnotebook,,%(_k+20)]"
 	_w+_Page+'\n[140]'
 }
 Onupdatenotebook{
@@ -134,23 +134,23 @@ Onupdatenotebook{
 		_t=reference0
 		_c=SQLite('-j',"SELECT content FROM notes WHERE title='%(ID)'")
 		state=''
-		_txt+='请选择要更改的部分\n\n'
-		_txt+="\__q[Onupdatenotebook,%(_t),Title]标题：%(_t)\__q\n[110]"
-		_txt+="\__q[Onupdatenotebook,%(_t),Content]内容：\n%(_c)\__q\n[200]"
+		_txt+='請選擇要更改的部分\n\n'
+		_txt+="\__q[Onupdatenotebook,%(_t),Title]標題：%(_t)\__q\n[110]"
+		_txt+="\__q[Onupdatenotebook,%(_t),Content]內容：\n%(_c)\__q\n[200]"
 		_txt+='\![*]\q[返回,Onnotebook]     \![*]\q[退出,Onovernotebook]\![set,choicetimeout,0]'
 	}
 	elseif reference1=='Title'{
 		ID=reference0
 		_t=reference0
 		state='update.Title'
-		_txt+="\![open,inputbox,Onupdatenotebook,-1,%(_t)]标题：%(_t)\n"
+		_txt+="\![open,inputbox,Onupdatenotebook,-1,%(_t)]標題：%(_t)\n"
 	}
 	elseif reference1=='Content'{
 		ID=reference0
 		_t=reference0
 		_c=SQLite('-j',"SELECT content FROM notes WHERE title='%(ID)'")
 		state='update.Content'
-		_txt+="\![open,inputbox,Onupdatenotebook,-1,%(_c)]内容：%(_c)\n"
+		_txt+="\![open,inputbox,Onupdatenotebook,-1,%(_c)]內容：%(_c)\n"
 	}
 	elseif state=='update.Title'{
 		if STRLEN(reference0)>0{
@@ -160,7 +160,7 @@ Onupdatenotebook{
 		else
 			_txt+='未做更改\n'
 		state='input'
-		_txt+="\![*]\q[返回上一层,Onnotebook,%(ID)]     \![*]\q[退出,Onovernotebook]\![set,choicetimeout,0]"
+		_txt+="\![*]\q[返回上一層,Onnotebook,%(ID)]     \![*]\q[退出,Onovernotebook]\![set,choicetimeout,0]"
 	}
 	elseif state=='update.Content'{
 		_c=SQLite('-j',"SELECT content FROM notes WHERE title='%(ID)'")
@@ -172,7 +172,7 @@ Onupdatenotebook{
 		else
 			_txt+='未做更改\n'
 		state='input'
-		_txt+='\![*]\q[返回上一层,Onnotebook]     \![*]\q[退出,Onovernotebook]\![set,choicetimeout,0]'
+		_txt+='\![*]\q[返回上一層,Onnotebook]     \![*]\q[退出,Onovernotebook]\![set,choicetimeout,0]'
 	}
 	_txt
 }
@@ -184,14 +184,14 @@ Onclicknotebook{
 	_t=reference0
 	_c=SQLite('-j',"SELECT content FROM notes WHERE title='%(_t)'")
 	_d=SQLite('-j',"SELECT date FROM notes WHERE title='%(_t)'")
-	"\0\s[26]\b[2]\_q\f[bold,true]标题：%(_t)\n[110]\f[color,110,110,110][%(_d)]/
-	\f[color,255,0,0]\__q[Ondelnotebook,%(reference0)][删除]\__q\f[default] \n[160]/
-	内容：\n%(_c)\n[200]\![*]\q[返回,Onnotebook]     \![*]\q[退出,Onovernotebook]\![set,choicetimeout,0]"
+	"\0\s[26]\b[2]\_q\f[bold,true]標題：%(_t)\n[110]\f[color,110,110,110][%(_d)]/
+	\f[color,255,0,0]\__q[Ondelnotebook,%(reference0)][刪除]\__q\f[default] \n[160]/
+	內容：\n%(_c)\n[200]\![*]\q[返回,Onnotebook]     \![*]\q[退出,Onovernotebook]\![set,choicetimeout,0]"
 }
 Onaddnotebook{
 	if _argv[0]=='Title' {
 		if addnotebook_T
-			'\0\s[26]请输入内容!\![open,inputbox,Onaddnotebook_C,-1]\n[300]\![set,choicetimeout,0]\q[◇退出,Onovernotebook,Onaddnotebook_C]'
+			'\0\s[26]請輸入內容!\![open,inputbox,Onaddnotebook_C,-1]\n[300]\![set,choicetimeout,0]\q[◇退出,Onovernotebook,Onaddnotebook_C]'
 		else
 			Onaddnotebook
 	}
@@ -203,13 +203,13 @@ Onaddnotebook{
 			void SQLite('INSERT INTO notes VALUES ('+SQLite.Size('notes')+",'%(_T)','%(_D)','%(_C)')")
 			ERASEVAR('addnotebook_T')
 			ERASEVAR('addnotebook_C')
-			"\0\s[26]橘花已经记下了哦~\w9\x%(Onnotebook)"
+			"\0\s[26]橘花已經記下了哦~\w9\x%(Onnotebook)"
 		}
 		else
 			Onaddnotebook('Title')
 	}
 	else {
-		'\0\s[26]请输入标题!\![open,inputbox,Onaddnotebook_T,-1]\n[300]\![set,choicetimeout,0]\q[◇退出,Onovernotebook,Onaddnotebook_T]'
+		'\0\s[26]請輸入標題!\![open,inputbox,Onaddnotebook_T,-1]\n[300]\![set,choicetimeout,0]\q[◇退出,Onovernotebook,Onaddnotebook_T]'
 	}
 }
 Onaddnotebook_T {
@@ -227,43 +227,43 @@ Onovernotebook{
 //---- 好感(橘花1移植&修改) -------------------------------------------------------------------------------------
 Select.lovech{
 	if intimacy>=200
-		"\0\s[2]那个\w3....\w9\w9\n陪伴%(username)的时光很快乐.....\w9\w9\n看着%(username)游戏、\w5学习、\w5还有看动漫..\w9\w9\n我都觉得好幸福、好幸福..\w9\w9\n好想好想就这样一直一直下去..\w9\n一直地一直的都陪伴着%(username)...\1\s[10]....令人害羞的话\w5..\w3禁止!\0\s[2]\w9\w9\n......\w9\n[180]好感度: %(intimacy)"
+		"\0\s[2]那個\w3....\w9\w9\n陪伴%(username)的時光很快樂.....\w9\w9\n看著%(username)遊戲、\w5學習、\w5還有看動漫..\w9\w9\n我都覺得好幸福、好幸福..\w9\w9\n好想好想就這樣一直一直下去..\w9\n一直地一直的都陪伴著%(username)...\1\s[10]....令人害羞的話\w5..\w3禁止!\0\s[2]\w9\w9\n......\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=168
-		"\0\s[29]喜欢你....\w9.....\w9\w9\w9\w9\w9\n\n\s[21]唔...\w9...\w9....\1\s[11]你在做.......\w9\w9\w9\w9\n奇怪的幻想吗?\w9\n[180]好感度: %(intimacy)"
+		"\0\s[29]喜歡你....\w9.....\w9\w9\w9\w9\w9\n\n\s[21]唔...\w9...\w9....\1\s[11]你在做.......\w9\w9\w9\w9\n奇怪的幻想嗎?\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=133
-		"\0\s[2]阿......\w8\w9\w9\n\0\s[29]我....\w8\w3喜.......\w8\w9\w8\w9\w9\w9\n\n\s[33]我\w4很喜欢\w4%(username)\1\s[11]这.....\w9\w9\w8\n\s[10]还是第一次看到你这样.....\w9\n[180]好感度: %(intimacy)"
+		"\0\s[2]阿......\w8\w9\w9\n\0\s[29]我....\w8\w3喜.......\w8\w9\w8\w9\w9\w9\n\n\s[33]我\w4很喜歡\w4%(username)\1\s[11]這.....\w9\w9\w8\n\s[10]還是第一次看到你這樣.....\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=100
-		"\0\s[26]唔......\w8\n\0\s[29]该怎么说好呢......\w9\n[180]好感度: %(intimacy)"
+		"\0\s[26]唔......\w8\n\0\s[29]該怎麼說好呢......\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=70
-		"\0\s[1]嗯.....\w\n\0\s[5]应该说喜欢 还是很喜欢呢?\w8\1\s[10]反正就是很喜欢吧......\w9\n[180]好感度: %(intimacy)"
+		"\0\s[1]嗯.....\w\n\0\s[5]應該說喜歡 還是很喜歡呢?\w8\1\s[10]反正就是很喜歡吧......\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=50
-		"\0\s[2]阿...?\w8\n\0\s[30]斗和...\w8\n你觉得呢?\w8\1\s[12]你跟%(username)很不错吧?\w8个人感觉....\w9\n[180]好感度: %(intimacy)"
+		"\0\s[2]阿...?\w8\n\0\s[30]鬥和...\w8\n你覺得呢?\w8\1\s[12]你跟%(username)很不錯吧?\w8個人感覺....\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=30
-		"\0\s[20]嗯......\w8\n\0\s[41]好像还不错吧!\w9\n[180]好感度: %(intimacy)"
+		"\0\s[20]嗯......\w8\n\0\s[41]好像還不錯吧!\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=10
-		"\0\s[20]唔.......\w8\n\0\s[5]应该是普通吧......\w9\n[180]好感度: %(intimacy)"
+		"\0\s[20]唔.......\w8\n\0\s[5]應該是普通吧......\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=0
 		"\0\s[0]普普通通吧.....\w9\n[180]好感度: %(intimacy)"
 	else
-		"\0\s[2]咦?\w8\n\0\s[8]刚才有人在说话吗?\w8\1\s[13]不知道.....\w9\n[180]好感度: %(intimacy)"
+		"\0\s[2]咦?\w8\n\0\s[8]剛才有人在說話嗎?\w8\1\s[13]不知道.....\w9\n[180]好感度: %(intimacy)"
 }
 /////////
 /////////Other
-/////////软件快捷
+/////////軟體快捷
 /////////by KikkaAIdb.
 //----- On_balloon_tooltip ------------------------------------------------------------------------------------------
-//注意，On_balloon_tooltip不能重复，如果你的橘花已经存在On_balloon_tooltip函数，请自行修改。
+//注意，On_balloon_tooltip不能重複，如果你的橘花已經存在On_balloon_tooltip函數，請自行修改。
 On_balloon_tooltip{
 	if reference1=='OnCalendar'
 		"%(reference2)"
 	if reference1=='OnMonsterInfo'
-		"%(怪物名字)属性攻击有效率：\n/
+		"%(怪物名字)屬性攻擊有效率：\n/
 		水：%(TOINT(100*水有效率))\n/
 		火：%(TOINT(100*火有效率))\n/
 		土：%(TOINT(100*土有效率))\n/
-		风：%(TOINT(100*风有效率))"
+		風：%(TOINT(100*風有效率))"
 	if reference1=='OnLinkBar'
-		"还剩%(reference2)秒"
+		"還剩%(reference2)秒"
 	if reference1=='Oniteminfo'
 		"%(reference3)"
 	if reference1=='OnFriendBirthDay.Inform'
@@ -278,7 +278,7 @@ On_balloon_tooltip{
 	if reference1=='OnTest'{
 		"%(reference0),%(reference1),%(reference2),%(reference3)"
 	}
-	//快捷菜单
+	//快顯功能表
 	if reference1=='OnShortcut' || reference1=='OnShortcutMenuDel'||(reference1=='OnShortCutList'&&reference7=='fileorder'&&reference8=='order'){
 		if reference3==reference5
 			"%(reference3)\n%(reference2)"
@@ -286,9 +286,9 @@ On_balloon_tooltip{
 			"%(reference3)\n%(reference5)\n%(reference2)"
 	}
 	elseif reference1=='OnShortcutAdd' && reference2=='ShortcutNew'
-		'如果某个软件的路径变了怎么办？\n先把那个软件打开再点刷新吧！'
+		'如果某個軟體的路徑變了怎麼辦？\n先把那個軟體打開再點刷新吧！'
 	elseif reference1=='OnICOMode'
-		'可以设置图标为透明或不透明模式！'
+		'可以設置圖示為透明或不透明模式！'
 	if reference1=='OnSelectMusic'
 		"%(reference3)"
 	if reference1=='OnBookmarkLoad'
@@ -306,40 +306,40 @@ On_balloon_tooltip{
 	if reference1=='OnEventInput'
 		"%(reference8)"
 }
-//---- 软件快捷[2011-4-28]_by KikkaAIdb ------------------------------------------------------------------------------
-//①可以先把要添加快捷的软件打开，再到列表里面添加快捷，不用知道软件路径；
-//②也可以直接把exe文件直接拖到橘花身上添加快捷；
-//③文件夹和硬盘各分区也是可以设置快捷的，只能以拖给橘花的方式设置，提供一些图标供文件夹设置；
-//④至于相同名称的软件，在列表里不会重复出现，但可以用把软件拖给橘花的方式设置，但刷新路径的时候会都会更新吧；
-//⑤可以自由设置软件、文件夹的名称；
-//⑥一些常用软件会自动检测，不过只是做了这个功能，暂时记录的常用软件并不多……，需要的可以自行添加，很简单的；
-//⑦可以随时刷新路径改变的软件，自动记录新路径；
-//添加：可以从进程中获取软件路径，从而添加软件快捷；
-//删除：实现软件快捷的单个删除或全部删除；
-//刷新：软件路径改变后，先打开该软件，再点击刷新，可以自动记录新路径；
-//模式：图标是否透明，...
-//Process.dll插件请放到 saori 下...；
-//调用OnShortcutMenu即可；
+//---- 軟體快捷[2011-4-28]_by KikkaAIdb ------------------------------------------------------------------------------
+//①可以先把要添加快捷的軟體打開，再到清單裡面添加快捷，不用知道軟體路徑；
+//②也可以直接把exe檔直接拖到橘花身上添加快捷；
+//③資料夾和硬碟各分區也是可以設置快捷的，只能以拖給橘花的方式設置，提供一些圖示供資料夾設置；
+//④至於相同名稱的軟體，在清單裡不會重複出現，但可以用把軟體拖給橘花的方式設置，但刷新路徑的時候會都會更新吧；
+//⑤可以自由設置軟體、資料夾的名稱；
+//⑥一些常用軟體會自動檢測，不過只是做了這個功能，暫時記錄的常用軟體並不多……，需要的可以自行添加，很簡單的；
+//⑦可以隨時刷新路徑改變的軟體，自動記錄新路徑；
+//添加：可以從進程中獲取軟體路徑，從而添加軟體快捷；
+//刪除：實現軟體快捷的單個刪除或全部刪除；
+//刷新：軟體路徑改變後，先打開該軟體，再點擊刷新，可以自動記錄新路徑；
+//模式：圖示是否透明，...
+//Process.dll外掛程式請放到 saori 下...；
+//調用OnShortcutMenu即可；
 #define		CFGPATH       'PROFILE_PATH\shortcutdata.sccfg'
 #define		DATPATH       'PROFILE_PATH\shortcutdata.scdat'
 OnShortcutMenu{
 	shortcut=1
 	LoadShortCutCfg
-	_w='\C\![quicksession,true]\c\![set,choicetimeout,0]\b[2]快捷菜单\n[140]\![*]\q[添加,OnShortcutAdd]　\![*]\q[删除,OnShortcutMenu,ShortcutMenuDel]　\![*]\q[刷新,OnShortcutAdd,ShortcutNew]　\![*]\q[模式,OnICOMode]　\![*]\q[返回,OnOpenMenu,3]　\![*]\q[退出,OnShortcutOver]'
+	_w='\C\![quicksession,true]\c\![set,choicetimeout,0]\b[2]快顯功能表\n[140]\![*]\q[添加,OnShortcutAdd]　\![*]\q[刪除,OnShortcutMenu,ShortcutMenuDel]　\![*]\q[刷新,OnShortcutAdd,ShortcutNew]　\![*]\q[模式,OnICOMode]　\![*]\q[返回,OnOpenMenu,3]　\![*]\q[退出,OnShortcutOver]'
 	_w+='\n'
 	_xc=5//初始
 	_y=45//初始
 	_x=_xc
 	_windowshortcut='/
-	我的文档|::{450D8FBA-AD25-11D0-98A8-0800361B1103}|15|a*/
-	我的电脑|::{20D04FE0-3AEA-1069-A2D8-08002B30309D}|16|a*/
-	网上邻居|::{208D2C60-3AEA-1069-A2D7-08002B30309D}|17|a*/
+	我的文件|::{450D8FBA-AD25-11D0-98A8-0800361B1103}|15|a*/
+	我的電腦|::{20D04FE0-3AEA-1069-A2D8-08002B30309D}|16|a*/
+	網上鄰居|::{208D2C60-3AEA-1069-A2D7-08002B30309D}|17|a*/
 	回收站|::{645FF040-5081-101B-9F08-00AA002F954E}|18|a*/
 	Internet Explorer|::{871C5380-42A0-1069-A2EA-08002B30309D}|19|a*/
-	控制面板|::{20D04FE0-3AEA-1069-A2D8-08002B30309D}\::{21EC2020-3AEA-1069-A2DD-08002B30309D}|20|a*/
-	任务管理器|taskmgr.exe*/
-	记事本|notepad.exe*/
-	画图|mspaint.exe*/
+	控制台|::{20D04FE0-3AEA-1069-A2D8-08002B30309D}\::{21EC2020-3AEA-1069-A2DD-08002B30309D}|20|a*/
+	工作管理員|taskmgr.exe*/
+	記事本|notepad.exe*/
+	畫圖|mspaint.exe*/
 	'
 	_path = CALLSAORI('advanced_sysinfo','get_special_folder_path','Windows')
 	_file = REPLACE(_path,'\','\\') + '\\explorer.exe'
@@ -366,22 +366,22 @@ OnShortcutMenu{
 		else
 			_w+="\__q[%(_OSMX),%(_Path),%(_Name),%(_mode),%(_Ref),%(_i),%(_OSEX)]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\__q"
 	}
-	_w+='\n[half]\![*]\q[添加文件,OnShortCutListAdd,file]   \![*]\q[导入配置,OnShortCutListAdd,openlist]   \![*]\q[导出配置,OnShortCutListAdd,savelist]   \![*]\q[导出项目,OnShortCutListAdd,savemenu]\n\![*]\q[新建项目,OnShortCutListAdd,newmenu]   \![*]\q[添加项目,OnShortCutListAdd,addmenu]   \![*]\q[打开项目,OnShortCutListAdd,openmenu]   \![*]\q[文件排序,OnShortCutList,fileorder] \n[150]'
+	_w+='\n[half]\![*]\q[添加文件,OnShortCutListAdd,file]   \![*]\q[導入配置,OnShortCutListAdd,openlist]   \![*]\q[匯出配置,OnShortCutListAdd,savelist]   \![*]\q[匯出項目,OnShortCutListAdd,savemenu]\n\![*]\q[新建項目,OnShortCutListAdd,newmenu]   \![*]\q[添加項目,OnShortCutListAdd,addmenu]   \![*]\q[打開項目,OnShortCutListAdd,openmenu]   \![*]\q[檔排序,OnShortCutList,fileorder] \n[150]'
 	if reference0=='ShortcutMenuDel' {
-		_w="\C\![quicksession,true]\c\b[2]请%(username)点击需要删除的快捷！\n[150]　\![*]\q[全部删除,OnShortcutMenuDel,AllShortcutDel,会把快捷全部删掉哦！]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\n"
+		_w="\C\![quicksession,true]\c\b[2]請%(username)點擊需要刪除的快捷！\n[150]　\![*]\q[全部刪除,OnShortcutMenuDel,AllShortcutDel,會把快捷全部刪掉哦！]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\n"
 		_OSMX='OnShortcutMenuDel'
 		_OSCL='ShortcutMenuDel'
 	}
 	elseif reference0=='fileorder' {
-		_t='升序,降序'[shortcutfileorder]
-		_w="\C\![quicksession,true]\c\b[2]请%(username)点击需要排序的快捷！\n[150]　\![*]当前为\q[%(_t),OnShortCutList,fileorder,shortcutfileorder]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\n"
+		_t='昇冪,降冪'[shortcutfileorder]
+		_w="\C\![quicksession,true]\c\b[2]請%(username)點擊需要排序的快捷！\n[150]　\![*]當前為\q[%(_t),OnShortCutList,fileorder,shortcutfileorder]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\n"
 		_OSCL='fileorder'
 		_OSMX='OnShortCutList'
 		_OSOD='load'
 		_OSEX='fileorder,order'
 	}
 	if shortcutlist==''
-		_w+='\n[200]没有数据哦！……'
+		_w+='\n[200]沒有資料哦！……'
 	else {
 		_xc=_x//初始
 		_y=45//初始
@@ -392,7 +392,7 @@ OnShortcutMenu{
 				_w+="\__q[OnShortCutList,%(_OSCL),%(_i),%(_OSOD)]\f[color,238,50,95]"+shortcutlistname[_i]+'\f[color,default]\__q'
 			else
 				_w+="\__q[OnShortCutList,%(_OSCL),%(_i),%(_OSOD)]"+shortcutlistname[_i]+'\__q'
-			_w+= "\_l[195]\__q[OnShortCutList,renamelist,%(_i)]重命名\_l[240]\__q[OnShortCutList,listup,%(_i)]\[↑\__q\__q[OnShortCutList,listdown,%(_i)]↓\__q\__q[OnShortCutList,listdelete,%(_i)]删]\__q\f[color,default]\n"
+			_w+= "\_l[195]\__q[OnShortCutList,renamelist,%(_i)]重命名\_l[240]\__q[OnShortCutList,listup,%(_i)]\[↑\__q\__q[OnShortCutList,listdown,%(_i)]↓\__q\__q[OnShortCutList,listdelete,%(_i)]刪]\__q\f[color,default]\n"
 		}
 		_w+='\n[half]'
 		SETDELIM(shortcutdata,'*')
@@ -465,7 +465,7 @@ OnShortCutList{
 		}
 		OnShortcutMenu
 	}elseif reference0=='listdelete'{
-		_w='确定要删除该项目的所有数据吗？\n'
+		_w='確定要刪除該專案的所有資料嗎？\n'
 		_w+="\q[◇是的,OnShortCutListDel,%(_i)]\n"
 		_w+='\q[◇不了,OnShortcutMenu]\n'
 		_w
@@ -500,27 +500,27 @@ OnShortCutList{
 }
 OnShortCutListAdd{
 	if reference0 == 'file' {
-		'\C\![open,dialog,open,--id=shortcutlistfile,--title=请选择文件,--dir=__system_desktop__,--filter=快捷文件(exe;txt;doc;dic;url;lnk)|*.exe;*.txt;*.doc;*.dic;*.url;*.lnk]'
+		'\C\![open,dialog,open,--id=shortcutlistfile,--title=請選擇檔,--dir=__system_desktop__,--filter=快捷檔(exe;txt;doc;dic;url;lnk)|*.exe;*.txt;*.doc;*.dic;*.url;*.lnk]'
 	}
 	elseif reference0 == 'openlist' {
-		'\C\![open,dialog,open,--id=shortcutopenlist,--title=请选择配置文件,--dir=__system_mydocument__,--filter=sccfg|*.sccfg]'
+		'\C\![open,dialog,open,--id=shortcutopenlist,--title=請選擇設定檔,--dir=__system_mydocument__,--filter=sccfg|*.sccfg]'
 	}
 	elseif reference0 == 'savelist' {
-		'\C\![open,dialog,save,--id=shortsavelist,--title=请输入要保存的配置文件,--dir=__system_mydocument__,--filter=sccfg|*.sccfg,--ext=sccfg]'
+		'\C\![open,dialog,save,--id=shortsavelist,--title=請輸入要保存的設定檔,--dir=__system_mydocument__,--filter=sccfg|*.sccfg,--ext=sccfg]'
 	}
 	elseif reference0 == 'savemenu' {
-		'\C\![open,dialog,save,--id=shortcutsavemenu,--title=请输入要保存的项目文件,--dir=__system_mydocument__,--filter=scdat|*.scdat,--ext=scdat]'
+		'\C\![open,dialog,save,--id=shortcutsavemenu,--title=請輸入要保存的專案檔案,--dir=__system_mydocument__,--filter=scdat|*.scdat,--ext=scdat]'
 	}
 	elseif reference0 == 'newmenu' {
 		shortcutlistdat=ARRAYSIZE(shortcutlistname)
-		_name='新项目'+shortcutlistdat
+		_name='新項目'+shortcutlistdat
 		"\C\![open,inputbox,OnShortCutMenuCreat,-1,%(_name)] "
 	}
 	elseif reference0 == 'addmenu' {
-		'\C\![open,dialog,open,--id=shortcutaddmenu,--title=请选择项目文件,--dir=__system_mydocument__,--filter=scdat|*.scdat]'
+		'\C\![open,dialog,open,--id=shortcutaddmenu,--title=請選擇專案檔案,--dir=__system_mydocument__,--filter=scdat|*.scdat]'
 	}
 	elseif reference0 == 'openmenu' {
-		'\C\![open,dialog,open,--id=shortcutopenmenu,--title=请选择项目文件,--dir=__system_mydocument__,--filter=scdat|*.scdat]'
+		'\C\![open,dialog,open,--id=shortcutopenmenu,--title=請選擇專案檔案,--dir=__system_mydocument__,--filter=scdat|*.scdat]'
 	}
 }
 OnShortCutListDel{
@@ -561,15 +561,15 @@ OnShortCutMenuCreat{
 OnICOMode{
 	if ICOMode==',--option=opaque' {
 		ICOMode=',NULL'
-		"\t所有图标设置为透明模式，\w5此模式下的图标适合颜色深的对话框！\n\w5\1话虽如此，\w3但效果还是有待提高啊……\0\_w[1200]\c%(OnShortcutMenu)"
+		"\t所有圖示設置為透明模式，\w5此模式下的圖示適合顏色深的對話方塊！\n\w5\1話雖如此，\w3但效果還是有待提高啊……\0\_w[1200]\c%(OnShortcutMenu)"
 	}
 	elseif ICOMode==',NULL' || ICOMode==NULL {
 		ICOMode=',--option=opaque'
-		"\t所有图标设置为不透明模式，\n\w5此模式下图标比较漂亮，\w5适合颜色浅的对话框！\_w[1200]\c%(OnShortcutMenu)"
+		"\t所有圖示設置為不透明模式，\n\w5此模式下圖示比較漂亮，\w5適合顏色淺的對話方塊！\_w[1200]\c%(OnShortcutMenu)"
 	}
 }
 OnShortcutAdd{
-	_NoP='[system process],system,smss.exe,csrss.exe,wininit.exe,csrss.exe,services.exe,lsass.exe,lsm.exe,winlogon.exe,svchost.exe,nvvsvc.exe,ccenter.exe,audiodg.exe,slsvc.exe,ravtask.exe,rsstub.exe,ravmond.exe,rfwsrv.exe,rsnetsvr.exe,spoolsv.exe,spoolsv.exe,dwm.exe,explorer.exe,sidebar.exe,sqlservr.exe,taskeng.exe,rstray.exe,cbappendix.exe,dllhost.exe,rundll32.exe,ctfmon.exe,360rp.exe,360sd.exe,360sdupd.exe,mdnsresponder.exe,inetinfo.exe,nvsvc32.exe,sbiesvc.exe,vmware-usbarbitrator.exe,vmnat.exe,vmsrvc.exe,vmusrvc.exe,vpcmap.exe,sogoucloud.exe,conime.exe,ssp.exe'//不显示出来的
+	_NoP='[system process],system,smss.exe,csrss.exe,wininit.exe,csrss.exe,services.exe,lsass.exe,lsm.exe,winlogon.exe,svchost.exe,nvvsvc.exe,ccenter.exe,audiodg.exe,slsvc.exe,ravtask.exe,rsstub.exe,ravmond.exe,rfwsrv.exe,rsnetsvr.exe,spoolsv.exe,spoolsv.exe,dwm.exe,explorer.exe,sidebar.exe,sqlservr.exe,taskeng.exe,rstray.exe,cbappendix.exe,dllhost.exe,rundll32.exe,ctfmon.exe,360rp.exe,360sd.exe,360sdupd.exe,mdnsresponder.exe,inetinfo.exe,nvsvc32.exe,sbiesvc.exe,vmware-usbarbitrator.exe,vmnat.exe,vmsrvc.exe,vmusrvc.exe,vpcmap.exe,sogoucloud.exe,conime.exe,ssp.exe'//不顯示出來的
 	_x=10//初始
 	_y=65//初始
 	_w=''
@@ -584,8 +584,8 @@ OnShortcutAdd{
 		if _Path!='' && "|%(_Name)|" !_in_ shortcutdata && reference0!='ShortcutNew' && !RE_GREP(_Path,']') && _Name !_in_ _NoP && _Name !_in_ _NA {
 			_i++
 			_NA+=_Name
-			_w+="\_l[%(_x),%(_y)]\__q[OnShortcut,%(_Name),%(_Path),2]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]\![*]软件%(_i): 【%(_Name)】\__q\_l[%(_x+35),%(_y+20)]%(_Path)"
-			//_w+="\_l[%(_x),%(_y)]\__q[OnShortcut,%(_Name),%(_Path),2]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]\![*]软件%(_i): 【%(_Name)】\__q\q[◇复制,Ontemp111,%(_Name)]\_l[%(_x+35),%(_y+20)]%(_Path)"
+			_w+="\_l[%(_x),%(_y)]\__q[OnShortcut,%(_Name),%(_Path),2]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]\![*]軟體%(_i): 【%(_Name)】\__q\_l[%(_x+35),%(_y+20)]%(_Path)"
+			//_w+="\_l[%(_x),%(_y)]\__q[OnShortcut,%(_Name),%(_Path),2]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]\![*]軟體%(_i): 【%(_Name)】\__q\q[◇複製,Ontemp111,%(_Name)]\_l[%(_x+35),%(_y+20)]%(_Path)"
 			_y+=45
 		}
 		elseif "|%(_Name)|' _in_ shortcutdata && reference0=='ShortcutNew" {
@@ -596,7 +596,7 @@ OnShortcutAdd{
 					_a=_s[0,'|']
 					shortcutdata[_i]=IARRAY
 					shortcutdata+="%(_a)|%(_Name)|%(_Path)*"
-					_w+="\_l[%(_x),%(_y)]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]\![*]更新的软件: 【%(_Name)】\_l[%(_x+35),%(_y+20)]%(_Path)"
+					_w+="\_l[%(_x),%(_y)]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]\![*]更新的軟體: 【%(_Name)】\_l[%(_x+35),%(_y+20)]%(_Path)"
 					_y+=45
 				}
 			}
@@ -604,54 +604,54 @@ OnShortcutAdd{
 	}
 	SaveShortCutCfg
 	if _w=='' && reference0!='ShortcutNew'
-		_w="\_q\n[200]看来没有符合要求的软件呢，\n[120]%(username)记得先把要设置快捷的软件打开哦……\n[120]要不%(username)就自己把软件拖给橘花也是可以的哦……\n[130]文件夹的话也是可以直接拖给橘花的哦！"
+		_w="\_q\n[200]看來沒有符合要求的軟體呢，\n[120]%(username)記得先把要設置快捷的軟體打開哦……\n[120]要不%(username)就自己把軟體拖給橘花也是可以的哦……\n[130]資料夾的話也是可以直接拖給橘花的哦！"
 	elseif _w=='' && reference0=='ShortcutNew'
-		_w="\n[200]\_q没有需要更新的软件快捷呢，\n[120]%(username)没有把要更新路径的软件打开吗？\1我看不是没运行软件，而是根本没有要更新的吧……"
+		_w="\n[200]\_q沒有需要更新的軟體快捷呢，\n[120]%(username)沒有把要更新路徑的軟體打開嗎？\1我看不是沒運行軟體，而是根本沒有要更新的吧……"
 	if reference0=='ShortcutNew'
-		"\![set,choicetimeout,60000]\_q\b[2]\![set,autoscroll,false]%(username)，橘花已经把下面的软件快捷更新了哦！\n[150]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\_n%(_w)"
+		"\![set,choicetimeout,60000]\_q\b[2]\![set,autoscroll,false]%(username)，橘花已經把下面的軟體快捷更新了哦！\n[150]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\_n%(_w)"
 	else
-		"\![set,choicetimeout,60000]\_q\b[2]\![set,autoscroll,false]请%(username)点击需要设置快捷的软件！没有的话，%(username)先运行要设置快捷的软件，再刷新一次看看！！也可以把要设快捷的文件直接拖给橘花哦！\n[130]　\![*]\q[刷新列表,OnShortcutAdd]　　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\_n%(_w)"
+		"\![set,choicetimeout,60000]\_q\b[2]\![set,autoscroll,false]請%(username)點擊需要設置快捷的軟體！沒有的話，%(username)先運行要設置快捷的軟體，再刷新一次看看！！也可以把要設快捷的檔直接拖給橘花哦！\n[130]　\![*]\q[刷新列表,OnShortcutAdd]　　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\_n%(_w)"
 }
 OnShortcutMenuDel{
 	if shortcutdata[0]==''
-		"%(username)是在开玩笑吗，明明没有数据呢！\n[150]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
+		"%(username)是在開玩笑嗎，明明沒有資料呢！\n[150]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
 	else {
 		if reference0=='AllShortcutDel' {
 			ERASEVAR('shortcutdata')
 			SaveShortCutCfg
-			"所有快捷删除完毕！\_w[1000]\c%(OnShortcutMenu)"
+			"所有快捷刪除完畢！\_w[1000]\c%(OnShortcutMenu)"
 		}
 		else {
 			SETDELIM(shortcutdata,'*')
 			shortcutdata[reference4]=IARRAY
 			SaveShortCutCfg
-			"%(reference1) 的快捷删除完毕！\n[150]\_b[%(CHR(34))%(reference0),0%(CHR(34)),inline%(ICOMode)]\n[120]\_q路径为：%(reference0)\n[150]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
+			"%(reference1) 的快捷刪除完畢！\n[150]\_b[%(CHR(34))%(reference0),0%(CHR(34)),inline%(ICOMode)]\n[120]\_q路徑為：%(reference0)\n[150]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
 		}
 	}
 }
 OnShortcut{
 	if !reference2 {
 		_file = REPLACE(reference0,'/','\\')
-		"\_q\0\s[5]橘花正为%(username)打开%(reference1)\n……\![open,file,%(_file),%(reference3)]"
+		"\_q\0\s[5]橘花正為%(username)打開%(reference1)\n……\![open,file,%(_file),%(reference3)]"
 	}
 	elseif reference2==1 {
 		_file = REPLACE(reference0,'/','\\')
-		"\_q\0\s[5]橘花正为%(username)打开%(reference1)\n……\![open,file,%(_file)]"
+		"\_q\0\s[5]橘花正為%(username)打開%(reference1)\n……\![open,file,%(_file)]"
 	}
 	elseif reference2==2 {
 		reference0=REPLACE(reference0,'|','_')
 		ProcessName=TOLOWER(reference0)
 		ProcessPath=reference1
 		ProcessMode=reference3
-		"\_q请%(username)设置软件名称，如不设置将会使用%(reference0)作为名称！\![open,inputbox,OnShortcutIco,0,%(reference0)] \n[200]\![*]\q[退出,OnShortcutOver,#1#]"
+		"\_q請%(username)設置軟體名稱，如不設置將會使用%(reference0)作為名稱！\![open,inputbox,OnShortcutIco,0,%(reference0)] \n[200]\![*]\q[退出,OnShortcutOver,#1#]"
 	}
 	elseif reference2==3 {
 		_file=reference0
-		"\_q\0\s[5]橘花正为%(username)打开网址%(reference1)\n…\![open,browser,%(_file)]"
+		"\_q\0\s[5]橘花正為%(username)打開網址%(reference1)\n…\![open,browser,%(_file)]"
 	}
 	elseif reference2==4 {
 		_file=reference0
-		"\0\s[5]橘花正为%(username)打开文本%(reference1)\n… \![raise,OnOpenBook,%(_file)]"
+		"\0\s[5]橘花正為%(username)打開文本%(reference1)\n… \![raise,OnOpenBook,%(_file)]"
 	}
 }
 OnShortcutIco{
@@ -661,7 +661,7 @@ OnShortcutIco{
 	_a=REPLACE(_a,'|','_')
 	_p=ProcessPath
 	ProcessPath="%(_a)|%(ProcessName)|%(ProcessPath)"
-	_w="\0\b[2]\_q\![set,choicetimeout,0]%(username)能看到图标吗，有的软件不包含图标的\n不能选错哦，如果没有图标将无法显示，也无法添加，\n那样就要用全部删除了哦！\n图标为：\_b[%(CHR(34))%(_p),0%(CHR(34)),inline%(ICOMode)]\n[120]路径为：%(_p)\n[150]　\![*]\q[可以看到,OnShortcutName,CanSee,%(ProcessMode)]　\![*]\q[看不到,OnShortcutName,NoCanSee,1,%(ProcessMode)]　\![*]\q[退出,OnShortcutOver]"
+	_w="\0\b[2]\_q\![set,choicetimeout,0]%(username)能看到圖示嗎，有的軟體不包含圖示的\n不能選錯哦，如果沒有圖示將無法顯示，也無法添加，\n那樣就要用全部刪除了哦！\n圖示為：\_b[%(CHR(34))%(_p),0%(CHR(34)),inline%(ICOMode)]\n[120]路徑為：%(_p)\n[150]　\![*]\q[可以看到,OnShortcutName,CanSee,%(ProcessMode)]　\![*]\q[看不到,OnShortcutName,NoCanSee,1,%(ProcessMode)]　\![*]\q[退出,OnShortcutOver]"
 	_i=0
 	for _i=0;ProcessName[_i,'.']!='';_i++{
 	}
@@ -675,8 +675,8 @@ OnShortcutIco{
 	}
 	_path = CALLSAORI('advanced_sysinfo','get_special_folder_path','Windows')
 	_Icofile = _path+'\System32\imageres.dll'
-	if ProcessName=='━文件夹━'||_showicon {
-		_w+="\n[150]\_q%(username)可以从下面选择一个图标！"
+	if ProcessName=='━資料夾━'||_showicon {
+		_w+="\n[150]\_q%(username)可以從下面選擇一個圖示！"
 		_x=5
 		_y=140
 		for _i=0;_i<100;_i++ {
@@ -720,7 +720,7 @@ OnShortcutName{
 	ERASEVAR('ProcessPath')
 	ERASEVAR('ProcessMode')
 	SaveShortCutCfg
-	"\_q%(_a) 的快捷记录完毕！\n[150]\_b[%(CHR(34))%(_pi)%(CHR(34)),inline%(ICOMode)]\n[120]路径为：%(_p)\n[150]　\![*]\q[继续添加,OnShortcutAdd]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
+	"\_q%(_a) 的快捷記錄完畢！\n[150]\_b[%(CHR(34))%(_pi)%(CHR(34)),inline%(ICOMode)]\n[120]路徑為：%(_p)\n[150]　\![*]\q[繼續添加,OnShortcutAdd]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
 }
 OnShortcutOver{
 	_w=''
@@ -747,7 +747,7 @@ ClearShortcutVar{
 }
 ////---- OnAutoShortcut -------------------
 OnAutoShortcut{
-	_InProcess='千千静听|ttplayer.exe*QQ|qq.exe*QQ游戏|qqgame.exe*KMPlayer|kmplayer.exe*金山词霸|xdict.exe*迅雷|thunder.exe*记事本|notepad.exe*记事本|notepad2.exe*UltraEdit|uedit32.exe*Microsoft Visual Studio|devenv.exe*IE浏览器|iexplore.exe*photoshop|photoshop.exe*Dreamweaver|dreamweaver.exe*Flash|flash.exe*Fireworks|fireworks.exe*酷狗音乐|kugoo.exe*飞信|fetionfx.exe*快车|flashget.exe*快车|flashget3.exe*计算器|calc.exe*系统画图|mspaint.exe*虚拟光驱|daemon.exe*steam|steam.exe*Notepad++|notepad++.exe*'
+	_InProcess='千千靜聽|ttplayer.exe*QQ|qq.exe*QQ遊戲|qqgame.exe*KMPlayer|kmplayer.exe*金山詞霸|xdict.exe*迅雷|thunder.exe*記事本|notepad.exe*記事本|notepad2.exe*UltraEdit|uedit32.exe*Microsoft Visual Studio|devenv.exe*IE流覽器|iexplore.exe*photoshop|photoshop.exe*Dreamweaver|dreamweaver.exe*Flash|flash.exe*Fireworks|fireworks.exe*酷狗音樂|kugoo.exe*飛信|fetionfx.exe*快車|flashget.exe*快車|flashget3.exe*計算器|calc.exe*系統畫圖|mspaint.exe*虛擬光碟機|daemon.exe*steam|steam.exe*Notepad++|notepad++.exe*'
 	_x=10//初始
 	_y=58//初始
 	_w=''
@@ -766,14 +766,14 @@ OnAutoShortcut{
 					_Path=_p[2,'|']
 					_FullData+="%(_N)|%(_Name)|%(_Path)*"
 					_NoclueonN+="%(_Name)*"
-					_w+="\_l[%(_x),%(_y)]\__q[OnShortcutName,AutoShortcut,%(_N)|%(_Name)|%(_Path)]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]\![*]软件: 【%(_N)】\__q\_l[%(_x+35),%(_y+20)]%(_Path)"
+					_w+="\_l[%(_x),%(_y)]\__q[OnShortcutName,AutoShortcut,%(_N)|%(_Name)|%(_Path)]\_b[%(CHR(34))%(_Path),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]\![*]軟體: 【%(_N)】\__q\_l[%(_x+35),%(_y+20)]%(_Path)"
 					_y+=45
 				}
 			}
 		}
 	}
 	if _w!=''
-		"\![set,windowstate,stayontop]\![set,choicetimeout,60000]\0\s[26]\b[2]\_n橘花检测到下面的软件哦！\n要把软件添加到橘花的快捷菜单上吗？\_q\n[140]　\![*]\q[全部添加,OnAllShortcutAdd,%(_FullData)]　\![*]\q[不再提示下面的软件,OnNoclueonProcess,%(_NoclueonN)]　\![*]\q[暂时不,OnShortcutOver]%(_w)\![set,windowstate,!stayontop]"
+		"\![set,windowstate,stayontop]\![set,choicetimeout,60000]\0\s[26]\b[2]\_n橘花檢測到下面的軟體哦！\n要把軟體添加到橘花的快顯功能表上嗎？\_q\n[140]　\![*]\q[全部添加,OnAllShortcutAdd,%(_FullData)]　\![*]\q[不再提示下面的軟體,OnNoclueonProcess,%(_NoclueonN)]　\![*]\q[暫時不,OnShortcutOver]%(_w)\![set,windowstate,!stayontop]"
 }
 OnAllShortcutAdd{
 	shortcutdata+=reference0
@@ -785,15 +785,15 @@ OnAllShortcutAdd{
 		_p=_s[2,'|']
 		_N=_s[0,'|']
 		if _N
-			_w+="\_l[%(_x),%(_y)]\_b[%(CHR(34))%(_p),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]软件：【%(_N)】\_l[%(_x+35),%(_y+20)]路径为：%(_p)"
+			_w+="\_l[%(_x),%(_y)]\_b[%(CHR(34))%(_p),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]軟體：【%(_N)】\_l[%(_x+35),%(_y+20)]路徑為：%(_p)"
 		_y+=45
 	}
-	"\b[2]\_n橘花已经记住下面软件的快捷了哦！\_q%(_w)\n[160]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
+	"\b[2]\_n橘花已經記住下面軟體的快捷了哦！\_q%(_w)\n[160]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
 }
 OnNoclueonProcess{
 	NoclueonProcess+=reference0
 	reference0=REPLACE(reference0,'*',' ')
-	"不再提醒%(username)软件%(reference0)快捷菜单的添加~"
+	"不再提醒%(username)軟體%(reference0)快顯功能表的添加~"
 }
 OnShortcutFileDrop{
 	_file=reference0
@@ -807,31 +807,31 @@ OnShortcutFileDrop{
 		_fileext='.html'
 		_filename=_argv[2]
 		if _filename==''
-			_filename='新建网址'
+			_filename='新建網址'
 	}
 	case _fileext{
 		when '.exe'{
 			if !RE_GREP(_path2,']')
-				"\_q需要橘花设置该软件到橘花的快捷菜单吗？\n[150]/
+				"\_q需要橘花設置該軟體到橘花的快顯功能表嗎？\n[150]/
 				　\![*]\q[好的,OnShortcut,%(_filename)%(_fileext),%(_path2),2]　\![*]\q[不了,OnShortcutOver]　\![*]\q[直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n[150]/
-				\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)] \n软件名称：%(_filename)%(_fileext)\n[150] 软件路径：%(_path2)"
+				\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)] \n軟體名稱：%(_filename)%(_fileext)\n[150] 軟體路徑：%(_path2)"
 			else
-				"\_q\0\s[0]如果%(username)要设置该软件的快捷，\n路径和名称中请不要带有符号“]”哦！\n[150]\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)] \n软件名称：%(_filename)%(_fileext)\n[150] 软件路径：%(_path2)"
+				"\_q\0\s[0]如果%(username)要設置該軟體的快捷，\n路徑和名稱中請不要帶有符號“]”哦！\n[150]\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)] \n軟體名稱：%(_filename)%(_fileext)\n[150] 軟體路徑：%(_path2)"
 		}
 		when '.lnk'{
 			if !RE_GREP(_path2,']')
-				"\_q需要橘花设置该快捷方式到橘花的快捷菜单吗？\n[150]/
+				"\_q需要橘花設置該快捷方式到橘花的快顯功能表嗎？\n[150]/
 				　\![*]\q[好的,OnShortcut,%(_filename)%(_fileext),%(_path2),2]　\![*]\q[直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n[150]/
-				\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)] \n软件名称：%(_filename)%(_fileext)\n[150] 软件路径：%(_path2)"
+				\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)] \n軟體名稱：%(_filename)%(_fileext)\n[150] 軟體路徑：%(_path2)"
 			else
-				"\_q\0\s[0]如果%(username)要设置该软件的快捷，\n路径和名称中请不要带有符号“]”哦！\n[150]\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)] \n软件名称：%(_filename)%(_fileext)\n[150] 软件路径：%(_path2)"
+				"\_q\0\s[0]如果%(username)要設置該軟體的快捷，\n路徑和名稱中請不要帶有符號“]”哦！\n[150]\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)] \n軟體名稱：%(_filename)%(_fileext)\n[150] 軟體路徑：%(_path2)"
 		}
 		when ''{
 			if !_filename {
 				_Ico='2'
-				"\_q需要橘花设置该文件夹到橘花的快捷菜单吗？\n[150]/
-				　\![*]\q[好的,OnShortcut,━文件夹━,%(_path2),2]　\![*]\q[不了,OnShortcutOver]　\![*]\q[直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n[150]/
-				\_l[5,-]\_b[%(CHR(34))SAORI_PATH\Process.dll,%(_Ico)%(CHR(34)),inline%(ICOMode)] \n名称：等下%(username)自己可以设置名称！━文件夹━\n[150]路径：%(_path2)"
+				"\_q需要橘花設置該資料夾到橘花的快顯功能表嗎？\n[150]/
+				　\![*]\q[好的,OnShortcut,━資料夾━,%(_path2),2]　\![*]\q[不了,OnShortcutOver]　\![*]\q[直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n[150]/
+				\_l[5,-]\_b[%(CHR(34))SAORI_PATH\Process.dll,%(_Ico)%(CHR(34)),inline%(ICOMode)] \n名稱：等下%(username)自己可以設置名稱！━資料夾━\n[150]路徑：%(_path2)"
 			}
 			else
 				"\_q\0\s[0]%(_filename)%(_fileext)\n\n%(_path2)"
@@ -839,17 +839,17 @@ OnShortcutFileDrop{
 		when '.txt','.doc','.dic','.url'{
 			if !RE_GREP(_path2,']') {
 				_Ico='3'
-				"\_q需要橘花设置该文件橘花的快捷菜单吗？\n[150]/
+				"\_q需要橘花設置該檔橘花的快顯功能表嗎？\n[150]/
 				　\![*]\q[好的,OnShortcut,%(_filename)%(_fileext),%(_path2),2]　\![*]\q[直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n[150]/
-				\_l[5,-]\_b[%(CHR(34))SAORI_PATH\Process.dll,%(_Ico)%(CHR(34)),inline%(ICOMode)] \n名称：等下%(username)自己可以设置名称！%(_filename)%(_fileext)\n[150]\_l[40,-]路径：%(_path2)"
+				\_l[5,-]\_b[%(CHR(34))SAORI_PATH\Process.dll,%(_Ico)%(CHR(34)),inline%(ICOMode)] \n名稱：等下%(username)自己可以設置名稱！%(_filename)%(_fileext)\n[150]\_l[40,-]路徑：%(_path2)"
 			}
 			else
-				"\_q\0\s[0]如果%(username)要设置该文件的快捷，\n路径和名称中请不要带有符号“]”哦！\n[150]\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)]  \n文件名称：%(_filename)%(_fileext)\n[150] 文档路径：%(_path2)"
+				"\_q\0\s[0]如果%(username)要設置該檔的快捷，\n路徑和名稱中請不要帶有符號“]”哦！\n[150]\_l[5,-]\_b[%(CHR(34))%(_path2),0%(CHR(34)),inline%(ICOMode)]  \n檔案名稱：%(_filename)%(_fileext)\n[150] 文檔路徑：%(_path2)"
 		}
 		when '.html'{
-			"\_q需要橘花设置该网址到橘花的快捷菜单吗？\n[150]/
+			"\_q需要橘花設置該網址到橘花的快顯功能表嗎？\n[150]/
 			　\![*]\q[好的,OnShortcut,%(_filename)%(_fileext),%(_path2),2,url]　\![*]\q[直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n[150]/
-			\_l[5,-]\_b[%(CHR(34))SAORI_PATH\Process.dll,%(_Ico)%(CHR(34)),inline%(ICOMode)] \n名称：等下%(username)自己可以设置名称！%(_filename)%(_fileext)\n[150]\_l[40,-]路径：%(_path2)"
+			\_l[5,-]\_b[%(CHR(34))SAORI_PATH\Process.dll,%(_Ico)%(CHR(34)),inline%(ICOMode)] \n名稱：等下%(username)自己可以設置名稱！%(_filename)%(_fileext)\n[150]\_l[40,-]路徑：%(_path2)"
 		}
 		when '.sccfg'{
 			LoadShortCutCfg(_file)
@@ -1098,24 +1098,24 @@ SaveShortCutDat:void{
 	FCLOSE(_file)
 	FCHARSET.default
 }
-//------------------------外语学习---------------------------------
+//------------------------外語學習---------------------------------
 Select.japanesestudy{
 	if QuickStartVersion{
 		NeedUpdate
 		return
 	}
-	"\0\b[2]\s[40]%(username)正在学外语啊，橘花能帮什么忙吗？\n/
-	\q[◇新版标准日本语初级单词,OnJapaneseWord,1]\n/
-	\q[◇新版标准日本语初级课文,newjapanese]\n/
-	\q[◇旧版标准日本语初级课文,oldjapanese]\n/
-	\q[◇新版标准日本语中级单词,OnJapaneseWord,2]\n/
-	\q[◇大家的日语,OnJapaneseWord,4]\n/
-	\q[◇日语一级至四级词汇表,OnJapaneseLevel]\n/
-	\q[◇动漫日语每天一句,Onacjeachday]\n/
-	\q[◇日语一百句,On100SentencesInJapanese]\n/
-	\q[◇英语单词库,OnEnglishVoc]\n/
-	\q[◇其他记忆库,OnOtherVoc]\n/
-	\n[150]\q[◇返回上一层,OnOpenMenu,1]\n/
+	"\0\b[2]\s[40]%(username)正在學外語啊，橘花能幫什麼忙嗎？\n/
+	\q[◇新版標準日本語初級單詞,OnJapaneseWord,1]\n/
+	\q[◇新版標準日本語初級課文,newjapanese]\n/
+	\q[◇舊版標準日本語初級課文,oldjapanese]\n/
+	\q[◇新版標準日本語中級單詞,OnJapaneseWord,2]\n/
+	\q[◇大家的日語,OnJapaneseWord,4]\n/
+	\q[◇日語一級至四級詞彙表,OnJapaneseLevel]\n/
+	\q[◇動漫日語每天一句,Onacjeachday]\n/
+	\q[◇日語一百句,On100SentencesInJapanese]\n/
+	\q[◇英語單詞庫,OnEnglishVoc]\n/
+	\q[◇其他記憶庫,OnOtherVoc]\n/
+	\n[150]\q[◇返回上一層,OnOpenMenu,1]\n/
 	"
 }
 JapWordVarInit{
@@ -1124,23 +1124,23 @@ JapWordVarInit{
 OnEnglishVoc{
 	_dir=FENUM('DATA_PATH/vocabulary/Engilsh')
 	_txt='\b[2]\![quicksession,1]\![set,choicetimeout,0]'
-	_txt+='英语单词库\n[150]'
+	_txt+='英語單詞庫\n[150]'
 	foreach _dir;_i{
 		_t='DATA_PATH/vocabulary/Engilsh/'+_i
 		_txt+=" \q[◇%(_i),OnJapaneseWord,6,%(_t)]\n"
 	}
-	_txt+='\q[◇返回,japanesestudy]       \q[◇终了,OnOpenMenu,1]     '
+	_txt+='\q[◇返回,japanesestudy]       \q[◇終了,OnOpenMenu,1]     '
 	_txt
 }
 OnOtherVoc{
 	_dir=FENUM('DATA_PATH/vocabulary/Japanese')
 	_txt='\b[2]\![quicksession,1]\![set,choicetimeout,0]'
-	_txt+='其他记忆库\n[150]'
+	_txt+='其他記憶庫\n[150]'
 	foreach _dir;_i{
 		_t='DATA_PATH/vocabulary/Japanese/'+_i
 		_txt+=" \q[%(_i),OnJapaneseWord,7,%(_t)]\n"
 	}
-	_txt+='\q[◇返回,japanesestudy]       \q[◇终了,OnOpenMenu,1]     '
+	_txt+='\q[◇返回,japanesestudy]       \q[◇終了,OnOpenMenu,1]     '
 	_txt
 }
 OnJapaneseWord{
@@ -1152,7 +1152,7 @@ OnJapaneseWord{
 	}
 	if reference1!=''
 		japworddaymode[3]=_file
-	_txt = '\0\![quicksession,true]\![set,choicetimeout,0]\b[2]\s[40]请选择课程？\n[150]'
+	_txt = '\0\![quicksession,true]\![set,choicetimeout,0]\b[2]\s[40]請選擇課程？\n[150]'
 	if _booknum>0
 		japworddaymode[2]=_booknum
 	JapWordVarInit
@@ -1173,38 +1173,38 @@ OnJapaneseWord{
 		_txt+=OnOtherVocMenu(_booknum,_file)
 	else{
 		for _i = _l ; _i <= _k; _i ++{
-			_a = "第%(_i)课"
+			_a = "第%(_i)課"
 			_txt += "\_l[%((_i - 1) % 3 * 100 + 24 )]"
 			_txt += "\q[%(_a),OnJapaneseWordLoad,%(_i),%(_booknum)]"
 			if _i % 3 == 0
 				_txt += '\n'
 		}
 	}
-	_txt+='\n[150]当前单词每天记状态：\n'
+	_txt+='\n[150]當前單詞每天記狀態：\n'
 	_book=''
 	if japworddaymode[2]==1
-		_book='新标日初级'
+		_book='新標日初級'
 	elseif japworddaymode[2]==2
-		_book='新标日中级'
+		_book='新標日中級'
 	elseif japworddaymode[2]==3
-		_book='易错单词本'
+		_book='易錯單詞本'
 	elseif japworddaymode[2]==4
-		_book='大家的日语'
+		_book='大家的日語'
 	elseif japworddaymode[2]==5
-		_book='日语一级至四级词汇表'
+		_book='日語一級至四級詞彙表'
 	elseif japworddaymode[2]==6||japworddaymode[2]==7
 		_book=SPLITPATH(_file)[2][0,'.txt']
 	if japwordeachday==0
-		_txt+="关闭（%(_book)第%(japworddaymode[1])课）\n"
+		_txt+="關閉（%(_book)第%(japworddaymode[1])課）\n"
 	elseif japworddaymode[2]==3
-		_txt+='难错单词本\n'
+		_txt+='難錯單詞本\n'
 	elseif japworddaymode[0]==0
-		_txt+="%(_book)全部课程\n"
+		_txt+="%(_book)全部課程\n"
 	elseif japworddaymode[0]==1
-		_txt+="%(_book)1课至第%(japworddaymode[1])课\n"
+		_txt+="%(_book)1課至第%(japworddaymode[1])課\n"
 	elseif japworddaymode[0]==2
-		_txt+="%(_book)第%(japworddaymode[1])课\n"
-	_txt+='单词每天记数量\n[150]'
+		_txt+="%(_book)第%(japworddaymode[1])課\n"
+	_txt+='單詞每天記數量\n[150]'
 	for _i = 1 ; _i <= 30; _i ++{
 		_a = "%(_i)"
 		if japworddaynum==_i
@@ -1214,11 +1214,11 @@ OnJapaneseWord{
 		if _i % 10 == 0
 			_txt += '\n'
 	}
-	_txt+="\n[half]\![*]\q[今天记忆的单词,OnJapWordToday,%(_booknum)]\n"
-	_txt+="\n[half]\![*]\q[今天的日语单词记忆,OnJapWordDay,%(_booknum)]\n"
-	_txt+='\n[half]\![*]\q[今天记忆的单词测验,OnJapWordQuestion,1]\n'
-	_txt+="\n[half]\![*]\q[易错单词本,OnJapHardWord,%(_booknum)]\n"
-	_txt += '\q[◇返回上一层,japanesestudy]                \q[◇终了,MenuCancel]'
+	_txt+="\n[half]\![*]\q[今天記憶的單詞,OnJapWordToday,%(_booknum)]\n"
+	_txt+="\n[half]\![*]\q[今天的日語單詞記憶,OnJapWordDay,%(_booknum)]\n"
+	_txt+='\n[half]\![*]\q[今天記憶的單詞測驗,OnJapWordQuestion,1]\n'
+	_txt+="\n[half]\![*]\q[易錯單詞本,OnJapHardWord,%(_booknum)]\n"
+	_txt += '\q[◇返回上一層,japanesestudy]                \q[◇終了,MenuCancel]'
 	_txt
 }
 OnJapaneseWordLoadset{
@@ -1277,7 +1277,7 @@ OnJapaneseWordLoadset{
 	OnJapaneseWordLoad(reference1,reference2,japworddaymode[3])
 }
 OnJapaneseLevel{
-	"\0\b[2]\![quicksession,true]\![set,choicetimeout,0]请%(username)选择级别\n[150]\q[◇N1-N2,OnJapaneseWord,5]\n\q[◇N3-N4,OnOnJapaneseWord,6]\n[150]\q[◇返回上一层,japanesestudy]"
+	"\0\b[2]\![quicksession,true]\![set,choicetimeout,0]請%(username)選擇級別\n[150]\q[◇N1-N2,OnJapaneseWord,5]\n\q[◇N3-N4,OnOnJapaneseWord,6]\n[150]\q[◇返回上一層,japanesestudy]"
 }
 OnJapaneseLevelKana{
 	_booknum=reference0
@@ -1338,15 +1338,15 @@ OnJapaneseWordLoad{
 	_j=TOINT(_j)
 	if !ISVAR('japhardword')
 		japhardword=IARRAY
-	_str ="第%(_a)课"
+	_str ="第%(_a)課"
 	_next = '第'
 	_file = 'DATA_PATH\vocabulary\Japanese\japanese.txt'
 	if _booknum==2
 		_file = 'DATA_PATH\vocabulary\Japanese\japanese2.txt'
 	if _booknum==4
-		_file = 'DATA_PATH\vocabulary\Japanese\大家的日语.txt'
+		_file = 'DATA_PATH\vocabulary\Japanese\大家的日語.txt'
 	if _booknum==5{
-		_file = 'DATA_PATH\vocabulary\Japanese\日语一级至四级词汇表.txt'
+		_file = 'DATA_PATH\vocabulary\Japanese\日語一級至四級詞彙表.txt'
 		_kana=('あ,い,う,え,お,か,き,く,け,こ,さ,し,す,せ,そ,た,ち,つ,て,と,な,に,ぬ,ね,の,は,ひ,ふ,へ,ほ,ま,み,む,め,も,や,　,ゆ,　,よ,ら,り,る,れ,ろ,わ')
 		//_booknum=reference0
 		_str=_kana[_a]
@@ -1372,13 +1372,13 @@ OnJapaneseWordLoad{
 	}
 	_book=''
 	if japworddaymode[2]==1
-		_book='新标日初级'
+		_book='新標日初級'
 	elseif japworddaymode[2]==2
-		_book='新标日中级'
+		_book='新標日中級'
 	elseif japworddaymode[2]==4
-		_book='大家的日语'
+		_book='大家的日語'
 	elseif japworddaymode[2]==5
-		_book='日语一级至四级词汇表'
+		_book='日語一級至四級詞彙表'
 	else
 		_book=SPLITPATH(_file)[2][0,'.txt']
 	_buff = ''
@@ -1394,10 +1394,10 @@ OnJapaneseWordLoad{
 					_t=SUBSTR(_buff[0,'	'],0,1)
 				if _str ==_t
 					_num++
-				elseif _booknum==7&&'-----' !_in_ _buff &&('〔' _in_ _buff || '	' _in_ _buff)&&'汉字	假名' !_in_ _buff
+				elseif _booknum==7&&'-----' !_in_ _buff &&('〔' _in_ _buff || '	' _in_ _buff)&&'漢字	假名' !_in_ _buff
 					_num++
 				_buff=REPLACE(_buff,'	','|')
-				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'汉字	假名' !_in_ _buff
+				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'漢字	假名' !_in_ _buff
 					_N++
 				_num++
 			}
@@ -1418,15 +1418,15 @@ OnJapaneseWordLoad{
 	else
 		_l=_num
 	_txt = '\b[2]\![quicksession,true]\![set,choicetimeout,0]\![set,autoscroll,false]'
-	_txt += "\q[◇返回,OnJapaneseWord,%(_booknum),%(_file)]     \q[◇终了,OnOpenMenu,1]\n"
-	_txt += _book+_str + '的内容：\n'
+	_txt += "\q[◇返回,OnJapaneseWord,%(_booknum),%(_file)]     \q[◇終了,OnOpenMenu,1]\n"
+	_txt += _book+_str + '的內容：\n'
 	if FOPEN(_file, 'r') {
 		_t=''
 		_txt+="/
-		\q[◇全部课程单词每天记,OnJapaneseWordLoadset,all,%(_a),%(_booknum),%(_file)]\n/
-		\q[◇1到此课单词每天记,OnJapaneseWordLoadset,1tothis,%(_a),%(_booknum),%(_file)]\n/
-		\q[◇只是此课单词每天记,OnJapaneseWordLoadset,this,%(_a),%(_booknum),%(_file)]\n[150]"
-		_txt+='点击单词加入难错单词本\n'
+		\q[◇全部課程單詞每天記,OnJapaneseWordLoadset,all,%(_a),%(_booknum),%(_file)]\n/
+		\q[◇1到此課單詞每天記,OnJapaneseWordLoadset,1tothis,%(_a),%(_booknum),%(_file)]\n/
+		\q[◇只是此課單詞每天記,OnJapaneseWordLoadset,this,%(_a),%(_booknum),%(_file)]\n[150]"
+		_txt+='點擊單詞加入難錯單詞本\n'
 		if _booknum==5||_booknum==6{
 			while (_buff = FREAD(_file))!= -1 && _str != _t{
 				_buff=REPLACE(_buff,']','\]')
@@ -1436,7 +1436,7 @@ OnJapaneseWordLoad{
 					_t=SUBSTR(_buff[0,'	'],0,1)
 				if TOLOWER(_t)==TOLOWER(_str)&&_j==1{
 					_buff=REPLACE(_buff,'	','|')
-					if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff{
+					if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff{
 						_txt += "\__q[OnJapaneseWordLoadset,addhardword,%(_a),%(_booknum),%(_buff)]"+_n+'.'+_buff + '\__q\n'
 						_n++
 					}
@@ -1452,7 +1452,7 @@ OnJapaneseWordLoad{
 		if _str ==_t&&(_booknum==5||_booknum==6){
 			if _j==1{
 				_buff=REPLACE(_buff,'	','|')
-				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff{
+				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff{
 					_txt += "\__q[OnJapaneseWordLoadset,addhardword,%(_a),%(_booknum),%(_buff)]"+_n+'.'+_buff + '\__q\n'
 					_n++
 				}
@@ -1462,14 +1462,14 @@ OnJapaneseWordLoad{
 			}
 			if _j==1{
 				_buff=REPLACE(_buff,'	','|')
-				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff{
+				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff{
 					_txt += "\__q[OnJapaneseWordLoadset,addhardword,%(_a),%(_booknum),%(_buff)]"+_n+'.'+_buff + '\__q\n'
 					_n++
 				}
 			}
 			while (_buff = FREAD(_file))!= -1&& _next != _t && _n<_l{
 				_buff=REPLACE(_buff,'	','|')
-				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff{
+				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff{
 					_txt += "\__q[OnJapaneseWordLoadset,addhardword,%(_a),%(_booknum),%(_buff)]"+_n+'.'+_buff + '\__q\n'
 					_n++
 				}
@@ -1481,7 +1481,7 @@ OnJapaneseWordLoad{
 			if _j==1{
 				_buff = FREAD(_file)
 				_buff=REPLACE(_buff,'	','|')
-				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff{
+				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff{
 					_txt += "\__q[OnJapaneseWordLoadset,addhardword,%(_a),%(_booknum),%(_buff)]"+_n+'.'+_buff + '\__q\n'
 					_n++
 				}
@@ -1491,14 +1491,14 @@ OnJapaneseWordLoad{
 			}
 			if _j==1{
 				_buff=REPLACE(_buff,'	','|')
-				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff{
+				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff{
 					_txt += "\__q[OnJapaneseWordLoadset,addhardword,%(_a),%(_booknum),%(_buff)]"+_n+'.'+_buff + '\__q\n'
 					_n++
 				}
 			}
 			while (_buff = FREAD(_file))!= -1&& _n<_l{
 				_buff=REPLACE(_buff,'	','|')
-				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff{
+				if '-----' !_in_ _buff &&('〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff{
 					_txt += "\__q[OnJapaneseWordLoadset,addhardword,%(_a),%(_booknum),%(_buff)]"+_n+'.'+_buff + '\__q\n'
 					_n++
 				}else
@@ -1553,7 +1553,7 @@ OnJapaneseWordLoad{
 	else
 		_Page+="\_l[30]\q[<<十,OnJapaneseWordLoad,%(_a),%(_booknum),%(_j-_wordnum*10),%(_file)]  \_l[230]\q[十>>,OnJapaneseWordLoad,%(_a),%(_booknum),%(_j+_wordnum*10),%(_file)]"
 	_txt+=_Page
-	_txt += "\n\q[◇返回,OnJapaneseWord,%(_booknum),%(_file)]        \q[◇终了,OnOpenMenu,1]"
+	_txt += "\n\q[◇返回,OnJapaneseWord,%(_booknum),%(_file)]        \q[◇終了,OnOpenMenu,1]"
 	_txt
 }
 OnJapWordDay{
@@ -1565,7 +1565,7 @@ OnJapWordDay{
 	_word=JapWordShuffle
 	_j=1
 	foreach _word;_i{
-		_txt+='■日语单词记忆■\n[150]'
+		_txt+='■日語單詞記憶■\n[150]'
 		_txt+=_j+'.'+_i+'\x'
 		_j++
 	}
@@ -1595,9 +1595,9 @@ OnJapWordToday{
 	if _argc>0
 		_booknum=_argv[0]
 	_txt='\0\![quicksession,true]\![set,choicetimeout,0]\b[2]'
-	_txt+='■今天记忆的单词■\n'
+	_txt+='■今天記憶的單詞■\n'
 	_j=1
-	_txt+="\q[◇刷新单词组,OnJapaneseWordLoadset,fresh,%(_booknum)]　　点击可朗读单词　　\q[◇全部朗读,OnJapWordToday,%(_booknum),readall]\n[150]"
+	_txt+="\q[◇刷新單詞組,OnJapaneseWordLoadset,fresh,%(_booknum)]　　點擊可朗讀單詞　　\q[◇全部朗讀,OnJapWordToday,%(_booknum),readall]\n[150]"
 	if japwordday!=day{
 		japwordday=day
 		japword=JapWordDay
@@ -1622,13 +1622,13 @@ OnJapWordToday{
 		_txt+=TxtToVoice(TOSTR(reference2),voicename)
 	if reference1=='readall'
 		_txt+=TxtToVoice(TOSTR(_t),voicename)
-	_txt += "\n\q[◇返回,OnJapaneseWord,%(_booknum),%(japworddaymode[3])]\n\q[◇终了,OnOpenMenu,1]"
+	_txt += "\n\q[◇返回,OnJapaneseWord,%(_booknum),%(japworddaymode[3])]\n\q[◇終了,OnOpenMenu,1]"
 	_txt
 }
 OnJapWordQuestion{
 	_txt='\0\![quicksession,true]\![set,choicetimeout,0]\b[2]'
-	_txt+='■今天记忆的单词测验■\n'
-	_txt+='\q[◇刷新单词组,OnJapaneseWordLoadset,fresh]\n[150]'
+	_txt+='■今天記憶的單詞測驗■\n'
+	_txt+='\q[◇刷新單詞組,OnJapaneseWordLoadset,fresh]\n[150]'
 	if reference0=='testvocnum'{
 		japworddaynum=50
 		japwordday=day
@@ -1706,12 +1706,12 @@ OnJapWordQuestion{
 		_miswordanswer=wordanswer
 		_select=_miswordanswer
 		_m=ARRAYSIZE(_select)
-		_temp=RAND(_m+1)//为使最后一项也有答案，要多一个随机值
-		_select[_temp]=(_wordanswer,_select[_temp])//将答案随机插入到错误答案前
-		_select[_m+1]=IARRAY//插入后要多一项，故要删除
+		_temp=RAND(_m+1)//為使最後一項也有答案，要多一個隨機值
+		_select[_temp]=(_wordanswer,_select[_temp])//將答案隨機插入到錯誤答案前
+		_select[_m+1]=IARRAY//插入後要多一項，故要刪除
 		_temp= _wordquestion[0,'.']+'.'
 		_wordquestion=REPLACE(_wordquestion,_temp,'')
-		_txt+='■日语单词测验■\n[150]'
+		_txt+='■日語單詞測驗■\n[150]'
 		_txt+=_i+1+'.'+_wordquestion+'\n'
 		_wordanswer=REPLACE(_wordanswer,'[','\[')
 		_wordanswer=REPLACE(_wordanswer,']','\]')
@@ -1726,7 +1726,7 @@ OnJapWordQuestion{
 		}
 	}
 	elseif _i==_n{
-		_txt+='测试结果：\n'
+		_txt+='測試結果：\n'
 		_rightnum=0
 		_wrongnum=0
 		foreach japwordright;_t{
@@ -1737,15 +1737,15 @@ OnJapWordQuestion{
 		}
 		_rate=_rightnum*100/(_rightnum+_wrongnum)
 		if _rate==100
-			_txt+="\0\s[5]啊，%(username)好棒,全对哦。\n"
+			_txt+="\0\s[5]啊，%(username)好棒,全對哦。\n"
 		elseif _rate>=80
-			_txt+="\0\s[5]不错哦，%(username)，成绩优良，其中，正解"+_rightnum+'题，错误'+_wrongnum+'题,正解率为'+_rate+"%\n"
+			_txt+="\0\s[5]不錯哦，%(username)，成績優良，其中，正解"+_rightnum+'題，錯誤'+_wrongnum+'題,正解率為'+_rate+"%\n"
 		elseif _rate>=60
-			_txt+="\0\s[5]及格了耶，%(username)，继续加油，其中，正解"+_rightnum+'题，错误'+_wrongnum+'题,正解率为'+_rate+"%\n"
+			_txt+="\0\s[5]及格了耶，%(username)，繼續加油，其中，正解"+_rightnum+'題，錯誤'+_wrongnum+'題,正解率為'+_rate+"%\n"
 		elseif _rate>=0
-			_txt+="\0\s[20]%(username)有好好学习吗，不及格呢，不过，别灰心哦。其中，正解"+_rightnum+'题，错误'+_wrongnum+'题,正解率为'+_rate+"%\n"
+			_txt+="\0\s[20]%(username)有好好學習嗎，不及格呢，不過，別灰心哦。其中，正解"+_rightnum+'題，錯誤'+_wrongnum+'題,正解率為'+_rate+"%\n"
 		if _wrongnum>0
-			_txt+='错误的单词为：\n'
+			_txt+='錯誤的單詞為：\n'
 		_j=0
 		foreach japword;_t{
 			if japwordright[_j]==1{
@@ -1759,12 +1759,12 @@ OnJapWordQuestion{
 			_j++
 		}
 		if japworddaynum==50
-			_txt+="%(username)当前的词汇量估计为%(_rate*buffnum/100)\n"
+			_txt+="%(username)當前的詞彙量估計為%(_rate*buffnum/100)\n"
 	}
 	japwordquestion=1
 	running='japwordquestion'
-	_txt+='\n[150]\q[◇重新测验,OnJapWordQuestion,testbegin]     \q[◇测验词汇量,OnJapWordQuestion,testvocnum]\n'
-	_txt+="\q[◇返回,OnJapaneseWord,%(japworddaymode[2]),%(japworddaymode[3])]\n\q[◇终了,OnOpenMenu,1]"
+	_txt+='\n[150]\q[◇重新測驗,OnJapWordQuestion,testbegin]     \q[◇測驗詞彙量,OnJapWordQuestion,testvocnum]\n'
+	_txt+="\q[◇返回,OnJapaneseWord,%(japworddaymode[2]),%(japworddaymode[3])]\n\q[◇終了,OnOpenMenu,1]"
 	_txt
 }
 ClearJapwordQuestionVar{
@@ -1877,13 +1877,13 @@ OnJapHardWord{
 		FCHARSET.default
 	}
 	_total=ARRAYSIZE(japhardword)
-	"\0\![quicksession,true]\![set,choicetimeout,0]\b[2]■%(username)的难错字本■\n"
+	"\0\![quicksession,true]\![set,choicetimeout,0]\b[2]■%(username)的難錯字本■\n"
 	--
 	if _total>0{
-		"点击单词将其删除\n/
+		"點擊單詞將其刪除\n/
 		\![*]\q[清空全部,OnJapaneseWordLoadset,clearhardword,%(_booknum)]\n/
-		\![*]\q[使用难错字本进行复习,OnJapaneseWordLoadset,learnhardword,%(_booknum)]\n/
-		\![*]\q[保存难错字本,OnJapHardWord,%(_booknum),save]\n"
+		\![*]\q[使用難錯字本進行複習,OnJapaneseWordLoadset,learnhardword,%(_booknum)]\n/
+		\![*]\q[保存難錯字本,OnJapHardWord,%(_booknum),save]\n"
 	}
 	--
 	_txt=''
@@ -1892,7 +1892,7 @@ OnJapHardWord{
 	}
 	_txt
 	--
-	"\n\q[◇返回,OnJapaneseWord,%(_booknum),%(_file)]\n\q[◇终了,OnOpenMenu,1]"
+	"\n\q[◇返回,OnJapaneseWord,%(_booknum),%(_file)]\n\q[◇終了,OnOpenMenu,1]"
 }
 JapWordDay{
 	_file = 'DATA_PATH\vocabulary\Japanese\japanese.txt'
@@ -1901,9 +1901,9 @@ JapWordDay{
 	elseif japworddaymode[2]==3
 		_file='PROFILE_PATH\japhardword.txt'
 	elseif japworddaymode[2]==4
-		_file = 'DATA_PATH\vocabulary\Japanese\大家的日语.txt'
+		_file = 'DATA_PATH\vocabulary\Japanese\大家的日語.txt'
 	elseif japworddaymode[2]==5
-		_file = 'DATA_PATH\vocabulary\Japanese\日语一级至四级词汇表.txt'
+		_file = 'DATA_PATH\vocabulary\Japanese\日語一級至四級詞彙表.txt'
 	elseif (japworddaymode[2]==6 || japworddaymode[2]==7) && FILEEXIST(japworddaymode[3])
 		_file = japworddaymode[3]
 	_word=IARRAY
@@ -1928,7 +1928,7 @@ JapWordDay{
 		elseif japworddaymode[0]==1{
 			_i =TOINT(japworddaymode[1])+1
 			_a=_i
-			_str="第%(_i)课"
+			_str="第%(_i)課"
 			if TOINT(japworddaymode[2])==5{
 				_kana=('あ,い,う,え,お,か,き,く,け,こ,さ,し,す,せ,そ,た,ち,つ,て,と,な,に,ぬ,ね,の,は,ひ,ふ,へ,ほ,ま,み,む,め,も,や,　,ゆ,　,よ,ら,り,る,れ,ろ,わ,-1')
 				_str=_kana[_a]
@@ -1964,9 +1964,9 @@ JapWordDay{
 			_buff = REPLACE(_buff,'	','|')
 			while _buff != -1 && ARRAYSIZE(_word)<japworddaynum &&ARRAYSIZE(_word)<buffnum{
 				_buff = REPLACE(_buff,'	','|')
-				if _buff!=''&& _temp/japworddaynum==RAND(buffnum/japworddaynum)&&('第' !_in_ _buff && '课' !_in_ _buff&&!_exlmode||'汉字  假名' !_in_ _buff&& _exlmode)&& ( '〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff
+				if _buff!=''&& _temp/japworddaynum==RAND(buffnum/japworddaynum)&&('第' !_in_ _buff && '課' !_in_ _buff&&!_exlmode||'漢字  假名' !_in_ _buff&& _exlmode)&& ( '〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff
 					_word,=_buff
-				if _buff!=''&& _temp/japworddaynum/4==RAND(buffnum/japworddaynum/4)&&('第' !_in_ _buff && '课' !_in_ _buff&&!_exlmode||'汉字  假名' !_in_ _buff&& _exlmode)&&'-----' !_in_ _buff &&( '〔' _in_ _buff || '|' _in_ _buff)&&'汉字  假名' !_in_ _buff
+				if _buff!=''&& _temp/japworddaynum/4==RAND(buffnum/japworddaynum/4)&&('第' !_in_ _buff && '課' !_in_ _buff&&!_exlmode||'漢字  假名' !_in_ _buff&& _exlmode)&&'-----' !_in_ _buff &&( '〔' _in_ _buff || '|' _in_ _buff)&&'漢字  假名' !_in_ _buff
 					_misword+=_buff+'$'
 				_buff = FREAD(_file)
 				_temp++
@@ -1977,8 +1977,8 @@ JapWordDay{
 	elseif japworddaymode[0]==2{
 		_a=TOINT(japworddaymode[1])
 		_i =TOINT(japworddaymode[1])+1
-		_str="第%(_a)课"
-		_next="第%(_i)课"
+		_str="第%(_a)課"
+		_next="第%(_i)課"
 		_exlmode=0
 		if TOINT(japworddaymode[2])==5{
 			_kana=('あ,い,う,え,お,か,き,く,け,こ,さ,し,す,せ,そ,た,ち,つ,て,と,な,に,ぬ,ね,の,は,ひ,ふ,へ,ほ,ま,み,む,め,も,や,　,ゆ,　,よ,ら,り,る,れ,ろ,わ')
@@ -2039,9 +2039,9 @@ JapWordDay{
 				while (_buff = FREAD(_file))!= -1 &&  (TOLOWER(_t)!=TOLOWER(_next)&&_exlmode||_next !_in_ _buff&&!_exlmode||_exlmode==3)&& ARRAYSIZE(_word)<japworddaynum &&ARRAYSIZE(_word)<buffnum{
 					_t=SUBSTR(_buff[1,'	'],0,1)
 					_buff = REPLACE(_buff,'	','|')
-					if _buff!=''&& _temp/japworddaynum==RAND(buffnum/japworddaynum)&&('第' !_in_ _buff && '课' !_in_ _buff&&!_exlmode||'汉字  假名' !_in_ _buff&& _exlmode)&&'-----' !_in_ _buff&& ( '〔' _in_ _buff || '|' _in_ _buff)
+					if _buff!=''&& _temp/japworddaynum==RAND(buffnum/japworddaynum)&&('第' !_in_ _buff && '課' !_in_ _buff&&!_exlmode||'漢字  假名' !_in_ _buff&& _exlmode)&&'-----' !_in_ _buff&& ( '〔' _in_ _buff || '|' _in_ _buff)
 						_word,=_buff
-					if _buff!=''&& _temp/japworddaynum/4==RAND(buffnum/japworddaynum/4)&&('第' !_in_ _buff && '课' !_in_ _buff&&!_exlmode||'汉字  假名' !_in_ _buff&& _exlmode)&&'-----' !_in_ _buff&& ( '〔' _in_ _buff || '|' _in_ _buff)
+					if _buff!=''&& _temp/japworddaynum/4==RAND(buffnum/japworddaynum/4)&&('第' !_in_ _buff && '課' !_in_ _buff&&!_exlmode||'漢字  假名' !_in_ _buff&& _exlmode)&&'-----' !_in_ _buff&& ( '〔' _in_ _buff || '|' _in_ _buff)
 						_misword+=_buff+'$'
 					_temp++
 				}
@@ -2065,24 +2065,24 @@ OntriggerBSOD{
 	bsod(reference0)
 }
 Select.newjapanese{
-	_txt = '\0\![quicksession,true]\![set,choicetimeout,0]\b[2]\s[40]请选择课程\n[150]'
+	_txt = '\0\![quicksession,true]\![set,choicetimeout,0]\b[2]\s[40]請選擇課程\n[150]'
 	_i = 0
 	for _i = 1 ; _i <= 48; _i ++ {
-		_a = "第%(_i)课"
+		_a = "第%(_i)課"
 		_txt += "\_l[%((_i - 1) % 3 * 100 + 24 )]"
 		_txt += "\q[%(_a),Onnewjapanese,%(_a)]"
 		if _i % 3 == 0 {
 			_txt += '\n'
 		}
 	}
-	_txt += '\n[150]\q[◇返回上一层,japanesestudy]\n\q[◇终了,OnOpenMenu,1]'
+	_txt += '\n[150]\q[◇返回上一層,japanesestudy]\n\q[◇終了,OnOpenMenu,1]'
 	_txt
 }
 Onnewjapanese{
 	_a = reference0
 	_str = _a
 	_next = '第'
-	_file = 'DATA_PATH\vocabulary\Japanese\新版标准日本语初级.txt'
+	_file = 'DATA_PATH\vocabulary\Japanese\新版標準日本語初級.txt'
 	_buff = ''
 	_txt = '\b[2]\![quicksession,true]\![set,choicetimeout,0]\![set,autoscroll,false]'
 	if FOPEN(_file, 'r') {
@@ -2091,7 +2091,7 @@ Onnewjapanese{
 			_buff = FREAD(_file)
 		}
 		if _str _in_ _buff {
-			_txt += _str + "的内容：\q[◇语音朗读,Onnewjapanese,%(_a),voice]\n\n"
+			_txt += _str + "的內容：\q[◇語音朗讀,Onnewjapanese,%(_a),voice]\n\n"
 			_buff = FREAD(_file)
 			while _buff != -1 && _next !_in_ _buff {
 				_txt += _buff + '\n'
@@ -2101,29 +2101,29 @@ Onnewjapanese{
 	}
 	if reference1=='voice'
 		_txt+=TxtToVoice(_txt,voicename)
-	_txt += '\n\q[◇返回,newjapanese]\n\q[◇终了,OnOpenMenu,1]'
+	_txt += '\n\q[◇返回,newjapanese]\n\q[◇終了,OnOpenMenu,1]'
 	_txt
 	FCLOSE(_file)
 }
 Select.oldjapanese{
-	_txt = '\0\![quicksession,true]\![set,choicetimeout,0]\b[2]\s[40]请选择课程\n[150]'
+	_txt = '\0\![quicksession,true]\![set,choicetimeout,0]\b[2]\s[40]請選擇課程\n[150]'
 	_i = 0
 	for _i = 1 ; _i <= 50; _i ++ {
-		_a = "第%(_i)课"
+		_a = "第%(_i)課"
 		_txt += "\_l[%((_i - 1) % 3 * 100 + 24 )]"
 		_txt += "\q[%(_a),Onoldjapanese,%(_i)]"
 		if _i % 3 == 0 {
 			_txt += '\n'
 		}
 	}
-	_txt += '\n[150]\q[◇返回上一层,japanesestudy]\n\q[◇终了,OnOpenMenu,1]'
+	_txt += '\n[150]\q[◇返回上一層,japanesestudy]\n\q[◇終了,OnOpenMenu,1]'
 	_txt
 }
 Onoldjapanese{
 	_a = reference0
-	_str = '标准日本语'+_a
-	_next = '标准日本语'
-	_file = 'DATA_PATH\vocabulary\Japanese\旧版标准日本语初级.txt'
+	_str = '標準日本語'+_a
+	_next = '標準日本語'
+	_file = 'DATA_PATH\vocabulary\Japanese\舊版標準日本語初級.txt'
 	_buff = ''
 	_txt = '\b[2]\![quicksession,true]\![set,choicetimeout,0]\![set,autoscroll,false] '
 	if FOPEN(_file, 'r') {
@@ -2132,7 +2132,7 @@ Onoldjapanese{
 			_buff = FREAD(_file)
 		}
 		if _str _in_ _buff {
-			_txt += _str + "的内容：\q[◇语音朗读,Onoldjapanese,%(_a),voice]\n\n"
+			_txt += _str + "的內容：\q[◇語音朗讀,Onoldjapanese,%(_a),voice]\n\n"
 			_buff = FREAD(_file)
 			while _buff != -1 && _next !_in_ _buff {
 				_txt += _buff + '\n'
@@ -2142,7 +2142,7 @@ Onoldjapanese{
 	}
 	if reference1=='voice'
 		_txt+=TxtToVoice(_txt,voicename)
-	_txt += '\n\q[◇返回,oldjapanese]\n\q[◇终了,OnOpenMenu,1]'
+	_txt += '\n\q[◇返回,oldjapanese]\n\q[◇終了,OnOpenMenu,1]'
 	_txt
 	FCLOSE(_file)
 }
@@ -2155,7 +2155,7 @@ autojeachday{
 	_i=_argv[0]
 	_str = _i + '.'
 	_next = _i + 1 + '.'
-	_file = 'DATA_PATH\vocabulary\Japanese\动漫日语每天一句.txt'
+	_file = 'DATA_PATH\vocabulary\Japanese\動漫日語每天一句.txt'
 	_buff = ''
 	_txt = '\1\s[10]\0\s[40]'
 	FCHARSET(1)
@@ -2165,7 +2165,7 @@ autojeachday{
 			_buff = FREAD(_file)
 		}
 		if _str _in_ _buff {
-			_txt +="动漫日语每天一句\n/
+			_txt +="動漫日語每天一句\n/
 			%(year)年第%(days)天、第%(_i)句\n\n"
 			_buff = FREAD(_file)
 			while _buff != -1 && _next !_in_ _buff {
@@ -2186,7 +2186,7 @@ Onacjeachday{
 		_i=1
 	_str = _i + '.'
 	_next = _i + 1 + '.'
-	_file = 'DATA_PATH\vocabulary\Japanese\动漫日语每天一句.txt'
+	_file = 'DATA_PATH\vocabulary\Japanese\動漫日語每天一句.txt'
 	_buff = ''
 	_txt = '\C\_q\c\b[2]\![quicksession,true]\![set,choicetimeout,0]\![set,autoscroll,false] '
 	_txt+='\q[◇今天的句子,Ondaysentence]\n'
@@ -2199,7 +2199,7 @@ Onacjeachday{
 			_buff = FREAD(_file)
 		}
 		if _str _in_ _buff {
-			_txt +="第%(_i)句的内容\n\n"
+			_txt +="第%(_i)句的內容\n\n"
 			_buff = FREAD(_file)
 			while _buff != -1 && _next !_in_ _buff {
 				_txt += _buff + '\n'
@@ -2218,11 +2218,11 @@ Onacjeachday{
 	elseif _i>1{
 		_txt +=  "\_l[-,250]\n\n\![*]\q[上一句,Onlastsentence,%(_i)]\_l[120,-]\![*]\q[第%(_i)句,Oninputsentence,%(_i)]\_l[240,-]\![*]\q[下一句,Onnextsentence,%(_i)]"
 	}
-	_txt += '\n[300]\q[◇返回上一层,japanesestudy]\n\q[◇终了,OnOpenMenu,1]'
+	_txt += '\n[300]\q[◇返回上一層,japanesestudy]\n\q[◇終了,OnOpenMenu,1]'
 	_txt
 }
 Oninputsentence{
-	"\![set,choicetimeout,0]共有210句，要看第几句？\![open,sliderinput,Onacjeachday,-1,%(reference0),1,210]\n/
+	"\![set,choicetimeout,0]共有210句，要看第幾句？\![open,sliderinput,Onacjeachday,-1,%(reference0),1,210]\n/
 	\n[150]/
 	\q[◇返回,Onacjeachday,%(reference0)]"
 }
@@ -2248,15 +2248,15 @@ On100SentencesInJapanese{
 	_j=1
 	_b=''
 	_v=''
-	_file = 'DATA_PATH\vocabulary\Japanese\日本语100句.txt'
-	_w='\C\![quicksession,true]\c\0\s[26]\b[2]\![set,choicetimeout,0]正在学习日语一百句，点击试听可以听到语句哦\n'
+	_file = 'DATA_PATH\vocabulary\Japanese\日本語100句.txt'
+	_w='\C\![quicksession,true]\c\0\s[26]\b[2]\![set,choicetimeout,0]正在學習日語一百句，點擊試聽可以聽到語句哦\n'
 	if reference0
 		_i=reference0
 	if reference1
 		_j=reference1
 	if _argv[1]
 		_j=_argv[1]
-	_mt = "\f[color,110,110,110] ◢ 只播放点击(当前状态)\_l[155,-]\f[color,100,10,220]\q[◥ 顺序播放,On100SentencesInJapanese_X,%(_i),%(_j)]\_l[240,-]\f[color,250,0,0]\q[■ 停止,On100SentencesInJapanese_s,,%(_j)]\f[default] \n[150] "
+	_mt = "\f[color,110,110,110] ◢ 只播放點擊(當前狀態)\_l[155,-]\f[color,100,10,220]\q[◥ 順序播放,On100SentencesInJapanese_X,%(_i),%(_j)]\_l[240,-]\f[color,250,0,0]\q[■ 停止,On100SentencesInJapanese_s,,%(_j)]\f[default] \n[150] "
 	if reference0 {
 		_v='\![sound,wait]'
 		_b=reference0
@@ -2264,7 +2264,7 @@ On100SentencesInJapanese{
 	if _argv[0] {
 		_v='\![sound,wait]'
 		_b=_argv[0]
-		_mt= "\f[color,100,10,220]\q[◢ 只播放点击,On100SentencesInJapanese_s]\_l[100,-]\f[color,110,110,110]◥ 顺序播放(当前状态)\_l[240,-]\f[color,250,0,0]\q[■ 停止,On100SentencesInJapanese_s,,%(_j)]\f[default] \n[150] "
+		_mt= "\f[color,100,10,220]\q[◢ 只播放點擊,On100SentencesInJapanese_s]\_l[100,-]\f[color,110,110,110]◥ 順序播放(當前狀態)\_l[240,-]\f[color,250,0,0]\q[■ 停止,On100SentencesInJapanese_s,,%(_j)]\f[default] \n[150] "
 	}
 	_w+="%(_mt)"
 	if FOPEN(_file, 'r'){
@@ -2276,7 +2276,7 @@ On100SentencesInJapanese{
 			_str =_i + '.'
 			_next =_i + 1 + '.'
 			if "%(_str)" _in_ _buff{
-				_w +="第%(_i)句的内容\f[color,194,243,99]\q[◇试听,On100SentencesInJapanese_s,%(_i),%(_j)]\f[default]\n"
+				_w +="第%(_i)句的內容\f[color,194,243,99]\q[◇試聽,On100SentencesInJapanese_s,%(_i),%(_j)]\f[default]\n"
 				if _b==_i
 					_v="\![sound,play,DATA_PATH\LearnJapanese\100_sentences_in_Japanese\%(_b).mp3]%(_v)"
 				_buff = FREAD(_file);  while _buff != -1 && "%(_next)" !_in_ _buff{
@@ -2290,10 +2290,10 @@ On100SentencesInJapanese{
 	}
 	_Page=''
 	if _j!=1
-		_Page+="\_l[0,320]\q[<<上一页,On100SentencesInJapanese,,%(_j-5)]\n"
+		_Page+="\_l[0,320]\q[<<上一頁,On100SentencesInJapanese,,%(_j-5)]\n"
 	if _j+7<64
-		_Page+="\_l[60,320]\q[下一页>>,On100SentencesInJapanese,,%(_j+5)]\n"
-	_w += _Page + "\n\q[◇返回上一层,japanesestudy]\n\q[◇终了,OnOpenMenu,1]\![quicksession,false]%(_v)"
+		_Page+="\_l[60,320]\q[下一頁>>,On100SentencesInJapanese,,%(_j+5)]\n"
+	_w += _Page + "\n\q[◇返回上一層,japanesestudy]\n\q[◇終了,OnOpenMenu,1]\![quicksession,false]%(_v)"
 	FCLOSE(_file)
 	_w
 }

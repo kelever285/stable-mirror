@@ -1,12 +1,12 @@
-/*拼图游戏1.1 by Pygmalion  --2009.8.27*/
+﻿/*拼圖遊戲1.1 by Pygmalion  --2009.8.27*/
 #define PUZZLE_PIC_SIZE		180
 #define FILE_PATH			DATA_PATH\Game\puzzle
-OnPuzzlePlay{//拼图开始
+OnPuzzlePlay{//拼圖開始
 	if QuickStartVersion{
 		NeedUpdate
 		return
 	}
-	DiscordCustomSet.CustomDetail('拼图')
+	DiscordCustomSet.CustomDetail('拼圖')
 	--
 	MapIdx = reference0
 	PUZZLE_X = reference1
@@ -18,38 +18,38 @@ OnPuzzlePlay{//拼图开始
 OnPuzzleList{
 	_txt = '\0\s[40]\b[2]\![set,autoscroll,false]'
 	_filelist = FENUM('FILE_PATH')
-	_txt += '选择图片和难度：\n[150]'
+	_txt += '選擇圖片和難度：\n[150]'
 	//_txt += _filelist
 	foreach _filelist; _tmp {
 		if _tmp[1,'.'] != '' && _tmp[1,'.'] == 'png' && _tmp != 'blank.png' && _tmp != 'border.png' && '_small' !_in_ _tmp {
-			_txt += "\q[◇简单,OnPuzzlePlay,%(_tmp),3]  \q[◇一般,OnPuzzlePlay,%(_tmp),4]  \q[◇困难,OnPuzzlePlay,%(_tmp),5]\n"
+			_txt += "\q[◇簡單,OnPuzzlePlay,%(_tmp),3]  \q[◇一般,OnPuzzlePlay,%(_tmp),4]  \q[◇困難,OnPuzzlePlay,%(_tmp),5]\n"
 			_icon = _tmp[0,'.'] + '_small.' + _tmp[1,'.']
 			_txt += "\_b[FILE_PATH/%(_icon),inline,--option=opaque]\n[150]"
 		}
 	}
-	_txt += '\n\n\q[◇返回游戏列表,OnOpenMenu,2]\n\q[◇终了,PuzzleEnd]\n[150]'
+	_txt += '\n\n\q[◇返回遊戲列表,OnOpenMenu,2]\n\q[◇終了,PuzzleEnd]\n[150]'
 	_txt
 }
-Select.PuzzleShow{//拼图进行
+Select.PuzzleShow{//拼圖進行
 	if _argv[0]==iPuzzleBlank+1 || _argv[0]==iPuzzleBlank-1 || _argv[0]==iPuzzleBlank+PUZZLE_X || _argv[0]==iPuzzleBlank-PUZZLE_X {
 		PlayPuzzleChange(_argv[0])
 		iPuzzleStep++
 	}
 	PlayPuzzleShow
 }
-Select.PuzzleEnd{//拼图结束
+Select.PuzzleEnd{//拼圖結束
 	ClearPlayPuzzleVar
-	'\0\s[0]不玩了吗？'
+	'\0\s[0]不玩了嗎？'
 }
-PlayPuzzleReset{//拼图初始化
+PlayPuzzleReset{//拼圖初始化
 	arrPuzzle = IARRAY
 	for _i = 0; _i < PUZZLE_X*PUZZLE_X; _i++ {
 		arrPuzzle[_i] = _i
 	}
 	iPuzzleBlank = PUZZLE_X*PUZZLE_X-1//空位位置
-	iPuzzleStep = 0//步数
+	iPuzzleStep = 0//步數
 }
-PlayPuzzleShow{//拼图显示
+PlayPuzzleShow{//拼圖顯示
 	'\C\![quicksession,true]\c'
 	--
 	_tempstr = ''
@@ -73,37 +73,37 @@ PlayPuzzleShow{//拼图显示
 		}
 		_tempstr = _tempstr + '\n'
 	}
-	if PlayPuzzleWin == 1 {//获胜
-		"\0\s[5]\b[2]拼图完成！共用了%(iPuzzleStep)步。\_l[14,26]\_b[FILE_PATH/%(MapIdx),inline,--option=opaque]"
+	if PlayPuzzleWin == 1 {//獲勝
+		"\0\s[5]\b[2]拼圖完成！共用了%(iPuzzleStep)步。\_l[14,26]\_b[FILE_PATH/%(MapIdx),inline,--option=opaque]"
 		--
-		"\n[150]%(username)好厉害～\n"
+		"\n[150]%(username)好厲害～\n"
 	}
 	else {
 		"\![set,choicetimeout,0]\![set,autoscroll,false]\0\s[40]\b[2]第%(iPuzzleStep)步\n[150]%(_tempstr)"
 		--
 		if ShowPuzzleMap {
-			'\n\q[◇关闭原图,OnShowPuzzleMap,0]\n[50]'
+			'\n\q[◇關閉原圖,OnShowPuzzleMap,0]\n[50]'
 			--
 			_icon = MapIdx[0,'.'] + '_small.' + MapIdx[1,'.']
 			"\n\_b[FILE_PATH/%(_icon),inline,--option=opaque]\n[150]"
 		}
 		else {
-			'\n\q[◇显示原图,OnShowPuzzleMap,1]\n[150]'
+			'\n\q[◇顯示原圖,OnShowPuzzleMap,1]\n[150]'
 		}
 	}
 	--
-	'\n\n\q[◇新游戏,OnPuzzleList]\n[150]\q[◇返回游戏列表,OnOpenMenu,2]\n\q[◇终了,PuzzleEnd]\n[150]'
+	'\n\n\q[◇新遊戲,OnPuzzleList]\n[150]\q[◇返回遊戲列表,OnOpenMenu,2]\n\q[◇終了,PuzzleEnd]\n[150]'
 }
 OnShowPuzzleMap{
 	ShowPuzzleMap = reference0
 	PlayPuzzleShow
 }
-PlayPuzzleChange{//拼图移动
+PlayPuzzleChange{//拼圖移動
 	arrPuzzle[iPuzzleBlank] = arrPuzzle[_argv[0]]
 	iPuzzleBlank = _argv[0]
 	arrPuzzle[iPuzzleBlank] = PUZZLE_X*PUZZLE_X-1
 }
-PlayPuzzleShuffle{//拼图打乱
+PlayPuzzleShuffle{//拼圖打亂
 	_step = RAND(500)
 	for _i = 0; _i < _step; _i++ {
 		_temp = RAND(4)//方向
@@ -117,7 +117,7 @@ PlayPuzzleShuffle{//拼图打乱
 			PlayPuzzleChange(iPuzzleBlank - 1)
 	}
 }
-PlayPuzzleWin{//判断获胜
+PlayPuzzleWin{//判斷獲勝
 	_temp = 1
 	for _i = 0; _i < PUZZLE_X*PUZZLE_X; _i++ {
 		if arrPuzzle[_i] != _i {
@@ -127,7 +127,7 @@ PlayPuzzleWin{//判断获胜
 	}
 	_temp
 }
-ClearPlayPuzzleVar:void{//消除变数
+ClearPlayPuzzleVar:void{//消除變數
 	ERASEVAR('MapIdx')
 	ERASEVAR('PUZZLE_SIZEX')
 	ERASEVAR('PUZZLE_X')

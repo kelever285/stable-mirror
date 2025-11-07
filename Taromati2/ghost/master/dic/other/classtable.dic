@@ -1,5 +1,5 @@
-///////////////////////////////////////////
-//////////课程表功能辞书 v2.0
+﻿///////////////////////////////////////////
+//////////課程表功能辭書 v2.0
 //////////written by forjane 2009.09.02
 ///////////////////////////////////////////
 ClassTableVarInit{
@@ -18,7 +18,7 @@ OnClassTable{
 	else {
 		ClassTableVarInit
 		classtableinitialized = 1
-		'\0\s[26]第一次使用课程表吗？\w9\w9\n点击课程可以查看和修改。\w9\w9那么，\w9先把课程填好吧…\w9…\w9\n\w9\w9\c'
+		'\0\s[26]第一次使用課程表嗎？\w9\w9\n點擊課程可以查看和修改。\w9\w9那麼，\w9先把課程填好吧…\w9…\w9\n\w9\w9\c'
 		--
 		ClassTable(0)
 	}
@@ -29,8 +29,8 @@ ClassTable{
 	_txt =''
 	_title = ''
 	_classtxt = '\n[550]'
-	_tempclassdata = '<无>'
-	_tempclassdetail = '<无>'
+	_tempclassdata = '<無>'
+	_tempclassdetail = '<無>'
 	_button1 = '添加'
 	_button2 = '添加'
 	if _argv[0] == 1 {
@@ -43,21 +43,21 @@ ClassTable{
 			_tempclassdetail = classdetail[classtime * 7 + classday]
 			_button2 = '修改'
 		}
-		_classtxt = '\n课程名称：                        ' + '\q[◇' + _button1 + '课程,OnSetClass,' + classtime +','+ classday + ']\n' + _tempclassdata + '\n[150]'
-		_classtxt += '备注（时间地点等）：         ' + '\q[◇' + _button2 + '备注,OnSetClassDetail,' + classtime +','+ classday + ']\n' + _tempclassdetail +'\n'
+		_classtxt = '\n課程名稱：                        ' + '\q[◇' + _button1 + '課程,OnSetClass,' + classtime +','+ classday + ']\n' + _tempclassdata + '\n[150]'
+		_classtxt += '備註（時間地點等）：         ' + '\q[◇' + _button2 + '備註,OnSetClassDetail,' + classtime +','+ classday + ']\n' + _tempclassdetail +'\n'
 	}
-	_outform = "\0\b[2]\s[40]\n\_q%(year)年%(month)月%(day)日（星期%(DayofWeek_w)） %(hour)点 %(minute)分\n[150]"
+	_outform = "\0\b[2]\s[40]\n\_q%(year)年%(month)月%(day)日（星期%(DayofWeek_w)） %(hour)點 %(minute)分\n[150]"
 	if classcollege == 1 {
 		_times = 6
-		_outform += '\q[◆大学模式,OnCheckCollege,1]・\q[◇中学模式,OnCheckCollege,0]   '
+		_outform += '\q[◆大學模式,OnCheckCollege,1]・\q[◇中學模式,OnCheckCollege,0]   '
 	}
 	else {
 		_times = 8
-		_outform += '\q[◇大学模式,OnCheckCollege,1]・\q[◆中学模式,OnCheckCollege,0]   '
+		_outform += '\q[◇大學模式,OnCheckCollege,1]・\q[◆中學模式,OnCheckCollege,0]   '
 	}
 	if classfullweek {
 		_days = 7
-		_title = '周一  周二  周三  周四  周五  \f[color,255,0,128]周六  周日\f[color,default]'
+		_title = '週一  週二  週三  週四  週五  \f[color,255,0,128]週六  周日\f[color,default]'
 		_outform += '\q[◆七天,OnCheckFullWeek,1]・\q[◇五天,OnCheckFullWeek,0]\n'
 	}
 	else {
@@ -85,12 +85,12 @@ ClassTable{
 	%(_title)\n──────────────────\n/
 	%(_txt)━━━━━━━━━━━━━━━━━━"
 	_outform += _classtxt
-	_outform += '\n\q[◇返回上一层,OnOpenMenu,0]\n/
-	\q[◇终了,OnClassEnd]\_q\![set,choicetimeout,0]'
+	_outform += '\n\q[◇返回上一層,OnOpenMenu,0]\n/
+	\q[◇終了,OnClassEnd]\_q\![set,choicetimeout,0]'
 	_outform
 }
 OnClassEnd{
-	'\0\s[5]好的。那么…学习上、也请多多加油喔。'
+	'\0\s[5]好的。那麼…學習上、也請多多加油喔。'
 }
 OnCheckFullWeek{
 	classfullweek = reference0
@@ -114,7 +114,7 @@ ModifyData{
 	}
 	if classfullweek == 1 {
 		if _txt == '' {
-			_txt = '<无>'
+			_txt = '<無>'
 			_posx = _argv[2] * 36 - 3
 		}
 		else {
@@ -124,7 +124,7 @@ ModifyData{
 	}
 	else {
 		if _txt == '' {
-			_txt = '<无>'
+			_txt = '<無>'
 			_posx = _argv[2] * 46 + 3
 		}
 		else {
@@ -144,7 +144,7 @@ OnSetClass{
 	_ampm = _when[classtime / (4 - 2 * classcollege)]
 	_num = _when[classtime % (4 - 2 * classcollege) + 3 + 4 * classcollege]
 	_temp = classdata[classtime * 7 + classday]
-	"\0\s[40]要修改星期%(_dayOfWeek[classday])" + _ampm + _num + "节课的内容吗？\n请输入课程名称（可以用“全称=缩写”格式来指定课程缩写，不指定缩写则默认显示前几个字符）…/
+	"\0\s[40]要修改星期%(_dayOfWeek[classday])" + _ampm + _num + "節課的內容嗎？\n請輸入課程名稱（可以用“全稱=縮寫”格式來指定課程縮寫，不指定縮寫則預設顯示前幾個字元）…/
 	\![open,inputbox,OnSetClassFinish,0,%(_temp)]"
 }
 OnSetClassDetail{
@@ -158,11 +158,11 @@ OnSetClassDetail{
 	if _temp != '' {
 		_temp = _temp[0,'=']
 		_temp2 = classdetail[classtime * 7 + classday]
-		"\0\s[40]要修改星期%(_dayOfWeek[classday])" + _ampm + _num + "节%(_temp)课的说明吗？\n[150]请输入课程说明（时间，地点，授课老师，注意事项等）…/
+		"\0\s[40]要修改星期%(_dayOfWeek[classday])" + _ampm + _num + "節%(_temp)課的說明嗎？\n[150]請輸入課程說明（時間，地點，授課老師，注意事項等）…/
 		\![open,inputbox,OnSetClassDetailFinish,0,%(_temp2)]"
 	}
 	else {
-		'\0\s[3]请先填好课程名称……\w9\w9\c'
+		'\0\s[3]請先填好課程名稱……\w9\w9\c'
 		--
 		ClassTable(1)
 	}
@@ -209,11 +209,11 @@ OnClassDetailTimeCheck{
 					_timeleft=secondnowtime(_hour,_minute,_second)
 					if (ABS(_timeleft-_timetick) <= classtimerm*60) && (_timeleft - _timetick>0){
 						_rmflag=1
-						_txt='马上开始上课咯。科目：'+classdata[_j * 7 + _i]+'，备注：'+classdetail[_j * 7 + _i]
+						_txt='馬上開始上課咯。科目：'+classdata[_j * 7 + _i]+'，備註：'+classdetail[_j * 7 + _i]
 					}
 					elseif (ABS(_timeleft-_timetick) <= classtimerm*60) && (_timeleft - _timetick<=0){
 						_rmflag=1
-						_txt='已经开始上课咯。科目：'+classdata[_j * 7 + _i]+'，备注：'+classdetail[_j * 7 + _i]
+						_txt='已經開始上課咯。科目：'+classdata[_j * 7 + _i]+'，備註：'+classdetail[_j * 7 + _i]
 					}
 				}
 			}

@@ -1,15 +1,15 @@
-///////////////////////////////////////////
-//////////游戏辞书
+﻿///////////////////////////////////////////
+//////////遊戲辭書
 //////////
 ///////////////////////////////////////////
-//OX游戏，by Pygmalion
+//OX遊戲，by Pygmalion
 //-------------------------------------------
 OnPlayOX{
 	arrOX = IARRAY
 	for _i = 0; _i < 9; _i++{
 		arrOX = (arrOX, 0)
 	}
-	'\0\s[40]来吧!\w9我可不会输的喔！\w9\w9\c'
+	'\0\s[40]來吧!\w9我可不會輸的喔！\w9\w9\c'
 	--
 	PlayOXshow(0)
 }
@@ -36,20 +36,20 @@ PlayOXshow{
 		_tempstr = _tempstr + '\n[90]'
 	}
 	switch _argv[0]{
-		"\_q\0\s[40]请%(username)走棋\n%(_tempstr)\n\q[◇不想玩了,OnOpenMenu,2]"
+		"\_q\0\s[40]請%(username)走棋\n%(_tempstr)\n\q[◇不想玩了,OnOpenMenu,2]"
 		{
-			"\_q\0\s[34]\n%(_tempstr)\n[half]\_q橘花输了。\n\w9\w9\1\s[13]危险的物品收起来\w8%(username)只是在跟你玩而已\w9\w9\0\s[0]\c喔……\w9\w9\n[150]\q[◇再来一盘,OnPlayOX]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\_q\0\s[7]\n%(_tempstr)\n[half]\_q\w9\w9%(username)……该不是作弊了吧……\w8\w8\w8\n[150]\q[◇再来一盘,OnPlayOX]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\_q\0\s[35]\n%(_tempstr)\n[half]\_q\n橘花不会气馁的！\w9\w9\s[41]\w9\w9\n[150]\q[◇再来一盘,OnPlayOX]\n\q[◇游戏结束,OnOpenMenu,2]"
+			"\_q\0\s[34]\n%(_tempstr)\n[half]\_q橘花輸了。\n\w9\w9\1\s[13]危險的物品收起來\w8%(username)只是在跟你玩而已\w9\w9\0\s[0]\c喔……\w9\w9\n[150]\q[◇再來一盤,OnPlayOX]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\_q\0\s[7]\n%(_tempstr)\n[half]\_q\w9\w9%(username)……該不是作弊了吧……\w8\w8\w8\n[150]\q[◇再來一盤,OnPlayOX]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\_q\0\s[35]\n%(_tempstr)\n[half]\_q\n橘花不會氣餒的！\w9\w9\s[41]\w9\w9\n[150]\q[◇再來一盤,OnPlayOX]\n\q[◇遊戲結束,OnOpenMenu,2]"
 		}
 		{
-			"\_q\0\s[6]\n%(_tempstr)\n[half]\_q\w9\w9平手,还玩吗？\n[150]\q[◇再来一盘,OnPlayOX]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\_q\0\s[23]\n%(_tempstr)\n[half]\_q\w9\w9和局,接下来以实力拼胜负吧……\n[150]\q[◇再来一盘,OnPlayOX]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\_q\0\s[3]\n%(_tempstr)\n[half]\_q\w9\w9不相上下呢……%(username)果然赢不了橘花。\n[150]\q[◇再来一盘,OnPlayOX]\n\q[◇游戏结束,OnOpenMenu,2]"
+			"\_q\0\s[6]\n%(_tempstr)\n[half]\_q\w9\w9平手,還玩嗎？\n[150]\q[◇再來一盤,OnPlayOX]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\_q\0\s[23]\n%(_tempstr)\n[half]\_q\w9\w9和局,接下來以實力拼勝負吧……\n[150]\q[◇再來一盤,OnPlayOX]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\_q\0\s[3]\n%(_tempstr)\n[half]\_q\w9\w9不相上下呢……%(username)果然贏不了橘花。\n[150]\q[◇再來一盤,OnPlayOX]\n\q[◇遊戲結束,OnOpenMenu,2]"
 		}
 		{
-			"\_q\0\s[5]\n%(_tempstr)\n[half]\_q\w9太好了,橘花赢了！博弈论的大胜利呢！\n[150]\q[◇再来一盘,OnPlayOX]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\_q\0\s[8]\n%(_tempstr)\n[half]\_q\w9\w9橘花赢了,%(username)的实力只有这样而已吗？\n[150]\q[◇再来一盘,OnPlayOX]\n\q[◇游戏结束,OnOpenMenu,2]"
+			"\_q\0\s[5]\n%(_tempstr)\n[half]\_q\w9太好了,橘花贏了！博弈論的大勝利呢！\n[150]\q[◇再來一盤,OnPlayOX]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\_q\0\s[8]\n%(_tempstr)\n[half]\_q\w9\w9橘花贏了,%(username)的實力只有這樣而已嗎？\n[150]\q[◇再來一盤,OnPlayOX]\n\q[◇遊戲結束,OnOpenMenu,2]"
 		}
 	}
 }
@@ -133,14 +133,14 @@ PlayOXover{
 	else
 		0
 }
-//OX游戏，by Pygmalion
+//OX遊戲，by Pygmalion
 //-------------------------------------------
 OnPlayMiniFive{
 	arrOX = IARRAY
 	for _i = 0; _i < 25; _i++ {
 		arrOX = (arrOX, 0)
 	}
-	'\0\s[40]\b[2]来吧!\w9我可不会输的喔！\w9\w9\c'
+	'\0\s[40]\b[2]來吧!\w9我可不會輸的喔！\w9\w9\c'
 	--
 	PlayMiniFiveshow(0)
 }
@@ -169,19 +169,19 @@ PlayMiniFiveshow{
 		_tempstr = _tempstr + '\n[90]'
 	}
 	switch _argv[0]{
-		"\0\s[40]请%(username)走棋\n%(_tempstr)\n\q[◇不想玩了,OnOpenMenu,2]";{
-			"\0\s[34]\n%(_tempstr)\n[half]\_q橘花输了。\n\w9\w9\1\s[13]危险的物品收起来\w8%(username)只是在跟你玩而已\w9\w9\0\s[0]\c喔……\w9\w9\n[150]\q[◇再来一盘,OnPlayMiniFive]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\0\s[7]\n%(_tempstr)\n[half]\_q\w9\w9%(username)……该不是作弊了吧……\w8\w8\w8\n[150]\q[◇再来一盘,OnPlayMiniFive]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\0\s[35]\n%(_tempstr)\n[half]\_q\n橘花不会气馁的！\w9\w9\s[41]\w9\w9\n[150]\q[◇再来一盘,OnPlayMiniFive]\n\q[◇游戏结束,OnOpenMenu,2]"
+		"\0\s[40]請%(username)走棋\n%(_tempstr)\n\q[◇不想玩了,OnOpenMenu,2]";{
+			"\0\s[34]\n%(_tempstr)\n[half]\_q橘花輸了。\n\w9\w9\1\s[13]危險的物品收起來\w8%(username)只是在跟你玩而已\w9\w9\0\s[0]\c喔……\w9\w9\n[150]\q[◇再來一盤,OnPlayMiniFive]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\0\s[7]\n%(_tempstr)\n[half]\_q\w9\w9%(username)……該不是作弊了吧……\w8\w8\w8\n[150]\q[◇再來一盤,OnPlayMiniFive]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\0\s[35]\n%(_tempstr)\n[half]\_q\n橘花不會氣餒的！\w9\w9\s[41]\w9\w9\n[150]\q[◇再來一盤,OnPlayMiniFive]\n\q[◇遊戲結束,OnOpenMenu,2]"
 		}
 		{
-			"\0\s[6]\n%(_tempstr)\n[half]\_q\w9\w9平手,还玩吗？\n[150]\q[◇再来一盘,OnPlayMiniFive]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\0\s[23]\n%(_tempstr)\n[half]\_q\w9\w9和局,接下来以实力拼胜负吧……\n[150]\q[◇再来一盘,OnPlayMiniFive]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\_q\0\s[3]\n%(_tempstr)\n[half]\_q\w9\w9不相上下呢……%(username)果然赢不了橘花。\n[150]\q[◇再来一盘,OnPlayMiniFive]\n\q[◇游戏结束,OnOpenMenu,2]"
+			"\0\s[6]\n%(_tempstr)\n[half]\_q\w9\w9平手,還玩嗎？\n[150]\q[◇再來一盤,OnPlayMiniFive]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\0\s[23]\n%(_tempstr)\n[half]\_q\w9\w9和局,接下來以實力拼勝負吧……\n[150]\q[◇再來一盤,OnPlayMiniFive]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\_q\0\s[3]\n%(_tempstr)\n[half]\_q\w9\w9不相上下呢……%(username)果然贏不了橘花。\n[150]\q[◇再來一盤,OnPlayMiniFive]\n\q[◇遊戲結束,OnOpenMenu,2]"
 		}
 		{
-			"\0\s[5]\n%(_tempstr)\n[half]\_q\w9太好了,橘花赢了！博弈论的大胜利呢！\n[150]\q[◇再来一盘,OnPlayMiniFive]\n\q[◇游戏结束,OnOpenMenu,2]"
-			"\0\s[8]\n%(_tempstr)\n[half]\_q\w9\w9橘花赢了,%(username)的实力只有这样而已吗？\n[150]\q[◇再来一盘,OnPlayMiniFive]\n\q[◇游戏结束,OnOpenMenu,2]"
+			"\0\s[5]\n%(_tempstr)\n[half]\_q\w9太好了,橘花贏了！博弈論的大勝利呢！\n[150]\q[◇再來一盤,OnPlayMiniFive]\n\q[◇遊戲結束,OnOpenMenu,2]"
+			"\0\s[8]\n%(_tempstr)\n[half]\_q\w9\w9橘花贏了,%(username)的實力只有這樣而已嗎？\n[150]\q[◇再來一盤,OnPlayMiniFive]\n\q[◇遊戲結束,OnOpenMenu,2]"
 		}
 	}
 }
@@ -269,14 +269,14 @@ PlayMiniFiveover{
 	else
 		0
 }
-//扑克游戏
+//撲克遊戲
 //--------------------------------------------------------------------------
 Poker.Init{
 	poker = IARRAY
 	_poker0 =('0,黑桃,♠,A','1,黑桃,♠,2','2,黑桃,♠,3','3,黑桃,♠,4','4,黑桃,♠,5','5,黑桃,♠,6','6,黑桃,♠,7','7,黑桃,♠,8','8,黑桃,♠,9','9,黑桃,♠,10','10,黑桃,♠,J','11,黑桃,♠,Q','12,黑桃,♠,K',/
-	'13,红心,♥,A','14,红心,♥,2','15,红心,♥,3','16,红心,♥,4','17,红心,♥,5','18,红心,♥,6','19,红心,♥,7','20,红心,♥,8','21,红心,♥,9','22,红心,♥,10','23,红心,♥,J','24,红心,♥,Q','25,红心,♥,K',/
+	'13,紅心,♥,A','14,紅心,♥,2','15,紅心,♥,3','16,紅心,♥,4','17,紅心,♥,5','18,紅心,♥,6','19,紅心,♥,7','20,紅心,♥,8','21,紅心,♥,9','22,紅心,♥,10','23,紅心,♥,J','24,紅心,♥,Q','25,紅心,♥,K',/
 	'26,梅花,♣,A','27,梅花,♣,2','28,梅花,♣,3','29,梅花,♣,4','30,梅花,♣,5','31,梅花,♣,6','32,梅花,♣,7','33,梅花,♣,8','34,梅花,♣,9','35,梅花,♣,10','36,梅花,♣,J','37,梅花,♣,Q','38,梅花,♣,K',/
-	'39,方块,♦,A','40,方块,♦,2','41,方块,♦,3','42,方块,♦,4','43,方块,♦,5','44,方块,♦,6','45,方块,♦,7','46,方块,♦,8','47,方块,♦,9','48,方块,♦,10','49,方块,♦,J','50,方块,♦,Q','51,方块,♦,K',/
+	'39,方塊,♦,A','40,方塊,♦,2','41,方塊,♦,3','42,方塊,♦,4','43,方塊,♦,5','44,方塊,♦,6','45,方塊,♦,7','46,方塊,♦,8','47,方塊,♦,9','48,方塊,♦,10','49,方塊,♦,J','50,方塊,♦,Q','51,方塊,♦,K',/
 	'52,鬼牌,,小王','53,鬼牌,,大王')
 	_begin = 0
 	_end = 0
@@ -290,7 +290,7 @@ Poker.Init{
 		when '黑桃' {
 			_end = 13
 		}
-		when '红心' {
+		when '紅心' {
 			_begin = 13
 			_end = 26
 		}
@@ -298,7 +298,7 @@ Poker.Init{
 			_begin = 26
 			_end = 39
 		}
-		when '方块' {
+		when '方塊' {
 			_begin = 39
 			_end = 52
 		}
@@ -345,9 +345,9 @@ Poker.Show{
 	_txt
 }
 OnBlackjack0{
-	'规则都知道吧'
-	'这个游戏不押赌注就不好玩了，\w9每一局￥50怎样？\w9拿到BlackJack2倍，五龙3倍喔！\w9'
-	'那么，\w9由橘花坐庄，\w9现在开始吧'
+	'規則都知道吧'
+	'這個遊戲不押賭注就不好玩了，\w9每一局￥50怎樣？\w9拿到BlackJack2倍，五龍3倍喔！\w9'
+	'那麼，\w9由橘花坐莊，\w9現在開始吧'
 	--
 	'\w9\w9\c'
 	--
@@ -358,14 +358,14 @@ OnBlackjack{
 	Blackjack
 }
 OnBlackjackRule{
-	"游戏规则就是一般的21点，\w5A表示1或11点，\w5J、Q和K则表示10点，\n/
-	游戏的目的就是尽量让手中的牌凑到21点，\w5但超过21点就变成爆牌，\w5\s[5]会直接出局喔。 \n/
-	\s[0]一开始先由斗和发一张暗牌给我们，\w5这张暗牌一直到游戏结束前都不会被对方看到。 \w5\n/
-	确认过暗牌后先由%(username)决定是否要继续抽牌，\w5一旦决定不抽牌之后也不能再抽喔！ \n/
-	如果我们都决定不抽牌就必须互相翻开暗牌计算彼此的点数，\w5\s[5]当然是点数较高又没爆牌的人获胜！ \n/
-	\s[0]除了爆牌或不抽牌会结束游戏之外，\w5如果我们其中一人的牌的点数加起来刚好是21点，\w5那就直接获胜了！ \n/
-	又或者其中一个人连续抽了五张牌都没有爆牌，\w5则称为五龙，\w5\s[5]一样是直接获胜喔！\n/
-	\n\q[◇新游戏,OnBlackjack,0]\n[150]\q[◇返回上一层,OnOpenMenu,2]\n\q[◇终了,OnBlackjackEnd]"
+	"遊戲規則就是一般的21點，\w5A表示1或11點，\w5J、Q和K則表示10點，\n/
+	遊戲的目的就是儘量讓手中的牌湊到21點，\w5但超過21點就變成爆牌，\w5\s[5]會直接出局喔。 \n/
+	\s[0]一開始先由鬥和發一張暗牌給我們，\w5這張暗牌一直到遊戲結束前都不會被對方看到。 \w5\n/
+	確認過暗牌後先由%(username)決定是否要繼續抽牌，\w5一旦決定不抽牌之後也不能再抽喔！ \n/
+	如果我們都決定不抽牌就必須互相翻開暗牌計算彼此的點數，\w5\s[5]當然是點數較高又沒爆牌的人獲勝！ \n/
+	\s[0]除了爆牌或不抽牌會結束遊戲之外，\w5如果我們其中一人的牌的點數加起來剛好是21點，\w5那就直接獲勝了！ \n/
+	又或者其中一個人連續抽了五張牌都沒有爆牌，\w5則稱為五龍，\w5\s[5]一樣是直接獲勝喔！\n/
+	\n\q[◇新遊戲,OnBlackjack,0]\n[150]\q[◇返回上一層,OnOpenMenu,2]\n\q[◇終了,OnBlackjackEnd]"
 }
 Blackjack{
 	kikkascard = (2,1,0,0,0,poker[0],poker[2])
@@ -375,8 +375,8 @@ Blackjack{
 }
 BlackjackShow{
 	_txt = '\_q'+BlackjackJudge
-	_txt += '\n[150]\q[◇新游戏,OnBlackjack]    \q[◇游戏规则,OnBlackjackRule]\n\q[◇返回上一层,OnOpenMenu,2]\n\q[◇终了,OnBlackjackEnd]'
-	_txt += "\_l[0,0]橘花的牌：(%(kikkascard[3])点)\n"
+	_txt += '\n[150]\q[◇新遊戲,OnBlackjack]    \q[◇遊戲規則,OnBlackjackRule]\n\q[◇返回上一層,OnOpenMenu,2]\n\q[◇終了,OnBlackjackEnd]'
+	_txt += "\_l[0,0]橘花的牌：(%(kikkascard[3])點)\n"
 	for _i = 0; _i < kikkascard[0]; _i ++ {
 		if kikkascard[1] == 1 && _i == 0 {
 			_txt += '暗牌   '
@@ -385,7 +385,7 @@ BlackjackShow{
 			_txt += "\_l[%(_i * 36)]" + Poker.Show(kikkascard[_i + 5],'cs')
 		}
 	}
-	_txt += "\n[150]你的牌：(%(yourcard[3])点)\n"
+	_txt += "\n[150]你的牌：(%(yourcard[3])點)\n"
 	for _i = 0; _i < yourcard[0]; _i ++ {
 		if yourcard[1] == 1 && _i == 0 {
 			_txt += '暗牌   '
@@ -404,20 +404,20 @@ BlackjackJudge{
 		if kikkascard[2] <= 21 && kikkascard[0] == 5 {
 			money -= 3 * 50
 			kikkascard[1] = 0
-			'\0\s[40]耶！橘花五龙了！！'
+			'\0\s[40]耶！橘花五龍了！！'
 		}
 		elseif kikkascard[2] == 21 && kikkascard[0] == 2 {
 			money -= 2 * 50
 			kikkascard[1] = 0
-			'\0\s[40]BlackJack！橘花获胜了！'
+			'\0\s[40]BlackJack！橘花獲勝了！'
 		}
 		elseif yourcard[2] <= 21 && yourcard[0] == 5 {
 			money += 3 * 50
-			"\0\s[9]五龙！%(username)获胜了。"
+			"\0\s[9]五龍！%(username)獲勝了。"
 		}
 		elseif yourcard[2] == 21 && yourcard[0] == 2 {
 			money += 2 * 50
-			"\0\s[9]讨厌，%(username)抽到BlackJack获胜了。"
+			"\0\s[9]討厭，%(username)抽到BlackJack獲勝了。"
 		}
 		elseif yourcard[2] == 21 && yourcard[4] == 0 || kikkascard[2] == 21 {
 			'\q[◇停手,OnBlackjackStand]'
@@ -433,34 +433,34 @@ BlackjackJudge{
 	else {
 		if kikkascard[2] <= 21 && kikkascard[0] == 5 {
 			money -= 3 * 50
-			'\0\s[40]耶！橘花五龙了！！'
+			'\0\s[40]耶！橘花五龍了！！'
 		}
 		elseif kikkascard[2] == 21 && kikkascard[0] == 2 {
 			money -= 2 * 50
-			'\0\s[40]BlackJack！橘花获胜了！'
+			'\0\s[40]BlackJack！橘花獲勝了！'
 		}
 		elseif kikkascard[2] > 21 {
 			money += 50
 			'\0\s[3]555……橘花爆牌了。'
 		}
 		elseif kikkascard[2] == yourcard[2] {
-			'\0\s[5]看来我们的点数都一样大呢！'
+			'\0\s[5]看來我們的點數都一樣大呢！'
 		}
 		elseif kikkascard[2] == 21 {
 			money -= 50
-			'\0\s[41]咦？我刚好21点！'
+			'\0\s[41]咦？我剛好21點！'
 		}
 		elseif yourcard[2] == 21 {
 			money += 50
-			"\0\s[7]啊！%(username)刚好21点！"
+			"\0\s[7]啊！%(username)剛好21點！"
 		}
 		elseif kikkascard[2] > yourcard[2] {
 			money -= 50
-			'\0\s[20]好像是我的点数比较大呢！'
+			'\0\s[20]好像是我的點數比較大呢！'
 		}
 		elseif kikkascard[2] < yourcard[2] {
 			money += 50
-			"\0\s[30]%(username)的点数比较大呢……"
+			"\0\s[30]%(username)的點數比較大呢……"
 		}
 	}
 }
@@ -537,21 +537,21 @@ ShowMoney{
 	_y = _argv[1]
 	"\_l[%(_x),%(_y)]"
 	--
-	ColorText("金钱：￥%(money)",'bold,color=244,190,0')
+	ColorText("金錢：￥%(money)",'bold,color=244,190,0')
 	--
 }
 OnBlackjackEnd{
 	ERASEVAR('poker')
 	ERASEVAR('kikkascard')
 	ERASEVAR('yourcard')
-	'\s[26]不玩了吗？'
+	'\s[26]不玩了嗎？'
 }
 //猜拳 by 朔№九尾
 //--------------------------------------------------------------------------
 OnHandGame{
 	"\0\s[40]%(username)要跟橘花玩猜拳?\w9\w9...好啊!\w9\w9\c\w9\w9出拳吧!\n\n/
 	\q[◇剪刀,ShowHand,0]\n/
-	\q[◇石头,ShowHand,1]\n/
+	\q[◇石頭,ShowHand,1]\n/
 	\q[◇布,ShowHand,2]\n"
 }
 Select.ShowHand{
@@ -560,54 +560,54 @@ Select.ShowHand{
 	--
 	switch _i{
 		'剪刀\n\w9'
-		'石头\n\w9'
+		'石頭\n\w9'
 		'布\n\w9'
 	}
 	--
 	switch (3 + _i - _argv[0])%3{
 		{
-			"\0\s[33]%(username)跟我一样呢\w9\w9\1\s[11]是%(username)让你的\w9\w9\0\s[26]\n是吗?\w9\w9"
-			"\0\s[33]%(username)跟我一样呢\w9\w9\1\s[11]是%(username)让你的\w9\w9\0\s[29]\n就算是这样我也很高兴呢\w9\w9"
-			"\1\s[10]你们真有默契\w9\w9\w9\0\s[1].....哪...哪有\w9\w9只是碰巧的,对不对%(username)\w9\w9"
+			"\0\s[33]%(username)跟我一樣呢\w9\w9\1\s[11]是%(username)讓你的\w9\w9\0\s[26]\n是嗎?\w9\w9"
+			"\0\s[33]%(username)跟我一樣呢\w9\w9\1\s[11]是%(username)讓你的\w9\w9\0\s[29]\n就算是這樣我也很高興呢\w9\w9"
+			"\1\s[10]你們真有默契\w9\w9\w9\0\s[1].....哪...哪有\w9\w9只是碰巧的,對不對%(username)\w9\w9"
 			'\1\平手'
 		}
 		{
-			"\0\s[5]橘花赢了!好高兴喔~\w9\w9\1\s[12]今天运气不好喔!\0\s[6]\n谢谢你%(username)\w9\w9"
-			"\1\s[10]....\w8....\w8....\w8...\0\s[40]加油!\w8\w8下一次%(username)会赢我喔!\w8\w8\1\s[11]这是败北宣言吗?\w8\w8\0\s[9]\c\n才不是呢\w9\w9"
-			"\0\s[41]橘花赢了!\w9\s[41]%(username)要加油喔!\w9\w9\1\s[10]该不会是作...\0\s[32]\c作什么?\w9\w9\n\1\s[13]\c没...没事\w9\w9"
-			"\0\%(username)输了\n\1\s[10]展现你的实力给我看吧!\w9\w9\0\q[◇继续玩,P1]\n\q[◇不用了,P2]"
+			"\0\s[5]橘花贏了!好高興喔~\w9\w9\1\s[12]今天運氣不好喔!\0\s[6]\n謝謝你%(username)\w9\w9"
+			"\1\s[10]....\w8....\w8....\w8...\0\s[40]加油!\w8\w8下一次%(username)會贏我喔!\w8\w8\1\s[11]這是敗北宣言嗎?\w8\w8\0\s[9]\c\n才不是呢\w9\w9"
+			"\0\s[41]橘花贏了!\w9\s[41]%(username)要加油喔!\w9\w9\1\s[10]該不會是作...\0\s[32]\c作什麼?\w9\w9\n\1\s[13]\c沒...沒事\w9\w9"
+			"\0\%(username)輸了\n\1\s[10]展現你的實力給我看吧!\w9\w9\0\q[◇繼續玩,P1]\n\q[◇不用了,P2]"
 		}
 		{
-			"\0\s[34]橘花输了\w9\w9\1\s[13]危险的物品收起来\w8%(username)只是在跟你玩而已\w9\w9\0\s[0]\c喔....\w9\w9"
-			"\1\s[11]%(username)果然很强啊\w9\w9\0\s[1]嗯..\w8..\w8\w8\w8"
-			"\0\s[26]%(username)很强呢\w9\w9\1\s[12]这才是%(username)的实力\w9\w9\0\s[8]\n是这样吗\w9\w9"
-			'\0\s[35]橘花不会气馁的\w9\w9\s[41]\w9\w9'
+			"\0\s[34]橘花輸了\w9\w9\1\s[13]危險的物品收起來\w8%(username)只是在跟你玩而已\w9\w9\0\s[0]\c喔....\w9\w9"
+			"\1\s[11]%(username)果然很強啊\w9\w9\0\s[1]嗯..\w8..\w8\w8\w8"
+			"\0\s[26]%(username)很強呢\w9\w9\1\s[12]這才是%(username)的實力\w9\w9\0\s[8]\n是這樣嗎\w9\w9"
+			'\0\s[35]橘花不會氣餒的\w9\w9\s[41]\w9\w9'
 		}
 	}
 	--
-	"\n\0\s[40]再玩一次吧%(username)\n[150]\q[◇好,P1]\n\q[◇返回上一层,OnOpenMenu,2]\n\q[◇终了,P2]"
+	"\n\0\s[40]再玩一次吧%(username)\n[150]\q[◇好,P1]\n\q[◇返回上一層,OnOpenMenu,2]\n\q[◇終了,P2]"
 }
 Select.P1{
 	'\0\s[0]\w9\w9出拳吧!\n\n/
 	\q[◇剪刀,ShowHand,0]\n/
-	\q[◇石头,ShowHand,1]\n/
+	\q[◇石頭,ShowHand,1]\n/
 	\q[◇布,ShowHand,2]\n/
 	\q[◇不用了,P2]'
 }
 Select.P2{
 	"\0\s[26]%(username)不想玩了?"
 	'\1\s[10]不想玩了\w9 嘎! '
-	'\0\s[0]游戏结束'
-	'\1\s[11]游戏结束'
+	'\0\s[0]遊戲結束'
+	'\1\s[11]遊戲結束'
 }
-//猜数字
+//猜數字
 //--------------------------------------------------------------------------
 OnGuessNumber{
 	gn = IARRAY
 	gn[0] = 0
 	while (gn[1] = GuessNumberCheck(TOSTR(RAND(10000)))) == 0 {
 	}
-	'\b[2]\s[0]嗯\w9…\w9…\w9橘花已经想好要猜的数了。\w9那么，\w9'
+	'\b[2]\s[0]嗯\w9…\w9…\w9橘花已經想好要猜的數了。\w9那麼，\w9'
 	--
 	GuessNumber
 }
@@ -640,7 +640,7 @@ GuessNumberShow{
 		_txt += _tmp[0] + '         ' + _tmp[1] + '\n'
 	}
 	if _n > 0 {
-		_txt = '\_q猜数记录    结果\n' + _txt + '\n[150]\_q'
+		_txt = '\_q猜數記錄    結果\n' + _txt + '\n[150]\_q'
 	}
 	_txt
 }
@@ -664,13 +664,13 @@ GuessNumberCal{
 GuessNumber{
 	GuessNumberShow
 	--
-	'请输入你猜测的四位数：\n[250]\q[◇返回上一层,OnOpenMenu,2]\n\q[◇终了,OnGuessNumberEnd]\![open,inputbox,OnGuessNumberInput,0]\x'
+	'請輸入你猜測的四位數：\n[250]\q[◇返回上一層,OnOpenMenu,2]\n\q[◇終了,OnGuessNumberEnd]\![open,inputbox,OnGuessNumberInput,0]\x'
 }
 OnGuessNumberInput{
 	_tmp = 0
-	_menu = '\_q\n[250]\q[◇继续玩,OnGuessNumber]\n[150]\q[◇返回上一层,OnOpenMenu,2]\n\q[◇终了,OnGuessNumberEnd]\_q'
+	_menu = '\_q\n[250]\q[◇繼續玩,OnGuessNumber]\n[150]\q[◇返回上一層,OnOpenMenu,2]\n\q[◇終了,OnGuessNumberEnd]\_q'
 	if (_tmp = GuessNumberCheck(reference0)) == 0{
-		'输入的数据无效…\w9…\w9\c'
+		'輸入的資料無效…\w9…\w9\c'
 		--
 		GuessNumber
 	}
@@ -680,12 +680,12 @@ OnGuessNumberInput{
 		if GuessNumberCal == '4A0B'{
 			case gn[0]{
 				when 1{
-					"\s[2]哇！一猜就中，\w9%(username)和我心有灵犀呢！！\w9\1\s[12]运气而已……\w9\0"
+					"\s[2]哇！一猜就中，\w9%(username)和我心有靈犀呢！！\w9\1\s[12]運氣而已……\w9\0"
 					--
 					_menu
 				}
 				when 2,3,4,5,6{
-					"\s[5]Bingo！只用了%(gn[0])次就猜中了呢，\w9%(username)好厉害！！\w9"
+					"\s[5]Bingo！只用了%(gn[0])次就猜中了呢，\w9%(username)好厲害！！\w9"
 					--
 					_menu
 				}
@@ -703,19 +703,19 @@ OnGuessNumberInput{
 }
 OnGuessNumberEnd{
 	ERASEVAR('gn')
-	'\s[0]不玩了吗？'
+	'\s[0]不玩了嗎？'
 }
-//------------------------双色球 by fancyang------------------------------------------------
+//------------------------雙色球 by fancyang------------------------------------------------
 OnDoubleColorBall{
 	if QuickStartVersion{
 		NeedUpdate
 		return
 	}
 	_txt=''
-	_txt+="\0\b[2]\s[2]\![set,choicetimeout,0]\_q什么，%(username)有玩双色球，那么让我们测试一下双色球的中奖情况吧，双色球玩法%(username)知道吧，双色球由红球和蓝球两部份组成，从33个红球号码(01~33)中选择6个，再从16个蓝球号码(01~16)中选择1个。开奖时，在红色球中随机摇出六个红号，在蓝色球中随机摇出一个蓝号。这游戏分为测试与正式投注，测试投注时不会产生金钱增减。正试投注一次花费2金钱。要选择哪种？\n/
-	\q[◇测试投注,OnBallMode,0]\n/
-	\q[◇正试投注,OnBallMode,1]\n/
-	\n[300]\q[◇返回上一层,OnOpenMenu,1]     \q[◇结束,OnEndDoubleColorBall]"
+	_txt+="\0\b[2]\s[2]\![set,choicetimeout,0]\_q什麼，%(username)有玩雙色球，那麼讓我們測試一下雙色球的中獎情況吧，雙色球玩法%(username)知道吧，雙色球由紅球和藍球兩部份組成，從33個紅球號碼(01~33)中選擇6個，再從16個藍球號碼(01~16)中選擇1個。開獎時，在紅色球中隨機搖出六個紅號，在藍色球中隨機搖出一個藍號。這遊戲分為測試與正式投注，測試投注時不會產生金錢增減。正試投注一次花費2金錢。要選擇哪種？\n/
+	\q[◇測試投注,OnBallMode,0]\n/
+	\q[◇正試投注,OnBallMode,1]\n/
+	\n[300]\q[◇返回上一層,OnOpenMenu,1]     \q[◇結束,OnEndDoubleColorBall]"
 	_txt
 }
 OnBallMode{
@@ -723,10 +723,10 @@ OnBallMode{
 	ball=IARRAY
 	bball=IARRAY
 	_txt=''
-	_txt+='要自选还是机选？\n/
-	\q[◇自选,SelfSelect]\n/
-	\q[◇机选,ComSelect]\n/
-	\n[300]\q[◇返回上一层,OnDoubleColorBall]     \q[◇结束,OnEndDoubleColorBall]'
+	_txt+='要自選還是機選？\n/
+	\q[◇自選,SelfSelect]\n/
+	\q[◇機選,ComSelect]\n/
+	\n[300]\q[◇返回上一層,OnDoubleColorBall]     \q[◇結束,OnEndDoubleColorBall]'
 	_txt
 }
 Select.SelfSelect{
@@ -739,12 +739,12 @@ Select.ComSelect{
 }
 OnEndDoubleColorBall{
 	ERASEVAR('Selectmode')
-	'\0\s[26]不玩了吗，要玩时再叫橘花哦。'
+	'\0\s[26]不玩了嗎，要玩時再叫橘花哦。'
 }
 OnDeluxeBall{
 	_txt='\C\_q\c\0\s[26]\![set,choicetimeout,0]\b[2]'
-	_txt+=	'\q[◇自选,SelfSelect]/
-	\_l[100,-]\q[◇机选,ComSelect]\n'
+	_txt+=	'\q[◇自選,SelfSelect]/
+	\_l[100,-]\q[◇機選,ComSelect]\n'
 	_redball=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33)
 	_blueball=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
 	_comball=IARRAY
@@ -770,8 +770,8 @@ OnDeluxeBall{
 	_k=RAND(16)
 	_comball[6]=_blueball[_k]
 	if Selectmode==0{
-		_txt+='请选择复式号码\n'
-		_txt+='红球\n'
+		_txt+='請選擇複式號碼\n'
+		_txt+='紅球\n'
 		for _i = 0 ; _i < 33; _i ++ {
 			_a = _redball[_i]
 			_txt += "\f[cursorstyle,none]\_l[%(_i%9*30 + 21 )]\__q[OnDeluxeBall,AR,%(_a)]\_b[DATA_PATH\Game\RGB_Balls\BallRed16.png,inline]\_l[%(_i%9*30 + 23 )]%(_a)\__q\f[cursorstyle,default]"
@@ -779,7 +779,7 @@ OnDeluxeBall{
 				_txt += '\n[130]'
 			}
 		}
-		_txt+='\n蓝球\n'
+		_txt+='\n藍球\n'
 		for _i = 0 ; _i < 16; _i ++ {
 			_a = _blueball[_i]
 			_txt += "\f[cursorstyle,none]\_l[%(_i%9*30 + 21 )]\__q[OnDeluxeBall,AB,%(_a)]\_b[DATA_PATH\Game\RGB_Balls\BallBlue16.png,inline]\_l[%(_i%9*30 + 23 )]%(_a)\__q\f[cursorstyle,default]"
@@ -789,8 +789,8 @@ OnDeluxeBall{
 		}
 	}
 	else{
-		_txt+='请选择号码数量\n'
-		_txt+='红球数量\n'
+		_txt+='請選擇號碼數量\n'
+		_txt+='紅球數量\n'
 		for _i = 5 ; _i < 20; _i ++ {
 			_a = _redball[_i]
 			_txt += "\f[cursorstyle,none]\_l[%(_i%9*30 + 21 )]\__q[OnDeluxeBall,CR,%(_a)]\_b[DATA_PATH\Game\RGB_Balls\BallRed16.png,inline]\_l[%(_i%9*30 + 23 )]%(_a)\__q\f[cursorstyle,default]"
@@ -798,7 +798,7 @@ OnDeluxeBall{
 				_txt += '\n[130]'
 			}
 		}
-		_txt+='\n蓝球数量\n'
+		_txt+='\n藍球數量\n'
 		for _i = 0 ; _i < 16; _i ++ {
 			_a = _blueball[_i]
 			_txt += "\f[cursorstyle,none]\_l[%(_i%9*30 + 21 )]\__q[OnDeluxeBall,CB,%(_a)]\_b[DATA_PATH\Game\RGB_Balls\BallBlue16.png,inline]\_l[%(_i%9*30 + 23 )]%(_a)\__q\f[cursorstyle,default]"
@@ -887,8 +887,8 @@ OnDeluxeBall{
 	else
 		_a=Arrang(_rs,_rs-6)
 	_p=_a*_bs
-	_txt+="\n红球数：%(_rs) 个    蓝球数：%(_bs) 个  方案注数：%(TOINT(_p))  方案金额：%(TOINT(2*_p)) 元"
-	_txt+='\n已选红球：[点击号码可取消选择]\n'
+	_txt+="\n紅球數：%(_rs) 個    藍球數：%(_bs) 個  方案注數：%(TOINT(_p))  方案金額：%(TOINT(2*_p)) 元"
+	_txt+='\n已選紅球：[點擊號碼可取消選擇]\n'
 	for _i=0;_i<_rs;_i++{
 		if ball[_i]!=NULL{
 			_txt += "\f[cursorstyle,none]\_l[%(_i%9*30 + 21 )]\__q[OnDeluxeBall,DR,%(ball[_i])]\_b[DATA_PATH\Game\RGB_Balls\BallRed16.png,inline]\_l[%(_i%9*30 + 23 )]%(ball[_i])\__q\f[cursorstyle,default]"
@@ -896,7 +896,7 @@ OnDeluxeBall{
 				_txt += '\n[130]'
 		}
 	}
-	_txt+='\n已选蓝球：[点击号码可取消选择]\n'
+	_txt+='\n已選藍球：[點擊號碼可取消選擇]\n'
 	for _i=0;_i<_bs;_i++{
 		if bball[_i] {
 			_txt += "\f[cursorstyle,none]\_l[%(_i%9*30 + 21 )]\__q[OnDeluxeBall,DB,%(bball[_i])]\_b[DATA_PATH\Game\RGB_Balls\BallBlue16.png,inline]\_l[%(_i%9*30 + 23 )]%(bball[_i])\__q\f[cursorstyle,default]"
@@ -905,69 +905,69 @@ OnDeluxeBall{
 		}
 	}
 	if _rs>=6 && _bs>=1
-		_txt+="\n下面是中奖情况。\n/
-		\_l[0,-]中6+1：1A+%(_bs-1)B+%(SumUp(_rs-6,18000,21000,3200,275,105,35,5)+SumUp(_rs-6,1200,1350,150)*(_bs-1)) \n     \_l[100,-](%(_bs*Arrang(_rs,6))种可能性，概率约为1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,6)))\n/
-		\_l[0,-]中6+0：%(_bs)B+%(SumUp(_rs-6,1200,1350,150)*_bs)\n  \_l[100,-](%((16-_bs)*Arrang(_rs,6))种可能性，概率约为1/%(Arrang(33,6)*16/((16-_bs)*Arrang(_rs,6)))\n/
-		\_l[0,-]中5+1：%(SumUp(_rs-5,2800,3750,1050,150,75,30,5)+SumUp(_rs-5,200,250,50)*_bs)  \_l[100,-](%(_bs*Arrang(_rs,5)*Arrang(33-_rs,1))种可能性，概率约为1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,5)*Arrang(33-_rs,1)))\n/
-		\_l[0,-]中5+0：%(SumUp(_rs-5,200,250,50)*_bs)  \_l[100,-](%((16-_bs)*Arrang(_rs,5)*Arrang(33-_rs,1))种可能性，概率约为1/%(Arrang(33,6)*16/((16-_bs)*Arrang(_rs,5)*Arrang(33-_rs,1)))\n/
-		\_l[0,-]中4+1：%(SumUp(_rs-5,190,420,300,120,75,30,5)+SumUp(_rs-5,10,20,10)*_bs)  \_l[100,-](%(_bs*Arrang(_rs,4)*Arrang(33-_rs,2))种可能性，概率约为1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,4)*Arrang(33-_rs,2)))\n/
-		\_l[0,-]中4+0：%(SumUp(_rs-5,10,20,10)*_bs)    \_l[100,-](%((16-_bs)*Arrang(_rs,4)*Arrang(33-_rs,2))种可能性，概率约为1/%(Arrang(33,6)*16/((16-_bs)*Arrang(_rs,4)*Arrang(33-_rs,2)))\n/
-		\_l[0,-]中3+1：%(TOINT(_a*5+SumUp(_rs-5,5,10,15,5)))  \_l[100,-](%(_bs*Arrang(_rs,3)*Arrang(33-_rs,3))种可能性，概率约为1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,3)*Arrang(33-_rs,3)))\n/
-		\_l[0,-]中2/1/0+1：%(TOINT(_a*5))   \_l[100,-](%(_bs*Arrang(_rs,0)*Arrang(33-_rs,6)+_bs*Arrang(_rs,1)*Arrang(33-_rs,5)+_bs*Arrang(_rs,2)*Arrang(33-_rs,4))种可能性，概率约为1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,0)*Arrang(33-_rs,6)+_bs*Arrang(_rs,1)*Arrang(33-_rs,5)+_bs*Arrang(_rs,2)*Arrang(33-_rs,4)))\n/
-		//\_l[0,-]总中奖：\n/
+		_txt+="\n下面是中獎情況。\n/
+		\_l[0,-]中6+1：1A+%(_bs-1)B+%(SumUp(_rs-6,18000,21000,3200,275,105,35,5)+SumUp(_rs-6,1200,1350,150)*(_bs-1)) \n     \_l[100,-](%(_bs*Arrang(_rs,6))種可能性，概率約為1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,6)))\n/
+		\_l[0,-]中6+0：%(_bs)B+%(SumUp(_rs-6,1200,1350,150)*_bs)\n  \_l[100,-](%((16-_bs)*Arrang(_rs,6))種可能性，概率約為1/%(Arrang(33,6)*16/((16-_bs)*Arrang(_rs,6)))\n/
+		\_l[0,-]中5+1：%(SumUp(_rs-5,2800,3750,1050,150,75,30,5)+SumUp(_rs-5,200,250,50)*_bs)  \_l[100,-](%(_bs*Arrang(_rs,5)*Arrang(33-_rs,1))種可能性，概率約為1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,5)*Arrang(33-_rs,1)))\n/
+		\_l[0,-]中5+0：%(SumUp(_rs-5,200,250,50)*_bs)  \_l[100,-](%((16-_bs)*Arrang(_rs,5)*Arrang(33-_rs,1))種可能性，概率約為1/%(Arrang(33,6)*16/((16-_bs)*Arrang(_rs,5)*Arrang(33-_rs,1)))\n/
+		\_l[0,-]中4+1：%(SumUp(_rs-5,190,420,300,120,75,30,5)+SumUp(_rs-5,10,20,10)*_bs)  \_l[100,-](%(_bs*Arrang(_rs,4)*Arrang(33-_rs,2))種可能性，概率約為1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,4)*Arrang(33-_rs,2)))\n/
+		\_l[0,-]中4+0：%(SumUp(_rs-5,10,20,10)*_bs)    \_l[100,-](%((16-_bs)*Arrang(_rs,4)*Arrang(33-_rs,2))種可能性，概率約為1/%(Arrang(33,6)*16/((16-_bs)*Arrang(_rs,4)*Arrang(33-_rs,2)))\n/
+		\_l[0,-]中3+1：%(TOINT(_a*5+SumUp(_rs-5,5,10,15,5)))  \_l[100,-](%(_bs*Arrang(_rs,3)*Arrang(33-_rs,3))種可能性，概率約為1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,3)*Arrang(33-_rs,3)))\n/
+		\_l[0,-]中2/1/0+1：%(TOINT(_a*5))   \_l[100,-](%(_bs*Arrang(_rs,0)*Arrang(33-_rs,6)+_bs*Arrang(_rs,1)*Arrang(33-_rs,5)+_bs*Arrang(_rs,2)*Arrang(33-_rs,4))種可能性，概率約為1/%(Arrang(33,6)*16/(_bs*Arrang(_rs,0)*Arrang(33-_rs,6)+_bs*Arrang(_rs,1)*Arrang(33-_rs,5)+_bs*Arrang(_rs,2)*Arrang(33-_rs,4)))\n/
+		//\_l[0,-]總中獎：\n/
 		"
-	if reference0=='购买'{
+	if reference0=='購買'{
 		if BallMode==1{
 			if money>=2*_p{
 				money-=2*_p
 			}
 			else{
-				_txt+='金钱不足，不能购买'
+				_txt+='金錢不足，不能購買'
 			}
 		}
-		_txt+="花费%(2*_p)金钱购买双色球\n"
-		_txt+="开奖红球号码是%(_comball[0])；%(_comball[1])；%(_comball[2])；%(_comball[3])；%(_comball[4])；%(_comball[5])；蓝球号码是：%(_comball[6])\n"
-		_txt+="让橘花看看，红球命中%(_rednum)个，蓝球命中%(_bluenum)个\n"
+		_txt+="花費%(2*_p)金錢購買雙色球\n"
+		_txt+="開獎紅球號碼是%(_comball[0])；%(_comball[1])；%(_comball[2])；%(_comball[3])；%(_comball[4])；%(_comball[5])；藍球號碼是：%(_comball[6])\n"
+		_txt+="讓橘花看看，紅球命中%(_rednum)個，藍球命中%(_bluenum)個\n"
 		if _rednum==6 && _bluenum==1{
 			_reward=_A+(_bs-1)*_B+SumUp(_rs-6,18000,21000,3200,275,105,35,5)+SumUp(_rs-6,1200,1350,150)*(_bs-1)
-			_txt+="\s[2]天啊，%(username)中了一等奖，奖金%(_reward)！！有这运气%(username)怎么不去买彩票呢\n"
+			_txt+="\s[2]天啊，%(username)中了一等獎，獎金%(_reward)！！有這運氣%(username)怎麼不去買彩票呢\n"
 		}
 		elseif _rednum==6{
 			_reward=_bs*_B+SumUp(_rs-6,1200,1350,150)*_bs
-			_txt+="\s[2]啊，%(username)中了二等奖，奖金%(_reward),人品爆发了吗？\n"
+			_txt+="\s[2]啊，%(username)中了二等獎，獎金%(_reward),人品爆發了嗎？\n"
 		}
 		elseif _rednum==5 && _bluenum==1{
 			_reward=SumUp(_rs-5,2800,3750,1050,150,75,30,5)+SumUp(_rs-5,200,250,50)*_bs
-			_txt+="\s[5]啊，%(username)中了三等奖，奖金%(_reward)，人品非常不错啊。\n"
+			_txt+="\s[5]啊，%(username)中了三等獎，獎金%(_reward)，人品非常不錯啊。\n"
 		}
 		elseif _rednum==5{
 			_reward=SumUp(_rs-5,200,250,50)*_bs
-			_txt+="\s[5]恭喜%(username)中了四等奖，奖金%(_reward)，人品不错啊。\n"
+			_txt+="\s[5]恭喜%(username)中了四等獎，獎金%(_reward)，人品不錯啊。\n"
 		}
 		elseif _rednum==4 && _bluenum==1{
 			_reward=SumUp(_rs-5,190,420,300,120,75,30,5)+SumUp(_rs-5,10,20,10)*_bs
-			_txt+="\s[5]恭喜%(username)中了四等奖，奖金%(_reward)，人品不错啊。\n"
+			_txt+="\s[5]恭喜%(username)中了四等獎，獎金%(_reward)，人品不錯啊。\n"
 		}
 		elseif _rednum==4{
 			_reward=SumUp(_rs-5,10,20,10)*_bs
-			_txt+="\s[5]%(username)中了五等奖，奖金%(_reward)，人品还行啊。\n"
+			_txt+="\s[5]%(username)中了五等獎，獎金%(_reward)，人品還行啊。\n"
 		}
 		elseif _rednum==3 && _bluenum==1{
 			_reward=_a*5+SumUp(_rs-5,5,10,15,5)
-			_txt+="\s[5]%(username)中了五等奖，奖金%(_reward)，人品还行啊。\n"
+			_txt+="\s[5]%(username)中了五等獎，獎金%(_reward)，人品還行啊。\n"
 		}
 		elseif _bluenum==1{
 			_reward=_a*5
-			_txt+="\s[5]%(username)中了六等奖，奖金%(_reward)，再接再励吧。\n"
+			_txt+="\s[5]%(username)中了六等獎，獎金%(_reward)，再接再勵吧。\n"
 		}
 		else
-			_txt+="\n\s[8]很遗憾，%(username)没有中奖，当作是为人民作贡献吧\n"
+			_txt+="\n\s[8]很遺憾，%(username)沒有中獎，當作是為人民作貢獻吧\n"
 		if BallMode==1 &&  money>=2*_p{
 			money+=_reward
 		}
 	}
-	_txt+="\n\q[◇购买,OnDeluxeBall,购买,%(2*_p)]"
-	_txt+='\n\q[◇返回上一层,OnBallMode]     \q[◇结束,OnEndDoubleColorBall]'
+	_txt+="\n\q[◇購買,OnDeluxeBall,購買,%(2*_p)]"
+	_txt+='\n\q[◇返回上一層,OnBallMode]     \q[◇結束,OnEndDoubleColorBall]'
 	_txt
 }
 Arrang{
@@ -1013,7 +1013,7 @@ SumUp{
 		_ss=0
 	_ss
 }
-//数字汉诺塔游戏，by fancyang
+//數字漢諾塔遊戲，by fancyang
 //-------------------------------------------
 OnHanoi{
 	if reference0!=''
@@ -1042,7 +1042,7 @@ OnHanoi{
 }
 OnHanoiShow{
 	_txt='\C\![quicksession,true]\c\![set,choicetimeout,0]\b[2]'
-	_txt+='■数字汉诺塔■                    \q[◇说明,OnHanoihelp]\n'
+	_txt+='■數字漢諾塔■                    \q[◇說明,OnHanoihelp]\n'
 	_hanoi_x=100
 	_hanoi_y=220
 	for _i=0;_i<hanoi_level;_i++{
@@ -1062,15 +1062,15 @@ OnHanoiShow{
 	_time=0
 	if hanoi_timebegin>0
 		_time=(GETTICKCOUNT-hanoi_timebegin)/1000+'.'+(TOREAL(GETTICKCOUNT-hanoi_timebegin))/10%100
-	_txt+="\n\_l[132]第%(hanoi_level-2)关\n"
+	_txt+="\n\_l[132]第%(hanoi_level-2)關\n"
 	_txt+="\_l[115]第%(hanoi_step)步,第%(_time)秒\n"
 	_txt+=mess
-	_txt+="第%(hanoi_level-2)关最高记录：%(hanoi_best[2*(hanoi_level-3)])步,用时%(hanoi_best[2*(hanoi_level-3)+1])秒"
-	_txt+='\n\q[◇新游戏,OnHanoi]\n'
-	_txt+='\q[◇选关,OnHanoiNewGame]\n'
-	_txt+="\q[◇上一关,OnHanoi,%(hanoi_level-1)]    \q[◇下一关,OnHanoi,%(hanoi_level+1)]\n"
-	_txt+='\q[◇查看记录,OnHanoiRecord]\n'
-	_txt+='\q[◇返回,OnOpenMenu,0]     \q[◇结束,OnHanoiOver]'
+	_txt+="第%(hanoi_level-2)關最高記錄：%(hanoi_best[2*(hanoi_level-3)])步,用時%(hanoi_best[2*(hanoi_level-3)+1])秒"
+	_txt+='\n\q[◇新遊戲,OnHanoi]\n'
+	_txt+='\q[◇選關,OnHanoiNewGame]\n'
+	_txt+="\q[◇上一關,OnHanoi,%(hanoi_level-1)]    \q[◇下一關,OnHanoi,%(hanoi_level+1)]\n"
+	_txt+='\q[◇查看記錄,OnHanoiRecord]\n'
+	_txt+='\q[◇返回,OnOpenMenu,0]     \q[◇結束,OnHanoiOver]'
 	_txt
 }
 OnHanoikey{
@@ -1156,16 +1156,16 @@ OnHanoikey{
 	}
 	if _level[2]==hanoi_level&&hanoi_win==0&&hanoi_select[0]==-1{
 		_time=(GETTICKCOUNT-hanoi_timebegin)/1000+'.'+(TOREAL(GETTICKCOUNT-hanoi_timebegin))/10%100
-		mess="\0\s[5]好棒，%(username)胜利完成了。步骤：%(hanoi_step)步，用时%(_time)秒。"
+		mess="\0\s[5]好棒，%(username)勝利完成了。步驟：%(hanoi_step)步，用時%(_time)秒。"
 		hanoi_win=1
 		if TOINT(hanoi_step)<TOINT(hanoi_best[2*(hanoi_level-3)])||TOINT(hanoi_best[2*(hanoi_level-3)])==0{
 			hanoi_best[2*(hanoi_level-3)]=TOINT(hanoi_step)
 			hanoi_best[2*(hanoi_level-3)+1]=_time
-			mess+='破记录了呢。'
+			mess+='破記錄了呢。'
 		}
 		elseif TOINT(hanoi_step)==TOINT(hanoi_best[2*(hanoi_level-3)])&&TOREAL(_time)<TOREAL(hanoi_best[2*(hanoi_level-3)+1]){
 			hanoi_best[2*(hanoi_level-3)+1]=_time
-			mess+='破记录了呢。'
+			mess+='破記錄了呢。'
 		}
 	}
 	if hanoi_timebegin==0&&hanoi_move==1
@@ -1173,34 +1173,34 @@ OnHanoikey{
 	OnHanoiShow
 }
 OnHanoiNewGame{
-	'\0\s[40]请问你要选择的层数？\![open,inputbox,OnHanoiNewGameSuccess]'
+	'\0\s[40]請問你要選擇的層數？\![open,inputbox,OnHanoiNewGameSuccess]'
 }
 OnHanoiNewGameSuccess{
 	OnHanoi(reference0)
 }
 OnHanoiRecord{
 	_txt='\b[2]\![quicksession,true]\![set,choicetimeout,0]'
-	_txt+='■数字汉诺塔 - 记录■\n[150]'
-	_txt+='\q[◇清空记录,OnHanoiRecordClear]\n'
+	_txt+='■數位漢諾塔 - 記錄■\n[150]'
+	_txt+='\q[◇清空記錄,OnHanoiRecordClear]\n'
 	_txt+='\q[◇返回,OnHanoiShow]\n'
-	_txt+='关数        \_l[60]塔层数      \_l[120]最少步骤    \_l[180]用时 \_l[230]是否最优解\n'
+	_txt+='關數        \_l[60]塔層數      \_l[120]最少步驟    \_l[180]用時 \_l[230]是否最優解\n'
 	_num=ARRAYSIZE(hanoi_best)
 	_a='否,是'
 	for _i=0;_i<_num/2;_i++{
 		_best=TOINT(POW(2,_i+3)-1)
 		_t=_best==TOINT(hanoi_best[2*_i])
-		_txt+="第%(_i+1)关   \_l[60]%(_i+3)层   \_l[120]%(hanoi_best[2*_i])步  \_l[180]%(hanoi_best[2*_i+1])秒\_l[230]%(_a[_t])（%(_best)步）\n"
+		_txt+="第%(_i+1)關   \_l[60]%(_i+3)層   \_l[120]%(hanoi_best[2*_i])步  \_l[180]%(hanoi_best[2*_i+1])秒\_l[230]%(_a[_t])（%(_best)步）\n"
 	}
 	_txt
 }
 OnHanoihelp{
 	_txt='\b[2]\![quicksession,true]'
-	_txt+='■简易数字汉诺塔 - 使用说明■\n'
-	_txt+='汉诺塔（又称河内塔）问题是源于印度一个古老传说的益智玩具。大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘。\n'
-	_txt+='本汉诺塔盘面用数字表示，底盘越大，数字越大，顶盘越小，数字越小，数字小的盘只能放在数字大的上面，所有数字全部从第一根移到第三根则游戏胜利，一个n层塔最少移动步骤可用公式f(n)=2^n-1算出。\n'
+	_txt+='■簡易數字漢諾塔 - 使用說明■\n'
+	_txt+='漢諾塔（又稱河內塔）問題是源於印度一個古老傳說的益智玩具。大梵天創造世界的時候做了三根金剛石柱子，在一根柱子上從下往上按照大小順序摞著64片黃金圓盤。大梵天命令婆羅門把圓盤從下面開始按大小順序重新擺放在另一根柱子上。並且規定，在小圓盤上不能放大圓盤，在三根柱子之間一次只能移動一個圓盤。\n'
+	_txt+='本漢諾塔盤面用數位表示，底盤越大，數位越大，頂盤越小，數位越小，數位小的盤只能放在數字大的上面，所有數位全部從第一根移到第三根則遊戲勝利，一個n層塔最少移動步驟可用公式f(n)=2^n-1算出。\n'
 	_txt+='操作：\n'
-	_txt+='1.鼠标操作：点击底部的方块选择顶层数字表示提起圆盘，数字表示为[]，再点击一次可放下圆盘，数示[]消失，此时点击其他方块可在方块上的顶层数字间切换。\n'
-	_txt+='2.键盘操作：待底部方块出现[]时按up键提起数字，数字出现[]，此时按left或right键可选择要移动到的方向上面，再按down键放下数字，数字[]消失，再按left或right键选择其他底部方块\n'
+	_txt+='1.滑鼠操作：點擊底部的方塊選擇頂層數位表示提起圓盤，數位表示為[]，再點擊一次可放下圓盤，數示[]消失，此時點擊其他方塊可在方塊上的頂層數位間切換。\n'
+	_txt+='2.鍵盤操作：待底部方塊出現[]時按up鍵提起數位，數位出現[]，此時按left或right鍵可選擇要移動到的方向上面，再按down鍵放下數位，數位[]消失，再按left或right鍵選擇其他底部方塊\n'
 	_txt+='\x'
 	_txt+=OnHanoiShow
 	_txt
@@ -1208,7 +1208,7 @@ OnHanoihelp{
 OnHanoiRecordClear{
 	if reference0=='yes'{
 		hanoi_best=NULL
-		'\0\s[5]清空完毕\x'
+		'\0\s[5]清空完畢\x'
 		--
 		OnHanoiRecord
 	}
@@ -1218,7 +1218,7 @@ OnHanoiRecordClear{
 		OnHanoiRecord
 	}
 	else
-		'\0\s[26]确定要清空记录吗？\n\q[◇是的,OnHanoiRecordClear,yes]\n\q[◇不了,OnHanoiRecordClear,no]'
+		'\0\s[26]確定要清空記錄嗎？\n\q[◇是的,OnHanoiRecordClear,yes]\n\q[◇不了,OnHanoiRecordClear,no]'
 }
 OnHanoiOver{
 	'\0\s[40]好的。'
