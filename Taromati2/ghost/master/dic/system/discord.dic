@@ -27,7 +27,7 @@ OnDiscordPluginCustom{
 	if DiscordCustom.LargeImageText
 		DiscordCustom.LargeImageText
 	else
-		'github.com/Taromati2'//LargeImageText
+		'github.com/kelever285'//LargeImageText
 	--
 	','
 	--

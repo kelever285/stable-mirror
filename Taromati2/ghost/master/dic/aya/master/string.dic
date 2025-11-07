@@ -66,10 +66,9 @@ On_hwnd{
 On_kero.recommendsites{
 	//使魔側推薦網址
 	"/
-	GitHub項目位址%ASC(1)https://github.com/Taromati2/Taromati2/%ASC(2)/
+	GitHub項目位址%ASC(1)https://github.com/kelever285/Taromati2/%ASC(2)/
 	%ASC(1)%ASC(2)/
 	作者主頁%ASC(1)http://unvollendet.web.fc2.com/%ASC(2)/
-	維護者主頁%ASC(1)https://steve02081504.github.io/%ASC(2)/
 	"
 }
 On_sakura.portalsites{

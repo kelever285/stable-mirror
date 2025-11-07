@@ -431,7 +431,7 @@ OnFittingRoom:all{
 	_q
 	'\_l[0,-]\n[150]/
 	\![*]\q[返回上一层,OnOpenMenu,1]\n/
-	\![*]\q[查看可下载shell,OnUrlOpen,https://github.com/Taromati2/Taromati2/releases/tag/shell_list]\n/
+	\![*]\q[查看可下载shell,OnUrlOpen,https://github.com/kelever285/Taromati2/releases/tag/shell_list]\n/
 	\![*]\q[取消,overchangeshell]/
 	'
 }
