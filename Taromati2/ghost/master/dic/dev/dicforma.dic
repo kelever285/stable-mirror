@@ -1,15 +1,15 @@
-//辞书优化辞书
+﻿//辭書優化辭書
 //by steve02081504 for Taromati2
 //
-//CHR 1:换行
+//CHR 1:換行
 Select.self_tuning{
-	'\0\s[6]自优化机能是不稳定的开发用、未完工机能\n/
-	会消耗大量时间并产生大量的错误报告\n/
-	优化的结果也会在更新时被覆盖掉\n/
-	\s[8]真的要继续么？\n/
+	'\0\s[6]自優化機能是不穩定的開發用、未完工機能\n/
+	會消耗大量時間並產生大量的錯誤報告\n/
+	優化的結果也會在更新時被覆蓋掉\n/
+	\s[8]真的要繼續麼？\n/
 	\q[◇取消,Cancel]\n/
-	\q[◇继续,OnSelfTuning]\n/
-	\q[◇激进处理,OnSelfTuning,radical]\n/
+	\q[◇繼續,OnSelfTuning]\n/
+	\q[◇激進處理,OnSelfTuning,radical]\n/
 	'
 }
 OnSelfTuning{
@@ -24,7 +24,7 @@ OnSelfTuning{
 	--
 	if FENUM('VAR_PATH\dicforma_error'){
 		MAGICUNLOCK
-		'只是\w9…\w9…\n\w9\w9\s[8]仍有部分错误需要手动修正\n\![open,file,VAR_PATH\dicforma_error]'
+		'只是\w9…\w9…\n\w9\w9\s[8]仍有部分錯誤需要手動修正\n\![open,file,VAR_PATH\dicforma_error]'
 	}
 }
 Select.dicforma.file_drop.run{
@@ -40,11 +40,11 @@ Select.dicforma.file_drop.run{
 	}
 	--
 	if FENUM('VAR_PATH\dicforma_error')
-		'\s[8]很抱歉，出错了\![open,file,VAR_PATH\dicforma_error]'
+		'\s[8]很抱歉，出錯了\![open,file,VAR_PATH\dicforma_error]'
 	else
 		'好的\w9\w9\s[100]，完成了\n/
-		\q[◇打开,OnOpenDirOrFile,'+SakuraScriptArgConverter(_files)+']\n/
-		\q[◇无用,Cancel]\n/
+		\q[◇打開,OnOpenDirOrFile,'+SakuraScriptArgConverter(_files)+']\n/
+		\q[◇無用,Cancel]\n/
 		'
 	--
 	ERASEVAR('dicforma.radical')

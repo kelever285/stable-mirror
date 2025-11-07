@@ -1,4 +1,4 @@
-#define BLACK 0
+﻿#define BLACK 0
 #define WHITE 15
 #define true 1
 #define false 0
@@ -11,13 +11,13 @@ OnGobangInIt{
 	DiscordCustomSet.CustomDetail('下棋')
 	--
 	if !wzq.Model
-		wzq.Model=0//0人->机 1机->人 2对翌
+		wzq.Model=0//0人->機 1機->人 2對翌
 	player.gamenum=0
 	mess=''
-	"\s[2]%(username)要和橘花下五子棋啊，\w9\w9\s[40]来吧，橘花可不是那么好赢的哦。\n/
+	"\s[2]%(username)要和橘花下五子棋啊，\w9\w9\s[40]來吧，橘花可不是那麼好贏的哦。\n/
 	\n[half]/
-	\q[◇新游戏,OnGobangNewGame]\n/
-	\q[◇返回上一层,OnOpenMenu,2]     \q[◇结束,OnGobangGameOver]"
+	\q[◇新遊戲,OnGobangNewGame]\n/
+	\q[◇返回上一層,OnOpenMenu,2]     \q[◇結束,OnGobangGameOver]"
 }
 OnGobangNewGame{
 	Black=1
@@ -187,10 +187,10 @@ GobangVarReset{
 	player.mingci=0
 	player.junum=0
 }
-OnGobangGameOver{//游戏结束
+OnGobangGameOver{//遊戲結束
 	playingGobang=0
 	ClearGobangVar
-	'\0\s[0]\b[0]不玩了吗。'
+	'\0\s[0]\b[0]不玩了嗎。'
 }
 GetYingRank{
 	if player.baseparam.mark>=500 && player.baseparam.mark<1000{1;return}
@@ -207,7 +207,7 @@ GetYingRank{
 OnGobangOption{
 	if reference0=='Gobang.chessboard'{
 		Gobang.chessboard=reference1
-		棋盘=reference2
+		棋盤=reference2
 	}
 	elseif reference0=='Gobang.piece'{
 		Gobang.piece=reference1
@@ -227,15 +227,15 @@ OnGobangOption{
 	}
 	'\C\![quicksession,true]\c\![set,choicetimeout,0]\b[2]'
 	--
-	"棋盘设定：当前为%(棋盘)\n\q[◇棋盘1,OnGobangOption,Gobang.chessboard,1,棋盘1]  \q[◇棋盘2,OnGobangOption,Gobang.chessboard,2,棋盘2]\n/
-	棋子设定：当前为%(棋子) \n\q[◇棋子1,OnGobangOption,Gobang.piece,1,棋子1]  \q[◇棋子2,OnGobangOption,Gobang.piece,2,棋子2]\n/
-	棋力设定：当前为%(棋力)\n \q[◇入门,OnGobangOption,ql,1,入门]   \q[◇业余,OnGobangOption,ql,2,业余]  \q[◇专业,OnGobangOption,ql,3,专业]  \q[◇大师,OnGobangOption,ql,4,大师]\n/
-	段位设定：当前为%(段位) \n \q[◇3段,OnGobangOption,Gobang.Rank,3,3段]  \q[◇4段,OnGobangOption,Gobang.Rank,4,4段]  \q[◇5段,OnGobangOption,Gobang.Rank,5,5段]  \q[◇6段,OnGobangOption,Gobang.Rank,6,6段] \q[◇7段,OnGobangOption,Gobang.Rank,7,7段]  \q[◇8段,OnGobangOption,Gobang.Rank,8,8段]  \q[◇9段,OnGobangOption,Gobang.Rank,9,9段]\n/
-	先走模式：当前为%(先走) \n\q[◇%(username)先走,OnGobangOption,xz,0,%(username)先走]   \q[◇橘花先走,OnGobangOption,xz,1,橘花先走]\n/
+	"棋盤設定：當前為%(棋盤)\n\q[◇棋盤1,OnGobangOption,Gobang.chessboard,1,棋盤1]  \q[◇棋盤2,OnGobangOption,Gobang.chessboard,2,棋盤2]\n/
+	棋子設定：當前為%(棋子) \n\q[◇棋子1,OnGobangOption,Gobang.piece,1,棋子1]  \q[◇棋子2,OnGobangOption,Gobang.piece,2,棋子2]\n/
+	棋力設定：當前為%(棋力)\n \q[◇入門,OnGobangOption,ql,1,入門]   \q[◇業餘,OnGobangOption,ql,2,業餘]  \q[◇專業,OnGobangOption,ql,3,專業]  \q[◇大師,OnGobangOption,ql,4,大師]\n/
+	段位設定：當前為%(段位) \n \q[◇3段,OnGobangOption,Gobang.Rank,3,3段]  \q[◇4段,OnGobangOption,Gobang.Rank,4,4段]  \q[◇5段,OnGobangOption,Gobang.Rank,5,5段]  \q[◇6段,OnGobangOption,Gobang.Rank,6,6段] \q[◇7段,OnGobangOption,Gobang.Rank,7,7段]  \q[◇8段,OnGobangOption,Gobang.Rank,8,8段]  \q[◇9段,OnGobangOption,Gobang.Rank,9,9段]\n/
+	先走模式：當前為%(先走) \n\q[◇%(username)先走,OnGobangOption,xz,0,%(username)先走]   \q[◇橘花先走,OnGobangOption,xz,1,橘花先走]\n/
 	\n/
-	\q[◇返回上一层,OnGobangNewGame]     \q[◇结束,OnGobangGameOver]"
+	\q[◇返回上一層,OnGobangNewGame]     \q[◇結束,OnGobangGameOver]"
 }
-ClearGobangVar:void{//消除变量
+ClearGobangVar:void{//消除變數
 	ERASEVAR('playingGobang')
 	ERASEVAR('state')
 	ERASEVAR('State')
@@ -293,7 +293,7 @@ ClearGobangVar:void{//消除变量
 	ERASEVAR('Oldlineflag')
 }
 //___________________________________________________________________________________________
-Gobang.Drawpiece{//画棋子
+Gobang.Drawpiece{//畫棋子
 	_x=5
 	_xx=4
 	_y=60
@@ -315,8 +315,8 @@ Gobang.Drawpiece{//画棋子
 //_____________________________________________________________________________________
 OnGobangShow{
 	_txt='\C\![quicksession,true]\c\0\s[26]\![set,choicetimeout,0]\b[2]'
-	_txt+="\n游戏局数：%(player.playnum)       \_l[100,-]赢次数：%(player.winnum)        \_l[200,-]输次数：%(player.losenum)\n积分：%(player.baseparam.mark)\_l[100,-]段位：%(player.baseparam.Gobang.Rank)段"
-	_txt+='\n\q[◇新游戏,OnGobangNewGame]  \_l[80,-]\q[◇悔棋,OnRegret] \_l[160,-]\q[◇设定,OnGobangOption]   \_l[240,-]\q[◇结束,OnGobangGameOver]'
+	_txt+="\n遊戲局數：%(player.playnum)       \_l[100,-]贏次數：%(player.winnum)        \_l[200,-]輸次數：%(player.losenum)\n積分：%(player.baseparam.mark)\_l[100,-]段位：%(player.baseparam.Gobang.Rank)段"
+	_txt+='\n\q[◇新遊戲,OnGobangNewGame]  \_l[80,-]\q[◇悔棋,OnRegret] \_l[160,-]\q[◇設定,OnGobangOption]   \_l[240,-]\q[◇結束,OnGobangGameOver]'
 	if reference0=='aitime'{
 		if aiturn==1{
 			_txt+=ComputerThink
@@ -337,10 +337,10 @@ OnGobangShow{
 		}
 	}
 	if !Whowincheck {
-		mess='\_l[0,0]白棋胜了'
+		mess='\_l[0,0]白棋勝了'
 	}
 	elseif Whowincheck==1{
-		mess='\_l[0,0]黑棋胜了'
+		mess='\_l[0,0]黑棋勝了'
 	}
 	for _ny=0; _ny<15;_ny++{
 		for _nx=0 ; _nx<15;_nx++{
@@ -399,7 +399,7 @@ OnuserAd{//黑色下子
 			player.baseparam.mark+=TOINT(mark*0.04)
 		elseif Powerofcomputer==4
 			player.baseparam.mark+=TOINT(mark*0.05)
-		DiscordCustomSet.CustomDetail('下棋：血虐别人')
+		DiscordCustomSet.CustomDetail('下棋：血虐別人')
 	}
 	--
 	_txt+=OnGobangShow
@@ -445,12 +445,12 @@ OnRegret{
 			OnGobangShow
 		}
 		else{
-			mess='\0\_l[0,0]小于6回合不能悔棋'
+			mess='\0\_l[0,0]小於6回合不能悔棋'
 			OnGobangShow
 		}
 	}
 	else{
-		mess='\0\_l[0,0]游戏已结束不能悔棋'
+		mess='\0\_l[0,0]遊戲已結束不能悔棋'
 		OnGobangShow
 	}
 }
@@ -486,7 +486,7 @@ Whowincheck{
 	-1;return
 }
 //_____________________________________________________________________________________
-Ondownzi{//外部调用此函数下子
+Ondownzi{//外部調用此函數下子
 	nx=reference0
 	ny=reference1
 	if _argv[0]
@@ -628,7 +628,7 @@ wise{
 				EXIST[_i*15+_j]=Black
 		}
 	}
-	/*  将黑白互换  */
+	/*  將黑白互換  */
 	for _i=0;_i<15;_i++{
 		for _j=0;_j<15;_j++{
 			Mark1[_i*15+_j]=0.0

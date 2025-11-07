@@ -1,11 +1,11 @@
-///////////////////////////////////////////
-//////////推箱子v2.0游戏辞书
+﻿///////////////////////////////////////////
+//////////推箱子v2.0遊戲辭書
 //////////written by forjane 2009.10.14
 ///////////////////////////////////////////
 #define		MAPFILE		PATH/box.txt
 #define		PICFILE		PATH/boxpng.png
 #define		PATH		DATA_PATH/Game/BoxGame
-//入口函数
+//入口函數
 //----------------------------------------------
 OnBoxGame{
 	if QuickStartVersion{
@@ -30,7 +30,7 @@ InitBox{
 	}
 	mapstate[0] = LoadMap(boxnum)
 	if mapstate[0] == 'error' {
-		_txt += '\0\s[8]\b[2]\n[150]抱歉，没找到您要玩的关卡……' + BoxMenu
+		_txt += '\0\s[8]\b[2]\n[150]抱歉，沒找到您要玩的關卡……' + BoxMenu
 	}
 	else {
 		playingbox = 1
@@ -39,7 +39,7 @@ InitBox{
 	}
 	_txt
 }
-//开始玩
+//開始玩
 //----------------------------------------------
 PlayBox{
 	_key=reference0
@@ -99,7 +99,7 @@ PlayBox{
 		}
 	}
 }
-//画出推箱子地图
+//畫出推箱子地圖
 //----------------------------------------------
 DrawMap{
 	_txt = '\C\b[2]\![quicksession,true]\![set,choicetimeout,0]\c'
@@ -113,7 +113,7 @@ DrawMap{
 	}
 	_txt
 }
-//在x，y处画类型为type的方块
+//在x，y處畫類型為type的方塊
 //----------------------------------------------
 DrawBox:all{
 	_type = _argv[0]
@@ -147,19 +147,19 @@ DrawBox:all{
 	}
 }
 BoxMenu{
-	"\_l[0,0]第%(boxnum)关"
+	"\_l[0,0]第%(boxnum)關"
 	--
-	'\_l[0,252]\n\q[◇选关,OnBoxNewGame]\n\q[◇上一关,OnBoxLastGame]\n\q[◇重玩本关,OnBoxTheNewGame]\n\q[◇下一关,OnBoxNextGame]\n[150]\q[◇返回游戏列表,OnBoxGameList]\n\q[◇终了,OnBoxGameOver]'
+	'\_l[0,252]\n\q[◇選關,OnBoxNewGame]\n\q[◇上一關,OnBoxLastGame]\n\q[◇重玩本關,OnBoxTheNewGame]\n\q[◇下一關,OnBoxNextGame]\n[150]\q[◇返回遊戲列表,OnBoxGameList]\n\q[◇終了,OnBoxGameOver]'
 }
 BoxStatus{
 	_txt = ''
 	if mapstatenum > 0 {
 		_txt += "\_l[40,0]第%(mapstatenum)步\_l[0,252]"
 		if '2' !_in_ mapstate[mapstatenum] {
-			_txt += "\0\s[5]哇！%(username)好厉害……"
+			_txt += "\0\s[5]哇！%(username)好厲害……"
 		}
 		else {
-			_txt += '\q[◇后退一步,OnBoxGoBack]'
+			_txt += '\q[◇後退一步,OnBoxGoBack]'
 		}
 	}
 	_txt
@@ -177,7 +177,7 @@ OnBoxGoBack{
 OnBoxNewGame{
 	DiscordCustomSet.CustomDetail('推箱子')
 	--
-	'\0\s[40]要玩第几关呢？\![open,inputbox,OnBoxNewGameSuccess]'
+	'\0\s[40]要玩第幾關呢？\![open,inputbox,OnBoxNewGameSuccess]'
 }
 OnBoxLastGame{
 	InitBox(boxnum - 1)
@@ -201,7 +201,7 @@ ClearBoxVar{
 }
 OnBoxGameOver{
 	ClearBoxVar
-	'\0\s[2]不玩了吗？好可惜喔……'
+	'\0\s[2]不玩了嗎？好可惜喔……'
 }
 OnBoxGameList{
 	ClearBoxVar

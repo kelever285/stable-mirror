@@ -1,12 +1,12 @@
-//移植修改by fancyang
+﻿//移植修改by fancyang
 #define PATH DATA_PATH\Game\HuaRongDao
 GameSystem{
-	FIELD_LEFT = 22//左边界起始位置
-	FIELD_RIGHT = 279//右边界起始位置
-	FIELD_TOP = 30//上边界起始位置
-	FIELD_BOTTOM = 352//下边界起始位置
-	ROLE_CARD_X = 0//角色卡片种类之横卡。程序中提供两种角色卡片，横卡和竖卡，玩一下会更清楚
-	UNIT_WIDTH = 60//角色移动最小像素单元
+	FIELD_LEFT = 22//左邊界起始位置
+	FIELD_RIGHT = 279//右邊界起始位置
+	FIELD_TOP = 30//上邊界起始位置
+	FIELD_BOTTOM = 352//下邊界起始位置
+	ROLE_CARD_X = 0//角色卡片種類之橫卡。程式中提供兩種角色卡片，橫卡和豎卡，玩一下會更清楚
+	UNIT_WIDTH = 60//角色移動最小圖元單元
 }
 OnHuaRongDao{
 	if QuickStartVersion{
@@ -43,30 +43,30 @@ HuaRongDaoInIt{
 	HuaRongDaoMenu
 }
 HuaRongDaoMenu{
-	"\_l[10,0]\q[◇设定,OnHuaRongDaoOption]     \_l[130,-]\q[◇帮助,OnHuaRongDaoHelp]     \_l[230,-]\q[◇终了,OnHuaRongDaoGameOver]\n/
-	\_l[10,15]\q[◇上一关,OnHRDLastGame]    \_l[100,-]第%(playLevel)关%(levelName)     \_l[230,-]\q[◇下一关,OnHRDNextGame]\n/
+	"\_l[10,0]\q[◇設定,OnHuaRongDaoOption]     \_l[130,-]\q[◇幫助,OnHuaRongDaoHelp]     \_l[230,-]\q[◇終了,OnHuaRongDaoGameOver]\n/
+	\_l[10,15]\q[◇上一關,OnHRDLastGame]    \_l[100,-]第%(playLevel)關%(levelName)     \_l[230,-]\q[◇下一關,OnHRDNextGame]\n/
 	\_l[130,340]第%(steps)步"
 }
 OnHuaRongDaoOption{
 	if reference0=='UI'
 		HuaRongDao.BackGroundConfing = reference1
 	"\C\![quicksession,true]\c\![set,choicetimeout,0]\b[2]\n/
-	游戏界面：当前为%(',水墨风格,木子风格'[HuaRongDao.BackGroundConfing])\n\q[◇水墨风格,OnHuaRongDaoOption,UI,1]    \q[◇木子风格,OnHuaRongDaoOption,UI,2]\n/
-	\n[400]\q[◇返回,OnDrawHuaRongRole]  \q[◇终了,OnHuaRongDaoGameOver]"
+	遊戲介面：當前為%(',水墨風格,木子風格'[HuaRongDao.BackGroundConfing])\n\q[◇水墨風格,OnHuaRongDaoOption,UI,1]    \q[◇木子風格,OnHuaRongDaoOption,UI,2]\n/
+	\n[400]\q[◇返回,OnDrawHuaRongRole]  \q[◇終了,OnHuaRongDaoGameOver]"
 }
 OnHuaRongDaoHelp{
 	'\C\![quicksession,true]\c\![set,choicetimeout,0]\b[2]/
-	游戏说明：\n/
-	伪春菜版华容道，提供两种界面供选择。\n/
-	游戏操作：\n/
-	1.选取目标用鼠标移至目的地。\n/
-	2.Tab键选择，方向键移动。\n/
-	3.R键重新开始当前游戏。\n/
-	4.O键打开设定\n/
-	5.H键打开帮助\n/
-	6.L键上一关卡\n/
-	7.N键下一关卡\n/
-	\n[400]\q[◇返回,OnDrawHuaRongRole]  \q[◇终了,OnHuaRongDaoGameOver]'
+	遊戲說明：\n/
+	偽春菜版華容道，提供兩種介面供選擇。\n/
+	遊戲操作：\n/
+	1.選取目標用滑鼠移至目的地。\n/
+	2.Tab鍵選擇，方向鍵移動。\n/
+	3.R鍵重新開始當前遊戲。\n/
+	4.O鍵打開設定\n/
+	5.H鍵打開幫助\n/
+	6.L鍵上一關卡\n/
+	7.N鍵下一關卡\n/
+	\n[400]\q[◇返回,OnDrawHuaRongRole]  \q[◇終了,OnHuaRongDaoGameOver]'
 }
 OnHRDLastGame{
 	if playLevel==1
@@ -87,7 +87,7 @@ OnHRDNextGame{
 OnHuaRongDaoGameOver{
 	playHuaRongDao=0
 	ClearHuaRongDaoVar
-	'\0\s[0]\b[0]不玩了吗。'
+	'\0\s[0]\b[0]不玩了嗎。'
 }
 ClearHuaRongDaoVar:void{
 	ERASEVAR('playHuaRongDao')
@@ -163,7 +163,7 @@ OnDrawHuaRongRole{
 	--
 	CheckHuaRongWin
 	--
-	//画小曹同志
+	//畫小曹同志
 	src.x = 0
 	src.y = 0
 	src.X = 2*UNIT_WIDTH
@@ -186,7 +186,7 @@ OnDrawHuaRongRole{
 		if select == 0
 			_txt+="\_l[%(dest.x),%(dest.y)]\__q[OncontrolMovement,0]\_b[PATH\roles2s.png,inline,--clipping=%(src.x) %(src.y) %(src.X) %(src.Y)]\__q"
 	}
-	//画五虎上将
+	//畫五虎上將
 	for i = 1; i < 6; i++{
 		if rolesInfo.k[i]==ROLE_CARD_X{
 			src.x = (((i-1)/2)+1)*UNIT_WIDTH*2
@@ -230,7 +230,7 @@ OnDrawHuaRongRole{
 			}
 		}
 	}
-	//画路人甲、乙、丙、丁
+	//畫路人甲、乙、丙、丁
 	src.x = 6 * UNIT_WIDTH
 	src.y = UNIT_WIDTH
 	src.X = src.x+UNIT_WIDTH
@@ -261,7 +261,7 @@ OnDrawHuaRongRole{
 				_txt+="\_l[%(dest.x),%(dest.y)]\__q[OncontrolMovement,%(i)]\_b[PATH\roles2s.png,inline,--clipping=%(src.x) %(src.y) %(src.X) %(src.Y)]\__q"
 		}
 	}
-	//空格处理
+	//空格處理
 	for i=0;i<2;i++{
 		dest.x=FIELD_LEFT + blank.x[i]*UNIT_WIDTH
 		dest.y=FIELD_TOP + blank.y[i]*UNIT_WIDTH
@@ -311,7 +311,7 @@ LoadHuaRongDaoMap{
 	}
 }
 MapState{
-	//悲剧，小曹还得先独自来
+	//悲劇，小曹還得先獨自來
 	xStart=TOINT(Role[0])
 	yStart=TOINT(Role[1])
 	kind=Role[2]
@@ -322,7 +322,7 @@ MapState{
 	currentMap[yStart*4+xStart + 1] = 0
 	currentMap[(yStart + 1)*4+xStart] = 0
 	currentMap[(yStart + 1)*4+xStart + 1] = 0
-	//接着五虎猛将上
+	//接著五虎猛將上
 	for  i = 1; i < 6; i++{
 		xStart=TOINT(Role[i*3+0])
 		yStart=TOINT(Role[i*3+1])
@@ -336,7 +336,7 @@ MapState{
 		else
 			currentMap[(yStart + 1)*4+xStart] = i
 	}
-	//还有四个抢劫的
+	//還有四個搶劫的
 	for i = 6; i < 10; i++{
 		xStart=TOINT(Role[i*3+0])
 		yStart=TOINT(Role[i*3+1])
@@ -585,7 +585,7 @@ CheckBlank{
 }
 CheckHuaRongWin{
 	if currentMap[3*4+1]==0 && currentMap[3*4+2]==0 && currentMap[4*4+1]==0 && currentMap[4*4+2]==0{
-		"恭喜%(username)过关。\x"
+		"恭喜%(username)過關。\x"
 		--
 		OnDrawHuaRongRole
 	}

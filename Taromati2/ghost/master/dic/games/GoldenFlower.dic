@@ -1,4 +1,4 @@
-//--------------------------------------扎金花----------------------------
+﻿//--------------------------------------紮金花----------------------------
 #define		PATH	DATA_PATH\Game\GoldenFlower
 OnGoldenFlower{
 	if QuickStartVersion{
@@ -15,19 +15,19 @@ OnGoldenFlower{
 	GoldenFlowerInited=1
 	playGoldenFlower=1
 	running='playGoldenFlower'
-	cardmode=1//开始模式
-	deskmoney=0//当局全部赌注数额
-	wager=50//赌注大小
-	cardturn=0//说话顺序
-	banker=0//庄家（0：橘花；2：用户；1；斗和）
-	user.numcard=IARRAY//用户牌型
-	towa.numcard=IARRAY//斗和牌型
+	cardmode=1//開始模式
+	deskmoney=0//當局全部賭注數額
+	wager=50//賭注大小
+	cardturn=0//說話順序
+	banker=0//莊家（0：橘花；2：用戶；1；鬥和）
+	user.numcard=IARRAY//用戶牌型
+	towa.numcard=IARRAY//鬥和牌型
 	kikka.numcard=IARRAY//橘花牌型
-	opentowa=0//斗和开牌
-	openkikka=0//橘花开牌
-	towapass=0//斗和弃牌
-	kikkapass=0//橘花弃牌
-	circle=0//单局回合数
+	opentowa=0//鬥和開牌
+	openkikka=0//橘花開牌
+	towapass=0//鬥和棄牌
+	kikkapass=0//橘花棄牌
+	circle=0//單局回合數
 	kikkaflowermoney=kikkacoin
 	towaflowermoney=towacoin
 	cardwin=-1
@@ -35,50 +35,50 @@ OnGoldenFlower{
 }
 OnCardStory{
 	_txt=''
-	_txt+="\1\s[11]我说，\w9\w9我们每天这么站着，\w9\w9是不是太无聊了？\x\0\s[30]\w9\w9要不你想怎样，\w9\w9不是有%(username)看着吗？\w9\w9不要偷懒啊。\x\1\s[12]要不我们三人一起来玩游戏吧\x\0\s[30]你不是猫吗，\w9\w9应该是二人一猫才对\x\1\s[12]\w9\s[11]\w9\w9\s[13]你见过会说话的猫吗？\w9\w9早在一百年前我就拥有人类的形态了，\w9\w9现在变成猫的样子，\w9\w9只是为了萌一点而已\x\0\s[8]是为了萌%(username)吧，\w9\w9\s[30]我说，\w9\w9我该把那天你喝醉了酒说的话告诉给%(username)吗？\x\1\s[12]…\w9…\w9今天天气真好啊。\w9要不我们三人来玩扎金花吧。\x\0\s[8]又开始这样了。\w9\w9好吧，不过你这个样子怎么玩扎金花呢？\x\1\s[111]这样又如何？\x\0\s[23]把烟拿掉！！\x\1\s[117]不要这么凶嘛！在%(username)面前呢。\x\0\s[2]啊！\w9%(username)在看着呢。\w9\w9\n\s[1]……\w9\w8\x\1\s[110]不要废话了，快点开始吧，%(username)等得不耐烦了。\x"
+	_txt+="\1\s[11]我說，\w9\w9我們每天這麼站著，\w9\w9是不是太無聊了？\x\0\s[30]\w9\w9要不你想怎樣，\w9\w9不是有%(username)看著嗎？\w9\w9不要偷懶啊。\x\1\s[12]要不我們三人一起來玩遊戲吧\x\0\s[30]你不是貓嗎，\w9\w9應該是二人一貓才對\x\1\s[12]\w9\s[11]\w9\w9\s[13]你見過會說話的貓嗎？\w9\w9早在一百年前我就擁有人類的形態了，\w9\w9現在變成貓的樣子，\w9\w9只是為了萌一點而已\x\0\s[8]是為了萌%(username)吧，\w9\w9\s[30]我說，\w9\w9我該把那天你喝醉了酒說的話告訴給%(username)嗎？\x\1\s[12]…\w9…\w9今天天氣真好啊。\w9要不我們三人來玩紮金花吧。\x\0\s[8]又開始這樣了。\w9\w9好吧，不過你這個樣子怎麼玩紮金花呢？\x\1\s[111]這樣又如何？\x\0\s[23]把煙拿掉！！\x\1\s[117]不要這麼凶嘛！在%(username)面前呢。\x\0\s[2]啊！\w9%(username)在看著呢。\w9\w9\n\s[1]……\w9\w8\x\1\s[110]不要廢話了，快點開始吧，%(username)等得不耐煩了。\x"
 	_txt+OnGoldenFlowerInit
 }
 OnCardHelp{
 	_txt='\![quicksession,true]\c\b[2]\![set,choicetimeout,0]'
-	_txt+='伪春菜版扎金花（三张牌）游戏说明。\n/
-	1.游戏采用模拟真人方式洗牌发牌的算法，使用一副去掉大小王的扑克牌，共 52 张牌。本版游戏取消了暗跟。人数为三人\n/
-	2.游戏用语解释\n/
-	庄家：上一轮赢的玩家是下一轮的庄家，第一局橘花为庄家，第一张牌始终发给庄家的下手。（逆时针）\n/
-	底分：游戏开始前三人各投入押注金额的金币\n/
-	封顶：有两种情况会出现封顶 \n/
-	A.每个牌局允许付出的金币总和上限为10000，达到或超过上限则系统自动开牌。\n/
-	B.当用户所剩的金币不够下次付出时，则封顶，系统自动开牌。\n/
-	跟牌：投入押注金额同样大小的金币。\n/
-	开牌：如果人数为三人用户开牌选择橘花或斗和。付出的金币为押注金额。当只剩下两个人时，可以随时选择开牌，但要付出当前押注金额的双倍数量，如果牌型大小相同，则先开牌的一方判输。 \n/
-	弃牌：放弃当前付出的所有金币，判输。\n/
+	_txt+='偽春菜版紮金花（三張牌）遊戲說明。\n/
+	1.遊戲採用類比真人方式洗牌發牌的演算法，使用一副去掉大小王的撲克牌，共 52 張牌。本版遊戲取消了暗跟。人數為三人\n/
+	2.遊戲用語解釋\n/
+	莊家：上一輪贏的玩家是下一輪的莊家，第一局橘花為莊家，第一張牌始終發給莊家的下手。（逆時針）\n/
+	底分：遊戲開始前三人各投入押注金額的金幣\n/
+	封頂：有兩種情況會出現封頂 \n/
+	A.每個牌局允許付出的金幣總和上限為10000，達到或超過上限則系統自動開牌。\n/
+	B.當用戶所剩的金幣不夠下次付出時，則封頂，系統自動開牌。\n/
+	跟牌：投入押注金額同樣大小的金幣。\n/
+	開牌：如果人數為三人用戶開牌選擇橘花或鬥和。付出的金幣為押注金額。當只剩下兩個人時，可以隨時選擇開牌，但要付出當前押注金額的雙倍數量，如果牌型大小相同，則先開牌的一方判輸。 \n/
+	棄牌：放棄當前付出的所有金幣，判輸。\n/
 	3.牌型 \n/
-	豹子：三张同样大小的牌。\n/
-	顺金：花色相同的三张连牌。\n/
-	金花：三张花色相同的牌。\n/
-	顺子：三张花色不全相同的连牌。\n/
-	对子：三张牌中有两张同样大小的牌。\n/
+	豹子：三張同樣大小的牌。\n/
+	順金：花色相同的三張連牌。\n/
+	金花：三張花色相同的牌。\n/
+	順子：三張花色不全相同的連牌。\n/
+	對子：三張牌中有兩張同樣大小的牌。\n/
 	特殊：花色不同的 235 。\n/
-	单张：除以上牌型的牌。\n/
-	4.牌型的比较\n/
-	豹子 > 顺金 > 金花 > 顺子 > 对子 > 单张\n/
-	豹子、金花、对子、单张的比较，按照顺序比点的规则比较大小。\n/
-	顺金、顺子按照顺序比点。 AKQ>A23>KQJ>QJ10 。\n/
-	特殊牌型在普通时比较大小按单张牌型来算。当豹子存在时，特殊牌型 > 豹子\n'
+	單張：除以上牌型的牌。\n/
+	4.牌型的比較\n/
+	豹子 > 順金 > 金花 > 順子 > 對子 > 單張\n/
+	豹子、金花、對子、單張的比較，按照順序比點的規則比較大小。\n/
+	順金、順子按照順序比點。 AKQ>A23>KQJ>QJ10 。\n/
+	特殊牌型在普通時比較大小按單張牌型來算。當豹子存在時，特殊牌型 > 豹子\n'
 	_txt+='\n[400]\q[◇返回,OnGoldenFlowerInit]'
 	_txt
 }
 OnGoldenFlowerInit{
 	GoldenFlowerInit(reference0,reference1)
 }
-GoldenFlowerInit{//用户界面
+GoldenFlowerInit{//使用者介面
 	_txt='\![quicksession,true]\c\1\s[111]\0\s[26]\b[2]\![set,choicetimeout,0]'
-	_txt+="\n押注金额：%(wager)"
+	_txt+="\n押注金額：%(wager)"
 	_txt+='\n\q[◇50,OnGoldenFlowerInit,wager,50] \q[◇100,OnGoldenFlowerInit,wager,100] \q[◇150,OnGoldenFlowerInit,wager,150] \q[◇200,OnGoldenFlowerInit,wager,200] \q[◇250,OnGoldenFlowerInit,wager,250] \q[◇300,OnGoldenFlowerInit,wager,300] \q[◇350,OnGoldenFlowerInit,wager,350] \q[◇400,OnGoldenFlowerInit,wager,400] \q[◇450,OnGoldenFlowerInit,wager,450] \q[◇500,OnGoldenFlowerInit,wager,500]\n'
 	_txt+=ShowMoney
-	_txt+="\_l[120,-]金币：%(usercoin)\n"
-	_txt+="该局已有%(deskmoney)金币\n"
+	_txt+="\_l[120,-]金幣：%(usercoin)\n"
+	_txt+="該局已有%(deskmoney)金幣\n"
 	if deskmoney>=10000 && cardmode==2{
-		_txt+='超过当局金币上额，自动开牌\x'
+		_txt+='超過當局金幣上額，自動開牌\x'
 		circle=0
 		cardmode=1
 		_txt+=GoldenFlowerInit('systemopen')
@@ -86,7 +86,7 @@ GoldenFlowerInit{//用户界面
 		return
 	}
 	if usercoin<wager && cardmode==2{
-		_txt+="%(username)金额不足以下注，自动开牌\x"
+		_txt+="%(username)金額不足以下注，自動開牌\x"
 		circle=0
 		cardmode=1
 		_txt+=GoldenFlowerInit('systemopen')
@@ -94,17 +94,17 @@ GoldenFlowerInit{//用户界面
 		return
 	}
 	if cardmode==1{
-		_txt+='\q[◇开始游戏,OnGoldenFlowerInit,begin]\_l[110,-]'
-		_txt+='\q[◇初始剧情,OnCardStory]\_l[220,-]'
-		_txt+='\q[◇游戏说明,OnCardHelp]\n'
+		_txt+='\q[◇開始遊戲,OnGoldenFlowerInit,begin]\_l[110,-]'
+		_txt+='\q[◇初始劇情,OnCardStory]\_l[220,-]'
+		_txt+='\q[◇遊戲說明,OnCardHelp]\n'
 	}
 	elseif cardmode==2 && cardturn==banker%3{
-		_txt+='\q[◇跟牌,OnGoldenFlowerInit,follow]	\q[◇弃牌,OnGoldenFlowerInit,stop]\n'
-		_txt+='\q[◇开牌,OnGoldenFlowerInit,open]\n'
+		_txt+='\q[◇跟牌,OnGoldenFlowerInit,follow]	\q[◇棄牌,OnGoldenFlowerInit,stop]\n'
+		_txt+='\q[◇開牌,OnGoldenFlowerInit,open]\n'
 	}
 	if _argv[0]=='begin'{
 		if usercoin>=TOINT(wager){
-			mess="游戏开始投入%(wager)金币。\n"
+			mess="遊戲開始投入%(wager)金幣。\n"
 			_txt+=CardShuffle
 			_txt+=Licensing
 			cardmode=2
@@ -114,7 +114,7 @@ GoldenFlowerInit{//用户界面
 			deskmoney=TOINT(wager)*3
 		}
 		else
-			mess='金币不足，请充值。\n'
+			mess='金幣不足，請充值。\n'
 		cardturn=0
 		circle=0
 		cardwin=-1
@@ -160,7 +160,7 @@ GoldenFlowerInit{//用户界面
 	if kikkapass==1&&towapass==1
 		cardwin=2
 	if cardwin==2{
-		mess="%(username)赢了\n"
+		mess="%(username)贏了\n"
 		banker=2
 		cardmode=1
 		cardturn=-1
@@ -174,7 +174,7 @@ GoldenFlowerInit{//用户界面
 		_txt+=ShowCard
 	}
 	elseif cardwin==1{
-		mess='斗和赢了。\n'
+		mess='鬥和贏了。\n'
 		banker=1
 		cardmode=1
 		cardturn=-1
@@ -188,7 +188,7 @@ GoldenFlowerInit{//用户界面
 		_txt+=ShowCard
 	}
 	elseif cardwin==0{
-		mess='橘花赢了。\n'
+		mess='橘花贏了。\n'
 		banker=0
 		cardmode=1
 		cardturn=-1
@@ -211,10 +211,10 @@ GoldenFlowerInit{//用户界面
 	_txt+='\_l[0,0]'+ mess
 	_txt
 }
-OnUseropen{//用户开牌
+OnUseropen{//用戶開牌
 	_txt=''
 	if towapass==0&&kikkapass==0{
-		mess='\q[◇开橘花的牌,OnOpenKikka]\_l[180,0]\q[◇开斗和的牌,OnOpenTowa]\n'
+		mess='\q[◇開橘花的牌,OnOpenKikka]\_l[180,0]\q[◇開鬥和的牌,OnOpenTowa]\n'
 	}
 	elseif towapass==1&&kikkapass==0{
 		_txt+=OnOpenKikka
@@ -224,7 +224,7 @@ OnUseropen{//用户开牌
 	}
 	_txt
 }
-OnOpenKikka{//开橘花牌
+OnOpenKikka{//開橘花牌
 	_txt=''
 	openkikka=1
 	if towapass==0{
@@ -248,11 +248,11 @@ OnOpenKikka{//开橘花牌
 		deskmoney+=2*wager
 		usercoin-=2*wager
 		if operator("%(user.numcard)","%(kikka.numcard)")<=0{
-			_txt+="\0\s[5]橘花赢了%(username)\x"
+			_txt+="\0\s[5]橘花贏了%(username)\x"
 			cardwin=0
 		}
 		else{
-			_txt+='\0\s[9]唔，橘花输了\x'
+			_txt+='\0\s[9]唔，橘花輸了\x'
 			cardwin=2
 		}
 	}
@@ -263,14 +263,14 @@ OnOpenKikka{//开橘花牌
 	_txt+=GoldenFlowerInit
 	_txt
 }
-OnOpenTowa{//开斗和牌
+OnOpenTowa{//開鬥和牌
 	_txt=''
 	opentowa=1
 	if kikkapass==0{
 		deskmoney+=TOINT(wager)
 		usercoin-=TOINT(wager)
 		if operator("%(user.numcard)","%(towa.numcard)")<=0{
-			_txt+="\1斗和PASS了%(username)\x"
+			_txt+="\1鬥和PASS了%(username)\x"
 			if operator("%(towa.numcard)","%(kikka.numcard)")<=0
 				cardwin=0
 			else
@@ -287,11 +287,11 @@ OnOpenTowa{//开斗和牌
 		deskmoney+=2*wager
 		usercoin-=2*wager
 		if operator("%(user.numcard)","%(towa.numcard)")<=0{
-			_txt+="\1斗和赢了%(username)\x"
+			_txt+="\1鬥和贏了%(username)\x"
 			cardwin=1
 		}
 		else{
-			_txt+='\1呀，斗和输了\x'
+			_txt+='\1呀，鬥和輸了\x'
 			cardwin=2
 		}
 	}
@@ -302,7 +302,7 @@ OnOpenTowa{//开斗和牌
 	_txt+=GoldenFlowerInit
 	_txt
 }
-TowaFollow{//斗和跟牌
+TowaFollow{//鬥和跟牌
 	_txt='\0\c\b[-1]\1'
 	_k=10-towacoin*0.001
 	if _k>=6
@@ -323,13 +323,13 @@ TowaFollow{//斗和跟牌
 		if _k==1 &&kikkapass==0{
 			deskmoney+=TOINT(wager)
 			towacoin-=TOINT(wager)
-			_txt+='\1开橘花的牌\x'
+			_txt+='\1開橘花的牌\x'
 			if operator("%(towa.numcard)","%(kikka.numcard)")<=0{
 				_txt+='\1\s[111]被橘花PASS了\x'
 				towapass=1
 			}
 			else{
-				_txt+='\1\s[110]斗和PASS了橘花\x'
+				_txt+='\1\s[110]鬥和PASS了橘花\x'
 				kikkapass=1
 			}
 		}
@@ -337,13 +337,13 @@ TowaFollow{//斗和跟牌
 			deskmoney+=TOINT(wager)
 			towacoin-=TOINT(wager)
 			opentowa=1
-			_txt+="\1开%(username)的牌\x"
+			_txt+="\1開%(username)的牌\x"
 			if operator("%(towa.numcard)","%(user.numcard)")<=0{
 				_txt+="\1\s[111]被%(username)PASS了\x"
 				towapass=1
 			}
 			else{
-				_txt+="\1\s[110]%(username)的牌没有斗和大啊\x"
+				_txt+="\1\s[110]%(username)的牌沒有鬥和大啊\x"
 				if operator("%(towa.numcard)","%(kikka.numcard)")<=0
 					cardwin=0
 				else
@@ -354,13 +354,13 @@ TowaFollow{//斗和跟牌
 		else{
 			deskmoney+=2*wager
 			towacoin-=2*wager
-			_txt+="\1我和%(username)决战啊，那就开牌吧\x"
+			_txt+="\1我和%(username)決戰啊，那就開牌吧\x"
 			if operator("%(towa.numcard)","%(user.numcard)")<=0{
-				_txt+='\1\s[111]斗和输了\x'
+				_txt+='\1\s[111]鬥和輸了\x'
 				cardwin=2
 			}
 			else{
-				_txt+="\1\s[110]%(username)的牌没有斗和大啊\x"
+				_txt+="\1\s[110]%(username)的牌沒有鬥和大啊\x"
 				cardwin=1
 			}
 		}
@@ -373,10 +373,10 @@ TowaFollow{//斗和跟牌
 	_txt
 }
 TowaCardDrop{
-	'\1\s[117]能再小点吗？我PASS\x'
+	'\1\s[117]能再小點嗎？我PASS\x'
 	'\1\s[111]PASS!\x'
-	'\1\s[111]有没有啊,老娘不跟!\x'
-	'\1\s[117]怎么总是这种鬼牌啊!\x'
+	'\1\s[111]有沒有啊,老娘不跟!\x'
+	'\1\s[117]怎麼總是這種鬼牌啊!\x'
 	'\1\s[111]切,老娘PASS!\x'
 }
 KikkaCardDrop{
@@ -384,7 +384,7 @@ KikkaCardDrop{
 	'\0\s[34]唔，橘花PASS\x'
 	'\0\s[32]牌真小啊，橘花PASS\x'
 	'\0\s[23]PASS\x'
-	'\0\s[22]喀嚓!\w9\w9\1\s[110]喂，牌小也不能乱来啊。\x'
+	'\0\s[22]喀嚓!\w9\w9\1\s[110]喂，牌小也不能亂來啊。\x'
 }
 KikkaFollow{//橘花跟牌
 	_txt='\0\c\b[0]'
@@ -407,13 +407,13 @@ KikkaFollow{//橘花跟牌
 		if _k==1 &&towapass==0{
 			deskmoney+=TOINT(wager)
 			kikkacoin-=TOINT(wager)
-			_txt+='\0\s[7]开斗和的牌\x'
+			_txt+='\0\s[7]開鬥和的牌\x'
 			if operator("%(kikka.numcard)","%(towa.numcard)")<=0{
-				_txt+='\0\s[9]唔，橘花被斗和PASS了\x'
+				_txt+='\0\s[9]唔，橘花被鬥和PASS了\x'
 				kikkapass=1
 			}
 			else{
-				_txt+='\0\s[5]橘花PASS了斗和\x'
+				_txt+='\0\s[5]橘花PASS了鬥和\x'
 				towapass=1
 			}
 		}
@@ -421,13 +421,13 @@ KikkaFollow{//橘花跟牌
 			deskmoney+=TOINT(wager)
 			kikkacoin-=TOINT(wager)
 			openkikka=1
-			_txt+="\0\s[26]开%(username)的牌\x"
+			_txt+="\0\s[26]開%(username)的牌\x"
 			if operator("%(kikka.numcard)","%(user.numcard)")<=0{
 				_txt+="\0\s[9]唔，橘花被%(username)PASS了\x"
 				kikkapass=1
 			}
 			else{
-				_txt+="\0\s[21]啊，%(username)的牌没有橘花大\x"
+				_txt+="\0\s[21]啊，%(username)的牌沒有橘花大\x"
 				if operator("%(kikka.numcard)","%(towa.numcard)")<=0
 					cardwin=1
 				else
@@ -438,13 +438,13 @@ KikkaFollow{//橘花跟牌
 		else{
 			deskmoney+=2*wager
 			kikkacoin-=2*wager
-			_txt+="\0\s[20]啊，橘花和%(username)决战啊，那么橘花要开牌了\x"
+			_txt+="\0\s[20]啊，橘花和%(username)決戰啊，那麼橘花要開牌了\x"
 			if operator("%(kikka.numcard)","%(user.numcard)")<=0{
-				_txt+='\0\s[9]橘花输了\x'
+				_txt+='\0\s[9]橘花輸了\x'
 				cardwin=2
 			}
 			else{
-				_txt+="\0\s[21]%(username)的牌没有橘花大啊\x"
+				_txt+="\0\s[21]%(username)的牌沒有橘花大啊\x"
 				cardwin=0
 			}
 		}
@@ -460,9 +460,9 @@ CardAICheck{
 	_k3=_argv[3]
 	_k4=_argv[4]
 	_fear=circle*0.25+wager*0.002
-	if CardWeight("%(_numcard)",_k1,_k2,_k3,_k4,1)<0{1;return}//跟据判断决定是否弃牌
-	elseif CardWeight("%(_numcard)",_k1,_k2,_k3,_k4,_fear)>=0{0;return}//跟据判断决定是否跟注
-	else{2;return}//其他情况则开牌
+	if CardWeight("%(_numcard)",_k1,_k2,_k3,_k4,1)<0{1;return}//跟據判斷決定是否棄牌
+	elseif CardWeight("%(_numcard)",_k1,_k2,_k3,_k4,_fear)>=0{0;return}//跟據判斷決定是否跟注
+	else{2;return}//其他情況則開牌
 }
 CardWeight{
 	_numcard=_argv[0]
@@ -489,7 +489,7 @@ ShowCard{
 		_txt+=winstring("%(kikka.numcard)")+' '+maxcard("%(kikka.numcard)")+DrawCard("%(kikka.numcard)")
 	cardX=180
 	cardY=116
-	_txt+="\_l[%(cardX),%(cardY-20)]斗和"
+	_txt+="\_l[%(cardX),%(cardY-20)]鬥和"
 	if opentowa!=1
 		_txt+=DrawBk
 	else
@@ -499,8 +499,8 @@ ShowCard{
 CardMenu{
 	_txt=''
 	_txt+='\_l[0,340]\q[◇充值,OnCardCharge]'
-	_txt+='\_l[120,340]\q[◇兑换,OnCoinChange]'
-	_txt+='\_l[260,340]\q[◇终了,OnCardGameOver]'
+	_txt+='\_l[120,340]\q[◇兌換,OnCoinChange]'
+	_txt+='\_l[260,340]\q[◇終了,OnCardGameOver]'
 	_txt
 }
 OnCardCharge{
@@ -509,13 +509,13 @@ OnCardCharge{
 		if money>=TOINT(reference1){
 			money-=TOINT(reference1)
 			usercoin+=TOINT(reference1)
-			_txt+="成功充值%(TOINT(reference1))金币，现在金币为%(usercoin),金钱%(money)\n"
+			_txt+="成功充值%(TOINT(reference1))金幣，現在金幣為%(usercoin),金錢%(money)\n"
 		}
 		else
-			_txt+='金钱不足，不能充值\n'
+			_txt+='金錢不足，不能充值\n'
 	}
-	_txt+=ShowMoney + "\n金币：%(usercoin)\n"
-	_txt+='请输入充值金额：\n/
+	_txt+=ShowMoney + "\n金幣：%(usercoin)\n"
+	_txt+='請輸入充值金額：\n/
 	\q[◇10000,OnCardCharge,charge,10000] \q[◇20000,OnCardCharge,charge,20000] \q[◇40000,OnCardCharge,charge,40000]\n/
 	\q[◇50000,OnCardCharge,charge,50000] \q[◇60000,OnCardCharge,charge,60000] \q[◇80000,OnCardCharge,charge,80000]\n/
 	\q[◇100000,OnCardCharge,charge,100000]\n'
@@ -528,13 +528,13 @@ OnCoinChange{
 		if usercoin>=TOINT(reference1){
 			usercoin-=TOINT(reference1)
 			money+=TOINT(reference1)
-			_txt+="成功兑换%(TOINT(reference1))金钱，现在金钱为%(money)，金币为%(usercoin)\n"
+			_txt+="成功兌換%(TOINT(reference1))金錢，現在金錢為%(money)，金幣為%(usercoin)\n"
 		}
 		else
-			_txt+='金币不足，不能兑换'
+			_txt+='金幣不足，不能兌換'
 	}
-	_txt+=ShowMoney + "    金币：%(usercoin)\n"
-	_txt+='把金币兑换成金钱，请输入兑换金额：\n/
+	_txt+=ShowMoney + "    金幣：%(usercoin)\n"
+	_txt+='把金幣兌換成金錢，請輸入兌換金額：\n/
 	\q[◇10000,OnCoinChange,change,10000] \q[◇20000,OnCoinChange,change,20000]  \q[◇40000,OnCoinChange,change,40000]  \q[◇50000,OnCoinChange,change,50000]  \q[◇60000,OnCoinChange,change,60000]  \q[◇80000,OnCoinChange,change,80000]  \q[◇100000,OnCoinChange,change,100000]\n'
 	_txt+='\n[400]\q[◇返回,OnGoldenFlowerInit]'
 	_txt
@@ -542,13 +542,13 @@ OnCoinChange{
 OnCardGameOver{
 	_txt=''
 	if towaflowermoney-towacoin>500
-		_txt+="\1\s[117]怎么，\w9\w9赢了钱就不来了啊，\w9\w9我输了%(towaflowermoney-towacoin)块呢。\w9\w9"
+		_txt+="\1\s[117]怎麼，\w9\w9贏了錢就不來了啊，\w9\w9我輸了%(towaflowermoney-towacoin)塊呢。\w9\w9"
 	else
-		_txt+='\1\s[110]不玩了吗？\w9\w9下次再来啊。\w9\w9'
+		_txt+='\1\s[110]不玩了嗎？\w9\w9下次再來啊。\w9\w9'
 	if kikkaflowermoney-kikkacoin>500
-		_txt+="\0\s[9]唔，橘花输了%(kikkaflowermoney-kikkacoin)。"
+		_txt+="\0\s[9]唔，橘花輸了%(kikkaflowermoney-kikkacoin)。"
 	else
-		_txt+='\0\s[26]要玩时再叫我们哦。'
+		_txt+='\0\s[26]要玩時再叫我們哦。'
 	_txt+=ClearGoldenFlowerVar
 	_txt
 }
@@ -583,7 +583,7 @@ Card{
 CardShuffle{
 	_card=IARRAY
 	_j=0
-	for _i=0;_i<52;_i++{//用for循环实现模拟人类洗牌
+	for _i=0;_i<52;_i++{//用for迴圈實現模擬人類洗牌
 		if _i%2==0
 			_card[_i]=card[_j]
 		else{
@@ -593,9 +593,9 @@ CardShuffle{
 	}
 	card=IARRAY
 	card=_card
-	_replace=RAND(52)//产生一个随机端牌数
+	_replace=RAND(52)//產生一個隨機端牌數
 	_j=0
-	for _i=0;_i<52;_i++{//用for循环模拟人类端牌
+	for _i=0;_i<52;_i++{//用for迴圈模擬人類端牌
 		if _replace+_i<52
 			_card[_i]=card[_replace+_i]
 		else{
@@ -606,12 +606,12 @@ CardShuffle{
 	card=IARRAY
 	card=_card
 }
-Licensing{//发牌函数
+Licensing{//發牌函數
 	_o=0
 	_p=0
 	_q=0
 	for _i=0;_i<9;_i++{
-		if _i%3==banker{//始终发第一张牌给庄家的下手
+		if _i%3==banker{//始終發第一張牌給莊家的下手
 			user.numcard[_o]=card[_i]
 			_o++
 		}
@@ -624,7 +624,7 @@ Licensing{//发牌函数
 			_q++
 		}
 	}
-	for _i=0;_i<=2;_i++{//牌的顺序从大到小
+	for _i=0;_i<=2;_i++{//牌的順序從大到小
 		for _j=_i+1;_j<=2;_j++{
 			if user.numcard[_i]<user.numcard[_j]{
 				_k=user.numcard[_i]
@@ -659,19 +659,19 @@ DrawBk{
 	}
 	_txt
 }
-leopard{//判断是不是豹子
+leopard{//判斷是不是豹子
 	_numcard=_argv[0]
 	if _numcard[1]/4==_numcard[2]/4&&_numcard[1]/4==_numcard[0]/4{1;return}
 	else{0;return}
 }
-sequence{//判断是不是同花顺
+sequence{//判斷是不是同花順
 	_numcard=_argv[0]
 	if _numcard[0]%4==_numcard[1]%4&&_numcard[0]%4==_numcard[2]%4{
 		if staight("%(_numcard)"){1;return}
 	}
 	{0;return}
 }
-staight{//判断是不是顺子
+staight{//判斷是不是順子
 	_numcard=_argv[0]
 	_c1=_numcard[0]/4
 	_c2=_numcard[1]/4
@@ -679,12 +679,12 @@ staight{//判断是不是顺子
 	if (_c1+1==_c2&&_c2+1==_c3)||(_c1+1==_c3&&_c3+1==_c2)||(_c2+1==_c3&&_c3+1==_c1)||(_c2+1==_c1&&_c1+1==_c3)||(_c3+1==_c1&&_c1+1==_c2)||(_c3+1==_c2&&_c2+1==_c1){1;return}
 	else{0;return}
 }
-samecolor{//判断是不是金花（同花不同顺子）
+samecolor{//判斷是不是金花（同花不同順子）
 	_numcard=_argv[0]
 	if _numcard[0]%4==_numcard[1]%4&&_numcard[0]%4==_numcard[2]%4{1;return}
 	else{0;return}
 }
-brother{//对子
+brother{//對子
 	_numcard=_argv[0]
 	if _numcard[0]/4==_numcard[1]/4 || _numcard[0]/4==_numcard[2]/4 || _numcard[1]/4==_numcard[2]/4{1;return}
 	else{0;return}
@@ -696,7 +696,7 @@ HighCard{//特殊
 	}
 	{0;return}
 }
-compare{//比较
+compare{//比較
 	_numcard=_argv[0]
 	if leopard("%(_numcard)"){7;return}
 	elseif sequence("%(_numcard)"){6;return}
@@ -773,16 +773,16 @@ winstring{
 			'豹子！7'
 		}
 		when 6{
-			'同花顺！6'
+			'同花順！6'
 		}
 		when 5{
-			'金花，花色一样！5'
+			'金花，花色一樣！5'
 		}
 		when 4{
-			'顺子！4'
+			'順子！4'
 		}
 		when 3{
-			'对子！3'
+			'對子！3'
 		}
 		when 2{
 			'2'
