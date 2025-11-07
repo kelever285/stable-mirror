@@ -1,5 +1,5 @@
-///////////////////////////////////////////
-//////////无限制歌词卡and迷你播放器辞书
+﻿///////////////////////////////////////////
+//////////無限制歌詞卡and迷你播放機辭書
 //////////written by forjane 2009.11.29
 ///////////////////////////////////////////
 OnPlayWithLyric{
@@ -36,13 +36,13 @@ ReadLrc{
 			for _tmp = _buff[_cnt,']']; '[' _in_ _tmp; _tmp = _buff[_cnt,']'] {
 				_tmp = _tmp[1,'[']
 				if 'ti:' _in_ _tmp {
-					lrcset += '\f[bold,1]标题：\f[bold,default]' + _tmp[1,':'] + '\n'
+					lrcset += '\f[bold,1]標題：\f[bold,default]' + _tmp[1,':'] + '\n'
 				}
 				elseif 'ar:' _in_ _tmp {
 					lrcset += '\f[bold,1]歌手：\f[bold,default]' + _tmp[1,':'] + '\n'
 				}
 				elseif 'al:' _in_ _tmp {
-					lrcset += '\f[bold,1]专辑：\f[bold,default]' + _tmp[1,':'] + '\n'
+					lrcset += '\f[bold,1]專輯：\f[bold,default]' + _tmp[1,':'] + '\n'
 				}
 				elseif 'offset:' _in_ _tmp {
 					_offset = TOINT(_tmp[1,':'])
@@ -86,7 +86,7 @@ ReadTxt{
 		_charset=GetTxtCharset(_file)
 		if 'Unicode' _in_ _charset{
 			FCLOSE(_file)
-			lrctime='暂不支持Unicode编码的TXT文件，请将TXT另存为UTF-8编码格式'
+			lrctime='暫不支援Unicode編碼的TXT檔，請將TXT另存為UTF-8編碼格式'
 			return
 		}
 		FCLOSE(_file)
@@ -207,7 +207,7 @@ OnPlayCmd{
 	if _argv[1]
 		_file=_argv[1]
 	if !FILEEXIST(_file){
-		musicplayinfo='文件无效或不存在'
+		musicplayinfo='檔無效或不存在'
 	}
 	if IsVideo(_file)&&rangevideojump&&musicplayerrange==1{
 		OnNextMusic
@@ -257,7 +257,7 @@ PlayWithLyric{
 	}
 	_filemp3 = _argv[2]
 	if _cmd == 'play' || _cmd == 'loop' {
-		DiscordCustomSet.CustomDetail('听音乐')
+		DiscordCustomSet.CustomDetail('聽音樂')
 		--
 		DiscordCustomSet.CustomState(SPLITPATH(_filemp3)[2])
 		--
@@ -272,7 +272,7 @@ PlayWithLyric{
 		playingmusic = 2
 	}
 	elseif _cmd == 'resume' {
-		DiscordCustomSet.CustomDetail('听音乐')
+		DiscordCustomSet.CustomDetail('聽音樂')
 		--
 		DiscordCustomSet.CustomState(SPLITPATH(_filemp3)[2])
 		--
@@ -284,7 +284,7 @@ PlayWithLyric{
 		}
 	}
 	elseif _cmd == 'stop' {
-		DiscordCustomSet.CustomDetail('不听了')
+		DiscordCustomSet.CustomDetail('不聽了')
 		--
 		DiscordCustomSet.CustomState('')
 		--
@@ -334,7 +334,7 @@ MusicHotKey{
 	_txt
 }
 //=======================================================
-//Mini播放器程式
+//Mini播放機程式
 //入口：OnMusicPlayer
 //=======================================================
 #define		M3UPATH		'PROFILE_PATH\\default.m3u8'
@@ -351,7 +351,7 @@ OnMusicPlayer:all{
 	}
 	DialogMusicOpenList
 	musicplayer=1
-	_mode = ('普通','顺序播放','单曲循环','列表循环','乱序')[musicplaymode]
+	_mode = ('普通','順序播放','單曲迴圈','列表迴圈','亂序')[musicplaymode]
 	_lrcenable = ('OFF',' ON')[musiclrcenable]
 	_name = SPLITPATH(musicfile[2])
 	if musicplayinfo {
@@ -360,11 +360,11 @@ OnMusicPlayer:all{
 		musicplayinfo=NULL
 	}
 	if !_name
-		_name=',无文件'
+		_name=',無文件'
 	'\C\![lock,balloonrepaint]\1\c\![quicksession,true]'
 	if !infomode
 		'\![set,choicetimeout,0]'
-	'\![set,autoscroll,false]\c\s[12]\f[bold,1]Mini音乐播放器\f[bold,default]\_l[145]\q[◇打开路径,OnMusicPathOpen]\_l[215]\q[◇关闭,OnMusicPlayerClose]\n'
+	'\![set,autoscroll,false]\c\s[12]\f[bold,1]Mini音樂播放機\f[bold,default]\_l[145]\q[◇打開路徑,OnMusicPathOpen]\_l[215]\q[◇關閉,OnMusicPlayerClose]\n'
 	_name[2]
 	'\n'
 	_now=TOINT(musicfile[1])+1+'/'
@@ -378,13 +378,13 @@ OnMusicPlayer:all{
 		_now=''
 		_totol=''
 	}
-	_status =('play]\f[color,108,129,182]◇播放','pause]\f[color,229,134,82]◇暂停','resume]\f[color,108,129,182]◇继续')[playingmusic]
+	_status =('play]\f[color,108,129,182]◇播放','pause]\f[color,229,134,82]◇暫停','resume]\f[color,108,129,182]◇繼續')[playingmusic]
 	"\_l[60,-]\f[color,93,188,91]\q[◄上一首,OnLastMusic]  \_l[120,-]\q[►下一首,OnNextMusic]\f[color,default]       %(_now)%(_totol)\n/
 	\__q[OnMusicPlayerCmd,%(_status)\f[color,default]\__q"
 	"    \f[color,238,50,95]\q[◇停止,OnMusicPlayerCmd,stop]\f[color,default]    /
-	\f[color,93,188,91]\q[◇播放列表,OnMusicPlayerList,openlist]\f[color,default]    /
+	\f[color,93,188,91]\q[◇播放清單,OnMusicPlayerList,openlist]\f[color,default]    /
 	\f[color,128,66,255]\q[◇音量,OnMusicPlayerVolume]  \q[△,OnMusicVolumeChange,1]\q[▲,OnMusicVolumeChange,10] %(musicvolume)\_l[255]\q[▼,OnMusicVolumeChange,-10]\q[▽,OnMusicVolumeChange,-1]\f[color,default]\n"
-	"\q[◇模式:%(_mode),OnMusicPlayMode]    \_l[110]\q[◇歌词卡:,OnMusicLrc]\q[%(_lrcenable),OnMusicSetLrc]\_l[195]\q[◇歌词目录,OnLrcfolder]\n"
+	"\q[◇模式:%(_mode),OnMusicPlayMode]    \_l[110]\q[◇歌詞卡:,OnMusicLrc]\q[%(_lrcenable),OnMusicSetLrc]\_l[195]\q[◇歌詞目錄,OnLrcfolder]\n"
 	'\s[10]\0'
 	if musicplayerlist
 		OnMusicPlayerList
@@ -406,7 +406,7 @@ OnMusicPathOpen{
 	"\C\![open,file,%(SakuraScriptArgConverter(_path))]"
 }
 OnLrcfolder{
-	"\C\![open,dialog,folder,--id=lrcfolder,--title=请选择歌词文件夹，当前歌词文件夹为%(lrcpath)]"
+	"\C\![open,dialog,folder,--id=lrcfolder,--title=請選擇歌詞資料夾，當前歌詞資料夾為%(lrcpath)]"
 }
 OnMusicPlayerClose{
 	'\C\0\c\1\c\b[-1]'
@@ -427,7 +427,7 @@ ClearPlayerVar{
 OnLrcClose{
 	'\0\c\b[-1]'
 }
-//打开音量调节程式
+//打開音量調節程式
 //---------------------------------------------------
 OnMusicPlayerVolume{
 	_file = CALLSAORI('advanced_sysinfo','get_special_folder_path','System') + '\Sndvol32.exe'
@@ -438,7 +438,7 @@ OnMusicPlayerVolume{
 	--
 	OnMusicPlayer
 }
-//设定播放模式
+//設定播放模式
 //---------------------------------------------------
 OnMusicPlayMode{
 	musicplaymode = (musicplaymode + 1) % 5
@@ -451,13 +451,13 @@ OnMusicPlayMode{
 	--
 	OnMusicPlayer
 }
-//打开歌词卡
+//打開歌詞卡
 //---------------------------------------------------
 OnMusicLrc{
 	_t=GETTICKCOUNT - musicplaystart + musicplaytime
 	ShowLrc(_t)
 }
-//设定是否显示歌词卡
+//設定是否顯示歌詞卡
 //---------------------------------------------------
 OnMusicSetLrc{
 	musiclrcenable = !musiclrcenable
@@ -482,10 +482,10 @@ IsSelectList{
 	}
 	_found;return
 }
-//打开歌曲列表
+//打開歌曲列表
 //---------------------------------------------------
 OnMusicPlayerList{
-	_txt = '\C\![quicksession,true]\c\0\s[40]\b[2]\![set,autoscroll,false]\![set,choicetimeout,0]\f[bold,1]播放列表\f[bold,default]\_l[178]\q[◇关闭,OnMusicPlayListClose]\n[150]'
+	_txt = '\C\![quicksession,true]\c\0\s[40]\b[2]\![set,autoscroll,false]\![set,choicetimeout,0]\f[bold,1]播放清單\f[bold,default]\_l[178]\q[◇關閉,OnMusicPlayListClose]\n[150]'
 	DialogMusicOpenList(musiclistfile[0],-1)
 	DefaultListName
 	//musicplayerlist=1
@@ -510,8 +510,8 @@ OnMusicPlayerList{
 		}
 		musiclistfile[3]=_T
 	}
-	_txt += '\q[◇添加目录,OnMusicPlayListAdd,folder]   \q[◇添加文件,OnMusicPlayListAdd,file]   \q[◇添加列表,OnMusicPlayListAdd,addlist]\n/
-	\q[◇新建列表,OnMusicPlayListAdd,newlist]   \q[◇另存列表,OnMusicPlayListAdd,savelist]   \q[◇打开列表,OnMusicPlayListAdd,openlist]  \q[◇清空列表,OnMusicPlayListAdd,clearlist]\n'
+	_txt += '\q[◇添加目錄,OnMusicPlayListAdd,folder]   \q[◇添加檔,OnMusicPlayListAdd,file]   \q[◇添加列表,OnMusicPlayListAdd,addlist]\n/
+	\q[◇新建列表,OnMusicPlayListAdd,newlist]   \q[◇另存列表,OnMusicPlayListAdd,savelist]   \q[◇打開列表,OnMusicPlayListAdd,openlist]  \q[◇清空列表,OnMusicPlayListAdd,clearlist]\n'
 	_txt += '┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄\n'
 	_id=TOINT(musiclistfile[1])
 	SETDELIM(musiclist,'*')
@@ -525,12 +525,12 @@ OnMusicPlayerList{
 		_txt+='\![set,autoscroll,false]'
 	_m3u = M3U8PATH
 	_t='禁用,歌曲'[musicplayerscroll]
-	_txt+="\n[half]\q[◇卷动模式:%(_t),OnMusicPlayerList,musicplayerscroll]\n"
-	_t='当前列表,全部列表,选定列表'[musicplayerrange]
-	_txt+="\q[◇播放范围:%(_t),OnMusicPlayerList,musicplayerrange]"
+	_txt+="\n[half]\q[◇捲動模式:%(_t),OnMusicPlayerList,musicplayerscroll]\n"
+	_t='當前清單,全部清單,選定清單'[musicplayerrange]
+	_txt+="\q[◇播放範圍:%(_t),OnMusicPlayerList,musicplayerrange]"
 	rangevideojump=TOINT(rangevideojump)
 	_t='OFF,ON'[rangevideojump]
-	_txt+="\_l[150]\q[◇全部列表时跳过视频:%(_t),OnMusicPlayerList,rangevideojump]\n"
+	_txt+="\_l[150]\q[◇全部清單時跳過視頻:%(_t),OnMusicPlayerList,rangevideojump]\n"
 	_txt+='\q[◇到底端（end）,OnMusicPlayerList,bottom]\n[150]'
 	for _i=0;_i<_listnum;_i++{
 		_t=musiclistname[_i][0,'|']
@@ -563,7 +563,7 @@ OnMusicPlayerList{
 		_txt += _tmp
 	}
 	_txt+=OnMusicListPageTxt
-	_txt+='\n[150]\q[◇到顶端（home）,OnMusicPlayerList,top]'
+	_txt+='\n[150]\q[◇到頂端（home）,OnMusicPlayerList,top]'
 	if reference0=='bottom'||_argv[0]=='end'
 		_txt+='\![set,autoscroll,enable]'
 	if TOINT(musicplayerlist)==0{
@@ -624,7 +624,7 @@ OnMusicListPage{
 		music_listpage[_id]=musicfile[0]/100
 	OnMusicPlayerList
 }
-//移动歌曲
+//移動歌曲
 //---------------------------------------------------
 OnMusicPlayListMove{
 	SETDELIM(musiclist,'*')
@@ -665,7 +665,7 @@ OnMusicPlayListMove{
 	DialogMusicSaveList(musiclistfile[0],1)
 	OnMusicPlayerList
 }
-//移动歌曲列表
+//移動歌曲列表
 //---------------------------------------------------
 OnListNameMove{
 	_m3u='PROFILE_PATH\playlist\'
@@ -712,7 +712,7 @@ OnListNameMove{
 	DefaultListRename
 	OnMusicPlayerList
 }
-//默认歌曲列表读取
+//默認歌曲列表讀取
 //---------------------------------------------------
 DefaultListName{
 	_m3u = M3U8PATH
@@ -738,7 +738,7 @@ DefaultListName{
 	if _temp==0{
 		musiclistfile[0]=_m3u+0+'.m3u8'
 		musiclistfile[1]=0
-		musiclistfile[2]='[默认]'
+		musiclistfile[2]='[默認]'
 		ERASEVAR('musiclistname')
 		_m3u = M3UPATH
 		if FILEEXIST(_m3u){
@@ -747,7 +747,7 @@ DefaultListName{
 		}
 	}
 }
-//默认歌曲列表重命名
+//默認歌曲列表重命名
 //---------------------------------------------------
 DefaultListRename:void{
 	_m3u = M3U8PATH
@@ -764,7 +764,7 @@ DefaultListRename:void{
 		FRENAME(_file,_replace)
 	}
 }
-//读取歌曲列表
+//讀取歌曲列表
 //---------------------------------------------------
 OnLoadMusicList{
 	_m3u = M3U8PATH
@@ -790,7 +790,7 @@ OnMusicListRename{
 	MusicListReName(_file,_replace)
 	OnMusicPlayerList
 }
-//歌曲列表创建
+//歌曲列表創建
 //---------------------------------------------------
 OnMusicListCreat{
 	_m3u = M3U8PATH
@@ -849,7 +849,7 @@ DialogMusicAddList{
 	DialogMusicOpenList(_argv[0])
 	DialogMusicSaveList(_file,1)
 }
-//打开列表操作
+//打開列表操作
 //---------------------------------------------------
 DialogMusicOpenList:void{
 	_m3u = M3UPATH
@@ -972,7 +972,7 @@ OnMusicPlayListClose{
 	ERASEVAR('musicplayerlist')
 	'\C\0\b[-1]'
 }
-//取得乱序播放列表
+//取得亂序播放清單
 //---------------------------------------------------
 GetRandList{
 	if _argc>0
@@ -1010,7 +1010,7 @@ GetRandList{
 	musicfile[2] = musicrandlist[0][0,'|']
 	DialogMusicSaveList
 }
-//取得范围播放列表
+//取得範圍播放清單
 //---------------------------------------------------
 GetRangeList{
 	if _argc>0
@@ -1097,7 +1097,7 @@ GetRangeList{
 		_txt
 	}
 }
-//选择歌曲播放
+//選擇歌曲播放
 //---------------------------------------------------
 OnSelectMusic{
 	_txt='\C\![quicksession,1]\c\![sound,stop]\![sound,wait]'
@@ -1121,7 +1121,7 @@ OnSelectMusic{
 	_txt += PlayWithLyric('play',musiclrcenable,musicfile[2])
 	_txt
 }
-//选择上一曲
+//選擇上一曲
 //---------------------------------------------------
 OnLastMusic{
 	_txt='\![sound,stop]\![sound,wait]'
@@ -1152,7 +1152,7 @@ OnLastMusic{
 	_txt+=OnMusicPlayer
 	_txt
 }
-//选择下一曲
+//選擇下一曲
 //---------------------------------------------------
 OnNextMusic{
 	_txt='\![sound,stop]\![sound,wait]'
@@ -1183,7 +1183,7 @@ OnNextMusic{
 	_txt+=OnMusicPlayer
 	_txt
 }
-//当音乐结束时
+//當音樂結束時
 //---------------------------------------------------
 OnSoundStop{
 	if playLinkWnd&&!linkwndmusic&&freemode && linkmusicfile _in_ reference0 {
@@ -1269,12 +1269,12 @@ OnSoundStop{
 			SHIORI_FW.MakeValueNotify(OnPlayCmd('play',musicfile[2]))
 	}
 }
-//播放器面板的选项按钮动作
+//播放機面板的選項按鈕動作
 //---------------------------------------------------
 OnMusicPlayerCmd{
 	_temp=NULL
 	if !FILEEXIST(musicfile[2]){
-		_temp='文件无效或不存在'
+		_temp='檔無效或不存在'
 	}
 	_txt = ''
 	if reference0 == 'play' {
@@ -1294,28 +1294,28 @@ OnMusicPlayerCmd{
 	}
 	elseif reference0 == 'stop' {
 		_txt += OnSurfaceRestore.base + PlayWithLyric('stop')
-		_txt+=OnStopSpVoice.vbs//仅在tts语音开启时使用
+		_txt+=OnStopSpVoice.vbs//僅在tts語音開啟時使用
 	}
 	_txt += OnMusicPlayer
 	_txt
 }
-//播放列表的选项按钮动作
+//播放清單的選項按鈕動作
 //---------------------------------------------------
 OnMusicPlayListAdd{
 	if reference0 == 'folder' {
-		'\C\![open,dialog,folder,--id=musicfolder,--title=请选择音乐文件夹,--dir=__system_mymusic__]'
+		'\C\![open,dialog,folder,--id=musicfolder,--title=請選擇音樂資料夾,--dir=__system_mymusic__]'
 	}
 	elseif reference0 == 'file' {
-		'\C\![open,dialog,open,--id=musicfile,--title=请选择音乐文件,--dir=__system_mymusic__,--filter=音乐文件(mid;wav;mp3;m4a;au;ogg;wma;ape;flac;avi;wmv;rm;rmvb;mp4;mkv;flv)|*.mid;*.wav;*.mp3;*.m4a;*.au;*.ogg;*.wma;*.ape;*.flac,*avi,*.wmv,*.rm,*.rmvb,*.mp4,*.mkv,*.flv,*.mpg]'
+		'\C\![open,dialog,open,--id=musicfile,--title=請選擇音樂檔,--dir=__system_mymusic__,--filter=音樂檔(mid;wav;mp3;m4a;au;ogg;wma;ape;flac;avi;wmv;rm;rmvb;mp4;mkv;flv)|*.mid;*.wav;*.mp3;*.m4a;*.au;*.ogg;*.wma;*.ape;*.flac,*avi,*.wmv,*.rm,*.rmvb,*.mp4,*.mkv,*.flv,*.mpg]'
 	}
 	elseif reference0 == 'savelist' {
-		'\C\![open,dialog,save,--id=musicsavelist,--title=请输入要保存的列表文件,--dir=__system_mymusic__,--filter=M3U 文件(m3u)|*.m3u|M3U8 文件(m3u8)|*.m3u8,--ext=m3u|m3u8]'
+		'\C\![open,dialog,save,--id=musicsavelist,--title=請輸入要保存的列表檔,--dir=__system_mymusic__,--filter=M3U 檔(m3u)|*.m3u|M3U8 文件(m3u8)|*.m3u8,--ext=m3u|m3u8]'
 	}
 	elseif reference0 == 'openlist' {
-		'\C\![open,dialog,open,--id=musicopenlist,--title=请选择列表文件,--dir=__system_mymusic__,--filter=M3U 文件(m3u;m3u8)|*.m3u;*.m3u8]'
+		'\C\![open,dialog,open,--id=musicopenlist,--title=請選擇列表檔,--dir=__system_mymusic__,--filter=M3U 檔(m3u;m3u8)|*.m3u;*.m3u8]'
 	}
 	elseif reference0 == 'addlist' {
-		'\C\![open,dialog,open,--id=musicaddlist,--title=请选择列表文件,--dir=__system_mymusic__,--filter=M3U 文件(m3u;m3u8)|*.m3u;*.m3u8]'
+		'\C\![open,dialog,open,--id=musicaddlist,--title=請選擇列表檔,--dir=__system_mymusic__,--filter=M3U 檔(m3u;m3u8)|*.m3u;*.m3u8]'
 	}
 	elseif reference0 == 'newlist' {
 		musiclistfile[1]=ARRAYSIZE(musiclistname)
@@ -1334,7 +1334,7 @@ OnMusicPlayListAdd{
 		OnMusicPlayerList
 	}
 }
-//dialog事件的处理函式
+//dialog事件的處理函式
 //---------------------------------------------------
 OnSystemDialog{
 	if reference1 == 'musicfolder' {
@@ -1406,7 +1406,7 @@ OnSystemDialog{
 		OnEventEditSet(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],reference2,temp[7])
 	}
 }
-//选择音乐文件
+//選擇音樂檔
 //---------------------------------------------------
 DialogMusicFile{
 	_file = _argv[0]
@@ -1418,14 +1418,14 @@ DialogMusicFile{
 			OnMusicPlayerList
 		}
 		others {
-			'这不是音乐文件!\w9\w9\c'
-			'抱歉，橘花打不开这个文件……\w9\w9\c'
+			'這不是音樂檔!\w9\w9\c'
+			'抱歉，橘花打不開這個檔……\w9\w9\c'
 			--
 			OnMusicPlayerList
 		}
 	}
 }
-//选择文件夹
+//選擇資料夾
 //---------------------------------------------------
 DialogMusicFolder{
 	MusicLoadFolder(_argv[0])
@@ -1461,7 +1461,7 @@ MusicLoadFolder{
 		}
 	}
 }
-//拖放音乐文件
+//拖放音樂檔
 //---------------------------------------------------
 OnMusicFileDrop{
 	_buff = _argv[0]
