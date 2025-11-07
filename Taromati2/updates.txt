@@ -477,4 +477,4 @@ file,ghost/master/sound/tea.mp333dc524916fdceeb55459374eca427a9size=80296date
 file,ghost/master/sound/tinkle.wavf115303b37f10d103980434f5662f405size=123650date=2012-12-21T00:00:00
 file,ghost/master/thumbnail.png58e963279c6503e92e7f5b1079a41545size=28127date=2012-12-21T00:00:00
 file,install.txte2f789a753a12026f59362e5c6856f48size=76date=2012-12-21T00:00:00
-file,terms.txt731ed564a0235cbbcd7439ab649cf8ffsize=3479date=2012-12-21T00:00:00
+file,terms.txtecaa88f7fa0bf610a5a26cf545dcd3aasize=3479date=2012-12-21T00:00:00
