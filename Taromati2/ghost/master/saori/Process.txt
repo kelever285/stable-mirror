@@ -1,13 +1,13 @@
-//KikkaAIdb
+﻿//KikkaAIdb
 Process.dll 1.0.0.0
-获取系统进程名称、ID、路径。
+獲取系統進程名稱、ID、路徑。
 
 
 
-输出：
-valueex0：进程名称|进程ID|路径*进程名称|进程ID|路径*……
-valueex1：进程数（从0开始的）
+輸出：
+valueex0：進程名稱|進程ID|路徑*進程名稱|進程ID|路徑*……
+valueex1：進程數（從0開始的）
 
 
 
-南斗梦魂
+南斗夢魂

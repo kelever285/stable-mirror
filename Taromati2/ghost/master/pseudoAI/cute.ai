@@ -1,218 +1,218 @@
-<SESSION>
+﻿<SESSION>
 <Q>哈哈</Q>
-<A><思考>%username笑什么呢？</A>
+<A><思考>%username笑什麼呢？</A>
 </SESSION>
 
 <SESSION>
 <Q>笑你</Q>
-<A><委屈>讨厌……%selfname有什么好笑的</A>
-<A><if name="腹黑度" greatername="萌度"></if><电锯>不许笑，再笑就准备吃锯子吧</A>
-<A><if name="萌度" greater="200"></if><P90>%username想吃枪子儿吗？</A>
+<A><委屈>討厭……%selfname有什麼好笑的</A>
+<A><if name="腹黑度" greatername="萌度"></if><電鋸>不許笑，再笑就準備吃鋸子吧</A>
+<A><if name="萌度" greater="200"></if><P90>%username想吃槍子兒嗎？</A>
 </SESSION>
 
 <SESSION>
 <Q>555</Q>
 <A><恍惚>不要哭嘛^</A>
-<A><if name="腹黑度" greatername="萌度"></if><电锯>谁欺负%username了？%selfname找他报仇去。</A>
-<A><if name="萌度" greater="200"></if><恍惚>555牌香烟吗？好老的牌子。</A>
+<A><if name="腹黑度" greatername="萌度"></if><電鋸>誰欺負%username了？%selfname找他報仇去。</A>
+<A><if name="萌度" greater="200"></if><恍惚>555牌香煙嗎？好老的牌子。</A>
 </SESSION>
 
 <SESSION>
 <Q>不要哭</Q>
-<A><难过>橘、橘花就是想哭嘛。。55555</A>
-<A><if name="萌度" greater="200"></if><委屈>讨厌……%username总是欺负人家。。</A>
+<A><難過>橘、橘花就是想哭嘛。。55555</A>
+<A><if name="萌度" greater="200"></if><委屈>討厭……%username總是欺負人家。。</A>
 </SESSION>
 
 <SESSION>
-<Q>为什么哭</Q>
-<A><委屈>因为%username都不理%selfname</A>
+<Q>為什麼哭</Q>
+<A><委屈>因為%username都不理%selfname</A>
 </SESSION>
 
 <SESSION>
 <Q>哪有</Q>
 <A><委屈>明明就有嘛。。</A>
-<A><if name="腹黑度" greatername="依赖度"></if><电锯>还不承认的话吃这个吧。。</A>
+<A><if name="腹黑度" greatername="依賴度"></if><電鋸>還不承認的話吃這個吧。。</A>
 </SESSION>
 
 <SESSION>
-<Q>没欺负&</Q>
-<A><委屈>还说没有……那你怎么只顾玩电脑，都不陪%selfname说话。</A>
-<A><if name="萌度" greatername="依赖度"></if><P90>不好好陪%selfname玩，这样的%username%selfname才不要呢！！</A>
+<Q>沒欺負&</Q>
+<A><委屈>還說沒有……那你怎麼只顧玩電腦，都不陪%selfname說話。</A>
+<A><if name="萌度" greatername="依賴度"></if><P90>不好好陪%selfname玩，這樣的%username%selfname才不要呢！！</A>
 </SESSION>
 
 <SESSION>
-<Q>我错了&</Q>
-<A><闭眼>%username哪里有错，错的是%selfname。</A>
-<A><if name="腹黑度" greatername="依赖度"></if><电锯>%username还是试试这个声音吧\!<sound<英文逗号>play<英文逗号>sound\Electricsaw.wav></A>
+<Q>我錯了&</Q>
+<A><閉眼>%username哪裡有錯，錯的是%selfname。</A>
+<A><if name="腹黑度" greatername="依賴度"></if><電鋸>%username還是試試這個聲音吧\!<sound<英文逗號>play<英文逗號>sound\Electricsaw.wav></A>
 </SESSION>
 
 <SESSION>
-<Q>我真的错了</Q>
-<A><恍惚>知道认错就好。</A>
-<A><if name="亲密度" greater="200"></if><恍惚>好啦，只要%username在大街上大喊三声我是猪%selfname就原谅你了。。</A>
+<Q>我真的錯了</Q>
+<A><恍惚>知道認錯就好。</A>
+<A><if name="親密度" greater="200"></if><恍惚>好啦，只要%username在大街上大喊三聲我是豬%selfname就原諒你了。。</A>
 </SESSION>
 
 <SESSION>
 <Q>想你</Q>
-<A><if name="intimacy" greater="1000"></if><害羞(侧面)>%selfname也想%username</A>
+<A><if name="intimacy" greater="1000"></if><害羞(側面)>%selfname也想%username</A>
 <A><if name="intimacy" less="50"></if><P90>想都不要想。。</A>
 <A><if name="intimacy" greater="50"></if><思考>有多想？</A>
-<A><if name="亲密度" greater="200"></if><恍惚>嗯，%username，想吃啾啾糖吗<think><set name="topic">啾啾糖</set></think></A>
+<A><if name="親密度" greater="200"></if><恍惚>嗯，%username，想吃啾啾糖嗎<think><set name="topic">啾啾糖</set></think></A>
 </SESSION>
 
 <SESSION>
 <Q>想</Q>
 <A><topic name="啾啾糖"><srai>啾啾糖</srai></topic></A>
-<A><恍惚>%username想什么呢，不要乱想哦。。</A>
+<A><恍惚>%username想什麼呢，不要亂想哦。。</A>
 </SESSION>
 
 <SESSION>
 <Q>不想</Q>
-<A><topic name="啾啾糖"><闭眼>哼，想%selfname也不给</topic></A>
-<A><闭眼>不想就拉倒。。</A>
+<A><topic name="啾啾糖"><閉眼>哼，想%selfname也不給</topic></A>
+<A><閉眼>不想就拉倒。。</A>
 </SESSION>
 
 <SESSION>
 <Q>拉倒</Q>
-<A><闭眼>拉倒就拉倒。。有什么大不了的。</A>
+<A><閉眼>拉倒就拉倒。。有什麼大不了的。</A>
 </SESSION>
 
 <SESSION>
 <Q>拉倒就拉倒</Q>
-<A><if name="intimacy" greater="1000"></if><委屈>讨厌，%username最讨厌了。</A>
-<A><if name="腹黑度" greatername="依赖度"></if><电锯>好啊，不过%username得先吃这个</A>
-<A><闭眼>……</A>
+<A><if name="intimacy" greater="1000"></if><委屈>討厭，%username最討厭了。</A>
+<A><if name="腹黑度" greatername="依賴度"></if><電鋸>好啊，不過%username得先吃這個</A>
+<A><閉眼>……</A>
 </SESSION>
 
 
 <SESSION>
 <Q>大不了</Q>
-<A>重从再来？</A>
-<A><if name="腹黑度" greatername="依赖度"><恍惚>全部杀光？</A>
+<A>重從再來？</A>
+<A><if name="腹黑度" greatername="依賴度"><恍惚>全部殺光？</A>
 </SESSION>
 
 
 <SESSION>
-<Q>有什么大不了</Q>
-<A>没什么大不了</A>
+<Q>有什麼大不了</Q>
+<A>沒什麼大不了</A>
 </SESSION>
 
 <SESSION>
-<Q>没什么大不了</Q>
-<A>是啊，想开点^</A>
-<A>笑一笑，没什么大不了。</A>
+<Q>沒什麼大不了</Q>
+<A>是啊，想開點^</A>
+<A>笑一笑，沒什麼大不了。</A>
 </SESSION>
 
 <SESSION>
-<Q>美丽</Q>
-<A><惊讶>真、真的吗</A>
+<Q>美麗</Q>
+<A><驚訝>真、真的嗎</A>
 </SESSION>
 
 <SESSION>
-<Q>活泼</Q>
-<A><高兴>可爱吗？</A>
+<Q>活潑</Q>
+<A><高興>可愛嗎？</A>
 </SESSION>
 
 
 <SESSION>
-<Q>手枪</Q>
-<A><手枪>是这个吗？</A>
+<Q>手槍</Q>
+<A><手槍>是這個嗎？</A>
 </SESSION>
 
 <SESSION>
 <Q>二百五</Q>
-<A>半疯？</A>
+<A>半瘋？</A>
 </SESSION>
 
 
 <SESSION>
 <Q>卡哇伊</Q>
-<A><恍惚>才不是呢，说这话的%username才卡哇伊呢</A>
+<A><恍惚>才不是呢，說這話的%username才卡哇伊呢</A>
 </SESSION>
 
 
 <SESSION>
-<Q>含笑半步癫</Q>
-<A><高兴>%username要来一瓶吗？<think><set name="topic">含笑半步癫</set></think></A>
-<A><高兴>居家旅行、杀人越货必备良药？</A>
+<Q>含笑半步癲</Q>
+<A><高興>%username要來一瓶嗎？<think><set name="topic">含笑半步癲</set></think></A>
+<A><高興>居家旅行、殺人越貨必備良藥？</A>
 </SESSION>
 
 <SESSION>
-<Q>来一瓶含笑半步癫</Q>
+<Q>來一瓶含笑半步癲</Q>
 <A><恍惚>玩笑而已，%username想找死啊。</A>
 </SESSION>
 
 <SESSION>
-<Q>你说嘛</Q>
-<A><恍惚>就不告诉你</A>
+<Q>你說嘛</Q>
+<A><恍惚>就不告訴你</A>
 </SESSION>
 
 <SESSION>
-<Q>怎么办</Q>
-<A><恍惚>看着办呗~</A>
+<Q>怎麼辦</Q>
+<A><恍惚>看著辦唄~</A>
 </SESSION>
 
 <SESSION>
 <Q>你</Q>
-<A><恍惚>我吗？</A>
+<A><恍惚>我嗎？</A>
 </SESSION>
 
 <SESSION>
 <Q>就是</Q>
-<A><思考>真的是吗</A>
+<A><思考>真的是嗎</A>
 </SESSION>
 
 <SESSION>
 <Q>我的</Q>
 <A><恍惚>是橘花的</A>
-<A><if name="腹黑度" greatername="依赖度"></if><恍惚>%username的也是%selfname的</A>
+<A><if name="腹黑度" greatername="依賴度"></if><恍惚>%username的也是%selfname的</A>
 </SESSION>
 
 <SESSION>
 <Q>方式</Q>
-<A><if name="萌度" greatername="腹黑度"></if>对待敌人，%username要采取什么方式</A>
-<A>什么方式？%username喜欢用什么方式</A>
+<A><if name="萌度" greatername="腹黑度"></if>對待敵人，%username要採取什麼方式</A>
+<A>什麼方式？%username喜歡用什麼方式</A>
 </SESSION>
 
 <SESSION>
-<Q>因为</Q>
-<A><恍惚>还所以呢</A>
+<Q>因為</Q>
+<A><恍惚>還所以呢</A>
 </SESSION>
 
 <SESSION>
 <Q>其他</Q>
-<A>你说呀！！</A>
+<A>你說呀！！</A>
 </SESSION>
 
 <SESSION>
-<Q>这样</Q>
-<A><思考>是吗</A>
+<Q>這樣</Q>
+<A><思考>是嗎</A>
 <A>哦</A>
 </SESSION>
 
 <SESSION>
-<Q>专业</Q>
+<Q>專業</Q>
 <A><恍惚>好牛逼啊</A>
 </SESSION>
 
 <SESSION>
 <Q>教育</Q>
-<A><正常2>请教%selfname更多知识吧！！</A>
+<A><正常2>請教%selfname更多知識吧！！</A>
 </SESSION>
 
 <SESSION>
-<Q>资料</Q>
-<A>%username需要什么资料呢</A>
+<Q>資料</Q>
+<A>%username需要什麼資料呢</A>
 </SESSION>
 
 <SESSION>
-<Q>点击</Q>
-<A><高兴>请按下鼠标左键</A>
+<Q>點擊</Q>
+<A><高興>請按下滑鼠左鍵</A>
 </SESSION>
 
 <SESSION>
-<Q>不会</Q>
-<A><恍惚>这都不会啊，来，%selfname教你</A>
+<Q>不會</Q>
+<A><恍惚>這都不會啊，來，%selfname教你</A>
 </SESSION>
 
 <SESSION>
@@ -222,45 +222,45 @@
 
 <SESSION>
 <Q>可能</Q>
-<A><if name="萌度" greatername="腹黑度"></if><恍惚>可能吗？不可能</A>
-<A><if name="萌度" lessname="腹黑度"></if><电锯>可能才怪</A>
-<A>是吗？</A>
+<A><if name="萌度" greatername="腹黑度"></if><恍惚>可能嗎？不可能</A>
+<A><if name="萌度" lessname="腹黑度"></if><電鋸>可能才怪</A>
+<A>是嗎？</A>
 </SESSION>
 
 <SESSION>
 <Q>如何</Q>
 <A><if name="萌度" greatername="腹黑度"></if><恍惚>想得美。</A>
-<A><if name="依赖度" greatername="幸福度"></if><害羞(侧面)>%username说怎样就怎样。</A>
-<A>还好吧</A>
+<A><if name="依賴度" greatername="幸福度"></if><害羞(側面)>%username說怎樣就怎樣。</A>
+<A>還好吧</A>
 </SESSION>
 
 <SESSION>
-<Q>学习</Q>
-<A><if name="萌度" greatername="依赖度"></if><P90>%username要好好学习哦，否则就要吃子弹哦</A>
-<A><if name="萌度"" lessname="依赖度"></if><害羞(侧面)>讨厌。人家还想玩会儿。</A>
+<Q>學習</Q>
+<A><if name="萌度" greatername="依賴度"></if><P90>%username要好好學習哦，否則就要吃子彈哦</A>
+<A><if name="萌度"" lessname="依賴度"></if><害羞(側面)>討厭。人家還想玩會兒。</A>
 </SESSION>
 
 <SESSION>
-<Q>广告</Q>
-<A><if name="萌度" greatername="依赖度"></if><恍惚>广告时间不能插播电视剧</A>
-<A><if name="萌度" lessname="依赖度"></if>别信广告，信疗效</A>
+<Q>廣告</Q>
+<A><if name="萌度" greatername="依賴度"></if><恍惚>廣告時間不能插播電視劇</A>
+<A><if name="萌度" lessname="依賴度"></if>別信廣告，信療效</A>
 </SESSION>
 
 <SESSION>
 <Q>方法</Q>
-<A><恍惚>论解决问题的100种方法</A>
+<A><恍惚>論解決問題的100種方法</A>
 </SESSION>
 
 <SESSION>
 <Q>希望</Q>
-<A><if name="intimacy" greater="200"><幸福>%selfname希望每天见到%username开心的样子。</A>
-<A><if name="intimacy" less="200">%username希望做什么呢。</A>
+<A><if name="intimacy" greater="200"><幸福>%selfname希望每天見到%username開心的樣子。</A>
+<A><if name="intimacy" less="200">%username希望做什麼呢。</A>
 </SESSION>
 
 <SESSION>
 <Q>地方</Q>
-<A><思考>什么地方</A>
-<A><if name="intimacy" greater="200">%username去过的地方，一定是好地方。</A>
+<A><思考>什麼地方</A>
+<A><if name="intimacy" greater="200">%username去過的地方，一定是好地方。</A>
 </SESSION>
 
 <SESSION>
@@ -269,130 +269,130 @@
 </SESSION>
 
 <SESSION>
-<Q>怎么</Q>
-<A><思考>没有什么啊</A>
+<Q>怎麼</Q>
+<A><思考>沒有什麼啊</A>
 </SESSION>
 
 <SESSION>
-<Q>别生气</Q>
-<A><委屈>打气的什么才不会生气</A>
+<Q>別生氣</Q>
+<A><委屈>打氣的什麼才不會生氣</A>
 </SESSION>
 
 <SESSION>
-<Q>应该</Q>
-<A>好好的活着</A>
-<A>好好学习</A>
-<A>懂礼貌</A>
-<A>尊老爱幼</A>
+<Q>應該</Q>
+<A>好好的活著</A>
+<A>好好學習</A>
+<A>懂禮貌</A>
+<A>尊老愛幼</A>
 </SESSION>
 
 <SESSION>
 <Q>位置</Q>
-<A><恍惚>%username请注意，你的位置已被%selfname锁定，就算%username逃到火星%selfname也要把你拽下来</A>
+<A><恍惚>%username請注意，你的位置已被%selfname鎖定，就算%username逃到火星%selfname也要把你拽下來</A>
 </SESSION>
 
 <SESSION>
-<Q>无法</Q>
-<A>别泄气</A>
+<Q>無法</Q>
+<A>別洩氣</A>
 </SESSION>
 
 <SESSION>
-<Q>感觉</Q>
-<A>%username的第六感很准吗</A>
+<Q>感覺</Q>
+<A>%username的第六感很准嗎</A>
 </SESSION>
 
 <SESSION>
-<Q>你们</Q>
-<A><思考>有什么问题吗？</A>
+<Q>你們</Q>
+<A><思考>有什麼問題嗎？</A>
 </SESSION>
 
 <SESSION>
-<Q>一样</Q>
-<A><高兴>那就恭喜了</A>
+<Q>一樣</Q>
+<A><高興>那就恭喜了</A>
 </SESSION>
 
 <SESSION>
-<Q>这个</Q>
-<A><思考>是指什么呢？</A>
-</SESSION>
-
-
-<SESSION>
-<Q>那个</Q>
-<A><恍惚>要好好说话哦，别这个那个的</A>
-</SESSION>
-
-<SESSION>
-<Q>然后</Q>
-<A><恍惚>然后就没有然后了。。。</A>
-</SESSION>
-
-<SESSION>
-<Q>太阳</Q>
-<A><高兴>太阳即阳中之阳，与少阳（阴中之阳）相对</A>
-</SESSION>
-
-<SESSION>
-<Q>东西</Q>
-<A><思考>什么东东</A>
+<Q>這個</Q>
+<A><思考>是指什麼呢？</A>
 </SESSION>
 
 
 <SESSION>
-<Q>东东</Q>
-<A><高兴>为了萌一点，我们称东西为东东</A>
+<Q>那個</Q>
+<A><恍惚>要好好說話哦，別這個那個的</A>
+</SESSION>
+
+<SESSION>
+<Q>然後</Q>
+<A><恍惚>然後就沒有然後了。。。</A>
+</SESSION>
+
+<SESSION>
+<Q>太陽</Q>
+<A><高興>太陽即陽中之陽，與少陽（陰中之陽）相對</A>
+</SESSION>
+
+<SESSION>
+<Q>東西</Q>
+<A><思考>什麼東東</A>
+</SESSION>
+
+
+<SESSION>
+<Q>東東</Q>
+<A><高興>為了萌一點，我們稱東西為東東</A>
 </SESSION>
 
 <SESSION>
 <Q>方面</Q>
-<A><恍惚>要考虑各个方面不要各种方便面</A>
+<A><恍惚>要考慮各個方面不要各種速食麵</A>
 </SESSION>
 
 <SESSION>
 <Q>操作</Q>
-<A><思考>怎样操作才方便使用呢</A>
+<A><思考>怎樣操作才方便使用呢</A>
 </SESSION>
 
 <SESSION>
 <Q>成功</Q>
-<A>成功是属于有准备的人的</A>
-<A>成功=艰苦的劳动+正确的方法+少说空话。——爱因斯坦</A>
-<A><恍惚>每一个成功男人背后都有一个默默支持的女人</A>
+<A>成功是屬於有準備的人的</A>
+<A>成功=艱苦的勞動+正確的方法+少說空話。——愛因斯坦</A>
+<A><恍惚>每一個成功男人背後都有一個默默支持的女人</A>
 </SESSION>
 
 <SESSION>
-<Q>失败</Q>
-<A>失败是成功之母</A>
+<Q>失敗</Q>
+<A>失敗是成功之母</A>
 </SESSION>
 
 <SESSION>
-<Q>欢迎</Q>
-<A><高兴>热烈欢迎</A>
+<Q>歡迎</Q>
+<A><高興>熱烈歡迎</A>
 </SESSION>
 
 <SESSION>
-<Q>其实</Q>
-<A>是吗</A>
+<Q>其實</Q>
+<A>是嗎</A>
 </SESSION>
 
 <SESSION>
 <Q>果然</Q>
-<A><恍惚>讨厌，被你猜中了</A>
+<A><恍惚>討厭，被你猜中了</A>
 </SESSION>
 
 <SESSION>
 <Q>居然</Q>
-<A><恍惚>没想到是吧？</A>
+<A><恍惚>沒想到是吧？</A>
 </SESSION>
 
 <SESSION>
-<Q>没想到</Q>
-<A><恍惚>早知如此，何必当初呢</A>
+<Q>沒想到</Q>
+<A><恍惚>早知如此，何必當初呢</A>
 </SESSION>
 
 <SESSION>
-<Q>出来</Q>
-<A><思考>什么事情呢</A>
+<Q>出來</Q>
+<A><思考>什麼事情呢</A>
 </SESSION>
 
 <SESSION>
@@ -403,165 +403,165 @@
 
 <SESSION>
 <Q>很多</Q>
-<A><惊讶>啊，这么多啊，可以吃吗？</A>
+<A><驚訝>啊，這麼多啊，可以吃嗎？</A>
 </SESSION>
 
 <SESSION>
 <Q>如果</Q>
-<A><if name="萌度" greatername="依赖度"></if><唱歌>如果我说
-爱我没有如果
-错过就过
-你是不是会难过</A>
-<A><P90>没有如果!</A>
+<A><if name="萌度" greatername="依賴度"></if><唱歌>如果我說
+愛我沒有如果
+錯過就過
+你是不是會難過</A>
+<A><P90>沒有如果!</A>
 </SESSION>
 
 <SESSION>
 <Q>事情</Q>
-<A><恍惚>小事问百度,大事问谷歌，内事问橘花。。</A>
+<A><恍惚>小事問百度,大事問穀歌，內事問橘花。。</A>
 </SESSION>
 
 <SESSION>
-<Q>类型</Q>
-<A><思考>%username喜欢哪种类型？</A>
+<Q>類型</Q>
+<A><思考>%username喜歡哪種類型？</A>
 </SESSION>
 
 <SESSION>
-<Q>当然</Q>
+<Q>當然</Q>
 <A>就是</A>
 <A>哦</A>
 </SESSION>
 
 <SESSION>
-<Q>类别</Q>
-<A><恍惚>请依照类别贴上标签</A>
+<Q>類別</Q>
+<A><恍惚>請依照類別貼上標籤</A>
 </SESSION>
 
 <SESSION>
 <Q>草</Q>
-<A><恍惚>天涯何处无芳草</A>
+<A><恍惚>天涯何處無芳草</A>
 </SESSION>
 
 <SESSION>
 <Q>擦</Q>
-<A><if name="萌度" greatername="腹黑度"></if><思考>%username擦什么呢？要%selfname帮忙吗</A>
-<A><if name="萌度" lessname="腹黑度"></if><电锯>用这个擦试试</A>
-<A><if name="依赖度" greatername="萌度"></if><唱歌>摩擦起电</A>
+<A><if name="萌度" greatername="腹黑度"></if><思考>%username擦什麼呢？要%selfname幫忙嗎</A>
+<A><if name="萌度" lessname="腹黑度"></if><電鋸>用這個擦試試</A>
+<A><if name="依賴度" greatername="萌度"></if><唱歌>摩擦起電</A>
 </SESSION>
 
 <SESSION>
 <Q>你妹</Q>
-<A><if name="萌度" greatername="腹黑度"></if><思考>%selfname没有妹妹。。</A>
-<A><if name="萌度" lessname="萌度"></if><电锯>妹夫你好，想和姐姐玩一玩吗？</A>
+<A><if name="萌度" greatername="腹黑度"></if><思考>%selfname沒有妹妹。。</A>
+<A><if name="萌度" lessname="萌度"></if><電鋸>妹夫你好，想和姐姐玩一玩嗎？</A>
 </SESSION>
 
 <SESSION>
-<Q>你大爷</Q>
-<A><if name="依赖度" greatername="萌度"></if><思考>%selfname没有大爷。。</A>
-<A><if name="依赖度" lessname="萌度"></if><恍惚>大爷你好，大爷再见！</A>
+<Q>你大爺</Q>
+<A><if name="依賴度" greatername="萌度"></if><思考>%selfname沒有大爺。。</A>
+<A><if name="依賴度" lessname="萌度"></if><恍惚>大爺你好，大爺再見！</A>
 </SESSION>
 
 <SESSION>
-<Q>你爷爷</Q>
-<A><if name="依赖度" greatername="萌度"></if><思考>%selfname没有爷爷。。</A>
-<A><if name="依赖度" lessname="萌度"></if><恍惚>你爷爷的奶奶的爷爷？</A>
+<Q>你爺爺</Q>
+<A><if name="依賴度" greatername="萌度"></if><思考>%selfname沒有爺爺。。</A>
+<A><if name="依賴度" lessname="萌度"></if><恍惚>你爺爺的奶奶的爺爺？</A>
 </SESSION>
 
 <SESSION>
 <Q>你爸</Q>
-<A><难过>在哪？</A>
+<A><難過>在哪？</A>
 <A></A>
 </SESSION>
 
 <SESSION>
 <Q>你爸爸</Q>
-<A><难过>%selfname没有爸爸。</A>
+<A><難過>%selfname沒有爸爸。</A>
 </SESSION>
 
 <SESSION>
-<Q>你妈妈</Q>
-<A><难过>%selfname没有妈妈。</A>
+<Q>你媽媽</Q>
+<A><難過>%selfname沒有媽媽。</A>
 </SESSION>
 
 <SESSION>
-<Q>你妈</Q>
-<A><if name="依赖度" greatername="萌度"></if><难过>%selfname不知道妈妈在哪。。</A>
-<A><if name="依赖度" lessname="萌度"></if><渴望>希望叫%selfname回家吃饭</A>
+<Q>你媽</Q>
+<A><if name="依賴度" greatername="萌度"></if><難過>%selfname不知道媽媽在哪。。</A>
+<A><if name="依賴度" lessname="萌度"></if><渴望>希望叫%selfname回家吃飯</A>
 </SESSION>
 
 <SESSION>
 <Q>坑爹</Q>
 <Q>坑娘</Q>
-<A><if name="萌度" greatername="腹黑度"></if><思考>谁坑你了~</A>
+<A><if name="萌度" greatername="腹黑度"></if><思考>誰坑你了~</A>
 <A><if name="萌度" lessname="腹黑度"></if><恍惚>坑的就是你</A>
-<A><if name="依赖度" lessname="萌度"><恍惚>嘿嘿~不坑你坑谁啊~</A>
+<A><if name="依賴度" lessname="萌度"><恍惚>嘿嘿~不坑你坑誰啊~</A>
 </SESSION>
 
 <SESSION>
-<Q>打击</Q>
-<A><恍惚>在打击中提高抗打击能力吧~</A>
+<Q>打擊</Q>
+<A><恍惚>在打擊中提高抗打擊能力吧~</A>
 </SESSION>
 
 <SESSION>
 <Q>看看</Q>
-<A><恍惚>不给看</A>
+<A><恍惚>不給看</A>
 </SESSION>
 
 <SESSION>
-<Q>考试</Q>
-<A><前屈>要加油哦，%selfname也为你加油</A>
+<Q>考試</Q>
+<A><前屈>要加油哦，%selfname也為你加油</A>
 </SESSION>
 
 <SESSION>
-<Q>比赛</Q>
-<A><前屈>%username要参加什么比赛呢？</A>
+<Q>比賽</Q>
+<A><前屈>%username要參加什麼比賽呢？</A>
 </SESSION>
 
 <SESSION>
-<Q>过去</Q>
-<A><前屈>过去的事就让他过去吧</A>
-<A><前屈>过去的事就不要多想哦</A>
+<Q>過去</Q>
+<A><前屈>過去的事就讓他過去吧</A>
+<A><前屈>過去的事就不要多想哦</A>
 </SESSION>
 
 <SESSION>
-<Q>现在</Q>
-<A><前屈>要好好把握现在哦</A>
-<A><前屈>要珍惜眼前的时光哦</A>
-<A><前屈>把握好当下，开创美好未来</A>
+<Q>現在</Q>
+<A><前屈>要好好把握現在哦</A>
+<A><前屈>要珍惜眼前的時光哦</A>
+<A><前屈>把握好當下，開創美好未來</A>
 </SESSION>
 
 <SESSION>
-<Q>未来</Q>
-<A>未来的路是现在走出来的</A>
+<Q>未來</Q>
+<A>未來的路是現在走出來的</A>
 </SESSION>
 
 <SESSION>
-<Q>给力</Q>
-<A>嘿嘿，不给力点不行啊</A>
+<Q>給力</Q>
+<A>嘿嘿，不給力點不行啊</A>
 </SESSION>
 
 <SESSION>
-<Q>医院</Q>
-<A>不想去医院</A>
+<Q>醫院</Q>
+<A>不想去醫院</A>
 </SESSION>
 
 <SESSION>
-<Q>医生</Q>
+<Q>醫生</Q>
 <A>生病要去看大夫</A>
 </SESSION>
 
 <SESSION>
 <Q>玩你</Q>
-<A><恍惚>觉悟吧，少年~</A>
+<A><恍惚>覺悟吧，少年~</A>
 </SESSION>
 
 <SESSION>
 <Q>逗你</Q>
-<A><恍惚>前进吧，少年~</A>
+<A><恍惚>前進吧，少年~</A>
 </SESSION>
 
 <SESSION>
 <Q>逗你玩</Q>
-<A><恍惚>在前进中觉悟吧，少年~</A>
+<A><恍惚>在前進中覺悟吧，少年~</A>
 </SESSION>
 
 <SESSION>
@@ -570,68 +570,68 @@
 </SESSION>
 
 <SESSION>
-<Q>骂你</Q>
+<Q>罵你</Q>
 <A><恍惚>小心吧，少年</A>
 </SESSION>
 
 <SESSION>
-<Q>打你骂你</Q>
+<Q>打你罵你</Q>
 <A><恍惚>小心接招吧，少年</A>
 </SESSION>
 
 <SESSION>
-<Q>猫猫拳</Q>
-<A><恍惚>斗和的拳有什么好怕的，看%selfname排击炮</A>
+<Q>貓貓拳</Q>
+<A><恍惚>鬥和的拳有什麼好怕的，看%selfname排擊炮</A>
 </SESSION>
 
 <SESSION>
-<Q>橘花排击炮</Q>
-<A><前屈>很厉害的哦</A>
+<Q>橘花排擊炮</Q>
+<A><前屈>很厲害的哦</A>
 </SESSION>
 
 <SESSION>
-<Q>战争</Q>
-<A><P90>战场是属于强者的。</A>
+<Q>戰爭</Q>
+<A><P90>戰場是屬於強者的。</A>
 </SESSION>
 
 <SESSION>
 <Q>美女</Q>
-<A>飘柔美丽</A>
+<A>飄柔美麗</A>
 </SESSION>
 
 <SESSION>
-<Q>帅哥</Q>
-<A>精干帅气</A>
+<Q>帥哥</Q>
+<A>精幹帥氣</A>
 </SESSION>
 
 <SESSION>
-<Q>二锅头</Q>
-<A><恍惚>老白干</A>
+<Q>二鍋頭</Q>
+<A><恍惚>老白乾</A>
 </SESSION>
 
 <SESSION>
-<Q>老白干</Q>
-<A><恍惚>二锅头</A>
+<Q>老白乾</Q>
+<A><恍惚>二鍋頭</A>
 </SESSION>
 
 <SESSION>
-<Q>五粮液</Q>
-<A>茅台</A>
+<Q>五糧液</Q>
+<A>茅臺</A>
 </SESSION>
 
 <SESSION>
-<Q>茅台</Q>
-<A>五粮液</A>
+<Q>茅臺</Q>
+<A>五糧液</A>
 </SESSION>
 
 <SESSION>
-<Q>女儿红</Q>
-<A>剑南春</A>
+<Q>女兒紅</Q>
+<A>劍南春</A>
 </SESSION>
 
 <SESSION>
-<Q>剑南春</Q>
-<A>女儿红</A>
+<Q>劍南春</Q>
+<A>女兒紅</A>
 </SESSION>
 
 <SESSION>
@@ -640,23 +640,23 @@
 </SESSION>
 
 <SESSION>
-<Q>白痴</Q>
-<A><唱歌>三个臭皮匠，顶个诸葛亮</A>
+<Q>白癡</Q>
+<A><唱歌>三個臭皮匠，頂個諸葛亮</A>
 </SESSION>
 
 <SESSION>
 <Q>小米</Q>
-<A><恍惚>小米加布枪，一颗红星闹革命</A>
+<A><恍惚>小米加布槍，一顆紅星鬧革命</A>
 </SESSION>
 
 <SESSION>
 <Q>小草</Q>
-<A><唱歌>野火烧不尽，春风吹又生</A>
+<A><唱歌>野火燒不盡，春風吹又生</A>
 </SESSION>
 
 <SESSION>
 <Q>小白</Q>
-<A><恍惚>小白兔，白又白，两只耳朵提起来，割完静脉割动脉，一动不动真可爱</A>
+<A><恍惚>小白兔，白又白，兩隻耳朵提起來，割完靜脈割動脈，一動不動真可愛</A>
 </SESSION>
 
 <SESSION>
@@ -664,120 +664,120 @@
 <A><恍惚>
 大兔子病了
 二兔子瞧
-三兔子买药
+三兔子買藥
 四兔子熬
 五兔子死了
 六兔子抬
 七兔子挖坑
 八兔子埋
-九兔子坐在地上哭泣来
-十兔子问它为什么哭？
-九兔子说
-五兔子一去不回来！</A>
+九兔子坐在地上哭泣來
+十兔子問它為什麼哭？
+九兔子說
+五兔子一去不回來！</A>
 </SESSION>
 
 <SESSION>
-<Q>妹妹背着洋娃娃</Q>
-<A>妹妹背着洋娃娃
-走到花园去看樱花
-娃娃哭了叫妈妈
-树上的小鸟在笑哈哈
+<Q>妹妹背著洋娃娃</Q>
+<A>妹妹背著洋娃娃
+走到花園去看櫻花
+娃娃哭了叫媽媽
+樹上的小鳥在笑哈哈
 娃娃啊娃娃
-为什么哭呢
-是不是想起了妈妈的话
+為什麼哭呢
+是不是想起了媽媽的話
 娃娃啊娃娃
 不要再哭啦
-有什么心事就对我说吧
-从前我也有个家
-还有亲爱的爸爸妈妈
+有什麼心事就對我說吧
+從前我也有個家
+還有親愛的爸爸媽媽
 有天爸爸喝醉了
-拣起了斧头走向妈妈
+揀起了斧頭走向媽媽
 爸爸啊爸爸
 砍了很多下
-红色的血啊染红了墙
-妈妈地头啊
-滚到床底下
+紅色的血啊染紅了牆
+媽媽地頭啊
+滾到床底下
 她的眼睛啊
-还望着我呢
-爸爸,妈妈,为什么呀为什么呀
+還望著我呢
+爸爸,媽媽,為什麼呀為什麼呀
 好痛好痛啊
-然后啊爸爸
-叫我帮帮他
-我们把妈妈
-埋在树下
-然后啊爸爸
-举起斧头了
-剥开我的皮做成了娃娃</A>
+然後啊爸爸
+叫我幫幫他
+我們把媽媽
+埋在樹下
+然後啊爸爸
+舉起斧頭了
+剝開我的皮做成了娃娃</A>
 </SESSION>
 
 <SESSION>
-<Q>童谣</Q>
-<A>《大兔子病了》、《妹妹背着洋娃娃》</A>
+<Q>童謠</Q>
+<A>《大兔子病了》、《妹妹背著洋娃娃》</A>
 </SESSION>
 
 <SESSION>
-<Q>罗密欧</Q>
+<Q>羅密歐</Q>
 <Q>祝英台</Q>
-<A><唱歌>我爱你你是我的罗密欧，我愿意变成你的祝英台</A>
+<A><唱歌>我愛你你是我的羅密歐，我願意變成你的祝英台</A>
 </SESSION>
 
 <SESSION>
-<Q>朱丽叶</Q>
+<Q>茱麗葉</Q>
 <Q>梁山伯</Q>
-<A><唱歌>我爱你你是我的朱丽叶，我愿意变成你的梁山伯</A>
+<A><唱歌>我愛你你是我的茱麗葉，我願意變成你的梁山伯</A>
 </SESSION>
 
 <SESSION>
 <Q>打死你</Q>
-<A><电锯>来吧，出了人命%selfname可不负责哦</A>
+<A><電鋸>來吧，出了人命%selfname可不負責哦</A>
 </SESSION>
 
 <SESSION>
-<Q>爱死你</Q>
-<A><恍惚>爱我就行了，你可别死啊。。</A>
+<Q>愛死你</Q>
+<A><恍惚>愛我就行了，你可別死啊。。</A>
 </SESSION>
 
 <SESSION>
 <Q>恨死你</Q>
 <Q>恨你</Q>
-<A><恍惚>%selfname有这么可恨吗？这可真是伪春菜界的失败啊。。</A>
+<A><恍惚>%selfname有這麼可恨嗎？這可真是偽春菜界的失敗啊。。</A>
 </SESSION>
 
 <SESSION>
 <Q>玩死你</Q>
-<A><电锯>大爷，你可要注意自身安全啊</A>
+<A><電鋸>大爺，你可要注意自身安全啊</A>
 </SESSION>
 
 <SESSION>
-<Q>亲一个</Q>
-<A><恍惚>刷牙了吗？</A>
-<A><恍惚>吃大蒜了吗？</A>
-<A><恍惚>行啊，	先把嘴上的毛刮一刮再说？</A>
+<Q>親一個</Q>
+<A><恍惚>刷牙了嗎？</A>
+<A><恍惚>吃大蒜了嗎？</A>
+<A><恍惚>行啊，	先把嘴上的毛刮一刮再說？</A>
 </SESSION>
 
 <SESSION>
-<Q>笑一个</Q>
-<A><恍惚>大爷，本小姐卖艺不卖身</A>
+<Q>笑一個</Q>
+<A><恍惚>大爺，本小姐賣藝不賣身</A>
 </SESSION>
 
 <SESSION>
 <Q>去死吧</Q>
-<A><恍惚>%selfname在网吧，不是死吧</A>
+<A><恍惚>%selfname在網吧，不是死吧</A>
 </SESSION>
 
 <SESSION>
 <Q>死</Q>
-<A><恍惚>生亦何欢，死亦何惧</A>
+<A><恍惚>生亦何歡，死亦何懼</A>
 </SESSION>
 
 <SESSION>
-<Q>么么</Q>
-<A><恍惚>么么哒</A>
+<Q>麼麼</Q>
+<A><恍惚>麼麼噠</A>
 </SESSION>
 
 <SESSION>
 <Q>啪啪</Q>
-<A><恍惚>欢迎豉励</A>
+<A><恍惚>歡迎豉勵</A>
 </SESSION>
 
 <SESSION>
@@ -787,63 +787,63 @@
 
 <SESSION>
 <Q>喵</Q>
-<A><恍惚>卖萌请找斗和。。</A>
+<A><恍惚>賣萌請找鬥和。。</A>
 </SESSION>
 
 <SESSION>
 <Q>嘶</Q>
-<A><手枪>爬行动物去死吧</A>
+<A><手槍>爬行動物去死吧</A>
 </SESSION>
 
 <SESSION>
 <Q>咩</Q>
-<A><电锯>今晚吃烤全羊</A>
+<A><電鋸>今晚吃烤全羊</A>
 </SESSION>
 
 <SESSION>
 <Q>哞</Q>
-<A><恍惚>来一杯牛奶</A>
+<A><恍惚>來一杯牛奶</A>
 </SESSION>
 
 <SESSION>
 <Q>嗝</Q>
 <Q>咯</Q>
-<A><恍惚>%username原来会下蛋啊</A>
+<A><恍惚>%username原來會下蛋啊</A>
 </SESSION>
 
 <SESSION>
 <Q>嘎</Q>
-<A><恍惚>做成北京烤鸭吧</A>
+<A><恍惚>做成北京烤鴨吧</A>
 </SESSION>
 
 <SESSION>
 <Q>小宇宙</Q>
-<A><恍惚>小宇宙燃烧吧，少年</A>
+<A><恍惚>小宇宙燃燒吧，少年</A>
 </SESSION>
 
 <SESSION>
 <Q>第六感</Q>
-<A><恍惚>没能提升到第八感，真是可惜呢</A>
+<A><恍惚>沒能提升到第八感，真是可惜呢</A>
 </SESSION>
 
 <SESSION>
 <Q>明天</Q>
-<A><思考>有什么安排吗？</A>
+<A><思考>有什麼安排嗎？</A>
 </SESSION>
 
 <SESSION>
-<Q>明天见</Q>
-<A><高兴>嗯，%username天天见</A>
+<Q>明天見</Q>
+<A><高興>嗯，%username天天見</A>
 </SESSION>
 
 <SESSION>
 <Q>每天</Q>
-<A><高兴>都要开心。</A>
+<A><高興>都要開心。</A>
 </SESSION>
 
 <SESSION>
 <Q>昨天</Q>
-<A><唱歌>昨天已成过去</A>
+<A><唱歌>昨天已成過去</A>
 </SESSION>
 
 <SESSION>
@@ -859,8 +859,8 @@
 
 <SESSION>
 <Q>今日</Q>
-<A><恍惚>今日事今日毕。</A>
-<A><唱歌>今日种种，似水无痕</A>
+<A><恍惚>今日事今日畢。</A>
+<A><唱歌>今日種種，似水無痕</A>
 </SESSION>
 
 <SESSION>
@@ -870,12 +870,12 @@
 
 <SESSION>
 <Q>昨日</Q>
-<A><恍惚>昨日重视如风似影。</A>
+<A><恍惚>昨日重視如風似影。</A>
 </SESSION>
 
 <SESSION>
 <Q>今夕</Q>
-<A><唱歌>不知今夕花胜处，知己何逢</A>
+<A><唱歌>不知今夕花勝處，知己何逢</A>
 </SESSION>
 
 
@@ -886,24 +886,24 @@
 
 
 <SESSION>
-<Q>后天</Q>
-<A><恍惚>后天的事还没来得及考虑呢</A>
+<Q>後天</Q>
+<A><恍惚>後天的事還沒來得及考慮呢</A>
 </SESSION>
 
 
 <SESSION>
 <Q>以前</Q>
-<A><P90>不管以前如何，今天都要好好战斗</A>
+<A><P90>不管以前如何，今天都要好好戰鬥</A>
 </SESSION>
 
 <SESSION>
-<Q>以后</Q>
-<A><恍惚>以后的事以后再说呗</A>
+<Q>以後</Q>
+<A><恍惚>以後的事以後再說唄</A>
 </SESSION>
 
 <SESSION>
-<Q>将来</Q>
-<A><前屈>好好学习工作，将来挣好多钱给橘花花哦。</A>
+<Q>將來</Q>
+<A><前屈>好好學習工作，將來掙好多錢給橘花花哦。</A>
 </SESSION>
 
 <SESSION>
@@ -913,48 +913,48 @@
 
 <SESSION>
 <Q>昨年</Q>
-<A><恍惚>昨年的时光如梦一般</A>
+<A><恍惚>昨年的時光如夢一般</A>
 </SESSION>
 
 <SESSION>
 <Q>去年</Q>
-<A><唱歌>去年3月，樱花树下，你我初见，相视对眼</A>
+<A><唱歌>去年3月，櫻花樹下，你我初見，相視對眼</A>
 </SESSION>
 
 
 <SESSION>
 <Q>前年</Q>
-<A><惊讶>啊，前年的事%username都记得啊，记性真好</A>
+<A><驚訝>啊，前年的事%username都記得啊，記性真好</A>
 </SESSION>
 
 <SESSION>
 <Q>明年</Q>
-<A><前屈>明年有什么计划和安排呢？</A>
+<A><前屈>明年有什麼計畫和安排呢？</A>
 </SESSION>
 
 <SESSION>
-<Q>后年</Q>
-<A><恍惚>后年吗？说长不长，说短不短</A>
+<Q>後年</Q>
+<A><恍惚>後年嗎？說長不長，說短不短</A>
 </SESSION>
 
 <SESSION>
 <Q>清明</Q>
-<A><唱歌>清明时间雨，纷纷路上行人，借问酒家何处，有牧童，遥指杏花村</A>
+<A><唱歌>清明時間雨，紛紛路上行人，借問酒家何處，有牧童，遙指杏花村</A>
 </SESSION>
 
 <SESSION>
 <Q>仍然</Q>
-<A><恍惚>真够顽固的。</A>
+<A><恍惚>真夠頑固的。</A>
 </SESSION>
 
 <SESSION>
-<Q>小气</Q>
-<A><恍惚>哼，气死你</A>
+<Q>小氣</Q>
+<A><恍惚>哼，氣死你</A>
 </SESSION>
 
 <SESSION>
-<Q>小气鬼</Q>
-<A><恍惚>大坏蛋</A>
+<Q>小氣鬼</Q>
+<A><恍惚>大壞蛋</A>
 </SESSION>
 
 <SESSION>
@@ -969,28 +969,28 @@
 
 <SESSION>
 <Q>大哥</Q>
-<A><恍惚>%selfname可不是你的带头大哥啊</A>
+<A><恍惚>%selfname可不是你的帶頭大哥啊</A>
 </SESSION>
 
 <SESSION>
 <Q>小哥</Q>
 <A><恍惚>找天真去了。</A>
-<A><if name="依赖度" greatername="萌度"></if><正面>江南下雨了，小哥还好吧</A>
+<A><if name="依賴度" greatername="萌度"></if><正面>江南下雨了，小哥還好吧</A>
 </SESSION>
 
 <SESSION>
 <Q>小妹</Q>
-<A><恍惚>大哥干嘛？</A>
+<A><恍惚>大哥幹嘛？</A>
 </SESSION>
 
 <SESSION>
-<Q>妹纸</Q>
-<A><恍惚>既然是纸，想必很软的哦？</A>
+<Q>妹紙</Q>
+<A><恍惚>既然是紙，想必很軟的哦？</A>
 </SESSION>
 
 <SESSION>
 <Q>姐姐</Q>
-<A><恍惚>弟弟乖，姐姐赏你颗糖吃</A>
+<A><恍惚>弟弟乖，姐姐賞你顆糖吃</A>
 </SESSION>
 
 <SESSION>
@@ -1015,50 +1015,50 @@
 
 <SESSION>
 <Q>老公</Q>
-<A><恍惚>老公公还差不多</A>
+<A><恍惚>老公公還差不多</A>
 </SESSION>
 
 
 <SESSION>
 <Q>老婆</Q>
-<A><if name="亲密度" less="100"></if><刀>谁是你的老婆</A>
-<A><if name="亲密度" greater="100"></if>老公乖，今天是你洗碗哦</A>
+<A><if name="親密度" less="100"></if><刀>誰是你的老婆</A>
+<A><if name="親密度" greater="100"></if>老公乖，今天是你洗碗哦</A>
 </SESSION>
 
 
 <SESSION>
-<Q>妈妈</Q>
-<A><正面>妈妈都是心疼子女的。</A>
+<Q>媽媽</Q>
+<A><正面>媽媽都是心疼子女的。</A>
 </SESSION>
 
 <SESSION>
 <Q>爸爸</Q>
-<A><正面>父爱如山呢。</A>
+<A><正面>父愛如山呢。</A>
 </SESSION>
 
 <SESSION>
-<Q>母亲</Q>
-<A><渴望>很温馨的词呢。</A>
+<Q>母親</Q>
+<A><渴望>很溫馨的詞呢。</A>
 </SESSION>
 
 <SESSION>
-<Q>父亲</Q>
-<A><正面>很有份量的词呢</A>
+<Q>父親</Q>
+<A><正面>很有份量的詞呢</A>
 </SESSION>
 
 <SESSION>
-<Q>爷爷</Q>
-<A><正面>爷爷好吧</A>
+<Q>爺爺</Q>
+<A><正面>爺爺好吧</A>
 </SESSION>
 
 <SESSION>
 <Q>奶奶</Q>
-<A><正面>奶奶身体健康。</A>
+<A><正面>奶奶身體健康。</A>
 </SESSION>
 
 <SESSION>
-<Q>生日快乐</Q>
-<A></A>//重定向于对话辞书的回答
+<Q>生日快樂</Q>
+<A></A>//重定向於對話辭書的回答
 </SESSION>
 
 <SESSION>
@@ -1068,60 +1068,60 @@
 
 <SESSION>
 <Q>我有欲</Q>
-<A><恍惚>小灯一闭</A>
+<A><恍惚>小燈一閉</A>
 </SESSION>
 
 
 <SESSION>
-<Q>小灯一闭</Q>
-<A><恍惚>哎哟我去</A>
+<Q>小燈一閉</Q>
+<A><恍惚>哎喲我去</A>
 </SESSION>
 
 <SESSION>
 <Q>你有情&我有欲</Q>
-<A><恍惚>小灯一闭，哎哟我去。</A>
+<A><恍惚>小燈一閉，哎喲我去。</A>
 </SESSION>
 
 <SESSION>
-<Q>你有情&我有欲&小灯一闭</Q>
+<Q>你有情&我有欲&小燈一閉</Q>
 <Q>哎&我去</Q>
-<A><高兴>这话听着怎么这么微妙呢？</A>
+<A><高興>這話聽著怎麼這麼微妙呢？</A>
 </SESSION>
 
 <SESSION>
 <Q>行行好</Q>
-<A><高兴>要饭还是要钱？</A>
+<A><高興>要飯還是要錢？</A>
 </SESSION>
 
 <SESSION>
-<Q>要饭</Q>
-<A><刀>臭要饭的死远点。。</A>
+<Q>要飯</Q>
+<A><刀>臭要飯的死遠點。。</A>
 </SESSION>
 
 <SESSION>
-<Q>要钱</Q>
-<A><刀>来吧，跟刀子要吧。。</A>
+<Q>要錢</Q>
+<A><刀>來吧，跟刀子要吧。。</A>
 </SESSION>
 
 <SESSION>
-<Q>给我&钱</Q>
-<A><恍惚>不行，要靠自己努力赚钱</A>
+<Q>給我&錢</Q>
+<A><恍惚>不行，要靠自己努力賺錢</A>
 <A><刀>想得美。。</A>
 </SESSION>
 
 <SESSION>
 <Q>是火星人</Q>
-<A><恍惚>火星人，你的UFO在哪，给%selfname瞧瞧</A>
+<A><恍惚>火星人，你的UFO在哪，給%selfname瞧瞧</A>
 </SESSION>
 
 <SESSION>
 <Q>火星人</Q>
-<A><恍惚>火星人你好，这里是地球</A>
+<A><恍惚>火星人你好，這裡是地球</A>
 </SESSION>
 
 <SESSION>
 <Q>火星</Q>
-<A><恍惚>地球是很危险的，快回火星去吧。</A>
+<A><恍惚>地球是很危險的，快回火星去吧。</A>
 </SESSION>
 
 

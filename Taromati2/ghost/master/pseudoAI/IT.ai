@@ -1,5 +1,5 @@
-<SESSION>
-<Q>打开任务管理器</Q>
+﻿<SESSION>
+<Q>打開工作管理員</Q>
 <A>
 \![raise,OnOpenTaskmgr]
 </A>
@@ -8,6 +8,6 @@
 <SESSION>
 <Q>清理垃圾</Q>
 <A>
-\0\s[0]确定要清理吗？\n\n\q[◇确定,OnClearC]\n\q[◇不用了,Cancel]
+\0\s[0]確定要清理嗎？\n\n\q[◇確定,OnClearC]\n\q[◇不用了,Cancel]
 </A>
 </SESSION>

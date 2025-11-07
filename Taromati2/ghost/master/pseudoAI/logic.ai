@@ -1,6 +1,6 @@
-
+﻿
 <SESSION>
-<Q>*是*的什么</Q>
+<Q>*是*的什麼</Q>
 <A><srai><star/>是<star index="2"/>的</srai><think><set name="inference"><star index="2"/></set></think></A>
 </SESSION>
 
@@ -11,82 +11,82 @@
 </SESSION>
 
 <SESSION>
-<Q>*吗</Q>
-<A><srai><star/></srai><think><set name="talkmemo"><star/>吗</set></think></A>
+<Q>*嗎</Q>
+<A><srai><star/></srai><think><set name="talkmemo"><star/>嗎</set></think></A>
 </SESSION>
 
 <SESSION>
-<Q>*是*吗</Q>
-<A><srai><star/>是<star index="2"/></srai><think><set name="talkmemo"><star/>是<star index="2"/>吗</set></think></A>
-</SESSION>
-
-
-<SESSION>
-<Q>*不是*吗</Q>
-<A><srai><star/>不是<star index="2"/></srai><think><set name="talkmemo"><star/>不是<star index="2"/>吗</set></think></A>
+<Q>*是*嗎</Q>
+<A><srai><star/>是<star index="2"/></srai><think><set name="talkmemo"><star/>是<star index="2"/>嗎</set></think></A>
 </SESSION>
 
 
 <SESSION>
-<Q>*做什么*</Q>
-<Q>*干什么*</Q>
-<Q>*做些什么*</Q>
-<Q>*干些什么*</Q>
+<Q>*不是*嗎</Q>
+<A><srai><star/>不是<star index="2"/></srai><think><set name="talkmemo"><star/>不是<star index="2"/>嗎</set></think></A>
+</SESSION>
+
+
+<SESSION>
+<Q>*做什麼*</Q>
+<Q>*幹什麼*</Q>
+<Q>*做些什麼*</Q>
+<Q>*幹些什麼*</Q>
 <A><srai><star/>做</srai></A>
 </SESSION>
 
 <SESSION>
-<Q>*是做什么*</Q>
-<Q>*是干什么*</Q>
+<Q>*是做什麼*</Q>
+<Q>*是幹什麼*</Q>
 <A><srai><star/>是做</srai></A>
 </SESSION>
 
 <SESSION>
-<Q>*是什么样的*</Q>
-<Q>*是怎样的*</Q>
-<Q>*是怎么样的*</Q>
+<Q>*是什麼樣的*</Q>
+<Q>*是怎樣的*</Q>
+<Q>*是怎麼樣的*</Q>
 <A><srai><star/>是怎</srai></A>
 </SESSION>
 
 <SESSION>
-<Q>*是什么</Q>
-<A><srai><star/></srai><think><set name="talkmemo"><star/>是什么</set></think></A>
+<Q>*是什麼</Q>
+<A><srai><star/></srai><think><set name="talkmemo"><star/>是什麼</set></think></A>
 </SESSION>
 
 <SESSION>
-<Q>什么*</Q>
+<Q>什麼*</Q>
 <A><srai><star/></srai></A>
 </SESSION>
 
 <SESSION>
-<Q>*什么</Q>
+<Q>*什麼</Q>
 <A><srai><star/></srai></A>
 </SESSION>
 
 <SESSION>
-<Q>*喜欢什么</Q>
-<A><srai><star/>喜欢</srai></A>
+<Q>*喜歡什麼</Q>
+<A><srai><star/>喜歡</srai></A>
 </SESSION>
 
 
 <SESSION>
-<Q>*爱什么</Q>
-<A><srai><star/>爱</srai></A>
+<Q>*愛什麼</Q>
+<A><srai><star/>愛</srai></A>
 </SESSION>
 
 
 <SESSION>
-<Q>*吃什么</Q>
-<A><srai><star/>吃</srai><think><set name="talkmemo"><star/>吃什么</set></think></A>
+<Q>*吃什麼</Q>
+<A><srai><star/>吃</srai><think><set name="talkmemo"><star/>吃什麼</set></think></A>
 </SESSION>
 
 <SESSION>
-<Q>记住*</Q>
-<A><高兴>%selfname记住了！<learn><set name="answer"><star/></set></learn></A>
+<Q>記住*</Q>
+<A><高興>%selfname記住了！<learn><set name="answer"><star/></set></learn></A>
 </SESSION>
 
 <SESSION>
-<Q>记住*是*</Q>
-<A><高兴>%selfname记住了！<learn><set name="answer"><star/>是<star index="2"/></set></learn></A>
+<Q>記住*是*</Q>
+<A><高興>%selfname記住了！<learn><set name="answer"><star/>是<star index="2"/></set></learn></A>
 </SESSION>
 
