@@ -1,25 +1,25 @@
-/////////
-/////////诗歌
+﻿/////////
+/////////詩歌
 /////////written by KikkaAIdb.[2010-1-2]★
 //**************************************************************************************************
 OnResearchPoesy{
-	"\0\s[9]请问%(username)是要查找诗歌吗？橘花可以帮助查找哦～/
-	\n[150]\q[◇按标题查找诗歌,OnResP_1,标题]\n/
-	\q[◇按内容查找诗歌,OnResP_1,正文]\n/
-	\q[◇按作者查找诗歌,OnResP_1,作者]\n[130]/
-	\q[◇诗歌全列表,OnResP,全_标题〓]\n/
+	"\0\s[9]請問%(username)是要查找詩歌嗎？橘花可以幫助查找哦～/
+	\n[150]\q[◇按標題查找詩歌,OnResP_1,標題]\n/
+	\q[◇按內容查找詩歌,OnResP_1,正文]\n/
+	\q[◇按作者查找詩歌,OnResP_1,作者]\n[130]/
+	\q[◇詩歌全列表,OnResP,全_標題〓]\n/
 	\q[◇作者全列表,OnResP,All_Author]\n/
-	\n[half]\q[◇返回,OnOpenMenu,1]\n\q[◇结束,OnverPoesy]"
+	\n[half]\q[◇返回,OnOpenMenu,1]\n\q[◇結束,OnverPoesy]"
 }
 OnverPoesy{
 	"好的,橘花知道了...\![close,inputbox,%(reference0)]"
 	"好的...\![close,inputbox,%(reference0)]"
 }
-//---- 查找诗歌 ------------------------------------------------------------------------------------
+//---- 查找詩歌 ------------------------------------------------------------------------------------
 OnResP_1{
 	if !_argv[0]
 		Poesyscope=reference0
-	"\0\s[9]请输入%(Poesyscope)关键字!(阿拉伯数字和英文字母将被忽略)\![set,choicetimeout,0]\![open,inputbox,OnResP,-1]\n[180]\![*]\q[取消,OnverPoesy,OnResP]"
+	"\0\s[9]請輸入%(Poesyscope)關鍵字!(阿拉伯數字和英文字母將被忽略)\![set,choicetimeout,0]\![open,inputbox,OnResP,-1]\n[180]\![*]\q[取消,OnverPoesy,OnResP]"
 }
 OnResP{
 	_str=CUTSPACE(reference0)
@@ -51,7 +51,7 @@ OnResP{
 		}
 	}
 	else{
-		if reference0=='全_标题〓'
+		if reference0=='全_標題〓'
 			_d=SQLite('-f','SELECT TA FROM Poesy')
 		elseif Poesyscope
 			_d=ResSQL(_str,Poesyscope)
@@ -68,19 +68,19 @@ OnResP{
 		}
 		_tola=(_d+19)/20
 		if _p!=1
-			_page+="\_l[20,-]\q[<<上一页,OnPoesyPage,%(_str),%(_p-1)]"
-		_page+="\_l[93,-]第%(FontCPage(_p))页    共%(_tola)页"
+			_page+="\_l[20,-]\q[<<上一頁,OnPoesyPage,%(_str),%(_p-1)]"
+		_page+="\_l[93,-]第%(FontCPage(_p))頁    共%(_tola)頁"
 		if _p*20<=_d
-			_page+="\_l[200,-]\q[下一页>>,OnPoesyPage,%(_str),%(_p+1)]"
+			_page+="\_l[200,-]\q[下一頁>>,OnPoesyPage,%(_str),%(_p+1)]"
 	}
 	if !_str
 		OnResP_1(Poesyscope)
 	else{
-		_a="共找到诗歌%(_d)首:\_q"
+		_a="共找到詩歌%(_d)首:\_q"
 		if reference0=='All_Author'
-			_a="诗歌作者全列表,共%(_Acount)位哦:\_q\n[40]"
+			_a="詩歌作者全列表,共%(_Acount)位哦:\_q\n[40]"
 		if !_d
-			_a='橘花没有找到相关资料呢...'
+			_a='橘花沒有找到相關資料呢...'
 		"\0\s[0]\b[2]%(_a)\n[120]%(_w)\n[50]%(_page)\n[150]\![*]\q[返回,OnResearchPoesy]\![set,choicetimeout,0]\n\![*]\q[退出,OnverPoesy]"
 	}
 }
@@ -93,14 +93,14 @@ OnPoesyPage{
 FontCPage{
 	"\f[color,250,0,0]%(_argv[0])\f[default]"
 }
-//---- 显示诗歌 ------------------------------------------------------------------------------------
+//---- 顯示詩歌 ------------------------------------------------------------------------------------
 OnPoesyShow{
-	"\0\s[26]\b[2]\![set,autoscroll,false]\![set,choicetimeout,0]\_q\f[bold,true]《%(reference0[0,'|'])》\f[bold,false]\n[120] 作者:%(ShowPoesySQL('作者'))\f[color,111,111,111]\_l[115,-]◇\__q[OnResP,%(reference1),eras〓][%(reference2)]\_l[180,-]\q[◇返回,OnResearchPoesy]\_l[235,-]\q[◇退出,OnverPoesy]\f[default]\n[140]%(ShowPoesySQL('正文'))\n%(ShowPoesySQL('注译'))"
+	"\0\s[26]\b[2]\![set,autoscroll,false]\![set,choicetimeout,0]\_q\f[bold,true]《%(reference0[0,'|'])》\f[bold,false]\n[120] 作者:%(ShowPoesySQL('作者'))\f[color,111,111,111]\_l[115,-]◇\__q[OnResP,%(reference1),eras〓][%(reference2)]\_l[180,-]\q[◇返回,OnResearchPoesy]\_l[235,-]\q[◇退出,OnverPoesy]\f[default]\n[140]%(ShowPoesySQL('正文'))\n%(ShowPoesySQL('注譯'))"
 }
 ShowPoesySQL{
-	SQLite('-j',"SELECT %(_argv[0]) FROM Poesy WHERE 标题='%(reference0[0,'|'])'")
+	SQLite('-j',"SELECT %(_argv[0]) FROM Poesy WHERE 標題='%(reference0[0,'|'])'")
 }
-//---- 谈话中显示诗歌 ------------------------------------------------------------------------------
+//---- 談話中顯示詩歌 ------------------------------------------------------------------------------
 TalkPoesyShow{
 	_w=IARRAY
 	while !_w[0] || !_w[1] {
@@ -116,10 +116,10 @@ TalkPoesyShow{
 		TalkPoesy(_w[0],_w[1])
 }
 TalkPoesy{
-	"\0\s[30]下面来接诗歌喔...~\w9\w9\1\s[12].....\w9\0\s[40]\w9\w9\w9\c『%(_argv[0])』\w9\w9\1\s[12]\n等下\w9\w9\s[-1]\w9\w5\0\n啊？\w9\w9不会是去翻书吧？\w9\w9\1\s[12]  呼....知道了\n\w9\w5\w9『%(_argv[1])』\w9\w9\0\s[30]\n啊，虽然很可疑,\w9不过,对了呢..."
-	"\0\s[30]『%(_argv[0])』\n下一句是什么哦？\w8\1\s[12]『%(_argv[1])』\w8\w8\0......"
+	"\0\s[30]下麵來接詩歌喔...~\w9\w9\1\s[12].....\w9\0\s[40]\w9\w9\w9\c『%(_argv[0])』\w9\w9\1\s[12]\n等下\w9\w9\s[-1]\w9\w5\0\n啊？\w9\w9不會是去翻書吧？\w9\w9\1\s[12]  呼....知道了\n\w9\w5\w9『%(_argv[1])』\w9\w9\0\s[30]\n啊，雖然很可疑,\w9不過,對了呢..."
+	"\0\s[30]『%(_argv[0])』\n下一句是什麼哦？\w8\1\s[12]『%(_argv[1])』\w8\w8\0......"
 }
-//---- 诗歌默写 ------------------------------------------------------------------------------------
+//---- 詩歌默寫 ------------------------------------------------------------------------------------
 OnPoesywrite{
 	if !Poesywritedegree
 		void TalkPoesyShow('〓')
@@ -131,7 +131,7 @@ OnPoesywrite{
 	if !Poesywritemode
 		Poesywritemode=ANY(1,2)
 	_w=_w[Poesywritemode-1,'〓〓']
-	"\0\s[26]请%(username)在空白处填上正确诗句哦~\n[150]问题：\_q%(_w)\n[200]第%(Poesywritedegree)次回答本题。\![set,choicetimeout,0]\![open,inputbox,OnPoesywrite_1,-1]\n[180]\![*]\q[以后回答,OnlatPoesywrite]\n\![*]\q[放弃本题,OnverPoesywrite]"
+	"\0\s[26]請%(username)在空白處填上正確詩句哦~\n[150]問題：\_q%(_w)\n[200]第%(Poesywritedegree)次回答本題。\![set,choicetimeout,0]\![open,inputbox,OnPoesywrite_1,-1]\n[180]\![*]\q[以後回答,OnlatPoesywrite]\n\![*]\q[放棄本題,OnverPoesywrite]"
 }
 OnPoesywrite_1{
 	_str=CUTSPACE(reference0)
@@ -140,14 +140,14 @@ OnPoesywrite_1{
 		ERASEVAR('Poesywrite')
 		ERASEVAR('Poesywritedegree')
 		ERASEVAR('Poesywritemode')
-		"\0\s[1]对了哦,%(username)好厉害呢,橘花好开心!"
-		"\0\s[1]对啦,%(username)真的好厉害呢,\w9\1难道不是去查书了吗?\w9\0\n斗和真是的,\w9%(username)才不会那样呢..."
-		"\0\s[1]对啦,%(username)真的好厉害呢,\w9\1难道不是去查书了吗?\w9\0\n斗和真是的,\w9%(username)才不会那样呢...\w9\n%(username)最多是去谷歌一下而已啦..\w9\1\n这难道有什么不同吗...."
-		"\0\s[1]怎么说呢,\w9对了呢,%(username)好厉害呢,\w9没有去查资料吧?\w9\w9\n就算查了橘花也好开心!\w9\1喂喂,\w9你没在做什么奇怪的幻想吧..."
+		"\0\s[1]對了哦,%(username)好厲害呢,橘花好開心!"
+		"\0\s[1]對啦,%(username)真的好厲害呢,\w9\1難道不是去查書了嗎?\w9\0\n鬥和真是的,\w9%(username)才不會那樣呢..."
+		"\0\s[1]對啦,%(username)真的好厲害呢,\w9\1難道不是去查書了嗎?\w9\0\n鬥和真是的,\w9%(username)才不會那樣呢...\w9\n%(username)最多是去穀歌一下而已啦..\w9\1\n這難道有什麼不同嗎...."
+		"\0\s[1]怎麼說呢,\w9對了呢,%(username)好厲害呢,\w9沒有去查資料吧?\w9\w9\n就算查了橘花也好開心!\w9\1喂喂,\w9你沒在做什麼奇怪的幻想吧..."
 		--
 		if Poesywritedegree==1 {
 			intimacy++
-			"\0\n[150]好感度 +1 哦,\w9%(username)请继续加油~"
+			"\0\n[150]好感度 +1 哦,\w9%(username)請繼續加油~"
 		}
 	}
 	else {
@@ -161,15 +161,15 @@ OnPoesywrite_1{
 			else
 				_w+='__'
 		}
-		"\0\s[8]%(username),\w9那个..\w9错了哦..\w[1000]\n"
-		"\0\s[8]%(username),\w9那个..\w9错了哦..\w9\1这很正常吧..\w[1000]\n"
-		"\0\s[6]%(username),\w9没对呢,\w9继续加油哦~\w[1000]\n"
+		"\0\s[8]%(username),\w9那個..\w9錯了哦..\w[1000]\n"
+		"\0\s[8]%(username),\w9那個..\w9錯了哦..\w9\1這很正常吧..\w[1000]\n"
+		"\0\s[6]%(username),\w9沒對呢,\w9繼續加油哦~\w[1000]\n"
 		--
 		if _n==0 {
 			OnPoesywrite
 		}
 		else {
-			"\0\c\s[7]不过还是有答对的部分哦,\w5看下面哦\n[150]%(_w)\w[1000]\n[150]%(OnPoesywrite)"
+			"\0\c\s[7]不過還是有答對的部分哦,\w5看下面哦\n[150]%(_w)\w[1000]\n[150]%(OnPoesywrite)"
 		}
 	}
 }
@@ -178,19 +178,19 @@ OnverPoesywrite{
 	ERASEVAR('Poesywritedegree')
 	ERASEVAR('Poesywritemode')
 	Poesywriteerror+=1
-	"\0\s[26]好的, 请下次继续加油哦～\n[150]累计放弃次数: %(Poesywriteerror)\![close,inputbox,OnPoesywrite_1]"
+	"\0\s[26]好的, 請下次繼續加油哦～\n[150]累計放棄次數: %(Poesywriteerror)\![close,inputbox,OnPoesywrite_1]"
 	--
 	if Poesywriteerror==10 {
 		intimacy--
 		Poesywriteerror=0
-		"\0\s[1]\n[300]\w9清空累计放弃次数, \w9%(username)请继续加油~"
+		"\0\s[1]\n[300]\w9清空累計放棄次數, \w9%(username)請繼續加油~"
 	}
 }
 OnlatPoesywrite{
-	'\0\s[30]嗯嗯,好的哦\![close,inputbox,OnPoesywrite_1],记得一定要回答出来哦~\w9\1要是去查书的话应该很快吧...'
+	'\0\s[30]嗯嗯,好的哦\![close,inputbox,OnPoesywrite_1],記得一定要回答出來哦~\w9\1要是去查書的話應該很快吧...'
 }
 ///////////////////////////////////////////
-//////////诗词阅读辞书
+//////////詩詞閱讀辭書
 //////////written by forjane 2009.10.27
 ///////////////////////////////////////////
 OnPoemMenu{
@@ -200,9 +200,9 @@ OnPoemMenu{
 		return
 	}
 	LoadPoemTitle
-	_txt = '\0\s[26]想要怎样阅读诗歌呢？\n\n'
-	_txt += '\_q\q[◇诗歌列表,OnPoemList]\n[150]诗歌查询：\n\q[◇按作者,OnSearchPoem,0]      \q[◇按标题,OnSearchPoem,1]      \q[◇按内容,OnSearchPoem,2]'
-	_txt += '\n[300]\q[◇返回上一层,OnOpenMenu,1]\n\q[◇终了,OnPoemEnd]'
+	_txt = '\0\s[26]想要怎樣閱讀詩歌呢？\n\n'
+	_txt += '\_q\q[◇詩歌列表,OnPoemList]\n[150]詩歌查詢：\n\q[◇按作者,OnSearchPoem,0]      \q[◇按標題,OnSearchPoem,1]      \q[◇按內容,OnSearchPoem,2]'
+	_txt += '\n[300]\q[◇返回上一層,OnOpenMenu,1]\n\q[◇終了,OnPoemEnd]'
 	_txt
 }
 OnPoemList{
@@ -224,8 +224,8 @@ OnPoemList{
 		_line ++
 		_txt += '\q[◇' + _title + ',OnPoemTitle,' + _i + ',OnPoemList]' + SUBSTR(_blank, 0, 8 - _len)
 	}
-	_txt += "\n[350]共%(poemnum)首诗"
-	_txt += '\n[150]\q[◇返回上一层,OnPoemMenu]\n\q[◇终了,OnPoemEnd]'
+	_txt += "\n[350]共%(poemnum)首詩"
+	_txt += '\n[150]\q[◇返回上一層,OnPoemMenu]\n\q[◇終了,OnPoemEnd]'
 	_txt
 }
 LoadPoemTitle{
@@ -276,12 +276,12 @@ OnPoemTitle{
 		_txt += '作者：' + _poemtitle[2,':'] + '\n[150]\w9'
 	}
 	_txt += _poem + '\_q\n\n' + _poemtips
-	_txt += "\n[300]\q[◇返回上一层,%(reference1)]\n\q[◇终了,OnPoemEnd]"
+	_txt += "\n[300]\q[◇返回上一層,%(reference1)]\n\q[◇終了,OnPoemEnd]"
 	_txt
 }
 OnSearchPoem{
 	poemsearchmode = reference0
-	_txt = "请输入要查询的关键词……\![open,inputbox,OnPoemInputFinish,0,%(poemkeywords)]"
+	_txt = "請輸入要查詢的關鍵字……\![open,inputbox,OnPoemInputFinish,0,%(poemkeywords)]"
 	_txt
 }
 OnPoemInputFinish{
@@ -333,8 +333,8 @@ OnPoemSearchDetail{
 			}
 		}
 	}
-	_txt += "\n[350]共找到%(_count)首符合条件的诗喔～"
-	_txt += '\n[250]\q[◇返回上一层,OnPoemMenu]\n\q[◇终了,OnPoemEnd]'
+	_txt += "\n[350]共找到%(_count)首符合條件的詩喔～"
+	_txt += '\n[250]\q[◇返回上一層,OnPoemMenu]\n\q[◇終了,OnPoemEnd]'
 	_txt
 	FCLOSE(_poemfile)
 }
@@ -362,8 +362,8 @@ OnPoemSearch{
 			_txt += '\q[◇' + _title + ',OnPoemTitle,' + _i + ',OnPoemSearch]' + SUBSTR(_blank, 0, 8 - _len)
 		}
 	}
-	_txt += "\n[350]共找到%(_count)首符合条件的诗喔～"
-	_txt += '\n[250]\q[◇返回上一层,OnPoemMenu]\n\q[◇终了,OnPoemEnd]'
+	_txt += "\n[350]共找到%(_count)首符合條件的詩喔～"
+	_txt += '\n[250]\q[◇返回上一層,OnPoemMenu]\n\q[◇終了,OnPoemEnd]'
 	_txt
 }
 OnPoemAnswer{//OnPoemAnswer('床前明月光')=='疑是地上霜'
@@ -414,5 +414,5 @@ CleanVarOfPoem{
 }
 OnPoemEnd{
 	CleanVarOfPoem
-	'\0\s[0]好的，那就这样吧。'
+	'\0\s[0]好的，那就這樣吧。'
 }

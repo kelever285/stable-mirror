@@ -1841,7 +1841,7 @@ POSREPLACE{
 	_result
 }
 FIXREPLACE{
-	//FIXREPLACE('a',1,4,'',0)=0001a//前尾碼設置:添加內容“”並且補充長度為“4”的數位編號 添加方式為首碼，以數位“1”開始
+	//FIXREPLACE('a',1,4,'',0)=0001a//前尾碼設置:添加內容“”並且補充長度為“4”的數位元編號 添加方式為首碼，以數位“1”開始
 	_str=_argv[0]
 	_numbegin=TOINT(_argv[1])
 	_numlen=TOINT(_argv[2])
@@ -2032,7 +2032,7 @@ RenameConSub{
 			"%(CHR(34))替換副檔名%(CHR(34))：將副檔名%(CHR(34))%(rename_oriextension)%(CHR(34))替換成副檔名%(CHR(34))%(rename_newextension)%(CHR(34)),%(reference0),%(rename_oriextension),%(rename_newextension)"
 		}
 		when 3{
-			"%(CHR(34))前尾碼設置%(CHR(34))：添加內容%(CHR(34))%(rename_add)%(CHR(34))並且補充長度為%(CHR(34))%(rename_numlen)%(CHR(34))的數位編號，添加方式為%(CHR(34))%('首碼,尾碼'[rename_fix])%(CHR(34))，以數字“%(rename_numbegin)”開始,%(reference0),%(TOINT(rename_numbegin)),%(TOINT(rename_numlen)),%(rename_add),%(TOINT(rename_fix))"
+			"%(CHR(34))前尾碼設置%(CHR(34))：添加內容%(CHR(34))%(rename_add)%(CHR(34))並且補充長度為%(CHR(34))%(rename_numlen)%(CHR(34))的數位元編號，添加方式為%(CHR(34))%('首碼,尾碼'[rename_fix])%(CHR(34))，以數字“%(rename_numbegin)”開始,%(reference0),%(TOINT(rename_numbegin)),%(TOINT(rename_numlen)),%(rename_add),%(TOINT(rename_fix))"
 		}
 		when 4{
 			"%(CHR(34))全域配置%(CHR(34))：將執行%(CHR(34))%('檔案名大寫,檔案名小寫,副檔名大寫,副檔名小寫'[rename_globle])%(CHR(34)),%(reference0),%(TOINT(rename_globle))"
@@ -2185,7 +2185,7 @@ DialogFilesRenameOpenCon{
 				}
 				elseif _submenu==3{
 					rename_numbegin=_buff[1,'“']
-					//''前尾碼設置'：添加內容''並且補充長度為'3'的數位編號，添加方式為'尾碼'，以數字“1”開始'[1,'“']
+					//''前尾碼設置'：添加內容''並且補充長度為'3'的數位元編號，添加方式為'尾碼'，以數字“1”開始'[1,'“']
 					if rename_numbegin==''
 						rename_numbegin=1
 					rename_numbegin=TOINT(rename_numbegin[0,'”'])

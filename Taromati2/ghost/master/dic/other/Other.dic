@@ -608,7 +608,7 @@ OnShortcutAdd{
 	elseif _w=='' && reference0=='ShortcutNew'
 		_w="\n[200]\_q沒有需要更新的軟體快捷呢，\n[120]%(username)沒有把要更新路徑的軟體打開嗎？\1我看不是沒運行軟體，而是根本沒有要更新的吧……"
 	if reference0=='ShortcutNew'
-		"\![set,choicetimeout,60000]\_q\b[2]\![set,autoscroll,false]%(username)，橘花已經把下面的軟體快捷更新了哦！\n[150]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\_n%(_w)"
+		"\![set,choicetimeout,60000]\_q\b[2]\![set,autoscroll,false]%(username)，橘花已經把下麵的軟體快捷更新了哦！\n[150]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\_n%(_w)"
 	else
 		"\![set,choicetimeout,60000]\_q\b[2]\![set,autoscroll,false]請%(username)點擊需要設置快捷的軟體！沒有的話，%(username)先運行要設置快捷的軟體，再刷新一次看看！！也可以把要設快捷的檔直接拖給橘花哦！\n[130]　\![*]\q[刷新列表,OnShortcutAdd]　　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]\_n%(_w)"
 }
@@ -773,7 +773,7 @@ OnAutoShortcut{
 		}
 	}
 	if _w!=''
-		"\![set,windowstate,stayontop]\![set,choicetimeout,60000]\0\s[26]\b[2]\_n橘花檢測到下面的軟體哦！\n要把軟體添加到橘花的快顯功能表上嗎？\_q\n[140]　\![*]\q[全部添加,OnAllShortcutAdd,%(_FullData)]　\![*]\q[不再提示下面的軟體,OnNoclueonProcess,%(_NoclueonN)]　\![*]\q[暫時不,OnShortcutOver]%(_w)\![set,windowstate,!stayontop]"
+		"\![set,windowstate,stayontop]\![set,choicetimeout,60000]\0\s[26]\b[2]\_n橘花檢測到下麵的軟體哦！\n要把軟體添加到橘花的快顯功能表上嗎？\_q\n[140]　\![*]\q[全部添加,OnAllShortcutAdd,%(_FullData)]　\![*]\q[不再提示下麵的軟體,OnNoclueonProcess,%(_NoclueonN)]　\![*]\q[暫時不,OnShortcutOver]%(_w)\![set,windowstate,!stayontop]"
 }
 OnAllShortcutAdd{
 	shortcutdata+=reference0
@@ -788,7 +788,7 @@ OnAllShortcutAdd{
 			_w+="\_l[%(_x),%(_y)]\_b[%(CHR(34))%(_p),0%(CHR(34)),inline%(ICOMode)]\_l[%(_x+35),%(_y)]軟體：【%(_N)】\_l[%(_x+35),%(_y+20)]路徑為：%(_p)"
 		_y+=45
 	}
-	"\b[2]\_n橘花已經記住下面軟體的快捷了哦！\_q%(_w)\n[160]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
+	"\b[2]\_n橘花已經記住下麵軟體的快捷了哦！\_q%(_w)\n[160]　\![*]\q[返回,OnShortcutMenu]　\![*]\q[退出,OnShortcutOver]"
 }
 OnNoclueonProcess{
 	NoclueonProcess+=reference0
