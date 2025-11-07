@@ -1,4 +1,4 @@
-//by steve
+﻿//by steve
 On_GetAIStateEX{
 	if QuickStartVersion
 		return
@@ -18,9 +18,9 @@ On_GetAIStateEX{
 			%(nurturance.Moeness),/
 			%(nurturance.Happiness)/
 			%(CHR(1))/
-			亲密度,/
+			親密度,/
 			腹黑度,/
-			依赖度,/
+			依賴度,/
 			萌度,/
 			幸福度/
 			"
@@ -34,9 +34,9 @@ On_GetAIStateEX{
 			%(kikkamood)/
 			%(CHR(1))/
 			身手,/
-			学识,/
+			學識,/
 			魅力,/
-			体力,/
+			體力,/
 			心情/
 			%(CHR(1))/
 			0,0,0,0,0/
@@ -60,7 +60,7 @@ On_GetAIStateEX{
 			力量,/
 			意志,/
 			敏捷,/
-			幸运/
+			幸運/
 			"
 		}
 		when 3{
@@ -71,7 +71,7 @@ On_GetAIStateEX{
 			%(CHR(1))/
 			生命值,/
 			魔法值,/
-			战技值/
+			戰技值/
 			%(CHR(1))/
 			0,0,0/
 			%(CHR(1))/
@@ -87,10 +87,10 @@ On_GetAIStateEX{
 			%(ats0),/
 			%(adf0)/
 			%(CHR(1))/
-			物理攻击,/
-			物理防御,/
-			魔法攻击,/
-			魔法防御/
+			物理攻擊,/
+			物理防禦,/
+			魔法攻擊,/
+			魔法防禦/
 			"
 		}
 		when 5{

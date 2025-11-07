@@ -1,14 +1,14 @@
-OnKeyCodeTest{
+﻿OnKeyCodeTest{
 	if InKeyCodeTest
 		OnExitKeyCodeTest
 	else{
 		InKeyCodeTest=1
-		'\0\s[0]已进入键位码测试模式\n'
+		'\0\s[0]已進入鍵位碼測試模式\n'
 	}
 }
 OnExitKeyCodeTest{
 	ERASEVAR('InKeyCodeTest')
-	'\0\s[0]已退出键位码测试模式\n'
+	'\0\s[0]已逸出鍵位元碼測試模式\n'
 }
 OnKeyPress{
 	/*
@@ -29,14 +29,14 @@ OnKeyPress{
 		'\_q'
 		--
 		if mode == '1'
-			"\1\s[%(specialmode != 'mealtime')10]%(reference0)，编码%(reference1)。"
+			"\1\s[%(specialmode != 'mealtime')10]%(reference0)，編碼%(reference1)。"
 		else
-			"\0\s[0]你按了%(reference0)。编码是%(reference1)。"
+			"\0\s[0]你按了%(reference0)。編碼是%(reference1)。"
 		--
-		'\n\q[◇退出键位码测试,OnExitKeyCodeTest]\_q\n'
+		'\n\q[◇逸出鍵位碼測試,OnExitKeyCodeTest]\_q\n'
 		return
 	}
-	//匹配特定字符串输入：↑↑↓↓←→←→BA
+	//匹配特定字串輸入：↑↑↓↓←→←→BA
 	{
 		_match_keys=('up','up','down','down','left','right','left','right','b','a')
 		_step=TOINT(temp)
@@ -44,7 +44,7 @@ OnKeyPress{
 		if reference0 == _match_keys[_step]{
 			_step++
 			if _step == _match_keys_len{
-				DiscordCustomSet.CustomDetail('你被骗了！')
+				DiscordCustomSet.CustomDetail('你被騙了！')
 				--
 				OnUrlOpen('https://taromati2.github.io/rickroll/')
 				return
@@ -56,11 +56,11 @@ OnKeyPress{
 		else
 			temp = 0
 	}
-	if reference1 == 229 {//steve02081504：我也不知道为什么是这个值，试出来的
+	if reference1 == 229 {//steve02081504：我也不知道為什麼是這個值，試出來的
 		if mode == '1'
-			"\1\s[%(specialmode != 'mealtime')10]使用热键的话，好歹把输入法关了啊。"
+			"\1\s[%(specialmode != 'mealtime')10]使用熱鍵的話，好歹把輸入法關了啊。"
 		else
-			'\0\s[8]使用热键的话，要关掉输入法哦？'
+			'\0\s[8]使用熱鍵的話，要關掉輸入法哦？'
 		return
 	}
 	elseif playingbox {
@@ -79,14 +79,14 @@ OnKeyPress{
 	elseif playHuaRongDao{
 		OnKeyMovement
 	}
-	elseif "%(reference1)" _in_ '173,174,175,176,177,179'{//没有178，请勿乱改判定
+	elseif "%(reference1)" _in_ '173,174,175,176,177,179'{//沒有178，請勿亂改判定
 		OnMusicPlayer
 		--
 		if reference1 == 173 {
-			'\0\s[0]音量开关'
+			'\0\s[0]音量開關'
 		}
 		elseif reference1 == 174 {
-			'\0\s[0]音量减小'
+			'\0\s[0]音量減小'
 		}
 		elseif reference1 == 175 {
 			'\0\s[0]音量加大'
@@ -95,7 +95,7 @@ OnKeyPress{
 			'\0\s[0]上一首\w9\w9\![raise,OnLastMusic]'
 		}
 		elseif reference1 == 179 || reference0 == 'space'{
-			"\0\s[0]%(('播放','暂停','继续')[playingmusic])\w9\w9\![raise,OnMusicPlayerCmd,%(('play','pause','resume')[playingmusic])]"
+			"\0\s[0]%(('播放','暫停','繼續')[playingmusic])\w9\w9\![raise,OnMusicPlayerCmd,%(('play','pause','resume')[playingmusic])]"
 		}
 		elseif reference1 == 176 {
 			'\0\s[0]下一首\w9\w9\![raise,OnNextMusic]'
@@ -104,11 +104,11 @@ OnKeyPress{
 		'\0\w9\w9\w9\w9\b[-1]'
 	}
 	elseif reference0 == 'f1' {
-		//---- 开启readme.txt
+		//---- 開啟readme.txt
 		'\![open,readme]'
 	}
 	elseif reference0 == 'f2' {
-		//---- 开始沟通
+		//---- 開始溝通
 		'\![open,communicatebox]'
 	}
 	elseif reference0 == 'f3' {
@@ -116,16 +116,16 @@ OnKeyPress{
 		OnChatRoom(j)
 	}
 	elseif reference0 == 'f4' {
-		//---- shell重新载入
+		//---- shell重新載入
 		if mode == '1'
 			"\1\s[%(specialmode != 'mealtime')10]唔"
 		else
 			'\0\s[0]嗯'
 		--
-		'…\n\w9\w9重新读取SHELL……\![reload,shell]'
+		'…\n\w9\w9重新讀取SHELL……\![reload,shell]'
 	}
 	elseif reference0 == 'f5' {
-		//---- shiori重新载入
+		//---- shiori重新載入
 		OnReloadShiori
 	}
 	elseif reference0 == 'f6' {
@@ -133,7 +133,7 @@ OnKeyPress{
 			OnTest
 	}
 	elseif reference0 == 'f7' {
-		//---- 表达式执行
+		//---- 運算式執行
 		if SHIORI_FW.DebugMode{
 			if QuickStartVersion
 				'\![open,inputbox,OnCalculateVar]'
@@ -149,7 +149,7 @@ OnKeyPress{
 			if FILEEXIST('SHIORI_PATH/tama.exe')
 				'\![open,file,SHIORI_PATH/tama.exe,-g Taromati2]'
 			else
-				'\0\s[0]未找到tama.exe，请前往github仓库补全开发文件'
+				'\0\s[0]未找到tama.exe，請前往github倉庫補全開發文件'
 		}
 	}
 	elseif reference0 == 'f10' {
@@ -173,7 +173,7 @@ OnKeyPress{
 	elseif musicplayer&&(reference0 == 'p' || reference0 == 's'||reference0 == 'n' || reference0 == 'l')||musicplayerlist&&(reference0 == 'home' || reference0 == 'end'){
 		MusicHotKey(reference0)
 	}
-	elseif '没有任务' !_in_(_t=Multitask(reference0)) {
+	elseif '沒有任務' !_in_(_t=Multitask(reference0)) {
 		_t
 	}
 	elseif secondwatch{
@@ -232,33 +232,33 @@ OnKeyPress{
 	}
 	else {
 		if mode == '1'
-			"\1\s[%(specialmode != 'mealtime')10]%(reference0)，编码%(reference1)。\n不是热键。"
+			"\1\s[%(specialmode != 'mealtime')10]%(reference0)，編碼%(reference1)。\n不是熱鍵。"
 		else
-			"\0\s[0]你按了%(reference0)。编码是%(reference1)。目前尚未被设定为热键。"
+			"\0\s[0]你按了%(reference0)。編碼是%(reference1)。目前尚未被設定為熱鍵。"
 	}
 }
 Select.Multitask{
 	Multitask
 }
 OnOpenTaskmgr{
-	'\0\s[6]如果想关掉我的话，请直接和我说。\![open,file,Taskmgr.exe]'
+	'\0\s[6]如果想關掉我的話，請直接和我說。\![open,file,Taskmgr.exe]'
 }
 Multitask{
 	if running!=''{
 		OnMultitask(running)
 		return
 	}
-	_task='playLinkWnd|连连看|ClearLinkWndVar,secondwatch|秒表|ClearSecondVar,playingbox|推箱子|ClearBoxVar,playingtetris|俄罗斯方块|CleartetrisVar,playingGobang|五子棋|ClearFiveVar,playRetroSnaker|贪食蛇|ClearRetroSnakerVar,playHuaRongDao|华容道|ClearHuaRongDaoVar,rpggame|外出冒险|ClearRpgGameVar,playGoldenFlower|扎金花|ClearGoldenFlowerVar,playhanoi|数字汉诺塔|ClearHanoiVar,calculate|计算器|calculate=0,chatroom|聊天室|ClearAIVar,rename|批量文件重命名|ClearFilesRenameVar,readbook|小说阅读|ClearReadBookVar,kikkaknowl|橘花知识库|ClearKnowlVar,agenda|日历日程|ClearAgendaVar,kikkastock|橘花行情|ClearKikkaStockVar,japwordquestion|单词测试|ClearJapwordQuestionVar,examtest|橘花题库测试|ClearTestVar'
+	_task='playLinkWnd|連連看|ClearLinkWndVar,secondwatch|碼錶|ClearSecondVar,playingbox|推箱子|ClearBoxVar,playingtetris|俄羅斯方塊|CleartetrisVar,playingGobang|五子棋|ClearFiveVar,playRetroSnaker|貪食蛇|ClearRetroSnakerVar,playHuaRongDao|華容道|ClearHuaRongDaoVar,rpggame|外出冒險|ClearRpgGameVar,playGoldenFlower|紮金花|ClearGoldenFlowerVar,playhanoi|數字漢諾塔|ClearHanoiVar,calculate|計算器|calculate=0,chatroom|聊天室|ClearAIVar,rename|批量檔重命名|ClearFilesRenameVar,readbook|小說閱讀|ClearReadBookVar,kikkaknowl|橘花知識庫|ClearKnowlVar,agenda|日曆日程|ClearAgendaVar,kikkastock|橘花行情|ClearKikkaStockVar,japwordquestion|單詞測試|ClearJapwordQuestionVar,examtest|橘花題庫測試|ClearTestVar'
 	_tasknum=0
 	_txt='\0\![quicksession,true]\![set,choicetimeout,0]\b[2]'
-	_txt+='当前含以下任务，要打开下面哪个？\t\q[◇打开任务管理器,OnOpenTaskmgr]\n[150]'
+	_txt+='當前含以下任務，要打開下面哪個？\t\q[◇打開工作管理員,OnOpenTaskmgr]\n[150]'
 	foreach _task;_i{
 		_taskvar=_i[0,'|']
 		_taskname=_i[1,'|']
 		_taskclose=_i[2,'|']
 		if EVAL(_taskvar){
 			_tasknum++
-			_txt+="\q[◇%(_taskname),OnMultitask,%(_argv[0]),%(_taskvar)]\_l[240]\q[◇关闭,OnMultitask,close,%(_taskvar),%(_taskclose)]\n"
+			_txt+="\q[◇%(_taskname),OnMultitask,%(_argv[0]),%(_taskvar)]\_l[240]\q[◇關閉,OnMultitask,close,%(_taskvar),%(_taskclose)]\n"
 		}
 	}
 	if _argv[0]=='getnum'
@@ -266,7 +266,7 @@ Multitask{
 	elseif _tasknum>0
 		_txt
 	else
-		'\0\s[0]没有任务哦……\n\q[◇打开任务管理器,OnOpenTaskmgr]'
+		'\0\s[0]沒有任務哦……\n\q[◇打開工作管理員,OnOpenTaskmgr]'
 }
 OnRuntime{
 	_running=reference0

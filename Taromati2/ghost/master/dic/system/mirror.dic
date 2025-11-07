@@ -1,4 +1,4 @@
-//ネットワーク更新の基准位置となるURL
+﻿//ネットワーク更新の基準位置となるURL
 On_homeurl{
 	if !mirror_url
 		mirror_url=default_mirror_url
@@ -12,40 +12,40 @@ mirror_url.for_show{
 }
 MirrorChange.confirm{
 	if _argv[0] != mirror_url
-		"\0\s[0]更改更新源为\_q%(_argv[0])？\_q\n/
+		"\0\s[0]更改更新源為\_q%(_argv[0])？\_q\n/
 		\n/
-		当前源：\_q%(mirror_url.for_show)\_q\n/
+		當前源：\_q%(mirror_url.for_show)\_q\n/
 		\n/
-		\q[◇确认,OnMirrorInput,%(SakuraScriptArgConverter(_argv[0]))]\n/
-		\q[◇无用,Cancel]\n/
+		\q[◇確認,OnMirrorInput,%(SakuraScriptArgConverter(_argv[0]))]\n/
+		\q[◇無用,Cancel]\n/
 		"
 	else
-		"\0\s[6]当前源已经是\_q%(mirror_url.for_show)\_q了。"
+		"\0\s[6]當前源已經是\_q%(mirror_url.for_show)\_q了。"
 }
 Select.MirrorChange{
-	"\0\s[0]那么，要修改为什么呢？\n/
-	当前源：\_q%(mirror_url.for_show)\_q\n/
+	"\0\s[0]那麼，要修改為什麼呢？\n/
+	當前源：\_q%(mirror_url.for_show)\_q\n/
 	\q[◇查看源列表,OnUrlOpen,https://github.com/kelever285/mirror-list]\n/
-	\q[◇无用,Cancel,with_sakura,%(SakuraScriptArgConverter('\![close,inputbox,OnMirrorInput]'))]\n/
-	\q[◇恢复默认源,ResetMirror]\n/
+	\q[◇無用,Cancel,with_sakura,%(SakuraScriptArgConverter('\![close,inputbox,OnMirrorInput]'))]\n/
+	\q[◇恢復默認源,ResetMirror]\n/
 	\![open,inputbox,OnMirrorInput,-1,%(SakuraScriptArgConverter(On_homeurl))]"
 }
 Select.ResetMirror{
 	mirror_url=default_mirror_url
 	'\![close,inputbox,OnMirrorInput]/
-	\0\s[0]已恢复默认源\n/
-	\q[◇开始更新,OnUpdate]\n/
-	\q[◇开始更新检查,OnUpdateCheck]\n/
-	\q[◇无用,Cancel]\n/
+	\0\s[0]已恢復默認源\n/
+	\q[◇開始更新,OnUpdate]\n/
+	\q[◇開始更新檢查,OnUpdateCheck]\n/
+	\q[◇無用,Cancel]\n/
 	'
 }
 OnMirrorInput{
 	mirror_url=reference0
 	"\0\s[0]源已更新\n/
-	当前源：\_q%(mirror_url.for_show)\_q\n/
-	\q[◇开始更新,OnUpdate]\n/
-	\q[◇开始更新检查,OnUpdateCheck]\n/
-	\q[◇无用,Cancel]\n/
+	當前源：\_q%(mirror_url.for_show)\_q\n/
+	\q[◇開始更新,OnUpdate]\n/
+	\q[◇開始更新檢查,OnUpdateCheck]\n/
+	\q[◇無用,Cancel]\n/
 	"
 }
 //others

@@ -1,4 +1,4 @@
-OnDiscordPluginCustom{
+﻿OnDiscordPluginCustom{
 	if !DiscordCustom.State
 		DiscordCustom.DeveloperSet
 	if !DiscordCustom.Detail
@@ -46,7 +46,7 @@ OnDiscordPluginCustom{
 	*/
 	']'
 	--
-	'\0\s[0]好的，Discord个人资料已经更新了\n'
+	'\0\s[0]好的，Discord個人資料已經更新了\n'
 }
 OnDiscordPluginCustomEnd{
 	InDiscordPluginCustom=0
@@ -91,10 +91,10 @@ DiscordCustom.DeveloperSet{
 }
 DiscordCustom.LoggingSet{
 	if SHIORI_FW.LogMode{
-		DiscordCustomSet.CustomDetail('寻找蛛丝马迹')
+		DiscordCustomSet.CustomDetail('尋找蛛絲馬跡')
 	}
 	else{
-		DiscordCustomSet.CustomDetail('发呆。')
+		DiscordCustomSet.CustomDetail('發呆。')
 	}
 }
 DiscordCustom.ModeSet{

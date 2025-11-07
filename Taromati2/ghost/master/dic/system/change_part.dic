@@ -1,4 +1,4 @@
-OnChangeShell{
+﻿OnChangeShell{
 	_t=reference0
 	if _argv[0]
 		_t=_argv[0]
@@ -27,7 +27,7 @@ OnChangeBalloon{
 }
 OnBalloonChange{
 	if mode == '0'
-		'\0\s[5]这样如何呢？'
+		'\0\s[5]這樣如何呢？'
 	else
 		'\1\s[10]嗯。'
 }

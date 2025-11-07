@@ -1,4 +1,4 @@
-//-----SQL操作---------------------
+﻿//-----SQL操作---------------------
 /*---------------------------------
 * まともな説明
 * 1. 呼び出し方
@@ -11,7 +11,7 @@
 *	+-----------------------------------------------------+
 *	|          |     select     |それ以外|    エラー時    |
 *	|----------+----------------+--------+----------------|
-*	|  Result  |取得件数(*1)    |0       |負の数          |
+*	|  Result  |取得件數(*1)    |0       |負の數          |
 *	|----------+----------------+--------+----------------|
 *	|  Value0  |取得結果(有れば)|無し    |エラーメッセージ|
 *	|----------+----------------+--------+----------------|
@@ -20,10 +20,10 @@
 *	(*1) ただし -j が指定された場合は取得結果そのもの。
 */
 /*
-*	-r : 有结果时传回1，无结果传回0,并随机取出结果至valueex0,
-*		（当符合记录>=2时,不能得到所有符合结果的第一条记录。且valueex1和1之后的值不明）
-*	-j : 将结果保存至数组，无valueex。如果有多条记录符合则随机输出,>=2时,有和-r一样的缺少第一条记录的性质
-*	-f : 将符合的记录总条数传回，valueex0、valueex1、valueex2...分别为符合记录的第一条、第二条、第三条...
+*	-r : 有結果時傳回1，無結果傳回0,並隨機取出結果至valueex0,
+*		（當符合記錄>=2時,不能得到所有符合結果的第一條記錄。且valueex1和1之後的值不明）
+*	-j : 將結果保存至陣列，無valueex。如果有多條記錄符合則隨機輸出,>=2時,有和-r一樣的缺少第一條記錄的性質
+*	-f : 將符合的記錄總條數傳回，valueex0、valueex1、valueex2...分別為符合記錄的第一條、第二條、第三條...
 */
 OnSQLSave:void{
 	if FILEEXIST('SAORI_PATH\debeso.db')
@@ -49,12 +49,12 @@ ClearSQLVar{
 }
 /*---------------------------------------------------------------------------------------
 *  函式名：SQLite
-*  机能　：FUNCTIONEX改造版，执行SAORI并可指定输出的变数名
-*  引数　：	_argv[0]	选项或SQL语言
-*			_argv[1]	选项
-*						-r : 将符合的结果总数传回，并(随机)取出结果至valueex?。
-*						-j : 将结果作成阵列后传回，无valueex?。
-*						-f : 将符合的结果总数传回，valueex?的值为符合者的ID。
+*  機能　：FUNCTIONEX改造版，執行SAORI並可指定輸出的變數名
+*  引數　：	_argv[0]	選項或SQL語言
+*			_argv[1]	選項
+*						-r : 將符合的結果總數傳回，並(隨機)取出結果至valueex?。
+*						-j : 將結果作成陣列後傳回，無valueex?。
+*						-f : 將符合的結果總數傳回，valueex?的值為符合者的ID。
 * --------------------------------------------------------------------------------------
 */
 SQLite{
@@ -69,7 +69,7 @@ SQLite.List{
 	_table	= _argv[0]
 	select	= _argv[1]
 	_where	= _argv[2]
-	//列出整列资料
+	//列出整列資料
 	if !_where {
 		_amt = SQLite('-f',"SELECT ID FROM %(_table)")
 		_id = IARRAY
@@ -80,28 +80,28 @@ SQLite.List{
 			_txt ,= SQLite('-j', "SELECT %(select) FROM %(_table) WHERE ID='%(_id[_i])'")
 		}
 	}
-	//列出单行资料
+	//列出單行資料
 	else {
 		_txt = SQLite('-j', "SELECT %(select) FROM %(_table) WHERE %(_where)")
 	}
 	_txt
 }
-//---- 资料表相关 ---------------------------------------------------------------------------------
-//---- 资料表清单
+//---- 資料表相關 ---------------------------------------------------------------------------------
+//---- 資料表清單
 SQLite.Table{
 	SQLite('-f',"SELECT name FROM sqlite_master WHERE type='table'")
 }
-//---- 栏位清单
-//_argv[0] : 资料表名称
+//---- 欄位元清單
+//_argv[0] : 資料表名稱
 SQLite.Column{
 	_res = SQLite('-j',"SELECT sql FROM sqlite_master WHERE type='table' AND name='%(_argv[0])'")
 	_res = RE_REPLACE(_res, '.*\(|\)| integer| text| primary key| ', '')
 	_res = SPLIT(_res,',')
 	_res
 }
-//栏位ID
-//_argv[0] : 资料表名称
-//_argv[1] : 栏位名称
+//欄位ID
+//_argv[0] : 資料表名稱
+//_argv[1] : 欄位名稱
 SQLite.GetColumnID{
 	_res = SQLite.Column(_argv[0])
 	for _i=0;_res[_i]!="%(_argv[1])";_i++{
@@ -109,27 +109,27 @@ SQLite.GetColumnID{
 	}
 	_i
 }
-//---- 新增资料表
-//_argv[0] : 资料表名称
-//_argv[1] : 栏位名称
+//---- 新增資料表
+//_argv[0] : 資料表名稱
+//_argv[1] : 欄位名稱
 SQLite.Create{
 	SQLite("CREATE TABLE %(_argv[0])(%(_argv[1]))")
 }
-//---- 删除资料表
-//_argv[0] : 资料表名称
+//---- 刪除資料表
+//_argv[0] : 資料表名稱
 SQLite.Drop{
 	SQLite("DROP TABLE %(_argv[0])")
 }
-//---- 资料表清单
+//---- 資料表清單
 /*
-//_argv[0] : 资料表名称
-//_argv[1] : 栏位名称
+//_argv[0] : 資料表名稱
+//_argv[1] : 欄位名稱
 //_argv[2] : 命令(ADD, DROP, RENAME)
 //_argv[3] : ColumnID
 SQLite.Alter{
-	//取得栏位名称
+	//取得欄位名稱
 	_cln = SQLite.Column(_argv[0])
-	//取得栏位名称和资料型态
+	//取得欄位元名稱和資料型態
 	_res = SQLite('-j',"SELECT sql FROM sqlite_master WHERE type='table' AND name='%(_argv[0])'")
 	_res = RE_REPLACE(_res, '.*\(|\)', '')
 	_res = SPLIT(_res,',')
@@ -167,16 +167,16 @@ SQLite.Alter{
 }
 */
 SQLite.Alter.Getbase{
-	//取得栏位名称
+	//取得欄位名稱
 	_argv[1] = SQLite.Column(_argv[0])
-	//取得栏位名称和资料型态
+	//取得欄位元名稱和資料型態
 	_argv[2] = SQLite('-j',"SELECT sql FROM sqlite_master WHERE type='table' AND name='%(_argv[0])'")
 	_argv[2] = RE_REPLACE(_argv[2], '.*\(|\)', '')
 	_argv[2] = SPLIT(_argv[2],',')
 }
-//_argv[0] : 资料表名称
-//_argv[1] : 栏位名称
-//_argv[2] : ColumnID（可选）
+//_argv[0] : 資料表名稱
+//_argv[1] : 欄位名稱
+//_argv[2] : ColumnID（可選）
 SQLite.Alter.Rename{
 	_cln=IARRAY
 	_res=IARRAY
@@ -194,9 +194,9 @@ SQLite.Alter.Rename{
 	void SQLite("INSERT INTO %(_argv[0]) SELECT * FROM db_temp")
 	void SQLite('DROP TABLE db_temp')
 }
-//_argv[0] : 资料表名称
-//_argv[1] : 栏位名称
-//_argv[2] : ColumnID（可选）
+//_argv[0] : 資料表名稱
+//_argv[1] : 欄位名稱
+//_argv[2] : ColumnID（可選）
 SQLite.Alter.Add{
 	_cln=IARRAY
 	_res=IARRAY
@@ -214,9 +214,9 @@ SQLite.Alter.Add{
 	void SQLite("INSERT INTO %(_argv[0]) SELECT * FROM db_temp")
 	void SQLite('DROP TABLE db_temp')
 }
-//_argv[0] : 资料表名称
-//_argv[1] : 栏位名称
-//_argv[2] : ColumnID（可选）
+//_argv[0] : 資料表名稱
+//_argv[1] : 欄位名稱
+//_argv[2] : ColumnID（可選）
 SQLite.Alter.Drop{
 	_cln=IARRAY
 	_res=IARRAY
@@ -235,43 +235,43 @@ SQLite.Alter.Drop{
 	void SQLite("INSERT INTO %(_argv[0]) SELECT * FROM db_temp")
 	void SQLite('DROP TABLE db_temp')
 }
-//---- 资料相关 -----------------------------------------------------------------------------------
-//---- 写入资料
-//_argv[0] : 资料表名称
-//_argv[1] : 栏位名称
-//_argv[2] : 资料
+//---- 資料相關 -----------------------------------------------------------------------------------
+//---- 寫入資料
+//_argv[0] : 資料表名稱
+//_argv[1] : 欄位名稱
+//_argv[2] : 資料
 SQLite.Insert{
 	if _argv[1] == '*'
 		SQLite("INSERT INTO %(_argv[0]) VALUES (%(_argv[2]))")
 	else
 		SQLite("INSERT INTO %(_argv[0]) (%(_argv[1])) VALUES (%(_argv[2]))")
 }
-//---- 搜寻资料
-//_argv[0] : 资料表名称
-//_argv[1] : 栏位名称
-//_argv[2] : 搜寻条件
+//---- 搜尋資料
+//_argv[0] : 資料表名稱
+//_argv[1] : 欄位名稱
+//_argv[2] : 搜尋條件
 //_argv[3] : -r,-f,-j,-rj (可省略)
 SQLite.Search{
 	SQLite("%(_argv[3])", "SELECT %(_argv[1]) FROM %(_argv[0]) WHERE %(_argv[2])")
 }
-//---- 更改资料
-//_argv[0] : 资料表名称
-//_argv[1] : 变更内容
-//_argv[2] : 搜寻条件
+//---- 更改資料
+//_argv[0] : 資料表名稱
+//_argv[1] : 變更內容
+//_argv[2] : 搜尋條件
 SQLite.Update{
 	SQLite("UPDATE %(_argv[0]) SET %(_argv[1]) WHERE %(_argv[2])")
 }
-//---- 删除资料
-//_argv[0] : 资料表名称
-//_argv[1] : 搜寻条件
+//---- 刪除資料
+//_argv[0] : 資料表名稱
+//_argv[1] : 搜尋條件
 SQLite.Delete{
 	SQLite("DELETE FROM %(_argv[0]) WHERE %(_argv[1])")
 }
-//---- 重命名资料
-//_argv[0] : 资料表名称
-//_argv[1] : 新名称
+//---- 重命名資料
+//_argv[0] : 資料表名稱
+//_argv[1] : 新名稱
 SQLite.Rename{
-	//取得栏位名称和资料型态
+	//取得欄位元名稱和資料型態
 	_res = SQLite('-j',"SELECT sql FROM sqlite_master WHERE type='table' AND name='%(_argv[0])'")
 	_res = RE_REPLACE(_res, '.*\(|\)', '')
 	_res = SPLIT(_res,',')

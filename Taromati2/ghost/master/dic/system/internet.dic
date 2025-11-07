@@ -1,5 +1,5 @@
-//////////////////////////////////////////////////
-//Internet相关辞书
+﻿//////////////////////////////////////////////////
+//Internet相關辭書
 //written by forjane, 2009.12.03
 //////////////////////////////////////////////////
 TextBetween{
@@ -28,7 +28,7 @@ TextBetween2{
 	_d
 }
 */
-TextToEnd{//TextToEnd('a=b=1234','=',0)=='b=1234'得到字符串'a=b=1234'中从第1个'='到字符串结束的文本'b=1234'
+TextToEnd{//TextToEnd('a=b=1234','=',0)=='b=1234'得到字串'a=b=1234'中從第1個'='到字串結束的文本'b=1234'
 	_s=TOSTR(_argv[0])
 	_begin=_argv[1]
 	_idx = 0
@@ -44,7 +44,7 @@ TextToEnd{//TextToEnd('a=b=1234','=',0)=='b=1234'得到字符串'a=b=1234'中从
 		_d+=_begin
 	_d
 }
-BeginToEnd{//BeginToEnd('君不见，黄河之水天上来，奔流到海不复回。','，',1,2)得到第一个'，'到第二个'，'之间的文本
+BeginToEnd{//BeginToEnd('君不見，黃河之水天上來，奔流到海不復回。','，',1,2)得到第一個'，'到第二個'，'之間的文本
 	_s=_argv[0]
 	_txt=_argv[1]
 	_begin=TOINT(_argv[2])
@@ -60,7 +60,7 @@ BeginToEnd{//BeginToEnd('君不见，黄河之水天上来，奔流到海不复�
 	}
 	_d
 }
-//图灵api
+//圖靈api
 ////////////////////////////////////////////////////////////////////////////////
 OntulingApi{
 	callingtulingapi=1
@@ -68,20 +68,20 @@ OntulingApi{
 	"\![excute,http-get,http://www.tuling123.com/openapi/api?key=5b56e59d852489bb6c40289223619a28&info=%(tulingapi.in),--param-charset=UTF-8,--nofile,--timeout=200,--async=tulingapi]"
 }
 /*
-code  说明
-100000  文本类数据  text   {"code":100000,"text":"你也好啊"}
-200000  网址类数据  text+url
-301000  小说
-302000  新闻
-304000  应用、软件、下载
-305000  列车
+code  說明
+100000  文本類資料  text   {"code":100000,"text":"你也好啊"}
+200000  網址類數據  text+url
+301000  小說
+302000  新聞
+304000  應用、軟體、下載
+305000  列車
 306000  航班
-307000  团购
-308000  优惠
+307000  團購
+308000  優惠
 309000  酒店
 310000  彩票
-311000  价格
-312000  餐厅
+311000  價格
+312000  餐廳
 */
 OnTuLingFound.Failure{
 	_txt=KikkaTalkToUser(tulingapi.in)
@@ -134,20 +134,20 @@ OnTuLingFound{
 	--
 	_txt
 }
-//天气查询
+//天氣查詢
 ////////////////////////////////////////////////////////////////////////////////
 OnCheckWeather{
 	if ISVAR('weather.lastcity') {
 		OnWeatherUpdate.menu
 		--
-		"\b[1]『\_a[OnChangeCity]◇%(weather.lastcity)\_a』的天气：\n/
-		今天的天气：\n/
+		"\b[1]『\_a[OnChangeCity]◇%(weather.lastcity)\_a』的天氣：\n/
+		今天的天氣：\n/
 		白天 %(weather.day)  %(weather.daytemp)℃\n/
-		夜间 %(weather.night)  %(weather.nighttemp)℃\n/
+		夜間 %(weather.night)  %(weather.nighttemp)℃\n/
 		\n/
-		明天的天气：\n/
+		明天的天氣：\n/
 		白天 %(weather.tomorrow.day)  %(weather.tomorrow.daytemp)℃\n/
-		夜间 %(weather.tomorrow.night)  %(weather.tomorrow.nighttemp)℃\n/
+		夜間 %(weather.tomorrow.night)  %(weather.tomorrow.nighttemp)℃\n/
 		\n/
 		"
 		--
@@ -161,7 +161,7 @@ OnCheckWeather{
 	}
 }
 OnChangeCity{
-	"请输入你要查询的城市名称：\![open,inputbox,OnChangeCityComplete,-1,%(city)]"
+	"請輸入你要查詢的城市名稱：\![open,inputbox,OnChangeCityComplete,-1,%(city)]"
 }
 OnChangeCityComplete{
 	if city != reference0 || !city
@@ -215,9 +215,9 @@ OnWeatherUpdate.Success.boot.Talk{
 		'\0\s[0]'
 	--
 	"/
-	今天%(weather.lastcity)的天气：\n/
+	今天%(weather.lastcity)的天氣：\n/
 	白天 %(weather.day)  %(weather.daytemp)℃\n/
-	夜间 %(weather.night)  %(weather.nighttemp)℃\n/
+	夜間 %(weather.night)  %(weather.nighttemp)℃\n/
 	\n/
 	"
 	--
@@ -261,9 +261,9 @@ OnWeatherUpdate.Success{
 		OnWeatherUpdate.Failure
 }
 OnWeatherUpdate.Failure.menu.Talk{
-	"\0\s[3]连线失败了……\nError：%(reference4)\n要查看本地信息吗？\n\q[◇确定,OnWeatherUpdate.Success.Talk]"
+	"\0\s[3]連線失敗了……\nError：%(reference4)\n要查看本地資訊嗎？\n\q[◇確定,OnWeatherUpdate.Success.Talk]"
 	--
-	'\n\n\q[◇返回,OnOpenMenu]    \q[◇终了,Cancel]'
+	'\n\n\q[◇返回,OnOpenMenu]    \q[◇終了,Cancel]'
 }
 OnWeatherUpdate.Failure{
 	if FromWeatherUpdate.menu{
@@ -277,39 +277,39 @@ OnWeatherUpdate.Failure{
 Weather.Talks{
 	if hour>=8&&hour<18{
 		if '晴' _in_ weather.day{
-			'\0\s[0]天晴的话\w9\s[26]出去走走比较好哦。'
-			'\0\s[5]今天天气还好啦，\w9因为是晴天呢。'
+			'\0\s[0]天晴的話\w9\s[26]出去走走比較好哦。'
+			'\0\s[5]今天天氣還好啦，\w9因為是晴天呢。'
 		}
 		elseif '雨' _in_ weather.day{
-			'\0\s[8]今天下雨了吗？\w9\s[26]下雨出门记得带伞哦。'
-			'\0\s[8]今天是雨天\w9\1，\c天气不好啊\0'
+			'\0\s[8]今天下雨了嗎？\w9\s[26]下雨出門記得帶傘哦。'
+			'\0\s[8]今天是雨天\w9\1，\c天氣不好啊\0'
 		}
 		elseif '雪' _in_ weather.day{
-			"\0\s[0]%(username)，\w9\s[20]外面下雪了吗？"
-			'\0\s[0]今天下雪了吗，\w9\s[5]来打雪仗吧？'
+			"\0\s[0]%(username)，\w9\s[20]外面下雪了嗎？"
+			'\0\s[0]今天下雪了嗎，\w9\s[5]來打雪仗吧？'
 		}
 		if TOINT(weather.daytemp)<16
-			'\0\s[0]今天天气比较冷，\w9\s[26]要注意保重身体哦。'
+			'\0\s[0]今天天氣比較冷，\w9\s[26]要注意保重身體哦。'
 		elseif TOINT(weather.daytemp)>38
-			'\0\s[8]天气太热了，\w9还是少呆在外面比较好。'
+			'\0\s[8]天氣太熱了，\w9還是少呆在外面比較好。'
 		elseif TOINT(weather.daytemp)>33
-			'\0\s[0]今天天气比较热，\w9\s[26]要注意降温解暑哦。'
+			'\0\s[0]今天天氣比較熱，\w9\s[26]要注意降溫解暑哦。'
 	}
 	else{
 		if '雨' _in_ weather.night
-			'\0\s[0]晚上可能有雨，\w9\s[26]记得收衣服关好门窗哦。'
+			'\0\s[0]晚上可能有雨，\w9\s[26]記得收衣服關好門窗哦。'
 		elseif '雪' _in_ weather.night
-			'\0\s[20]外面应该很冷吧，\w9\s[0]还是呆在家里比较好。'
+			'\0\s[20]外面應該很冷吧，\w9\s[0]還是呆在家裡比較好。'
 		if TOINT(weather.nighttemp)<10
-			'\0\s[26]晚上睡觉要注意保暖哦，\w9\s[0]不要冻着身子。'
+			'\0\s[26]晚上睡覺要注意保暖哦，\w9\s[0]不要凍著身子。'
 	}
 }
 Weather.EmbeddingString1{
 	if weather.day{
 		if hour>=8&&hour<18
-			"天气：%(weather.day)  温度：%(weather.daytemp)℃"
+			"天氣：%(weather.day)  溫度：%(weather.daytemp)℃"
 		else
-			"天气：%(weather.night)  温度：%(weather.nighttemp)℃"
+			"天氣：%(weather.night)  溫度：%(weather.nighttemp)℃"
 	}
 }
 Weather.EmbeddingString2{
@@ -336,7 +336,7 @@ OnHitokotoUpdate.Success{
 OnHitokotoUpdate.Failure{
 	//hitokoto=''
 }
-//RSS读取
+//RSS讀取
 //////////////////////////////////////////////////////////////////////
 /*
 GetHeadlineList{
@@ -415,8 +415,8 @@ SendTweet{
 */
 OnWikiPedia{
 	'\C\![quicksession,true]\c\0\b[2]\![set,choicetimeout,0]/
-	■维基百科■\n[150]/
-	\q[◇搜索词条,OnInputPediaWord]\n'
+	■維琪百科■\n[150]/
+	\q[◇搜索詞條,OnInputPediaWord]\n'
 	--
 	ShowBaiduBaike
 	--
@@ -427,7 +427,7 @@ OnInputPediaWord{
 }
 OnDownLoadWikiPedia{
 	word=reference0
-	"正在连接网站，请稍等……\![excute,http-get,http://zh.wikipedia.org/wiki/%(word),--param-charset=UTF-8,--file=wiki-pedia.html,--timeout=200,--async=OnWikiPedia]"
+	"正在連接網站，請稍等……\![excute,http-get,http://zh.wikipedia.org/wiki/%(word),--param-charset=UTF-8,--file=wiki-pedia.html,--timeout=200,--async=OnWikiPedia]"
 }
 ShowBaiduBaike{
 	UnFinished
@@ -466,7 +466,7 @@ OnExecuteHTTPComplete{
 		OnHitokotoUpdate.Success
 	}
 	else {
-		BUGNow('OnExecuteHTTPComplete的未定义async id: '+reference1)
+		BUGNow('OnExecuteHTTPComplete的未定義async id: '+reference1)
 	}
 }
 OnExecuteHTTPFailure{
@@ -479,6 +479,6 @@ OnExecuteHTTPFailure{
 		OnHitokotoUpdate.Failure
 	}
 	else{
-		"\0\s[3]连线失败了……\nError：%(reference4)"
+		"\0\s[3]連線失敗了……\nError：%(reference4)"
 	}
 }

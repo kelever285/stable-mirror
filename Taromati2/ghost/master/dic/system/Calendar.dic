@@ -1,11 +1,11 @@
-/////////UTF-8
+﻿/////////UTF-8
 /////////Other
-/////////日历
+/////////日曆
 /////////by KikkaAIdb.
 /////////rewrited by fancyang.
-//lunar.dll 插件请放到 saori 下
-//调用OnCalendar即可
-//---- 日历[2011-4-3_by KikkaAIdb] -------------------------------------------------------------------------------------
+//lunar.dll 外掛程式請放到 saori 下
+//調用OnCalendar即可
+//---- 日曆[2011-4-3_by KikkaAIdb] -------------------------------------------------------------------------------------
 OnCalendar{
 	_year=year
 	_m=month
@@ -81,7 +81,7 @@ OnCalendar{
 		_yn+=1
 		_mn=1
 	}
-	_w+="\_l[%(_xF+2),20]\q[<<上个月,OnCalendar,%(_yl)年%(_ml)月,%(_yl),%(_ml),1,##] \q[◇输入日期,OnINCalendar] \q[下个月>>,OnCalendar,%(_yn)年%(_mn)月,%(_yn),%(_mn),1,##]"
+	_w+="\_l[%(_xF+2),20]\q[<<上個月,OnCalendar,%(_yl)年%(_ml)月,%(_yl),%(_ml),1,##] \q[◇輸入日期,OnINCalendar] \q[下個月>>,OnCalendar,%(_yn)年%(_mn)月,%(_yn),%(_mn),1,##]"
 	_lunar=calendar[_d-1,':']
 	_jieqi=''
 	if _lunar[11]
@@ -92,11 +92,11 @@ OnCalendar{
 	SETDELIM(_jieri, '/')
 	_x=180//初始
 	_y=27//初始
-	"\C\![quicksession,true]\c\b[0]\_n橘花的日历♪	\q[◇日程显示,OnAgenda,%(_year),%(_m),%(_d),inter]\n[120]/
+	"\C\![quicksession,true]\c\b[0]\_n橘花的日曆♪	\q[◇日程顯示,OnAgenda,%(_year),%(_m),%(_d),inter]\n[120]/
 	\_l[%(_x),0]%(_lunar[0])年%(_lunar[1])月%(_lunar[2])日/
 	\_l[%(_x),%(_y)]%(_lunar[5])月%(_lunar[6])/
 	\_l[%(_x),%(_y+15)]%(lunardata[7])年%(lunardata[8])月%(lunardata[9])日/
-	\_l[%(_x),%(_y+15*2)]属%(_lunar[3]) %(_lunar[7])/
+	\_l[%(_x),%(_y+15*2)]屬%(_lunar[3]) %(_lunar[7])/
 	\_n\_l[%(_x),%(_y+15*3)]%(_jieqi)%(_lunar[12])[%(_lunar[13])月%(_lunar[14])日]\_n/
 	\_l[%(_x),%(_y+15*4)]%(_jieri[0])/
 	\_l[%(_x),%(_y+15*5)]%(_jieri[1])/
@@ -159,7 +159,7 @@ OnAgenda{
 	_mon=(31,28,31,30,31,30,31,31,30,31,30,31)
 	if _year % 4 == 0 && _year % 100 != 0 || _year % 400 == 0
 		_mon[1]=29
-	_eventname='假日,工作,生活,学习,会议,外出,约会,其他'
+	_eventname='假日,工作,生活,學習,會議,外出,約會,其他'
 	Lunartime(_year,_m,1)
 	Lunardata(_year,_m,_d)
 	for _i=0;_i<7;_i++ {
@@ -245,14 +245,14 @@ OnAgenda{
 			_eventtitle=_event[12,'	']
 			_eventplace=_event[13,'	']
 			_eventagenda=_event[14,'	']
-			_t='事件种类：'+_eventsort+'\n'
-			_t+='标题：'+_eventtitle+'\n'
-			_t+='时间开始：'+_eventbegindate[0]+'年'+_eventbegindate[1]+'月'+_eventbegindate[2]+'日'+_eventbegindate[3]+'时'+_eventbegindate[4]+'分'+'\n'
-			_t+='时间结束：'+_eventenddate[0]+'年'+_eventenddate[1]+'月'+_eventenddate[2]+'日'+_eventenddate[3]+'时'+_eventenddate[4]+'分'+'\n'
-			_t+='地点：'+_eventplace+'\n'
-			_t+='备忘：'+_eventagenda+'\n'
+			_t='事件種類：'+_eventsort+'\n'
+			_t+='標題：'+_eventtitle+'\n'
+			_t+='時間開始：'+_eventbegindate[0]+'年'+_eventbegindate[1]+'月'+_eventbegindate[2]+'日'+_eventbegindate[3]+'時'+_eventbegindate[4]+'分'+'\n'
+			_t+='時間結束：'+_eventenddate[0]+'年'+_eventenddate[1]+'月'+_eventenddate[2]+'日'+_eventenddate[3]+'時'+_eventenddate[4]+'分'+'\n'
+			_t+='地點：'+_eventplace+'\n'
+			_t+='備忘：'+_eventagenda+'\n'
 			if _eventid!=-1
-				_w+=ColorText("\_l[%(_x+_eventid%4*10),%(_y+15+10-10*TOINT(_eventid/4))]\q[●,OnAgenda,%(_year),%(_m),%(_i+1),show,%(markmode[0]),%(_n),%(_t)\n点击进入记事设置]","bold,height=10,color=%(ColorIdx(_eventid+1))")
+				_w+=ColorText("\_l[%(_x+_eventid%4*10),%(_y+15+10-10*TOINT(_eventid/4))]\q[●,OnAgenda,%(_year),%(_m),%(_i+1),show,%(markmode[0]),%(_n),%(_t)\n點擊進入記事設置]","bold,height=10,color=%(ColorIdx(_eventid+1))")
 			_n++
 		}
 		if _events!=''{
@@ -302,14 +302,14 @@ OnAgenda{
 					_eventtitle=_event[12,'	']
 					_eventplace=_event[13,'	']
 					_eventagenda=_event[14,'	']
-					_t='事件种类：'+_eventsort+'\n'
-					_t+='标题：'+_eventtitle+'\n'
-					_t+='时间开始：'+_eventbegindate[0]+'年'+_eventbegindate[1]+'月'+_eventbegindate[2]+'日'+_eventbegindate[3]+'时'+_eventbegindate[4]+'分'+'\n'
-					_t+='时间结束：'+_eventenddate[0]+'年'+_eventenddate[1]+'月'+_eventenddate[2]+'日'+_eventenddate[3]+'时'+_eventenddate[4]+'分'+'\n'
-					_t+='地点：'+_eventplace+'\n'
-					_t+='备忘：'+_eventagenda+'\n'
+					_t='事件種類：'+_eventsort+'\n'
+					_t+='標題：'+_eventtitle+'\n'
+					_t+='時間開始：'+_eventbegindate[0]+'年'+_eventbegindate[1]+'月'+_eventbegindate[2]+'日'+_eventbegindate[3]+'時'+_eventbegindate[4]+'分'+'\n'
+					_t+='時間結束：'+_eventenddate[0]+'年'+_eventenddate[1]+'月'+_eventenddate[2]+'日'+_eventenddate[3]+'時'+_eventenddate[4]+'分'+'\n'
+					_t+='地點：'+_eventplace+'\n'
+					_t+='備忘：'+_eventagenda+'\n'
 					if _eventid!=-1
-						_w+=ColorText("\_l[%(_x+_eventid%4*10),%(_y+15+10-10*TOINT(_eventid/4))]\q[●,OnAgenda,%(_eventbegindate[0]),%(_eventbegindate[1]),%(_eventbegindate[2]),show,%(markmode[0]),%(_n),%(_t)\n点击进入记事设置]","bold,height=10,color=%(ColorIdx(_eventid+1))")
+						_w+=ColorText("\_l[%(_x+_eventid%4*10),%(_y+15+10-10*TOINT(_eventid/4))]\q[●,OnAgenda,%(_eventbegindate[0]),%(_eventbegindate[1]),%(_eventbegindate[2]),show,%(markmode[0]),%(_n),%(_t)\n點擊進入記事設置]","bold,height=10,color=%(ColorIdx(_eventid+1))")
 				}
 			}
 		}
@@ -334,7 +334,7 @@ OnAgenda{
 		_yn+=1
 		_mn=1
 	}
-	_w+="\_l[%(_xF+2),30]\q[<<上一年,OnAgenda,%(_year-1)年%(_m)月,%(_year-1),%(_m),1,##] \q[<<上个月,OnAgenda,%(_yl)年%(_ml)月,%(_yl),%(_ml),1,##] \q[◇输入日期,OnINCalendar)] \q[下个月>>,OnAgenda,%(_yn)年%(_mn)月,%(_yn),%(_mn),1,##]   \q[<<下一年,OnAgenda,%(_year+1)年%(_m)月,%(_year+1),%(_m),1,##]"
+	_w+="\_l[%(_xF+2),30]\q[<<上一年,OnAgenda,%(_year-1)年%(_m)月,%(_year-1),%(_m),1,##] \q[<<上個月,OnAgenda,%(_yl)年%(_ml)月,%(_yl),%(_ml),1,##] \q[◇輸入日期,OnINCalendar)] \q[下個月>>,OnAgenda,%(_yn)年%(_mn)月,%(_yn),%(_mn),1,##]   \q[<<下一年,OnAgenda,%(_year+1)年%(_m)月,%(_year+1),%(_m),1,##]"
 	_lunar=calendar[_d-1,':']
 	_jieqi=''
 	if _lunar[11]
@@ -353,8 +353,8 @@ OnAgenda{
 	_mark=IARRAY
 	if markmode
 		_mark[TOINT(markmode)]="\f[color,%(ColorIdx(6))]"
-	"\C\![quicksession,true]\c\b[2]\_n橘花的日程♪	\q[◇日历显示,OnCalendar,%(_year),%(_m),%(_d)]	\q[◆今天,OnAgenda,%(year),%(month),%(day)]\n[120]/
-	%(_lunar[0])年%(_lunar[1])月%(_lunar[2])日     %(_mark[1])\q[◇标记模式,OnAgendaMark,%(_year),%(_m),%(_d),请选择颜色分类后点击日期]%(_temp)\f[color,default]\_l[250]%(_mark[2])\q[◇标记删除,OnAgendaMarkDel,%(_year),%(_m),%(_d),请点击日期下面的标记删除]\f[color,default]\n[150]/
+	"\C\![quicksession,true]\c\b[2]\_n橘花的日程♪	\q[◇日曆顯示,OnCalendar,%(_year),%(_m),%(_d)]	\q[◆今天,OnAgenda,%(year),%(month),%(day)]\n[120]/
+	%(_lunar[0])年%(_lunar[1])月%(_lunar[2])日     %(_mark[1])\q[◇標記模式,OnAgendaMark,%(_year),%(_m),%(_d),請選擇顏色分類後點擊日期]%(_temp)\f[color,default]\_l[250]%(_mark[2])\q[◇標記刪除,OnAgendaMarkDel,%(_year),%(_m),%(_d),請點擊日期下麵的標記刪除]\f[color,default]\n[150]/
 	\_l[[%(_x),%(_y+260+15)]\q[◆新增事件,OnAgenda,%(_year),%(_m),%(_d),add]/
 	\_l[%(_x),%(_y+260+15*2)]%(_lunar[3])年%(_lunar[5])月%(_lunar[6])（%(lunardata[7])年%(lunardata[8])月%(lunardata[9])日）%(_jieqi)/
 	\_l[%(_x),%(_y+260+15*3)]"+ColorText("%(_lunar[7])","bold,color=%(ColorIdx(6))")+"    %(_jieri[0])%(_jieri[1])%(_jieri[2])%(_jieri[3])/
@@ -408,7 +408,7 @@ OnEventEdit{
 		markmode=0
 	if _mode=='newevent'
 		markmode=1
-	_txt="\C\![quicksession,true]\c\b[2]记事薄：%(_year).%(_m).%(_d)\_l[120]\_n橘花的日程♪ - 事件设置\n[120]"
+	_txt="\C\![quicksession,true]\c\b[2]記事薄：%(_year).%(_m).%(_d)\_l[120]\_n橘花的日程♪ - 事件設置\n[120]"
 	_n=0
 	_timetxt=''
 	_x=0;_y=15
@@ -428,7 +428,7 @@ OnEventEdit{
 	_event=IARRAY
 	if _mode!='inter'
 		_event=eventtemp[_id]
-	_eventname='假日,工作,生活,学习,会议,外出,约会,其他'
+	_eventname='假日,工作,生活,學習,會議,外出,約會,其他'
 	if _event[0,'	']==''
 		_event[0,'	']=_eventname[0]
 	_ta=GETSECCOUNT(_event[7,'	'],_event[8,'	'],_event[9,'	'],0,_event[10,'	'],_event[11,'	'],0)
@@ -458,23 +458,23 @@ OnEventEdit{
 		_event[8,'	']=_m
 	if _ta<_tb
 		_event[8,'	']=_event[2,'	']
-	if TOINT(_event[9,'	'])<=0 || TOINT(_event[9,'	'])>_mon[TOINT(_event[8,'	'])-1]//结束日
+	if TOINT(_event[9,'	'])<=0 || TOINT(_event[9,'	'])>_mon[TOINT(_event[8,'	'])-1]//結束日
 		_event[9,'	']=_mon[TOINT(_event[8,'	'])-1]
 	if _ta<_tb
 		_event[9,'	']=_event[3,'	']
 	if TOINT(_event[9,'	'])>_mon[TOINT(_event[8,'	'])-1]
 		_event[9,'	']=_mon[TOINT(_event[8,'	'])-1]
-	if _ta<_tb//结束时
+	if _ta<_tb//結束時
 		_event[10,'	']=TOINT(_event[4,'	'])+1
-	if _ta<_tb//结束分
+	if _ta<_tb//結束分
 		_event[11,'	']=_event[5,'	']
-	if TOINT(_event[10,'	'])>=24//结束时超出检测
+	if TOINT(_event[10,'	'])>=24//結束時超出檢測
 		_event[10,'	']=0
-	if TOINT(_event[11,'	'])>=60//结束分超出检测
+	if TOINT(_event[11,'	'])>=60//結束分超出檢測
 		_event[11,'	']=0
-	if TOINT(_event[10,'	'])<0||_event[10,'	']==''//结束时无效检测
+	if TOINT(_event[10,'	'])<0||_event[10,'	']==''//結束時無效檢測
 		_event[10,'	']=TOINT(_event[4,'	'])+1
-	if TOINT(_event[11,'	'])<0||_event[11,'	']==''//结束分无效检测
+	if TOINT(_event[11,'	'])<0||_event[11,'	']==''//結束分無效檢測
 		_event[11,'	']=TOINT(_event[5,'	'])
 	if TOINT(_event[23,'	'])>_mon[TOINT(_event[22,'	'])-1]
 		_event[23,'	']=_mon[TOINT(_event[22,'	'])-1]
@@ -506,53 +506,53 @@ OnEventEdit{
 		_event=eventtemp[_id]
 	}
 	if TOINT(reference6)==7||_argv[6]==7{
-		_txt+="\_l[%(_x),%(_y)]\__q[OnEventInput,%(_year),%(_m),%(_d),%(_id),eventsort,%(_j),%(_eventsort),0,7]种类："+_eventsort+'\__q'
+		_txt+="\_l[%(_x),%(_y)]\__q[OnEventInput,%(_year),%(_m),%(_d),%(_id),eventsort,%(_j),%(_eventsort),0,7]種類："+_eventsort+'\__q'
 	}
 	else
-		_txt+="\_l[%(_x),%(_y)]种类：%(_eventsort)"
+		_txt+="\_l[%(_x),%(_y)]種類：%(_eventsort)"
 	_w='\_l[200]'
 	for _i=0;_i<8;_i++{
 		_t=_eventname[_i]
 		_w+=ColorText("\q[●,OnEventEdit,%(_year),%(_m),%(_d),%(_id),eventsort,%(_j),%(_i),%(_t)]','bold,height=10,color=%(ColorIdx(_i+1))")
 	}
 	_txt+=_w
-	_txt+="\_l[%(_x),%(_y+15)]\__q[OnEventInput,%(_year),%(_m),%(_d),%(_id),eventtitle,%(_j),%(_eventtitle),12]标题："+_eventtitle+'\__q'
+	_txt+="\_l[%(_x),%(_y+15)]\__q[OnEventInput,%(_year),%(_m),%(_d),%(_id),eventtitle,%(_j),%(_eventtitle),12]標題："+_eventtitle+'\__q'
 	_txt+="\_l[%(_x),%(_y+15*2)]\__q[OnEventInput,%(_year),%(_m),%(_d),%(_id),eventplace,%(_j),%(_eventplace),13]位置："+_eventplace+'\__q'
 	_txt+="\_l[%(_x),%(_y+15*3)]\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),eventrange,%(_j),%((_eventrange+1)%2),6]全天："+'否,是'[_eventrange]+'\__q'
-	_txt+="\_l[%(_x),%(_y+15*4)]开始：\q[%(_eventbegindate[0]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[0]),1]年\q[%(_eventbegindate[1]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[1]),2]月\q[%(_eventbegindate[2]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[2]),3]日  \q[%(_eventbegindate[3]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[3]),4]:\q[%(_eventbegindate[4]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[4]),5]"
-	_txt+="\_l[%(_x),%(_y+15*5)]结束：\q[%(_eventenddate[0]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[0]),7]年\q[%(_eventenddate[1]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[1]),8]月\q[%(_eventenddate[2]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[2]),9]日  \q[%(_eventenddate[3]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[3]),10]:\q[%(_eventenddate[4]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[4]),11]"
-	_repeatmode="永不,每天,每周,每两周,每月,每年,每%(_eventnday)天,每%(_eventnyear)周年"
-	_txt+="\_l[%(_x),%(_y+15*6)]重复：\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),repeatmode,%(_j)]\f[underline,ture] "+_repeatmode[_eventrepeat]+'\f[underline,false]\__q'
+	_txt+="\_l[%(_x),%(_y+15*4)]開始：\q[%(_eventbegindate[0]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[0]),1]年\q[%(_eventbegindate[1]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[1]),2]月\q[%(_eventbegindate[2]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[2]),3]日  \q[%(_eventbegindate[3]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[3]),4]:\q[%(_eventbegindate[4]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventbegindate,%(_j),%(_eventbegindate[4]),5]"
+	_txt+="\_l[%(_x),%(_y+15*5)]結束：\q[%(_eventenddate[0]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[0]),7]年\q[%(_eventenddate[1]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[1]),8]月\q[%(_eventenddate[2]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[2]),9]日  \q[%(_eventenddate[3]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[3]),10]:\q[%(_eventenddate[4]),OnEventInput,%(_year),%(_m),%(_d),%(_id),eventenddate,%(_j),%(_eventenddate[4]),11]"
+	_repeatmode="永不,每天,每週,每兩周,每月,每年,每%(_eventnday)天,每%(_eventnyear)周年"
+	_txt+="\_l[%(_x),%(_y+15*6)]重複：\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),repeatmode,%(_j)]\f[underline,ture] "+_repeatmode[_eventrepeat]+'\f[underline,false]\__q'
 	_n=0
 	if _eventrepeat>0{
 		if _eventrepeatend==0
-			_txt+="\_l[%(_x),%(_y+15*7)]结束重复：\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),repeatendmode,%(_j),%(_eventrepeatend),20]\f[underline,ture]"+_repeatmode[_eventrepeatend]+'\f[underline,false]\__q'
+			_txt+="\_l[%(_x),%(_y+15*7)]結束重複：\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),repeatendmode,%(_j),%(_eventrepeatend),20]\f[underline,ture]"+_repeatmode[_eventrepeatend]+'\f[underline,false]\__q'
 		else
-			_txt+="\_l[%(_x),%(_y+15*7)]结束重复：\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),repeatendmode,%(_j),%(_eventrepeatend),20]\f[underline,ture]"+_eventrepeatenddate[0]+'年'+_eventrepeatenddate[1]+'月'+_eventrepeatenddate[2]+'日'+'\f[underline,false]\__q'
+			_txt+="\_l[%(_x),%(_y+15*7)]結束重複：\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),repeatendmode,%(_j),%(_eventrepeatend),20]\f[underline,ture]"+_eventrepeatenddate[0]+'年'+_eventrepeatenddate[1]+'月'+_eventrepeatenddate[2]+'日'+'\f[underline,false]\__q'
 		_n=1
 	}
-	_remindmode='无,事件发生时,5分钟前,15分钟前,30分钟前,1小时前,2小时前,1天前,2天前,1周前,2周前,1月前（4周）'
+	_remindmode='無,事件發生時,5分鐘前,15分鐘前,30分鐘前,1小時前,2小時前,1天前,2天前,1周前,2周前,1月前（4周）'
 	if _eventrange
-		_remindmode='无,事件发生当天（8:30),1天前（8:30),2天前（8:30),1周前（8:30)'
+		_remindmode='無,事件發生當天（8:30),1天前（8:30),2天前（8:30),1周前（8:30)'
 	_txt+="\_l[%(_x),%(_y+15*(7+_n))]提醒：\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),remindmode,%(_j)]"+_remindmode[_eventremind]+'\__q'
 	if _eventremind>0{
 		_txt+="\_l[%(_x),%(_y+15*(8+_n))]二次提醒：\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),remindmode,%(_j),1]"+_remindmode[_eventseremind]+'\__q'
 		_n++
 	}
-	_txt+="\_l[%(_x),%(_y+15*(8+_n))]\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),soundmode,%(_j),%(_eventsound),18]声音："+SPLITPATH.roughly(_eventsound)[1]+"\__q  \q[◇删,OnEventEditSet,%(_year),%(_m),%(_d),%(_id),sounddel,%(_j),%(_eventsound),18]"
-	_txt+="\_l[%(_x),%(_y+15*(9+_n))]\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),appmode,%(_j),%(_eventcpp),25]打开文件："+SPLITPATH.roughly(_eventcpp)[1]+"\__q  \q[◇删,OnEventEditSet,%(_year),%(_m),%(_d),%(_id),appdel,%(_j),%(_eventsound),25]"
-	_countmode='无,秒显示,分秒显示,时分秒显示,天时分秒显示'
-	_txt+="\_l[%(_x),%(_y+15*(10+_n))]\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),countmode,%(_j),%(_eventcount),24]系统资讯倒计时："+_countmode[_eventcount]+'\__q  '
-	_txt+="\_l[%(_x),%(_y+15*(11+_n))]\__q[OnEventInput,%(_year),%(_m),%(_d),%(_id),eventagenda,%(_j),%(_eventagenda),14]备忘："+AreaTxt(_eventagenda,26,13+_n,47,16+_n)+'\__q'
+	_txt+="\_l[%(_x),%(_y+15*(8+_n))]\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),soundmode,%(_j),%(_eventsound),18]聲音："+SPLITPATH.roughly(_eventsound)[1]+"\__q  \q[◇刪,OnEventEditSet,%(_year),%(_m),%(_d),%(_id),sounddel,%(_j),%(_eventsound),18]"
+	_txt+="\_l[%(_x),%(_y+15*(9+_n))]\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),appmode,%(_j),%(_eventcpp),25]打開文件："+SPLITPATH.roughly(_eventcpp)[1]+"\__q  \q[◇刪,OnEventEditSet,%(_year),%(_m),%(_d),%(_id),appdel,%(_j),%(_eventsound),25]"
+	_countmode='無,秒顯示,分秒顯示,時分秒顯示,天時分秒顯示'
+	_txt+="\_l[%(_x),%(_y+15*(10+_n))]\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),countmode,%(_j),%(_eventcount),24]系統資訊倒計時："+_countmode[_eventcount]+'\__q  '
+	_txt+="\_l[%(_x),%(_y+15*(11+_n))]\__q[OnEventInput,%(_year),%(_m),%(_d),%(_id),eventagenda,%(_j),%(_eventagenda),14]備忘："+AreaTxt(_eventagenda,26,13+_n,47,16+_n)+'\__q'
 	_txt+="\_l[%(_x),%(_y+15*(15+_n))]\__q[OnEventInput,%(_year),%(_m),%(_d),%(_id),eventasakura,%(_j),%(_eventasakura),17]橘花提醒："+AreaTxt(_eventasakura,30,17+_n,47,21)+'\__q'
 	if _mode=='inter'||_mode=='add'||markmode==3{
-		_txt+="\_l[%(_x),315]\__q[OnEventEditSet,%(_eventbegindate[0]),%(_eventbegindate[1]),%(_eventbegindate[2]),%(_id),add,%(_j),%(_event)]加入"+_eventasakura+'\__q\_l[200,315]\f[color,192,192,192]新增  删除\f[color,default]'
+		_txt+="\_l[%(_x),315]\__q[OnEventEditSet,%(_eventbegindate[0]),%(_eventbegindate[1]),%(_eventbegindate[2]),%(_id),add,%(_j),%(_event)]加入"+_eventasakura+'\__q\_l[200,315]\f[color,192,192,192]新增  刪除\f[color,default]'
 		markmode=3
 	}
 	else{
-		_txt+="\_l[%(_x),315]\q[◇修改,OnEventEditSet,%(_eventbegindate[0]),%(_eventbegindate[1]),%(_eventbegindate[2]),%(_id),alter,%(_j),%(_event)]\_l[200,315]\q[◇新增,OnEventEdit,%(_year),%(_m),%(_d),%(_n-1),add,%(_j)]  \q[◇删除,OnEventEditSet,%(_year),%(_m),%(_d),%(_id),del,%(_j)]"
+		_txt+="\_l[%(_x),315]\q[◇修改,OnEventEditSet,%(_eventbegindate[0]),%(_eventbegindate[1]),%(_eventbegindate[2]),%(_id),alter,%(_j),%(_event)]\_l[200,315]\q[◇新增,OnEventEdit,%(_year),%(_m),%(_d),%(_n-1),add,%(_j)]  \q[◇刪除,OnEventEditSet,%(_year),%(_m),%(_d),%(_id),del,%(_j)]"
 	}
-	_txt+="\_l[240,340]\q[◇确定,OnAgenda,%(_year),%(_m),%(_d),inter]      \_l[160,340]\q[◇查看修改,OnAgenda,%(_eventbegindate[0]),%(_eventbegindate[1]),%(_eventbegindate[2]),inter]"
+	_txt+="\_l[240,340]\q[◇確定,OnAgenda,%(_year),%(_m),%(_d),inter]      \_l[160,340]\q[◇查看修改,OnAgenda,%(_eventbegindate[0]),%(_eventbegindate[1]),%(_eventbegindate[2]),inter]"
 	_txt
 	agenda=(1,"OnEventEdit(%(_year),%(_m),%(_d),%(_id),'%(_mode)',%(_j))")
 }
@@ -594,12 +594,12 @@ AgendaSysInfo{
 	_eventplace=_event[13,'	']
 	_eventagenda=_event[14,'	']
 	_w='\n'
-	_w+='事件种类：'+_eventsort+'\n'
-	_w+='标题：'+_eventtitle+'\n'
-	_w+='时间开始：'+_eventbegindate[0]+'年'+_eventbegindate[1]+'月'+_eventbegindate[2]+'日'+_eventbegindate[3]+'时'+_eventbegindate[4]+'分'+'\n'
-	_w+='时间结束：'+_eventenddate[0]+'年'+_eventenddate[1]+'月'+_eventenddate[2]+'日'+_eventenddate[3]+'时'+_eventenddate[4]+'分'+'\n'
-	_w+='地点：'+_eventplace+'\n'
-	_w+='备忘：'+_eventagenda+'\n'
+	_w+='事件種類：'+_eventsort+'\n'
+	_w+='標題：'+_eventtitle+'\n'
+	_w+='時間開始：'+_eventbegindate[0]+'年'+_eventbegindate[1]+'月'+_eventbegindate[2]+'日'+_eventbegindate[3]+'時'+_eventbegindate[4]+'分'+'\n'
+	_w+='時間結束：'+_eventenddate[0]+'年'+_eventenddate[1]+'月'+_eventenddate[2]+'日'+_eventenddate[3]+'時'+_eventenddate[4]+'分'+'\n'
+	_w+='地點：'+_eventplace+'\n'
+	_w+='備忘：'+_eventagenda+'\n'
 	_t=''
 	case _eventcount{
 		when 1{
@@ -609,15 +609,15 @@ AgendaSysInfo{
 			_t=(_tc-_tb)/60+'分'+(_tc-_tb)%60+'秒'
 		}
 		when 3{
-			_t=(_tc-_tb)/3600+'时'+(((_tc-_tb)%(3600*24))%3600)/60+'分'+(_tc-_tb)%60+'秒'
+			_t=(_tc-_tb)/3600+'時'+(((_tc-_tb)%(3600*24))%3600)/60+'分'+(_tc-_tb)%60+'秒'
 		}
 		when 4{
-			_t=(_tc-_tb)/(3600*24)+'天'+((_tc-_tb)%(3600*24))/3600+'时'+(((_tc-_tb)%(3600*24))%3600)/60+'分'+((_tc-_tb)%(3600*24))%60+'秒'
+			_t=(_tc-_tb)/(3600*24)+'天'+((_tc-_tb)%(3600*24))/3600+'時'+(((_tc-_tb)%(3600*24))%3600)/60+'分'+((_tc-_tb)%(3600*24))%60+'秒'
 		}
 	}
-	_txt+="距离%(_eventsort)%(_eventtitle)还有%(_t)"
+	_txt+="距離%(_eventsort)%(_eventtitle)還有%(_t)"
 	if TOINT(_tc-_tb)<=1&&_mode{
-		_txt="\![raise,OnEventCountOver,事件已发生%(_w)\x]"
+		_txt="\![raise,OnEventCountOver,事件已發生%(_w)\x]"
 		(1,_txt)
 		return
 	}
@@ -703,10 +703,10 @@ OnEventEditSet{
 	_id=TOINT(reference3)
 	_mode=reference4
 	_j=reference5
-	_t=reference6//传回内容值
-	_k=TOINT(reference7)//_k行间列数的索引号
-	_l=TOINT(reference8)//_l重复天数的列数
-	_name=TOINT(reference8)//_name重复天数的值
+	_t=reference6//傳回內容值
+	_k=TOINT(reference7)//_k行間列數的索引號
+	_l=TOINT(reference8)//_l重複天數的列數
+	_name=TOINT(reference8)//_name重複天數的值
 	if _argc>0{
 		_year=TOINT(_argv[0])
 		_m=TOINT(_argv[1])
@@ -719,7 +719,7 @@ OnEventEditSet{
 		_l=TOINT(_argv[8])
 		_name=TOINT(_argv[9])
 	}
-	_txt+="\q[◇编辑<-,OnEventEdit,%(_year),%(_m),%(_d),%(_id)]\n[120]"
+	_txt+="\q[◇編輯<-,OnEventEdit,%(_year),%(_m),%(_d),%(_id)]\n[120]"
 	case _mode{
 		when 'repeatmode'{
 			SETDELIM(eventtemp,'|')
@@ -729,9 +729,9 @@ OnEventEditSet{
 			_eventnyear=_event[27,'	']
 			_l=TOINT(_eventnday)
 			_k=TOINT(_eventnyear)
-			_repeatmode="永不,每天,每周,每两周,每月,每年,每%(_l)天,每%(_k)周年"
+			_repeatmode="永不,每天,每週,每兩周,每月,每年,每%(_l)天,每%(_k)周年"
 			_n=ARRAYSIZE(_repeatmode)
-			_txt+='橘花的日程♪ - 事件重复设置\n[150]'
+			_txt+='橘花的日程♪ - 事件重複設置\n[150]'
 			for _i=0;_i<_n;_i++{
 				if _t==_i
 					_txt+="\f[color,%(ColorIdx(6))]"//rr
@@ -757,7 +757,7 @@ OnEventEditSet{
 			_eventnday=_event[26,'	']
 			_name=TOINT(_eventnday)
 			temp=(_year,_m,_d,_id,_mode,_j,_t,_k,_l)
-			_txt+="请输入要重复的天数\![open,inputbox,OnEventInputOver,-1,%(_name)]"
+			_txt+="請輸入要重複的天數\![open,inputbox,OnEventInputOver,-1,%(_name)]"
 		}
 		when 'repeatmodeNyear'{
 			SETDELIM(eventtemp,'|')
@@ -765,11 +765,11 @@ OnEventEditSet{
 			_eventnday=_event[27,'	']
 			_name=TOINT(_eventnday)
 			temp=(_year,_m,_d,_id,_mode,_j,_t,_k,_l)
-			_txt+="请输入要重复的周年数\![open,inputbox,OnEventInputOver,-1,%(_name)]"
+			_txt+="請輸入要重複的周年數\![open,inputbox,OnEventInputOver,-1,%(_name)]"
 		}
 		when 'repeatendmode'{
-			_repeatmode='永不,于日期'
-			_txt+='橘花的日程♪ - 结束重复设置\n[150]'
+			_repeatmode='永不,於日期'
+			_txt+='橘花的日程♪ - 結束重複設置\n[150]'
 			if TOINT(_t)==0{
 				SETDELIM(eventtemp, '|')
 				_temp=eventtemp[_id]
@@ -826,10 +826,10 @@ OnEventEditSet{
 		when 'remindmode'{
 			SETDELIM(eventtemp, '|')
 			_eventrange=TOINT(eventtemp[_id][6,'	'])
-			_remindmode='无,事件发生时,5分钟前,15分钟前,30分钟前,1小时前,2小时前,1天前,2天前,1周前,2周前,1月前（4周）'
+			_remindmode='無,事件發生時,5分鐘前,15分鐘前,30分鐘前,1小時前,2小時前,1天前,2天前,1周前,2周前,1月前（4周）'
 			if _eventrange
-				_remindmode='无,事件发生当天（8:30),1天前（8:30),2天前（8:30),1周前（8:30)'
-			_txt+='橘花的日程♪ - 事件提醒设置\n[150]'
+				_remindmode='無,事件發生當天（8:30),1天前（8:30),2天前（8:30),1周前（8:30)'
+			_txt+='橘花的日程♪ - 事件提醒設置\n[150]'
 			_n=ARRAYSIZE(_remindmode)
 			for _i=0;_i<_n;_i++{
 				_txt+="\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),remindmodeselect,%(_j),%(_i),%(15+reference6)]"+_remindmode[_i]+'\__q\n'
@@ -838,8 +838,8 @@ OnEventEditSet{
 		when 'countmode'{
 			SETDELIM(eventtemp, '|')
 			_eventcount=TOINT(eventtemp[_id][24,'	'])
-			_countmode='无,以XX秒显示,以XX分XX秒显示,以XX时XX分XX秒显示,以XX天XX时XX分XX秒显示'
-			_txt+='橘花的日程♪ - 事件资讯倒计时设置\n[150]'
+			_countmode='無,以XX秒顯示,以XX分XX秒顯示,以XX時XX分XX秒顯示,以XX天XX時XX分XX秒顯示'
+			_txt+='橘花的日程♪ - 事件資訊倒計時設置\n[150]'
 			_n=ARRAYSIZE(_countmode)
 			for _i=0;_i<_n;_i++{
 				_txt+="\__q[OnEventEditSet,%(_year),%(_m),%(_d),%(_id),countmodeselect,%(_j),%(_i),24]"+_countmode[_i]+'\__q\n'
@@ -854,11 +854,11 @@ OnEventEditSet{
 			return
 		}
 		when 'soundmode'{
-			_txt='\C\![open,dialog,open,--dir=__system_mymusic__,--id=remindsound,--title=请选择提醒声音]'
+			_txt='\C\![open,dialog,open,--dir=__system_mymusic__,--id=remindsound,--title=請選擇提醒聲音]'
 			temp=(_year,_m,_d,_id,'soundpathsave',_j,_t,_k)
 		}
 		when 'appmode'{
-			_txt='\C\![open,dialog,open,--dir=__system_desktop__,--id=eventapp,--title=请选择要打开的文件]'
+			_txt='\C\![open,dialog,open,--dir=__system_desktop__,--id=eventapp,--title=請選擇要打開的文件]'
 			temp=(_year,_m,_d,_id,'apppathsave',_j,_t,_k)
 		}
 		when 'sounddel','appdel'{
@@ -914,8 +914,8 @@ OnEventInputOver{
 	_j=TOINT(temp[5])
 	_i=TOINT(temp[6])
 	_k=TOINT(temp[7])
-	_l=TOINT(temp[8])//重复天数/周年数的列数
-	_name=ABS(reference0)//重复天数/周年的值
+	_l=TOINT(temp[8])//重複天數/周年數的列數
+	_name=ABS(reference0)//重複天數/周年的值
 	if ISREAL(_name)
 		_name=TOINT(_name)
 	case _mode{
@@ -936,7 +936,7 @@ OnEventInputOver{
 		_temp[_k,'	']=_i
 		eventtemp[_id]=_temp
 		_temp=eventtemp[_id]
-		_temp[_l,'	']=_name//_l重复天数的列数 _name重复天数的值
+		_temp[_l,'	']=_name//_l重複天數的列數 _name重複天數的值
 		eventtemp[_id]=_temp
 		OnEventEditSet(_year,_m,_d,_id,'repeatmode',_j,_i,_k,_l,_name)
 	}
@@ -952,7 +952,7 @@ OnAgendaMarkDel{
 }
 OnEventNameToId{
 	_name=_argv[0]
-	_eventname='假日,工作,生活,学习,会议,外出,约会,其他'
+	_eventname='假日,工作,生活,學習,會議,外出,約會,其他'
 	_id=-1
 	_j=0
 	foreach _eventname;_i{
@@ -994,7 +994,7 @@ OnEventWrite{
 	_mode=TOINT(_argv[3])
 	_i=TOINT(_argv[4])
 	_id=TOINT(_argv[5])
-	_eventname='假日,工作,生活,学习,会议,外出,约会,其他'
+	_eventname='假日,工作,生活,學習,會議,外出,約會,其他'
 	FCHARSET(1)
 	_file='PROFILE_PATH\schedule.dat'
 	_temp=''
@@ -1054,7 +1054,7 @@ OnEventWrite{
 		}
 	}
 	_s=ARRAYSIZE(_temp)-1
-	for _i=0;_i<_s;_i++{//根据加入日期对事件排序
+	for _i=0;_i<_s;_i++{//根據加入日期對事件排序
 		for _j=_i;_j<_s;_j++{
 			_a=_temp[_i]
 			_b=_temp[_j]
@@ -1109,7 +1109,7 @@ OnEventRead{
 	FCHARSET(1)
 	_temp=''
 	_event=''
-	_eventname='假日,工作,生活,学习,会议,外出,约会,其他'
+	_eventname='假日,工作,生活,學習,會議,外出,約會,其他'
 	if FOPEN(_file,'r'){
 		_buff=''
 		while _buff!=-1{
@@ -1142,16 +1142,16 @@ OnEventRead{
 	_event
 }
 OnINCalendar {
-	"请输入要查询的日期！\![open,dateinput,On_m_Calendar,60000,%(year),%(month),%(day)]\n[300]\![*]\q[退出,OnoverCalendar]"
+	"請輸入要查詢的日期！\![open,dateinput,On_m_Calendar,60000,%(year),%(month),%(day)]\n[300]\![*]\q[退出,OnoverCalendar]"
 }
 On_m_Calendar {
 	OnCalendar(reference0[0],reference0[1],reference0[2])
 }
 //0(年),1(月),2(日)
-//3(生肖),4(年干支),5(农历月),6(农历日),7(星座1),8(星座2)
-//9(农历节日),10(公历节日)
-//11(输入日期的节气),12(下一个节气),13(下一个节气的公历月),14(下一个节气的公历日)
-//15(农历数型月),16(农历数型日),17(星期)
+//3(生肖),4(年干支),5(農曆月),6(農曆日),7(星座1),8(星座2)
+//9(農曆節日),10(西曆節日)
+//11(輸入日期的節氣),12(下一個節氣),13(下一個節氣的西曆月),14(下一個節氣的西曆日)
+//15(農曆數型月),16(農曆數型日),17(星期)
 Lunartime:void{
 	_y=year
 	_m=month
@@ -1167,7 +1167,7 @@ Lunartime:void{
 	}
 }
 OnoverCalendar{
-	'\0\s[1]嗯嗯,\![close,inputbox,On_m_Calendar] 要好好把握时间哦...'
+	'\0\s[1]嗯嗯,\![close,inputbox,On_m_Calendar] 要好好把握時間哦...'
 }
 Lunardata{
 	_y=TOINT(_argv[0])

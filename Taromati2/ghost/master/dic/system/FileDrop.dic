@@ -1,4 +1,4 @@
-OnFileDrop{
+﻿OnFileDrop{
 	_file = reference0[0]
 	_fileext = TOLOWER(SPLITPATH(_file)[3])
 	_filename = SPLITPATH(_file)[2] + _fileext
@@ -15,8 +15,8 @@ OnFileDrop{
 			'\1'
 		--
 		'更新aya？\n/
-		\q[◇确定,OnUpdateSHIORICore,'+SakuraScriptArgConverter(reference0)+']\n/
-		\q[◇无用,Cancel]'
+		\q[◇確定,OnUpdateSHIORICore,'+SakuraScriptArgConverter(reference0)+']\n/
+		\q[◇無用,Cancel]'
 	}
 	elseif SHIORI_FW.DebugMode && _filename == 'tama.exe'{
 		if mode=='0'
@@ -25,24 +25,24 @@ OnFileDrop{
 			'\1'
 		--
 		'更新tama？\n/
-		\q[◇确定,OnUpdateTama,'+SakuraScriptArgConverter(reference0)+']\n/
-		\q[◇无用,Cancel]'
+		\q[◇確定,OnUpdateTama,'+SakuraScriptArgConverter(reference0)+']\n/
+		\q[◇無用,Cancel]'
 	}	
-	elseif ISDIR(_file){//若是文件夹
+	elseif ISDIR(_file){//若是資料夾
 		if mode=='0'
 			'\0\s[0]要'
 		else{
 			'\1'
 		}
 		--
-		'怎么做？\n'
+		'怎麼做？\n'
 		--
 		if IsMusicDir(_file)
-			"\q[◇作为音乐目录添加,OnMusicFileDrop,%(SakuraScriptArgConverter(reference0))]\n"
+			"\q[◇作為音樂目錄添加,OnMusicFileDrop,%(SakuraScriptArgConverter(reference0))]\n"
 		--
-		"\q[◇创建快捷方式,OnShortcutFileDrop,%(SakuraScriptArgConverter(reference0))]\n/
+		"\q[◇創建快捷方式,OnShortcutFileDrop,%(SakuraScriptArgConverter(reference0))]\n/
 		\q[◇直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n/
-		\q[◇无用,Cancel]"
+		\q[◇無用,Cancel]"
 	}
 	else{
 		case _fileext {
@@ -54,9 +54,9 @@ OnFileDrop{
 			}
 			when '.png', '.jpg', '.jpeg', '.bmp'{
 				Wallpaperfile = reference0
-				"\1\s[11]\0\b[2]\s[2]图像文件\n\_q「%(_filename)」\n[150]\_q要把这个设定为壁纸吗？\n[150]/
+				"\1\s[11]\0\b[2]\s[2]影像檔\n\_q「%(_filename)」\n[150]\_q要把這個設定為壁紙嗎？\n[150]/
 				\![*]\q[居中,OnSetWallpaper,0]\n/
-				\![*]\q[并列,OnSetWallpaper,1]\n/
+				\![*]\q[並列,OnSetWallpaper,1]\n/
 				\![*]\q[放大,OnSetWallpaper,2]\n[150]/
 				\q[◇直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n/
 				\q[◇取消,Cancel]"
@@ -65,13 +65,13 @@ OnFileDrop{
 				if SHIORI_FW.DebugMode{
 					temp = reference0
 					if mode=='0'
-						'\0\s[0]要怎么做？'
+						'\0\s[0]要怎麼做？'
 					else
-						'\1怎么做？'
+						'\1怎麼做？'
 					--
 					"\n/
-					\q[◇作为辞书打开,OnDicDrop]\n/
-					\q[◇作为小说阅读,OnOpenBook]\n/
+					\q[◇作為辭書打開,OnDicDrop]\n/
+					\q[◇作為小說閱讀,OnOpenBook]\n/
 					\q[◇直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]\n/
 					"
 				}
@@ -92,8 +92,8 @@ OnFileDrop{
 				OnDicDrop
 			}
 			others{
-				"「%(_filename)」\n未知的文件类型……"
-				"\1\s[11]未知文件\n\_q「%(_filename)」\_q\0\s[3]…这是什么？"
+				"「%(_filename)」\n未知的檔案類型……"
+				"\1\s[11]未知文件\n\_q「%(_filename)」\_q\0\s[3]…這是什麼？"
 				--
 				"\n\q[◇直接吃掉,OnFileEatDrop,%(SakuraScriptArgConverter(reference0))]"
 			}
@@ -114,7 +114,7 @@ IsMusicFlie{
 			0
 	}
 }
-IsMusicDir{//判断是否是音乐目录，不进行递归因为正常的音乐目录都是一层下就有音乐文件
+IsMusicDir{//判斷是否是音樂目錄，不進行遞迴因為正常的音樂目錄都是一層下就有音樂檔
 	_dir = _argv[0]
 	_files = FENUM(_dir)
 	foreach _files;_file{
@@ -130,13 +130,13 @@ GetSHIORInameFromDicExt{
 		when '.dic','.ayc','.aym'
 			'文'//aya
 		when '.sat'
-			'里々'//satoriya
+			'裡々'//satoriya
 		when '.__1'
-			'美坂'//misaka
+			'美阪'//misaka
 		when '.kis','.kiw'
 			'華和梨'//kawari
 		when '.txt'
-			'里々/美坂'
+			'裡々/美阪'
 	}
 }
 GetDicEncodedFromDicExt{
@@ -158,44 +158,44 @@ OnDicDrop{
 			'\0\s[0]'
 		else
 			'\1'
-		"辞书所对应shiori：%(GetSHIORInameFromDicExt(_fileext))\n"
+		"辭書所對應shiori：%(GetSHIORInameFromDicExt(_fileext))\n"
 		--
 		if mode=='0'
-			'要怎么做？'
+			'要怎麼做？'
 		else
-			'怎么做？\b[2]'
+			'怎麼做？\b[2]'
 		--
 		'\n'
 		--
 		if GetDicEncodedFromDicExt(_fileext) && kikkawiz>=500{
 			case GetSHIORInameFromDicExt(_fileext){
 				when '文'
-					'\q[◇解密为dic,ayccoder.file_drop,Decode,aya]\n'
-				when '里々'
-					'\q[◇解密为txt,ayccoder.file_drop,Decode,satoriya]\n'
-				when '美坂'
-					'\q[◇解密为txt,ayccoder.file_drop,Decode,misaka]\n'
+					'\q[◇解密為dic,ayccoder.file_drop,Decode,aya]\n'
+				when '裡々'
+					'\q[◇解密為txt,ayccoder.file_drop,Decode,satoriya]\n'
+				when '美阪'
+					'\q[◇解密為txt,ayccoder.file_drop,Decode,misaka]\n'
 				when '華和梨'
-					'\q[◇解密为kis,ayccoder.file_drop,Decode,kawari]\n'
+					'\q[◇解密為kis,ayccoder.file_drop,Decode,kawari]\n'
 			}
 		}
 		else{
 			case GetSHIORInameFromDicExt(_fileext){
 				when '文'
 					'\q[◇dicforma格式化,dicforma.file_drop.run]\n/
-					\q[◇dicforma格式化（激进）,dicforma.file_drop.run,radical]\n/
-					\q[◇加密为ayc,ayccoder.file_drop,Encode,aya]\n'
-				when '里々/美坂'
-					'\q[◇加密为sat（里々）,ayccoder.file_drop,Encode,satoriya]\n/
-					\q[◇加密为__1（美坂）,ayccoder.file_drop,Encode,misaka]\n'
+					\q[◇dicforma格式化（激進）,dicforma.file_drop.run,radical]\n/
+					\q[◇加密為ayc,ayccoder.file_drop,Encode,aya]\n'
+				when '裡々/美阪'
+					'\q[◇加密為sat（裡々）,ayccoder.file_drop,Encode,satoriya]\n/
+					\q[◇加密為__1（美阪）,ayccoder.file_drop,Encode,misaka]\n'
 				when '華和梨'
-					'\q[◇加密为kiw,ayccoder.file_drop,Encode,kawari]\n/
-					\q[◇当作kiw解密,ayccoder.file_drop,Decode,kawari]\n'
+					'\q[◇加密為kiw,ayccoder.file_drop,Encode,kawari]\n/
+					\q[◇當作kiw解密,ayccoder.file_drop,Decode,kawari]\n'
 			}
 		}
 		--
-		'\q[◇打开master目录,OnOpenMasterMenu]\n/
-		\q[◇无用,Cancel]\n/
+		'\q[◇打開master目錄,OnOpenMasterMenu]\n/
+		\q[◇無用,Cancel]\n/
 		'
 	}
 	else{
@@ -204,18 +204,18 @@ OnDicDrop{
 		else
 			'\1'
 		--
-		'这是'
+		'這是'
 		--
 		_name=GetSHIORInameFromDicExt(_fileext)
 		if _name != '文'
 			_name+'shiori的'
 		--
-		'辞书文件，用于提供ghost机能\n'
+		'辭書檔，用於提供ghost機能\n'
 		--
-		'要怎么做？\n/
-		\q[◇联系人格维护者，请求追加机能,OnUrlOpen,https://github.com/kelever285/Taromati2/issues/new?assignees=steve02081504&labels=enhancement&template=feature-request.yaml&title=a+feature+request]\n/
-		\q[◇教练，我想学伪春菜,OnUrlOpen,https://github.com/kelever285/Taromati2/blob/master/docs/entry_guidance.md]\n/
-		\q[◇我是老手，打开master目录，我自己动,OnOpenMasterMenu]\n/
+		'要怎麼做？\n/
+		\q[◇連絡人格維護者，請求追加機能,OnUrlOpen,https://github.com/kelever285/Taromati2/issues/new?assignees=steve02081504&labels=enhancement&template=feature-request.yaml&title=a+feature+request]\n/
+		\q[◇教練，我想學偽春菜,OnUrlOpen,https://github.com/kelever285/Taromati2/blob/master/docs/entry_guidance.md]\n/
+		\q[◇我是老手，打開master目錄，我自己動,OnOpenMasterMenu]\n/
 		'
 	}
 }

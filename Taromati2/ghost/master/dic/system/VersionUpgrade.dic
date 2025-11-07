@@ -1,11 +1,11 @@
-//by steve
+﻿//by steve
 
 #define VERSION_NOW 12
 
 VERSION_INIT:void{
 	VERSION = VERSION_NOW
 }
-//向后不兼容内容升级用
+//向後不相容內容升級用
 VERSION_UPGRADE{
 	if SHIORI_FW.InVarFileMiss{
 		VERSION_INIT
@@ -13,7 +13,7 @@ VERSION_UPGRADE{
 	}
 	if !ISVAR('VERSION'){
 		if !ISVAR('FirstBootCount'){
-			'\1\s[10]\0\s[26]啊、\w9\w9那个…\w9\w9\w9暂时、\w9要在此处打扰您了。\n\w[3000]\s[5]开玩笑的啦\x'
+			'\1\s[10]\0\s[26]啊、\w9\w9那個…\w9\w9\w9暫時、\w9要在此處打擾您了。\n\w[3000]\s[5]開玩笑的啦\x'
 		}
 		--
 		VERSION = 0
@@ -109,7 +109,7 @@ VERSION_UPGRADE_1:void{
 }
 VERSION_UPGRADE_2:void{
 	ERASEVAR('playHuanRongDao')
-	ERASEVAR('游戏界面')
+	ERASEVAR('遊戲介面')
 	RENAME_VAR('DrawHuanRongBG','HuaRongDao.BackGroundConfing')
 }
 VERSION_UPGRADE_3:void{
@@ -148,16 +148,16 @@ VERSION_UPGRADE_5:void{
 	DELDIR(GETENV('LOCALAPPDATA')+'Taromati')
 	DELDIR(_save_dir+'\K_I_K_K_A')
 	FDEL(_save_dir+'\K_confing.cfg')
-	RENAME_VAR('依赖度','nurturance.Dependency')
+	RENAME_VAR('依賴度','nurturance.Dependency')
 	RENAME_VAR('腹黑度','nurturance.Darkness')
 	RENAME_VAR('萌度','nurturance.Moeness')
-	RENAME_VAR('亲密度','nurturance.Closeness')
+	RENAME_VAR('親密度','nurturance.Closeness')
 	RENAME_VAR('幸福度','nurturance.Happiness')
 	RENAME_VAR('力量','nurturance.subvar.Strength')
 	RENAME_VAR('智力','nurturance.subvar.Intelligence')
 	RENAME_VAR('意志','nurturance.subvar.Willpower')
 	RENAME_VAR('敏捷','nurturance.subvar.Agile')
-	RENAME_VAR('幸运','nurturance.subvar.Luck')
+	RENAME_VAR('幸運','nurturance.subvar.Luck')
 }
 VERSION_UPGRADE_6:void{
 	setting.WeatherReminder=!autoweather
@@ -310,10 +310,10 @@ VERSION_UPGRADE_12:void{
 	ERASEVAR('STR')
 	ERASEVAR('DEFBASE')
 	ERASEVAR('DEF')
-	ERASEVAR('防御回合')
+	ERASEVAR('防禦回合')
 	ERASEVAR('神威祈福回合')
 	ERASEVAR('呐喊回合')
-	ERASEVAR('赎罪回合')
+	ERASEVAR('贖罪回合')
 	ERASEVAR('天使之光回合')
 	ERASEVAR('天使之怒回合')
 	ERASEVAR('沉默回合')

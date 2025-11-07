@@ -1,13 +1,13 @@
-//**** Database 存取 ******************************************************************************
-//制作 by 时原砂
+﻿//**** Database 存取 ******************************************************************************
+//製作 by 時原砂
 #define DEFAULT_TABLE 0
-//**** SQL相关 ************************************************************************************
+//**** SQL相關 ************************************************************************************
 OnUserDatabase.List{
 	_pag=''
 	_i=1
 	_txt	= '\1'
-	_table	= _argv[0]//资料类型
-	select	= _argv[1]//指定栏位
+	_table	= _argv[0]//資料類型
+	select	= _argv[1]//指定欄位
 	_where	= _argv[2]
 	_i=TOINT(_argv[3])
 	_p=(_i+9)/10
@@ -17,12 +17,12 @@ OnUserDatabase.List{
 	_m=SQLite('-f',"SELECT ID FROM %(EXT_Table)")
 	_tola=(TOINT(_m)+9)/10
 	if _i
-		_pag+="\_l[20,-]\q[<<上一页,OnUserDatabase.Page,%(_front),List,%(select)]"
-	_pag+="\_l[93,-]\q[◇第%(_p)页,OnUserDatabase.PageIndex,%(_tola),List,%(select)]    共%(_tola)页"
+		_pag+="\_l[20,-]\q[<<上一頁,OnUserDatabase.Page,%(_front),List,%(select)]"
+	_pag+="\_l[93,-]\q[◇第%(_p)頁,OnUserDatabase.PageIndex,%(_tola),List,%(select)]    共%(_tola)頁"
 	if _next<=_m
-		_pag+="\_l[200,-]\q[下一页>>,OnUserDatabase.Page,%(_next),List,%(select)]"
+		_pag+="\_l[200,-]\q[下一頁>>,OnUserDatabase.Page,%(_next),List,%(select)]"
 	_next = TOINT(_argv[3])+9
-	//列出全部资料
+	//列出全部資料
 	if select == '*' && !_where {
 		_cln = SQLite.Column(_table)
 		_amt = SQLite('-f',"SELECT ID FROM %(_table)")
@@ -31,13 +31,13 @@ OnUserDatabase.List{
 			_id[_i] = EVAL('valueex' + _i)
 		}
 		for _i = _j; _i<_next && _i < _amt; _i++ {
-			//取得资料
+			//取得資料
 			_res = SQLite( '-j', "SELECT * FROM %(_table) WHERE ID='%(_id[_i])'")
 			_n = ARRAYSIZE(_res)
 			for _j = 0; _j < _n; _j++ {
 				if _j==0{
 					EXT_InputState = 'SelectUpdateID'
-					_txt += _cln[_j] + '：' + _res[_j] + "\_l[220,-]\q[◇修改该资料,OnUserDatabase.Table.Update,%(_i+1)]\n"
+					_txt += _cln[_j] + '：' + _res[_j] + "\_l[220,-]\q[◇修改該資料,OnUserDatabase.Table.Update,%(_i+1)]\n"
 				}
 				else{
 					_txt += _cln[_j] + '：' + _res[_j] + '\n'
@@ -46,7 +46,7 @@ OnUserDatabase.List{
 			_txt += '\n[50]'
 		}
 	}
-	//列出单(多)笔资料
+	//列出單(多)筆資料
 	elseif select == '*' {
 		_cln = SQLite.Column(_table)
 		_amt = SQLite( '-f', "SELECT * FROM %(_table) WHERE %(_where)")
@@ -60,7 +60,7 @@ OnUserDatabase.List{
 			for _j = 0; _j < _n; _j++ {
 				if _j==0{
 					EXT_InputState = 'SelectUpdateID'
-					_txt += _cln[_j] + '：' + _res[_j] + "\_l[220,-]\q[◇修改该资料,OnUserDatabase.Table.Update,%(_i+1)]\n"
+					_txt += _cln[_j] + '：' + _res[_j] + "\_l[220,-]\q[◇修改該資料,OnUserDatabase.Table.Update,%(_i+1)]\n"
 				}
 				else{
 					_txt += _cln[_j] + '：' + _res[_j] + '\n'
@@ -69,7 +69,7 @@ OnUserDatabase.List{
 			_txt += '\n[50]'
 		}
 	}
-	//列出单(多)栏资料
+	//列出單(多)欄資料
 	elseif !_where  {
 		_cln = SPLIT(select,',')
 		select = REPLACE(select,"'",'')
@@ -79,13 +79,13 @@ OnUserDatabase.List{
 			_id[_i] = EVAL('valueex' + _i)
 		}
 		for _i = _j; _i<_next && _i < _amt; _i++ {
-			//取得资料
+			//取得資料
 			_res = SQLite( '-j', "SELECT %(select) FROM %(_table) WHERE ID='%(_id[_i])'")
 			_n = ARRAYSIZE(_res)
 			for _j = 0; _j < _n; _j++ {
 				if _j==0{
 					EXT_InputState = 'SelectUpdateID'
-					_txt += _cln[_j] + '：' + _res[_j] + "\_l[220,-]\q[◇修改该资料,OnUserDatabase.Table.Update,%(_i+1)]\n"
+					_txt += _cln[_j] + '：' + _res[_j] + "\_l[220,-]\q[◇修改該資料,OnUserDatabase.Table.Update,%(_i+1)]\n"
 				}
 				else{
 					_txt += _cln[_j] + '：' + _res[_j] + '\n'
@@ -106,39 +106,39 @@ OnUserDatabase.List{
 }
 /*---------------------------------------------------------------------------------------
 *  函式名　：OnUserDatabase
-*  机能　　：直接存取资料库
+*  機能　　：直接存取資料庫
 * --------------------------------------------------------------------------------------
 */
 OnUserDatabase{
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	if reference0 == 'Return'
-		_txt += '请小心保护这些重要的资料。\n\n'
+		_txt += '請小心保護這些重要的資料。\n\n'
 	elseif reference0 == 'changed'
-		_txt += '变更已完成。\n\n'
+		_txt += '變更已完成。\n\n'
 	else
-		_txt += '\_q要读取哪种类型的记忆？\_q\n\n'
+		_txt += '\_q要讀取哪種類型的記憶？\_q\n\n'
 	_res = SQLite.Table
 	for _i = 0; _i < _res; _i++ {
 		_txt += '\q[◇' + EVAL('valueex' + _i) + ',OnUserDatabase.Table,' + EVAL('valueex' + _i) + ',Table]\n'
 	}
-	_txt +=  '\n\q[◇新增资料表,OnUserDatabase.Create]\n/
-	\q[◇删除资料表,OnUserDatabase.Drop]\n/
-	\q[◇重命名资料表,OnUserDatabase.Rename]\n'
+	_txt +=  '\n\q[◇新增資料表,OnUserDatabase.Create]\n/
+	\q[◇刪除資料表,OnUserDatabase.Drop]\n/
+	\q[◇重命名資料表,OnUserDatabase.Rename]\n'
 	for _i; _i < 16; _i++ {
 		_txt += '\n'
 	}
 	ClearDatabaseVar
-	_txt += '\n\q[◇返回上一层,OnPasswordTrue]\q[◇结束,OnCloseDatabase]\_q'
+	_txt += '\n\q[◇返回上一層,OnPasswordTrue]\q[◇結束,OnCloseDatabase]\_q'
 	_txt
 }
 OnUserDatabase.Create{
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	case EXT_InputState {
 		when 'NewTable' {
 			EXT_NewTable = reference0
-			_txt += '请输入资料表的栏位名称，\n若有复数的栏位时，请以小写逗号区隔。\n[2000]/
+			_txt += '請輸入資料表的欄位元名稱，\n若有複數的欄位時，請以小寫逗號區隔。\n[2000]/
 			\![open,inputbox,OnUserDatabase.Create]/
-			\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q'
+			\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q'
 			EXT_InputState = 'NewColumn'
 		}
 		when 'NewColumn' {
@@ -146,123 +146,123 @@ OnUserDatabase.Create{
 			_res = SQLite.Create(EXT_NewTable,EXT_NewColumn)
 			if _res == -1 {
 				_txt += "\0\s[8]/
-				貌似出错了呢\n/
+				貌似出錯了呢\n/
 				\w9\1\s[12]/
 				原因是：%(valueex0)\n/
 				\w9\0/
-				\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q"
+				\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q"
 			}
 			else {
-				_txt += '已新增资料表。\n\n/
-				\q[◇继续新增,OnUserDatabase.Create]\n[1800]/
-				\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q'
+				_txt += '已新增資料表。\n\n/
+				\q[◇繼續新增,OnUserDatabase.Create]\n[1800]/
+				\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q'
 			}
 			EXT_InputState = ''
 		}
 		others {
-			_txt += '请输入新资料表的名称。\n[2100]/
+			_txt += '請輸入新資料表的名稱。\n[2100]/
 			\![open,inputbox,OnUserDatabase.Create]/
-			\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q'
+			\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q'
 			EXT_InputState = 'NewTable'
 		}
 	}
 	_txt
 }
 OnUserDatabase.Rename{
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	case EXT_InputState {
 		when 'NewName' {
 			EXT_RenameingTable = reference0
-			_txt += '请输入资料表的新名称。\n[2100]/
+			_txt += '請輸入資料表的新名稱。\n[2100]/
 			\![open,inputbox,OnUserDatabase.Rename]/
-			\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q'
+			\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q'
 			EXT_InputState = 'RenameNow'
 		}
 		when 'RenameNow' {
 			_res = SQLite.Rename(EXT_RenameingTable,reference0)
 			if _res == -1 {
-				_txt += "ERROR发生。\n/
+				_txt += "ERROR發生。\n/
 				原因：%(valueex0)\n[1800]/
-				\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q"
+				\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q"
 			}
 			else {
-				_txt += '已重命名资料表。\n[2000]/
-				\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q'
+				_txt += '已重命名資料表。\n[2000]/
+				\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q'
 			}
 			EXT_InputState = ''
 		}
 		others {
-			_txt += '请选择想要重命名的资料表。\n/
-			＃注意：预设的资料表无法重命名。\n\n'
+			_txt += '請選擇想要重命名的資料表。\n/
+			＃注意：預設的資料表無法重命名。\n\n'
 			_res = SQLite.Table
 			for _i = 0; _i < DEFAULT_TABLE; _i++ {
-				//预设资料表
+				//預設資料表
 				_txt += '◇' + EVAL('valueex' + _i) + '\n'
 			}
 			for _i; _i < _res; _i++ {
-				//使用者自订资料表
+				//使用者自訂資料表
 				_txt += '\q[◇' + EVAL('valueex' + _i) + ',OnUserDatabase.Rename,' + EVAL('valueex' + _i) + ']\n'
 			}
 			for _i; _i < 18; _i++ {
 				_txt += '\n'
 			}
-			_txt += '\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q'
+			_txt += '\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q'
 			EXT_InputState = 'NewName'
 		}
 	}
 	_txt
 }
 OnUserDatabase.Drop{
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	if reference1 == 'checked' {
 		void SQLite.Drop(reference0)
 		_txt = '\![raise,OnUserDatabase,Changed]'
 	}
 	elseif reference0 {
-		_txt += "删除以下资料表：\n\n/
+		_txt += "刪除以下資料表：\n\n/
 		‘%(reference0)’。\n\n/
-		确定要删除吗？\n\n/
+		確定要刪除嗎？\n\n/
 		\q[◇是的,OnUserDatabase.Drop,%(reference0),checked]\n/
 		\q[◇取消,OnUserDatabase.Drop]\n/
 		\n[1700]/
-		\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q"
+		\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q"
 	}
 	else {
-		_txt += '请选择想要删除的资料表。\n/
-		＃注意：预设的资料表无法被删除。\n\n'
+		_txt += '請選擇想要刪除的資料表。\n/
+		＃注意：預設的資料表無法被刪除。\n\n'
 		_res = SQLite.Table
 		_i = 0
 		for _i; _i < DEFAULT_TABLE; _i++ {
-			//预设资料表
+			//預設資料表
 			_txt += '◇' + EVAL('valueex' + _i) + '\n'
 		}
 		for _i; _i < _res; _i++ {
-			//使用者自订资料表
+			//使用者自訂資料表
 			_txt += '\q[◇' + EVAL('valueex' + _i) + ',OnUserDatabase.Drop,' + EVAL('valueex' + _i) + ']\n'
 		}
 		for _i; _i < 18; _i++ {
 			_txt += '\n'
 		}
-		_txt += '\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	_txt
 }
 OnUserDatabase.Column.Drop{
 	UnFinished
 	return
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	if reference1 == 'checked' {
 		void SQLite.Alter.Drop(EXT_Table,EXT_SelectColumn)
 		_txt = "\![raise,OnUserDatabase.Table,%EXT_Table,Table]"
 	}
 	else{
-		_txt += "删除以下栏位：\n\n/
+		_txt += "刪除以下欄位：\n\n/
 		‘%EXT_SelectColumn’。\n\n/
-		确定要删除吗？\n\n/
+		確定要刪除嗎？\n\n/
 		\q[◇是的,OnUserDatabase.Column.Drop,checked]\n/
 		\q[◇取消,OnUserDatabase.Table,%EXT_SelectColumn,Column]\n/
 		\n[1300]/
-		\n\q[◇返回上一层,OnUserDatabase.Table,%EXT_SelectColumn,Column]\q[◇结束,OnCloseDatabase]\_q"
+		\n\q[◇返回上一層,OnUserDatabase.Table,%EXT_SelectColumn,Column]\q[◇結束,OnCloseDatabase]\_q"
 	}
 	_txt
 }
@@ -280,7 +280,7 @@ OnUserDatabase.Page{
 OnUserDatabase.PageIndex{
 	_m=SQLite('-f',"SELECT ID FROM %(EXT_Table)")
 	_tola=(TOINT(_m)+9)/10
-	"\0\s[0]\_q\![set,choicetimeout,20000]请输入页数（半角数字）,共有%(_tola)页!\n[200]\![*]\q[取消,OnUserDatabase.PageST]\![open,sliderinput,OnUserDatabase.PageST,20000,1,1,%(_tola)]"
+	"\0\s[0]\_q\![set,choicetimeout,20000]請輸入頁數（半形數位）,共有%(_tola)頁!\n[200]\![*]\q[取消,OnUserDatabase.PageST]\![open,sliderinput,OnUserDatabase.PageST,20000,1,1,%(_tola)]"
 }
 OnUserDatabase.PageST{
 	_a=CUTSPACE(reference0)
@@ -293,7 +293,7 @@ OnUserDatabase.PageST{
 		_m=SQLite('-f',"SELECT ID FROM %(EXT_Table)")
 		_tola=(TOINT(_m)+9)/10
 		if _a>_tola
-			"\0\s[0]输入的页数大于总页数,请重新输入~\w8\w8\c%(Onselepag)"
+			"\0\s[0]輸入的頁數大於總頁數,請重新輸入~\w8\w8\c%(Onselepag)"
 		elseif _a<=0 && _tola {
 			OnUserDatabase.PageIndex
 		}
@@ -319,36 +319,36 @@ OnUserDatabase.Table{
 		return
 	}
 	EXT_SearchResult=''
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	if EXT_InputState == 'Search' {
-		_txt += '符合的资料如左。\n\n'
+		_txt += '符合的資料如左。\n\n'
 		EXT_InputState = ''
 		EXT_SearchResult = OnUserDatabase.List(EXT_Table,'*',reference0)
 	}
 	else {
 		case _mode {
 			when 'Table' {
-				_txt += '要执行哪种命令呢？\n\n'
+				_txt += '要執行哪種命令呢？\n\n'
 				EXT_Table = reference0
 				EXT_SelectColumn = IARRAY
 				EXT_SearchResult = ''
 			}
 			when 'Search' {
 				EXT_InputState = 'Search'
-				_txt += "请输入条件，并用小写“'”包围搜寻的资料。\n例如：‘名字 = '笨蛋主人'’or‘ID > '5'’\n"
+				_txt += "請輸入條件，並用小寫“'”包圍搜尋的資料。\n例如：‘名字 = '笨蛋主人'’or‘ID > '5'’\n"
 				_txt += '\![open,inputbox,OnUserDatabase.Table]'
 				EXT_SelectColumn = IARRAY
 				EXT_SearchResult = ''
 			}
 			when 'Column' {
-				_txt += "选择了%(reference0)。\n\n/
-				\q[◇删除栏位,OnUserDatabase.Column.Drop]\n/
-				\q[◇重命名栏位,OnUserDatabase.Column.Rename]\n"
+				_txt += "選擇了%(reference0)。\n\n/
+				\q[◇刪除欄位,OnUserDatabase.Column.Drop]\n/
+				\q[◇重命名欄位,OnUserDatabase.Column.Rename]\n"
 				EXT_SelectColumn = reference0
 				EXT_SearchResult = ''
 			}
 			when 'List' {
-				_txt += '符合的资料如左。。。\n\n'
+				_txt += '符合的資料如左。。。\n\n'
 				if !EXT_SelectColumn
 					EXT_SelectColumn = '*'
 				else
@@ -359,29 +359,29 @@ OnUserDatabase.Table{
 				EXT_SelectColumn = IARRAY
 			}
 			when 'Return' {
-				_txt += '已返回上一层。\n\n'
+				_txt += '已返回上一層。\n\n'
 				EXT_SelectColumn = IARRAY
 				EXT_SearchResult = ''
 				EXT_InputState = ''
 			}
 			others {
 				if !EXT_Table {
-					'错误发生：未指定资料表。'
+					'錯誤發生：未指定資料表。'
 					return
 				}
-				_txt += '嗯？好像哪里怪怪的。\n\n'
+				_txt += '嗯？好像哪裡怪怪的。\n\n'
 				EXT_SelectColumn = IARRAY
 				EXT_SearchResult = ''
 			}
 		}
 	}
-	_txt += '\q[◇新增资料,OnUserDatabase.Table.Insert]\n/
-	\q[◇变更资料,OnUserDatabase.Table.Update]\n/
-	\q[◇删除资料,OnUserDatabase.Table.Delete]\n\n/
-	\q[◇显示所有资料,OnUserDatabase.Table,,List]\n/
-	\q[◇搜寻资料,OnUserDatabase.Table,,Search]\n\n/
-	\q[◇新增栏位,OnUserDatabase.Column.Add]\n/
-	◇显示指定的栏位\n'
+	_txt += '\q[◇新增資料,OnUserDatabase.Table.Insert]\n/
+	\q[◇變更資料,OnUserDatabase.Table.Update]\n/
+	\q[◇刪除資料,OnUserDatabase.Table.Delete]\n\n/
+	\q[◇顯示所有資料,OnUserDatabase.Table,,List]\n/
+	\q[◇搜尋資料,OnUserDatabase.Table,,Search]\n\n/
+	\q[◇新增欄位,OnUserDatabase.Column.Add]\n/
+	◇顯示指定的欄位元\n'
 	_cln = SQLite.Column(EXT_Table)
 	if EXT_SelectColumn {
 		for _i = 0; _i < ARRAYSIZE(_cln); _i++ {
@@ -392,8 +392,8 @@ OnUserDatabase.Table{
 				_txt += '　-> ' + _cln[_i] + '\n'
 			}
 		}
-		_txt += "\n　\q[◇确定显示,OnUserDatabase.Table,%(EXT_SelectColumn),List]\n"
-		_txt += "\1已选择栏位：\n%(EXT_SelectColumn)\n[300]\q[◇全部清除,OnUserDatabase.Table]\0"
+		_txt += "\n　\q[◇確定顯示,OnUserDatabase.Table,%(EXT_SelectColumn),List]\n"
+		_txt += "\1已選擇欄位：\n%(EXT_SelectColumn)\n[300]\q[◇全部清除,OnUserDatabase.Table]\0"
 		for _i; _i < 9; _i++ {
 			_txt += '\n'
 		}
@@ -410,11 +410,11 @@ OnUserDatabase.Table{
 			_txt += '\n'
 		}
 	}
-	_txt += '\0\n\q[◇返回上一层,OnUserDatabase,Return]\q[◇结束,OnCloseDatabase]\_q'
+	_txt += '\0\n\q[◇返回上一層,OnUserDatabase,Return]\q[◇結束,OnCloseDatabase]\_q'
 	_txt
 }
 OnUserDatabase.Table.Insert{
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	if reference1 == 'InputComplete' {
 		_value = TOSTR(EXT_InsertTemp)
 		_value = REPLACE(_value,',',"','")
@@ -422,20 +422,20 @@ OnUserDatabase.Table.Insert{
 		_tmp = SQLite.Insert(EXT_Table,'*',_value)
 		if _tmp {
 			EXT_InputState = 'InputInsert'
-			_txt += "错误发生。请确认是否输入了不支援的字元。\n%(_tmp)\n%(_value)%(valueex0)\n/
-			\q[◇修改资料,OnUserDatabase.Table.Insert]\n/
+			_txt += "錯誤發生。請確認是否輸入了不支援的字元。\n%(_tmp)\n%(_value)%(valueex0)\n/
+			\q[◇修改資料,OnUserDatabase.Table.Insert]\n/
 			\n[1700]"
-			_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+			_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 		}
 		else {
 			EXT_InputState = ''
 			EXT_InsertTemp = ''
-			_txt += "新增完毕。\n%(_tmp)%(EXT_InsertTemp[0])\n%(_value)\n/
-			是否要继续新增？\n\n/
+			_txt += "新增完畢。\n%(_tmp)%(EXT_InsertTemp[0])\n%(_value)\n/
+			是否要繼續新增？\n\n/
 			\q[◇是,OnUserDatabase.Table.Insert]\n/
 			\q[◇否,OnUserDatabase.Table,,Return]\n/
 			\n[1400]"
-			_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+			_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 		}
 	}
 	elseif EXT_InputState == 'InputInsert' {
@@ -446,23 +446,23 @@ OnUserDatabase.Table.Insert{
 			EXT_InsertTemp[EXT_InsertColumn] = reference0
 			EXT_InsertColumn = ''
 		}
-		_txt += '写入完成，请选择下一个输入对象。\n\n/
-		输入栏位：\n\n'
+		_txt += '寫入完成，請選擇下一個輸入物件。\n\n/
+		輸入欄位：\n\n'
 		for _i = 0; _i < ARRAYSIZE(_cln); _i++ {
 			_txt += '\q[◇' + _cln[_i] + '： ' + EXT_InsertTemp[_i] + ",OnUserDatabase.Table.Insert,%(_i)]\n"
 		}
-		_txt += '\n\q[◇确定送出,OnUserDatabase.Table.Insert,,InputComplete]'
+		_txt += '\n\q[◇確定送出,OnUserDatabase.Table.Insert,,InputComplete]'
 		for _i; _i < 17; _i++ {
 			_txt += '\n'
 		}
-		_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	elseif EXT_InputState == 'SelectInsert' {
 		EXT_InputState = 'InputInsert'
 		_cln = SQLite.Column(EXT_Table)
 		EXT_InsertColumn = TOINT(reference0)
-		_txt += '请输入资料。\n\n/
-		输入栏位：\n\n'
+		_txt += '請輸入資料。\n\n/
+		輸入欄位：\n\n'
 		for _i = 0; _i < ARRAYSIZE(_cln); _i++ {
 			if EXT_InsertColumn != _i
 				_txt += '◇' + _cln[_i] + '： ' + EXT_InsertTemp[_i] + '\n'
@@ -473,7 +473,7 @@ OnUserDatabase.Table.Insert{
 			_txt += '\n'
 		}
 		_txt += '\![open,inputbox,OnUserDatabase.Table.Insert]'
-		_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	else {
 		EXT_InputState = 'SelectInsert'
@@ -482,44 +482,44 @@ OnUserDatabase.Table.Insert{
 		EXT_InsertTemp = IARRAY
 		EXT_InsertTemp ,= TOINT(SQLite.Size(EXT_Table)) + 1
 		for _i = 1; _i < ARRAYSIZE(_cln); _i++ {
-			EXT_InsertTemp ,= '(无)'
+			EXT_InsertTemp ,= '(無)'
 		}
-		_txt += '那么，请输入您想要加入的资料。\n\n/
-		输入栏位：\n\n'
+		_txt += '那麼，請輸入您想要加入的資料。\n\n/
+		輸入欄位：\n\n'
 		for _i = 0; _i < ARRAYSIZE(_cln); _i++ {
 			_txt += '\q[◇' + _cln[_i] + '： ' + EXT_InsertTemp[_i] + ",OnUserDatabase.Table.Insert,%(_i)]\n"
 		}
 		for _i; _i < 19; _i++ {
 			_txt += '\n'
 		}
-		_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,CLOSE_EXTENSION]\_q'
+		_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,CLOSE_EXTENSION]\_q'
 	}
 	_txt
 }
 OnUserDatabase.Table.Update{
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	if EXT_InputState == 'SelectUpdateID' {
 		EXT_InputState = 'SelectColumn'
 		EXT_UpdateID = TOINT(reference0)
 		_cln = SQLite.Column(EXT_Table)
 		_val = SQLite.List(EXT_Table,'*',"ID='%(EXT_UpdateID)'")
-		_txt += '请选择想要更改的资料。\n\n/
-		输入栏位：\n\n'
+		_txt += '請選擇想要更改的資料。\n\n/
+		輸入欄位：\n\n'
 		for _i = 0; _i < ARRAYSIZE(_cln); _i++ {
 			_txt += "◇%(_cln[_i])： \q[◇' + _val[_i] + ',OnUserDatabase.Table.Update,%(_i),%(_val[_i])]\n"
 		}
 		for _i; _i < 17; _i++ {
 			_txt += '\n'
 		}
-		_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	elseif EXT_InputState == 'SelectColumn' {
 		EXT_InputState = 'InputUpdate'
 		EXT_UpdateColumn = TOINT(reference0)
 		_cln = SQLite.Column(EXT_Table)
 		_val = SQLite.List(EXT_Table,'*',"ID='%(EXT_UpdateID)'")
-		_txt += '请输入想要更改的资料。\n\n/
-		输入栏位：\n\n'
+		_txt += '請輸入想要更改的資料。\n\n/
+		輸入欄位：\n\n'
 		for _i = 0; _i < ARRAYSIZE(_cln); _i++ {
 			if EXT_UpdateColumn != _i
 				_txt += '◇' + _cln[_i] + '： ' + _val[_i] + '\n'
@@ -531,7 +531,7 @@ OnUserDatabase.Table.Update{
 		}
 		EXT_InputState = 'InputUpdate'
 		_txt += "\![open,inputbox,OnUserDatabase.Table.Update,-1,%(reference1)]"
-		_txt += "\n\q[◇返回上一层,OnUserDatabase.Table.Update,%(EXT_UpdateID)]\q[◇结束,OnCloseDatabase]\_q"
+		_txt += "\n\q[◇返回上一層,OnUserDatabase.Table.Update,%(EXT_UpdateID)]\q[◇結束,OnCloseDatabase]\_q"
 	}
 	elseif EXT_InputState == 'InputUpdate' {
 		EXT_InputState = 'SelectColumn'
@@ -539,66 +539,66 @@ OnUserDatabase.Table.Update{
 		_cln = SQLite.Column(EXT_Table)
 		void SQLite.Update(EXT_Table,"%(_cln[EXT_UpdateColumn])='%(EXT_InputUpdate)'","ID='%(EXT_UpdateID)'")
 		_val = SQLite.List(EXT_Table,'*',"ID='%(EXT_UpdateID)'")
-		_txt += '变更已完成，请选择想要更改的资料。\n\n/
-		输入栏位：\n\n'
+		_txt += '變更已完成，請選擇想要更改的資料。\n\n/
+		輸入欄位：\n\n'
 		for _i = 0; _i < ARRAYSIZE(_cln); _i++ {
 			_txt += "◇%(_cln[_i])： \q[◇" + _val[_i] + ",OnUserDatabase.Table.Update,%(_i),%(_val[_i])]\n"
 		}
 		for _i; _i < 17; _i++ {
 			_txt += '\n'
 		}
-		_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	else {
 		EXT_InputState = 'SelectUpdateID'
 		EXT_SearchResult = OnUserDatabase.List(EXT_Table,'*')
-		_txt += '请输入想要更改的资料ID。\n[2100]'
+		_txt += '請輸入想要更改的資料ID。\n[2100]'
 		_txt += "\1\b[4]%(EXT_SearchResult)\0"
 		_txt += '\![open,inputbox,OnUserDatabase.Table.Update]'
-		_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	_txt
 }
 OnUserDatabase.Table.Delete{
 	EXT_SearchResult=''
-	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■数据库编辑■\f[default]\n\n'
+	_txt = '\1\s[11]\0\s[0]\b[2]\*\_q\f[bold,true]■資料庫編輯■\f[default]\n\n'
 	if reference1 == 'checked' {
 		void SQLite.Delete(EXT_Table,"ID='%(EXT_DeleteID)'")
-		_txt += '已删除资料。\n\n/
-		\q[◇继续删除,OnUserDatabase.Table.Delete]\n[2000]/
-		\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '已刪除資料。\n\n/
+		\q[◇繼續刪除,OnUserDatabase.Table.Delete]\n[2000]/
+		\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	elseif reference0 {
 		EXT_DeleteID = TOINT(reference0)
 		_cln = SQLite.Column(EXT_Table)
 		_val = OnUserDatabase.List(EXT_Table,'*',"ID='%(EXT_DeleteID)'")
-		_txt += "删除以下资料：\n\n/
+		_txt += "刪除以下資料：\n\n/
 		%(_val)\n\n/
-		确定要删除吗？\n\n/
+		確定要刪除嗎？\n\n/
 		\q[◇是的,OnUserDatabase.Table.Delete,,checked]\n/
 		\q[◇重填,OnUserDatabase.Table.Delete]\n"
 		for _i = ARRAYSIZE(_cln); _i < 14; _i++ {
 			_txt += '\n'
 		}
-		_txt += '\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	else {
 		EXT_SearchResult = OnUserDatabase.List(EXT_Table,'*')
-		_txt += '请输入想要删除的资料ID。\n[2100]'
+		_txt += '請輸入想要刪除的資料ID。\n[2100]'
 		_txt += "\1\b[4]%(EXT_SearchResult)\0"
 		_txt += '\![open,inputbox,OnUserDatabase.Table.Delete]'
-		_txt += '\n\q[◇返回上一层,OnUserDatabase.Table,,Return]\q[◇结束,OnCloseDatabase]\_q'
+		_txt += '\n\q[◇返回上一層,OnUserDatabase.Table,,Return]\q[◇結束,OnCloseDatabase]\_q'
 	}
 	_txt
 }
 /*---------------------------------------------------------------------------------------
 *  函式名　：OnCloseDatabase
-*  机能　　：结束对话框并清除暂存资料
+*  機能　　：結束對話方塊並清除暫存資料
 * --------------------------------------------------------------------------------------
 */
 OnCloseDatabase{
 	ClearDatabaseVar
-	'使用终了。'
+	'使用終了。'
 }
 ClearDatabaseVar{
 	//泛用
