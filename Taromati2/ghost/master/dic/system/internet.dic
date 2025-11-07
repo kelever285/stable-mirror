@@ -1,4 +1,4 @@
-﻿//////////////////////////////////////////////////
+//////////////////////////////////////////////////
 //Internet相關辭書
 //written by forjane, 2009.12.03
 //////////////////////////////////////////////////
@@ -196,7 +196,7 @@ OnWeatherUpdate{
 		ERASEVAR('FromWeatherUpdate.menu')
 }
 OnWeatherUpdate.force{
-	"\![execute,http-get,https://query.asilu.com/weather/gaode,--param=city=%(city),--param-charset=UTF-8,--nofile,--async=weather]"
+	"\![execute,http-get,https://query.asilu.com/weather/weather,--param=city=%(city),--param-charset=UTF-8,--nofile,--async=weather]"
 }
 OnWeatherUpdate.menu{
 	FromWeatherUpdate.menu=1
