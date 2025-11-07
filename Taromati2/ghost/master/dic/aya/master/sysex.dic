@@ -1,4 +1,4 @@
-OnChoiceSelectEx{
+﻿OnChoiceSelectEx{
 	OnChoiceSelect.base
 	_arglist=reference
 	_arglist[0]=IARRAY
@@ -16,18 +16,18 @@ OnChoiceSelectEx{
 	elseif ISFUNC(reference1[0,'('])
 		return
 	else{
-		BUGNow("事件“%(reference1)”未定义")
+		BUGNow("事件“%(reference1)”未定義")
 		return
 	}
 	if !_result
-		BUGNow("选项“%(reference1)”返值为空")
+		BUGNow("選項“%(reference1)”返值為空")
 	else
 		_result
 }
 OnAITalk{
-	if specialmode == 'rest'//休息事件中随机谈话禁止
+	if specialmode == 'rest'//休息事件中隨機談話禁止
 		return
-	if !displaypowerstatus//显示器无电源时随机谈话无用
+	if !displaypowerstatus//顯示器無電源時隨機談話無用
 		return
 	if specialmode == 'mealtime'
 		REPLACE(RandomTalk1,'\s[1','\s[')
@@ -36,7 +36,7 @@ OnAITalk{
 	}
 	else{
 		_talk = AITalk
-		while specialmode == 'smoking' && '\1' _in_ _talk{//斗和不在家.avi
+		while specialmode == 'smoking' && '\1' _in_ _talk{//鬥和不在家.avi
 			_talk = AITalk
 		}
 		SETDELIM(_talk, ':talkmemo=')

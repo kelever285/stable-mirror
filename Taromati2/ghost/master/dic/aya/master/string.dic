@@ -1,5 +1,5 @@
-/////////文　ゴーストテンプレート
-/////////文字列リソース辞书
+﻿/////////文　ゴーストテンプレート
+/////////文字列リソース辭書
 /////////written by umeici.
 TOSIMPLIFIED{
 	CALLSAORI('ChConverter','simplified',_argv[0])
@@ -11,12 +11,12 @@ TOTRADITIONAL{
 On_username{
 	username
 }
-//本体侧おすすめサイトのリスト
+//本體側おすすめサイトのリスト
 On_sakura.recommendsites{
 	"/
-	上海アリス幻乐団%ASC(1)http://www16.big.or.jp/~zun/%ASC(2)/
+	上海アリス幻樂団%ASC(1)http://www16.big.or.jp/~zun/%ASC(2)/
 	面屋%ASC(1)http://lovelove.rabi-en-rose.net/%ASC(2)/
-	犬丼帝国%ASC(1)http://wls.hp.infoseek.co.jp/%ASC(2)/
+	犬丼帝國%ASC(1)http://wls.hp.infoseek.co.jp/%ASC(2)/
 	吉田研究所%ASC(1)/http://www2.tky.3web.ne.jp/~yosshin/%ASC(2)/
 	橙汁%ASC(1)/http://daidai.moo.jp/%ASC(2)/
 	%ASC(1)%ASC(2)/
@@ -34,9 +34,9 @@ On_sakura.recommendsites{
 	}
 	_txt
 }
-//起动中の他のゴースト名取得
+//起動中の他のゴースト名取得
 On_otherghostname{
-	//现在起动中のゴーストのリストを作成する
+	//現在起動中のゴーストのリストを作成する
 	ghostexlist = ''
 	_i = 0
 	while _i >= 0 {
@@ -62,18 +62,18 @@ On_hwnd{
 	sakurablnhwnd	= reference1[0]
 	keroblnhwnd		= reference1[1]
 }
-//推荐网址
+//推薦網址
 On_kero.recommendsites{
-	//使魔侧推荐网址
+	//使魔側推薦網址
 	"/
-	GitHub项目地址%ASC(1)https://github.com/Taromati2/Taromati2/%ASC(2)/
+	GitHub項目位址%ASC(1)https://github.com/Taromati2/Taromati2/%ASC(2)/
 	%ASC(1)%ASC(2)/
-	作者主页%ASC(1)http://unvollendet.web.fc2.com/%ASC(2)/
-	维护者主页%ASC(1)https://steve02081504.github.io/%ASC(2)/
+	作者主頁%ASC(1)http://unvollendet.web.fc2.com/%ASC(2)/
+	維護者主頁%ASC(1)https://steve02081504.github.io/%ASC(2)/
 	"
 }
 On_sakura.portalsites{
-	//使仆侧门户网址
+	//使僕側門戶網址
 	On_kero.recommendsites
 	--
 	"/
@@ -85,11 +85,11 @@ On_sakura.portalsites{
 	Disc-2%ASC(1)http://disc2.s56.xrea.com/%ASC(2)/
 	ゴーストセンター%ASC(1)http://www.aqrs.jp/ngc/%ASC(2)/
 	GHOST TOWN%ASC(1)http://ghost.sakura.vg/%ASC(2)/
-	噂と评判[改]%ASC(1)http://review.sakura.ne.jp/%ASC(2)/
+	噂と評判[改]%ASC(1)http://review.sakura.ne.jp/%ASC(2)/
 	"
 }
-//右键选单项目显示/不显示
+//右鍵選單專案顯示/不顯示
 On_vanishbutton.visible{
-	//消灭表示
+	//消滅表示
 	vanishbutton.visible
 }
