@@ -330,7 +330,7 @@ file,ghost/master/data/weather/XiaoYu.pnga235efeebe65cccbd6a953473a495cd7size=
 file,ghost/master/data/weather/Yin.pngc37e7735737a403d4e8d43840a1c42cfsize=722date=2012-12-21T00:00:00
 file,ghost/master/data/weather/ZhongXue.pngab0fd2889f4645b72b4a13e60b0a72bbsize=1185date=2012-12-21T00:00:00
 file,ghost/master/data/weather/ZhongYu.pngf58c766085c9dfc49f350e0814717c47size=935date=2012-12-21T00:00:00
-file,ghost/master/descript.txt76b381bfb81731dfe940a66e4961117bsize=872date=2012-12-21T00:00:00
+file,ghost/master/descript.txtbabe8e00f85759a7a0c445b81b996926size=872date=2012-12-21T00:00:00
 file,ghost/master/dic/_loading_order.txta82a379333a7e7ae3ac263fea23e1639size=106date=2012-12-21T00:00:00
 file,ghost/master/dic/aya/_loading_order.txt95e3fdd073b158a7479fca3eb50182basize=28date=2012-12-21T00:00:00
 file,ghost/master/dic/aya/base/QuickStart.dicf7a7a5c95bff70284ec5183c29ef3d67size=139date=2012-12-21T00:00:00
