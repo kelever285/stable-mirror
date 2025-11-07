@@ -1605,7 +1605,7 @@ Select.whyknife{
 }
 Select.noneed{
 	noneedflag = 1
-	"\1\s[-1]\0\s[1]既然%(username)不喜歡，\w9那就算了吧，其實只要是%(username)喜歡的東西，即使再怎麼困難，橘花也要為您找來。\x"
+	"\1\s[-1]\0\s[1]既然%(username)不喜歡，\w9那就算了吧，其實只要是%(username)喜歡的東西，即使再怎麼困難，橘花也會為您找來。\x"
 }
 Select.sothat{
 	sothatflag = 1
