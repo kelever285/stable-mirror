@@ -348,7 +348,6 @@ file,ghost/master/dic/games/RetroSnaker.dicd3f01f8729f8e189b8f2507793b4f193siz
 file,ghost/master/dic/games/boxgame.dicd1cb4277c9b16fbc966cfe0b5ebf0ca8size=5271date=2012-12-21T00:00:00
 file,ghost/master/dic/games/linkwnd.dic298e57571c1725022eea60a4248ffd79size=65200date=2012-12-21T00:00:00
 file,ghost/master/dic/games/other.dic4de29570531d77280ac6f361140d95fdsize=39431date=2012-12-21T00:00:00
-file,ghost/master/dic/games/puzzle.dic6dd5ca94f7c8e10573ee3d43819bad05size=4691date=2012-12-21T00:00:00
 file,ghost/master/dic/games/rpggame.dic54bb40a5991542a1873de79603b8b597size=137024date=2012-12-21T00:00:00
 file,ghost/master/dic/games/tetrisgame.dic55555caa335a018f9e5ee582bea2ef51size=10916date=2012-12-21T00:00:00
 file,ghost/master/dic/games/uno.dic16a7c94fa22217ff9545319b2121af64size=26021date=2012-12-21T00:00:00

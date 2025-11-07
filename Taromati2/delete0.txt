@@ -719,5 +719,5 @@ ghost\Taromati2\ghost\master\data\Game\HuaRongDao\HRDblank.png
 ghost\Taromati2\ghost\master\data\Game\HuaRongDao\roles.png
 ghost\Taromati2\ghost\master\data\Game\HuaRongDao\roles2.png
 ghost\Taromati2\ghost\master\data\Game\HuaRongDao\roles2s.png
-ghost\Taromati2\ghost\master\data\Game\HuaRongDao\selectedB/png
-ghost\Taromati2\ghost\master\data\Game\HuaRongDao\selectedT/png
+ghost\Taromati2\ghost\master\data\Game\HuaRongDao\selectedB.png
+ghost\Taromati2\ghost\master\data\Game\HuaRongDao\selectedT.png
