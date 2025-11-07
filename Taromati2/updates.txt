@@ -242,7 +242,7 @@ file,ghost/master/data/LearnJapanese/100_sentences_in_Japanese/9.mp393055ca61d5
 file,ghost/master/data/LearnJapanese/sonido/index.pngeb0474d0f2f40cfdece187208eba913esize=272355date=2012-12-21T00:00:00
 file,ghost/master/data/LearnJapanese/sonido/あ.mp3e256d5d0a709ceffcfd0b93262c3e176size=50991date=2012-12-21T00:00:00
 file,ghost/master/data/LearnJapanese/sonido/い.mp3c7e74bfaf7e74eb507de09ccdc00c654size=92262date=2012-12-21T00:00:00
-file,ghost/master/data/LearnJapanese/sonido/う.mp3fc8f819aa4005dc0994edd715a7f44c3size=59846date=2012-12-21T00:00:00
+file,ghost/master/data/LdescearnJapanese/sonido/う.mp3fc8f819aa4005dc0994edd715a7f44c3size=59846date=2012-12-21T00:00:00
 file,ghost/master/data/LearnJapanese/sonido/え.mp327d78b193dbaa32eefd4cb01e6bdfd10size=62164date=2012-12-21T00:00:00
 file,ghost/master/data/LearnJapanese/sonido/お.mp3767a0c566d7d80157bd2604d80a613f3size=75839date=2012-12-21T00:00:00
 file,ghost/master/data/LearnJapanese/sonido/か.mp3be2f46c14c350058f61d90602021dd9dsize=57794date=2012-12-21T00:00:00
@@ -437,7 +437,7 @@ file,ghost/master/pseudoAI/physics.ai51288564a9922cb3e7f07da54469819esize=1838
 file,ghost/master/pseudoAI/userteach.ai.base68b329da9893e34099c7d8ad5cb9c940size=1date=2012-12-21T00:00:00
 file,ghost/master/pseudoAI/wiki.ai5d885d8618f5ca453d3a5802a891cf4esize=445date=2012-12-21T00:00:00
 file,ghost/master/pseudoAI/worry.ai5e214cfdb8502f8c83ffad82d6f02ec5size=96708date=2012-12-21T00:00:00
-file,ghost/master/readme.txt4c5c3243df57c343e47764e471afc899size=2925date=2012-12-21T00:00:00
+file,ghost/master/readme.txtecaa88f7fa0bf610a5a26cf545dcd3aasize=2925date=2012-12-21T00:00:00
 file,ghost/master/saori/AnalogClock2_0/7c_face1.png0d1c84d8b50440aeb5537f43a1b8ca7fsize=32845date=2012-12-21T00:00:00
 file,ghost/master/saori/AnalogClock2_0/7c_hour1.pnge309606656aa17609439567b89c90407size=1215date=2012-12-21T00:00:00
 file,ghost/master/saori/AnalogClock2_0/7c_minute1.png4231073e54bafb28b497364e9754c3f0size=835date=2012-12-21T00:00:00
