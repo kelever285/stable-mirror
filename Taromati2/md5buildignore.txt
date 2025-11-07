@@ -4,9 +4,6 @@
 .gitignore
 .gitmodules
 .vscode
-readme.md
-ReadMe.md
-README.md
 updates.txt
 updates.dau
 LICENSE
