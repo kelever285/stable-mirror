@@ -65,15 +65,7 @@ file,ghost/master/data/Game/GoldenFlower/7.png2fc358bdb285a2ef892b003829638947
 file,ghost/master/data/Game/GoldenFlower/8.png9d830c78ec882e5c1c311d301b6e70basize=292date=2012-12-21T00:00:00
 file,ghost/master/data/Game/GoldenFlower/9.pngab1ef7e8e72e71216e00f42d9533b322size=283date=2012-12-21T00:00:00
 file,ghost/master/data/Game/GoldenFlower/back.png6d4c79fa8008a7f9ef19ffc895fe27d8size=843date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/HRDblank.png3dd75a272857ad6cfd19266e771159d2size=99date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/background.png1621f03b17a8731edbdd9d580b756b94size=47755date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/background2.pnge352696991fc3ee1bcbc9953fa9caddfsize=50923date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/map.txtafb1fabd7041094bc9e370b4b420ea88size=1865date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/roles.png1f6d71f49ac5b4a56dc24bbb9e2a3d9bsize=66159date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/roles2.png7ba18997004a21136c317f06d6db199esize=74303date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/roles2s.pngb5cdcc07084977013a6cb910e2c17572size=71120date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/selectedB.png877c35a9f1e7930571bd998e9fdc3954size=370date=2012-12-21T00:00:00
-file,ghost/master/data/Game/HuaRongDao/selectedT.png6dc180ac706b9d62fc151b2f7a5903ebsize=357date=2012-12-21T00:00:00
+
 file,ghost/master/data/Game/LinkWnd/0.pngd68f5e97d30390fc634d4aa8014e4edfsize=86date=2012-12-21T00:00:00
 file,ghost/master/data/Game/LinkWnd/1.png9f19522cafbd80d0b18fd2e8b3e2c382size=86date=2012-12-21T00:00:00
 file,ghost/master/data/Game/LinkWnd/Canon8.mid82295e2c03dd519bf1c8707081ed7791size=23516date=2012-12-21T00:00:00
