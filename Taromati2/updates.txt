@@ -165,16 +165,6 @@ file,ghost/master/data/Game/UNO/y9.png432ad2d31d9bef244de596234732357fsize=178
 file,ghost/master/data/Game/UNO/yDraw2.pngcb6d02dac0035f57cfbef10dee637a32size=1615date=2012-12-21T00:00:00
 file,ghost/master/data/Game/UNO/yReverse.pngea470b0aebef80b655a34f9801a0d24fsize=1723date=2012-12-21T00:00:00
 file,ghost/master/data/Game/UNO/ySkip.png80f14bfa8c44487c3244733a5395f04asize=1935date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/blank.pngbc1e233bdef8e35fda13829af4601864size=86date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/border.pngf123cb3a686be3af4d508de71214422asize=176date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/puzzle1.pngecc97a519508987694fbb9c0aaea6824size=29751date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/puzzle1_small.png9e7d6dd0a702a902ff69c5f46bd4284bsize=15973date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/puzzle2.png340bee75797e2d9f80a9e545bbe7845bsize=55379date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/puzzle2_small.pngf561a3cad632858dd8fc6d0a11ddb6bfsize=26705date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/puzzle3.pnge336186bf6d0dc93e9d1027ef645ef9csize=53369date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/puzzle3_small.png1f042b3fc032c36913da29d4165f64eesize=26298date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/puzzle4.pngb4e1aa22bc66ca5f64416e473b2bbb9bsize=52108date=2012-12-21T00:00:00
-file,ghost/master/data/Game/puzzle/puzzle4_small.pngefface25b93446cb195e7da595c7f5bbsize=25474date=2012-12-21T00:00:00
 file,ghost/master/data/LearnJapanese/100_sentences_in_Japanese/1.mp36c6047398f0cace32842e025c0ee59e0size=17241date=2012-12-21T00:00:00
 file,ghost/master/data/LearnJapanese/100_sentences_in_Japanese/10.mp3ce328f19e43e4631d108c76e67f3d3absize=35961date=2012-12-21T00:00:00
 file,ghost/master/data/LearnJapanese/100_sentences_in_Japanese/11.mp30ecd1c5b2549a9ca7e942adccabd6745size=18825date=2012-12-21T00:00:00
