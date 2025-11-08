@@ -65,7 +65,7 @@ BeginToEnd{//BeginToEnd('君不見，黃河之水天上來，奔流到海不復�
 OntulingApi{
 	callingtulingapi=1
 	tulingapi.in=_argv[0]
-	"\![excute,http-get,http://www.tuling123.com/openapi/api?key=5b56e59d852489bb6c40289223619a28&info=%(tulingapi.in),--param-charset=UTF-8,--nofile,--timeout=200,--async=tulingapi]"
+	"\![excute,http-get,https://api.chatanywhere.org,--param-charset=UTF-8,--nofile,--timeout=200,--async=tulingapi]"
 }
 /*
 code  說明
