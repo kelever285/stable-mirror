@@ -721,3 +721,6 @@ ghost\Taromati2\ghost\master\data\Game\HuaRongDao\roles2.png
 ghost\Taromati2\ghost\master\data\Game\HuaRongDao\roles2s.png
 ghost\Taromati2\ghost\master\data\Game\HuaRongDao\selectedB.png
 ghost\Taromati2\ghost\master\data\Game\HuaRongDao\selectedT.png
+
+ghost/master/dic/games/HuaRongDao.dic
+ghost/master/dic/games/linkwnd.dic
