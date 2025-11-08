@@ -345,7 +345,6 @@ file,ghost/master/dic/games/Gobang/GobangData.dic2a5a3d819e3eeb85e3695cab8a0ebd
 file,ghost/master/dic/games/GoldenFlower.dic54aca24bc26bdf4757c82d1cb81eb6e5size=22645date=2012-12-21T00:00:00
 file,ghost/master/dic/games/RetroSnaker.dicd3f01f8729f8e189b8f2507793b4f193size=7913date=2012-12-21T00:00:00
 file,ghost/master/dic/games/boxgame.dicd1cb4277c9b16fbc966cfe0b5ebf0ca8size=5271date=2012-12-21T00:00:00
-file,ghost/master/dic/games/linkwnd.dic298e57571c1725022eea60a4248ffd79size=65200date=2012-12-21T00:00:00
 file,ghost/master/dic/games/other.dic4de29570531d77280ac6f361140d95fdsize=39431date=2012-12-21T00:00:00
 file,ghost/master/dic/games/rpggame.dic54bb40a5991542a1873de79603b8b597size=137024date=2012-12-21T00:00:00
 file,ghost/master/dic/games/tetrisgame.dic55555caa335a018f9e5ee582bea2ef51size=10916date=2012-12-21T00:00:00
@@ -467,4 +466,5 @@ file,ghost/master/sound/tea.mp333dc524916fdceeb55459374eca427a9size=80296date
 file,ghost/master/sound/tinkle.wavf115303b37f10d103980434f5662f405size=123650date=2012-12-21T00:00:00
 file,ghost/master/thumbnail.png58e963279c6503e92e7f5b1079a41545size=28127date=2012-12-21T00:00:00
 file,install.txte2f789a753a12026f59362e5c6856f48size=76date=2012-12-21T00:00:00
+
 
