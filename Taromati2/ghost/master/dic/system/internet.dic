@@ -161,7 +161,7 @@ OnCheckWeather{
 	}
 }
 OnChangeCity{
-	"請輸入你要查詢的城市名稱：\![open,inputbox,OnChangeCityComplete,-1,%(city)]"
+	//"請輸入你要查詢的城市名稱：\![open,inputbox,OnChangeCityComplete,-1,%(city)]"
 }
 OnChangeCityComplete{
 	if city != reference0 || !city
