@@ -196,7 +196,7 @@ OnWeatherUpdate{
 		ERASEVAR('FromWeatherUpdate.menu')
 }
 OnWeatherUpdate.force{
-	"\![execute,http-get,https://query.asilu.com/weather/weather,--param-charset=UTF-8,--nofile,--async=weather]"
+	"\![execute,http-get,https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=tc,--param-charset=UTF-8,--nofile,--async=weather]"
 }
 OnWeatherUpdate.menu{
 	FromWeatherUpdate.menu=1
