@@ -751,3 +751,16 @@ ghost/master/data/Game/LinkWnd/normal.mid
 ghost/master/data/Game/LinkWnd/select.wav
 ghost/master/data/Game/LinkWnd/selfmapseed.txt
 ghost/master/dic/games/linkwnd.dic
+ghost/master/data/test/2015年一级建造师机电实务题及答案题库版.txt
+ghost/master/data/test/会计题库.txt
+ghost/master/data/test/大一计算机考试题库.txt
+ghost/master/data/test/大学英语六级词汇真题练习卷及答案.txt
+ghost/master/data/test/日语二级模拟试题1-1924.txt
+ghost/master/data/test/注册电气工程师考试模拟试题及答案.txt
+ghost/master/data/test/现代汉语试题及答案.txt
+ghost/master/data/test/电气专业知识题库.txt
+ghost/master/data/test/维修电工考试试题及答案.txt
+ghost/master/data/test/计算机选择题答案.txt
+ghost/master/data/test/驾照考试题库及答案(完整版).txt
+ghost/master/data/test/高级电工培训理论主要复习试题.txt
+ghost/master/data/test/高考语文常见错别字大全(1000个).txt
