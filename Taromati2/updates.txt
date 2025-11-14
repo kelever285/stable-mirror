@@ -1,6 +1,6 @@
 charset,UTF-8
 file,delete.txtf3ea7777ed740379656d70dd9bede981size=325date=2012-12-21T00:00:00
-file,delete0.txt9e78d5a2b05f651bc0c6307af817ee2dsize=25253date=2012-12-21T00:00:00
+file,delete0.txt9e78d5a2b05f651bc0e6307af817ee2dsize=25253date=2012-12-21T00:00:00
 file,ghost/master/data/Game/BoxGame/box.txt4eb7bc822cf0d1cd24d14daa6ce16387size=33614date=2012-12-21T00:00:00
 file,ghost/master/data/Game/BoxGame/boxpng.pnge767b70534de0c99df6b060a26cc8fb6size=3878date=2012-12-21T00:00:00
 file,ghost/master/data/Game/Gobang/Stone.wav60f1c8457a19624892f1a0d45ab47ab4size=74156date=2012-12-21T00:00:00
