@@ -1,6 +1,5 @@
-﻿///////////////////////////////////////////
+///////////////////////////////////////////
 //////////菜單相關辭書
-//////////written by forjane 2009.08.12
 ///////////////////////////////////////////
 //******* 主菜單 ************************************************
 OnOpenMenu{
@@ -72,7 +71,6 @@ SubMenu{
 			\q[◇天氣預報,OnCheckWeather]	\_l[100,-]\q[◇日程提醒,OnAgenda]\n/
 			\q[◇IP查詢,OnCheckIp]			\_l[100,-]\q[◇計算器,OnCalculator]\n/
 			\q[◇放大鏡,OnMagnify]			\_l[100,-]\q[◇答錄機,OnRecorder]\n/
-			\q[◇橘花行情,OnKikkaStockMenu]	\n/
 			'
 		}
 		when 1 {
@@ -97,7 +95,7 @@ SubMenu{
 			\q[◇猜數字,OnGuessNumber]		\_l[80,-]\q[◇21點,OnBlackjack0]			\_l[168,-]\q[◇推箱子,OnBoxGame]\n/
 			\q[◇開心問答,OnQuestBegin]		\_l[80,-]\q[◇紮金花,OnGoldenFlower]		\_l[168,-]\q[◇華容道,OnHuaRongDao]\n/
 			\q[◇井字棋,OnPlayOX]			\_l[80,-]\q[◇UNO,OnUnoUserInit]			\_l[168,-]\q[◇五子棋,OnGobangInIt]\n/
-			\q[◇拼圖遊戲,OnPuzzleList]												\_l[168,-]\q[◇連連看,OnLinkWnd] \n/
+															\_l[168,-]\q[◇連連看,OnLinkWnd] \n/
 			\q[◇俄羅斯方塊,OnTetris.NewGame]										\_l[168,-]\q[◇數字漢諾塔,OnHanoi]\n/
 			\q[◇貪食蛇,OnRetroSnaker]												\_l[168,-]\q[◇雙色球,OnDoubleColorBall]\n'
 		}
@@ -192,7 +190,7 @@ Select.otherserv{
 	\q[◇季節判斷與對話,Seasontest]\n/
 	\q[◇告訴我一些事吧,something]\n/
 	\q[◇我身體不舒服,notsogood]\n/
-	\q[◇返回上一層,OnOpenMenu,1]\n/
+	\q[◇返回,OnOpenMenu,1]\n/
 	\q[◇退出,OptionEnd]'
 }
 Select.help{
@@ -202,10 +200,9 @@ Select.help{
 	\n/
 	\q[◇錯誤記錄,OnErrorLog]\n/
 	\q[◇關於快速鍵,shortcutkey]				\_l[120,-]\q[◇自優化,self_tuning]\n/
-	\q[◇偽春菜貼吧,OpenUkagakaTieBa]		\_l[120,-]\q[◇master目錄,OnOpenMasterMenu]\n/
-	\q[◇偽春菜後援會,OpenUkagakaFanClub]	\_l[120,-]\q[◇偽春菜wiki,OpenUkagakaWiki]\n/
+	\q[◇master目錄,OnOpenMasterMenu]\n/ \_l[120,-]\q[◇偽春菜wiki,OpenUkagakaWiki]\n/
 	%(Onaccounting)/
-	\q[◇返回上一層,OnOpenMenu,4]\_l[120,-]\q[◇退出,OptionEnd]"
+	\q[◇返回,OnOpenMenu,4]\_l[120,-]\q[◇退出,OptionEnd]"
 }
 Select.NotOnTop{
 	topmode=0
@@ -257,7 +254,7 @@ Select.MenuCancel{
 		'\0\s[3]唔，是麼？'
 		'\0\s[9]找到想找的東西了嗎？'
 		if nurturance.Dependency>=200{
-			'\0\s[26]幫上忙了嗎？橘花一直陪著你哦'
+			'\0\s[26]幫上忙了嗎？橘花會一直陪著你喔'
 			'\0\s[6]好吧，有事再找我哦~'
 		}
 		if nurturance.Moeness>nurturance.Darkness
@@ -431,7 +428,7 @@ OnNotePadDetail{
 	_time = _time[0,'/'] + '月' + _time[1,'/'] + '日'
 	"便條內容：\n[150]%(_note) \n - %(_time)\n"
 	--
-	"\_q\_l[0,98]\q[◇刪除,OnNotePadDel,%(reference0)]    \q[◇修改,OnNotePad,%(reference0),%(_note)]\n[150]\q[◇返回上一層,OnOpenMenu,0]\_q"
+	"\_q\_l[0,98]\q[◇刪除,OnNotePadDel,%(reference0)]    \q[◇修改,OnNotePad,%(reference0),%(_note)]\n[150]\q[◇返回,OnOpenMenu,0]\_q"
 }
 OnNotePadColor{
 	'\C'
@@ -488,12 +485,7 @@ OnNotePadDel{
 OnScreenShot{
 	void RUNCMD('explorer ms-screenclip:')
 }
-Select.OpenUkagakaTieBa {
-	'\![open,browser,https://tieba.baidu.com/f?ie=utf-8&kw=%E4%BC%AA%E6%98%A5%E8%8F%9C]'
-}
-Select.OpenUkagakaFanClub {
-	'\![open,browser,http://cuc.moe.hm]'
-}
+
 Select.OpenUkagakaWiki {
 	'\![open,browser,http://cuc.moe.hm/wiki]'
 }
@@ -513,7 +505,7 @@ Select.Introduction{
 	'\0\s[0]想知道我們的事情嗎？\n\n/
 	\q[◇橘花,Kikka]\n/
 	\q[◇鬥和,Towa]\n[150]/
-	\q[◇返回上一層,OnOpenMenu,1]\n/
+	\q[◇返回,OnOpenMenu,1]\n/
 	\q[◇取消,TaromatiCancel]'
 }
 Select.Kikka{
@@ -521,33 +513,33 @@ Select.Kikka{
 	\q[◇名字,Kikka_name]\n/
 	\q[◇年齡,Kikka_age]\n/
 	\q[◇興趣,Kikka_interest]\n[150]/
-	\q[◇返回上一層,Introduction]'
+	\q[◇返回,Introduction]'
 }
 Select.Kikka_name{
-	'\0\s[8]那個…\w9\s[26]我叫做『橘花』\w9。\w9\w5\s[0]\n[150]『橘樹』的『花』、\n念做『Kikka』。\n[250]\q[◇返回上一層,Kikka]'
+	'\0\s[8]那個…\w9\s[26]我叫做『橘花』\w9。\w9\w5\s[0]\n[150]『橘樹』的『花』、\n念做『Kikka』。\n[250]\q[◇返回,Kikka]'
 }
 Select.Kikka_age{
-	'\0\s[0]我的年齡嗎？\w9\n嗯…\w9\s[3]對不起、我也不太清楚。\w9\s[26]\n[150]啊、不過大概、\n就跟外表看起來的年齡一樣吧。\w9\w9\s[8]\n雖然可能成長的比較慢…\n[250]\q[◇返回上一層,Kikka]'
+	'\0\s[0]我的年齡嗎？\w9\n嗯…\w9\s[3]對不起、我也不太清楚。\w9\s[26]\n[150]啊、不過大概、\n就跟外表看起來的年齡一樣吧。\w9\w9\s[8]\n雖然可能成長的比較慢…\n[250]\q[◇返回,Kikka]'
 }
 Select.Kikka_interest{
-	'\0\s[20]興趣、是嗎？\w9\n[150]像是讀書…散步…\w9\n啊、\s[8]散步只有限定晚上呢…\w9\s[5]\n[150]還有、\w5我也喜歡清掃。\w5\s[21]\n把礙事的東西一掃而空\n感覺很舒服呢。\w9\1\s[13]…聽出不同意義的\w9該不會只有我吧。\0\n[250]\q[◇返回上一層,Kikka]'
-	'\0\s[20]興趣、是嗎？\w9\n[150]嗯…\w9\w9\1\s[11]不是花語嗎？\s[10]\n雖然非常不適合。\w9\0\s[6]\n[150]…說的也是呢。\w9\s[0]\n[150]我覺得、花是美麗與虛幻的代名詞。\w9\s[6]\n為那虛幻的美麗所附加的言語。\w9\w9\s[8]\n雖然不能表達的很清楚、\s[26]\n這樣想的話就覺得有點感興趣了。\w9\1\s[10]\n[150]唔。\0\n[250]\q[◇返回上一層,Kikka]'
+	'\0\s[20]興趣、是嗎？\w9\n[150]像是讀書…散步…\w9\n啊、\s[8]散步只有限定晚上呢…\w9\s[5]\n[150]還有、\w5我也喜歡打掃。\w5\s[21]\n把礙事的東西一掃而空\n感覺很舒服呢。\w9\1\s[13]…聽出不同意義的\w9該不會只有我吧。\0\n[250]\q[◇返回,Kikka]'
+	'\0\s[20]興趣、是嗎？\w9\n[150]嗯…\w9\w9\1\s[11]不是花語嗎？\s[10]\n雖然非常不適合。\w9\0\s[6]\n[150]…說的也是呢。\w9\s[0]\n[150]我覺得、花是美麗與虛幻的代名詞。\w9\s[6]\n為那虛幻的美麗所附加的言語。\w9\w9\s[8]\n雖然不能表達的很清楚、\s[26]\n這樣想的話就覺得有點感興趣了。\w9\1\s[10]\n[150]唔。\0\n[250]\q[◇返回,Kikka]'
 }
 Select.Towa{
 	'\0\s[30]\1\s[12]嗯。\0\n\n/
 	\q[◇名字,Towa_name]\n/
 	\q[◇年齡,Towa_age]\n/
 	\q[◇興趣,Towa_interest]\n[150]/
-	\q[◇返回上一層,Introduction]'
+	\q[◇返回,Introduction]'
 }
 Select.Towa_name{
-	'\1\s[10]『鬥和』。\w9\n發音作『Towa』…\n名字只是同音的漢字拿來湊合。\w9\0\s[30]前任飼主取的嗎？\w9\1\s[10]\n[150]不、我沒有被飼養。\0\n[250]\q[◇返回上一層,Towa]'
+	'\1\s[10]『鬥和』。\w9\n發音作『Towa』…\n名字只是同音的漢字拿來湊合。\w9\0\s[30]前任飼主取的嗎？\w9\1\s[10]\n[150]不、我沒有被飼養。\0\n[250]\q[◇返回,Towa]'
 }
 Select.Towa_age{
-	'\1\s[10]因為最近沒在數、也搞不清楚了。\w9\s[13]\n就算去數、也沒什麼意義吧…\0\s[30]？\n[250]\q[◇返回上一層,Towa]'
+	'\1\s[10]因為最近沒在數、也搞不清楚了。\w9\s[13]\n就算去數、也沒什麼意義吧…\0\s[30]？\n[250]\q[◇返回,Towa]'
 }
 Select.Towa_interest{
-	'\1\s[10]逃避現實吧。\w9\0\s[8]…那不是很糟糕嗎？\w9\1\s[10]\n[150]因為發生過很多事啊。\w9\0\n[150]唉…\n[250]\q[◇返回上一層,Towa]'
+	'\1\s[10]逃避現實吧。\w9\0\s[8]…那不是很糟糕嗎？\w9\1\s[10]\n[150]因為發生過很多事啊。\w9\0\n[150]唉…\n[250]\q[◇返回,Towa]'
 }
 Select.TaromatiCancel{
 	'\0\s[0]好的。\w9\w9\1\s[10]總之、不管我們說什麼、\n最後、\w5\s[12]還是要看你怎麼想…\s[10]所以說啊。\w9\n[150]任誰都有秘密。\n想知道別人的一切是不可能的。\w9\0\s[8]\n[150]雖然這麼說、我也沒有特別去保密喔。'
@@ -598,7 +590,7 @@ Select.System{
 	--
 	InternetIPShowing
 	--
-	'\n[150]\q[◇返回上一層,OnOpenMenu,4]    \q[◇終了,Cancel]\_q'
+	'\n[150]\q[◇返回,OnOpenMenu,4]    \q[◇終了,Cancel]\_q'
 }
 DayofWeek_w{
 	('日','一','二','三','四','五','六')[weekday]
@@ -719,7 +711,7 @@ Select.Option{
 	'\n[half]'
 	TheDefaultValue('voice.rate',3)
 	--
-	'\n\q[◇返回上一層,OnOpenMenu,4]\n/
+	'\n\q[◇返回,OnOpenMenu,4]\n/
 	\q[◇終了,OptionEnd]'
 }
 OnMemoryBusySet{
@@ -733,7 +725,7 @@ OnMemoryBusySet{
 			_txt += "\q[○ 於%(_t[_i])%時提醒,Onusage,memorybusyrm[1\],%(_t[_i])]\n"
 		}
 	}
-	_txt+='\n[half]\q[◇返回上一層,Option]      \q[◇終了,OptionEnd]\_q'
+	_txt+='\n[half]\q[◇返回,Option]      \q[◇終了,OptionEnd]\_q'
 	_txt
 }
 OnTimeHour{
@@ -747,7 +739,7 @@ OnTimeHour{
 			_txt += "\q[○%(_t[_i])小時,Onusage,timehour[1\],%(_t[_i])]\n"
 		}
 	}
-	_txt+='\n[half]\q[◇返回上一層,Option]      \q[◇終了,OptionEnd]\_q'
+	_txt+='\n[half]\q[◇返回,Option]      \q[◇終了,OptionEnd]\_q'
 	_txt
 }
 OnVoiceName{
@@ -781,7 +773,7 @@ OnVoiceName{
 			_txt+='\n'
 		}
 	}
-	_txt+='\n[250]\q[◇返回上一層,Option]      \q[◇終了,OptionEnd]'
+	_txt+='\n[250]\q[◇返回,Option]      \q[◇終了,OptionEnd]'
 	_txt
 }
 OnAutoShellChange{
@@ -800,7 +792,7 @@ OnAutoShellChange{
 			_txt += "\q[○%(_t[_i]),Onusage,AutoShellChange[1\],%(_i)]\n"
 		}
 	}
-	_txt+='\n[half]\q[◇返回上一層,Option]      \q[◇終了,OptionEnd]\_q'
+	_txt+='\n[half]\q[◇返回,Option]      \q[◇終了,OptionEnd]\_q'
 	_txt
 }
 OnAutoComm{
@@ -821,7 +813,7 @@ OnAutoComm{
 			_txt += "\q[○%(_t[_i]),Onusage,communicate[1\],%(_i)]\n"
 		}
 	}
-	_txt+='\n[half]\q[◇返回上一層,Option]      \q[◇終了,OptionEnd]\_q'
+	_txt+='\n[half]\q[◇返回,Option]      \q[◇終了,OptionEnd]\_q'
 	_txt
 }
 Onusage{
@@ -910,7 +902,7 @@ TalkInterval{
 	_txt
 	--
 	'\n[half]/
-	\q[◇返回上一層,OnOpenMenu,4]\n/
+	\q[◇返回,OnOpenMenu,4]\n/
 	\q[◇終了,OptionEnd]'
 }
 OnTalkIntervalSet{
@@ -1613,7 +1605,7 @@ Select.whyknife{
 }
 Select.noneed{
 	noneedflag = 1
-	"\1\s[-1]\0\s[1]既然%(username)不喜歡，\w9那就算了吧，其實只要是%(username)喜歡的東西，即使再怎麼困難，橘花也要為您找來。\x"
+	"\1\s[-1]\0\s[1]既然%(username)不喜歡，\w9那就算了吧，其實只要是%(username)喜歡的東西，即使再怎麼困難，橘花也會為您找來。\x"
 }
 Select.sothat{
 	sothatflag = 1

@@ -1,4 +1,4 @@
-﻿//////////////////////////////////////////////////
+//////////////////////////////////////////////////
 //Internet相關辭書
 //written by forjane, 2009.12.03
 //////////////////////////////////////////////////
@@ -65,7 +65,7 @@ BeginToEnd{//BeginToEnd('君不見，黃河之水天上來，奔流到海不復�
 OntulingApi{
 	callingtulingapi=1
 	tulingapi.in=_argv[0]
-	"\![excute,http-get,http://www.tuling123.com/openapi/api?key=5b56e59d852489bb6c40289223619a28&info=%(tulingapi.in),--param-charset=UTF-8,--nofile,--timeout=200,--async=tulingapi]"
+	"\![excute,http-get,https://api.chatanywhere.org,--param-charset=UTF-8,--nofile,--timeout=200,--async=tulingapi]"
 }
 /*
 code  說明
@@ -153,21 +153,11 @@ OnCheckWeather{
 		--
 		'\q[◇返回,OnOpenMenu]    \q[◇取消,Cancel]\_q'
 	}
-	elseif ISVAR('city'){
+	else ISVAR('city'){
 		OnWeatherUpdate.menu
 	}
-	else{
-		OnChangeCity
-	}
 }
-OnChangeCity{
-	"請輸入你要查詢的城市名稱：\![open,inputbox,OnChangeCityComplete,-1,%(city)]"
-}
-OnChangeCityComplete{
-	if city != reference0 || !city
-		city = reference0
-	OnWeatherUpdate.menu
-}
+
 OnWeatherUpdate.DosntNeedCheck{
 	if (GETSECCOUNT-weather.lasttime)<13{
 		1
@@ -196,7 +186,7 @@ OnWeatherUpdate{
 		ERASEVAR('FromWeatherUpdate.menu')
 }
 OnWeatherUpdate.force{
-	"\![execute,http-get,https://query.asilu.com/weather/gaode,--param=city=%(city),--param-charset=UTF-8,--nofile,--async=weather]"
+	"\![execute,http-get,https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc,--param-charset=UTF-8,--nofile,--async=weather]"
 }
 OnWeatherUpdate.menu{
 	FromWeatherUpdate.menu=1
