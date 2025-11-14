@@ -290,7 +290,7 @@ rpggamereset{
 	\f[color,165,203,214]ADF     \_l[48,-]\f[color,default]%(adf0) （%(adf0_)）\n/
 	\f[color,231,171,109]EXP     \_l[48,-]\f[color,default]%(exp0) （%(TOINT(100*exp0/expmax0))%）    \_l[150,-]\f[color,231,171,109]EXPERIENCE \f[color,default]%(exptotal0)\n/
 	\f[color,231,171,109]NEXT    \_l[48,-]\f[color,default]%(nextexp0)    %(ColorBar(1,150,exp0,expmax0))\n\n/
-	鬥和\n/
+	斗和\n/
 	\f[color,231,171,109]Level   \_l[48,-]\f[color,default]%(lvl1)         \_l[150,-]轉生%(TOINT(circle1))級\n/
 	\f[color,231,171,109]HP      \_l[48,-]\f[color,default]%(hp1)/%(hpmax1)   %(ColorBar(6,150,hp1,hpmax1))\n/
 	\f[color,231,171,109]EP      \_l[48,-]\f[color,default]%(ep1)/%(epmax1)   %(ColorBar(3,150,ep1,epmax1))\n/
@@ -327,7 +327,7 @@ On裝備菜單{
 	_txt+=資訊參數
 	_txt+=RpgGameVar
 	_txt+=超出反應
-	_txt += "橘花                                    \_l[140,-]鬥和\n/
+	_txt += "橘花                                    \_l[140,-]斗和\n/
 	武器：\q[%(weapon0),offweapon0]         \_l[140,-]武器：\q[%(weapon1),offweapon1]\n/
 	防具（體）：\q[%(armor0),offarmor0]     \_l[140,-]防具（體）：\q[%(armor1),offarmor1]\n/
 	防具（腳）：\q[%(boots0),offboots0]     \_l[140,-]防具（腳）：\q[%(boots1),offboots1]\n/
@@ -353,14 +353,14 @@ On裝備菜單{
 					}
 				}
 				if !weapon1 {
-					_txt += "\_l[230,-]\q[◇鬥和未裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\n"
+					_txt += "\_l[230,-]\q[◇斗和未裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\n"
 				}
 				elseif weapon1 {
 					if weaponID1==_i[1] && weaponsort1==_i[0]{
-						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇鬥和已裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\f[color,default]\n"
+						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇斗和已裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\f[color,default]\n"
 					}
 					else{
-						_txt += "\_l[230,-]\q[◇鬥和未裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\n"
+						_txt += "\_l[230,-]\q[◇斗和未裝備,Onweapon1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7])]\n"
 					}
 				}
 			}
@@ -384,14 +384,14 @@ On裝備菜單{
 					}
 				}
 				if !armor1 {
-					_txt += "\_l[230,-]\q[◇鬥和未裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
+					_txt += "\_l[230,-]\q[◇斗和未裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
 				}
 				elseif armor1 {
 					if armorID1==_i[1] && armorsort1==_i[0]{
-						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇鬥和已裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]\n"
+						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇斗和已裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]\n"
 					}
 					else{
-						_txt += "\_l[230,-]\q[◇鬥和未裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
+						_txt += "\_l[230,-]\q[◇斗和未裝備,Onarmor1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
 					}
 				}
 			}
@@ -415,14 +415,14 @@ On裝備菜單{
 					}
 				}
 				if !boots1 {
-					_txt += "\_l[230,-]\q[◇鬥和未裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
+					_txt += "\_l[230,-]\q[◇斗和未裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
 				}
 				elseif boots1 {
 					if bootsID1==_i[1] && bootssort1==_i[0]{
-						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇鬥和已裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]\n"
+						_txt += "\_l[230,-]\f[color,231,171,109]\q[◇斗和已裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\f[color,default]\n"
 					}
 					else{
-						_txt += "\_l[230,-]\q[◇鬥和未裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
+						_txt += "\_l[230,-]\q[◇斗和未裝備,Onboots1,%(_i[0]),%(_i[1]),%(_i[2]),%(_i[3]),%(_i[6]),%(_i[7]),%(_i[8]),%(_i[9])]\n"
 					}
 				}
 			}
@@ -582,7 +582,7 @@ On魔法列表{
 	}
 	elseif magicMenu == 1 {
 		target=1
-		'\n' + ColorText('\__q[OnmagicMenu,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────鬥和↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200') + '\n'
+		'\n' + ColorText('\__q[OnmagicMenu,0]\f[cursorstyle,none]\f[cursorfontcolor,65,203,214]───────────斗和↓─────────\f[cursorstyle,default]\f[cursorfontcolor,default]\__q','color=160,160,200') + '\n'
 		--
 		Magicmenu(1)
 	}
@@ -675,12 +675,12 @@ Onusemagic{
 		if !target
 			"給誰使用\n/
 			\q[◇橘花,Onkikka0,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
-			\q[◇鬥和,Ontowa0,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
+			\q[◇斗和,Ontowa0,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
 			\n[400]\q[◇返回,Onbackusemagic0]"
 		else
 			"給誰使用\n/
 			\q[◇橘花,Onkikka1,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
-			\q[◇鬥和,Ontowa1,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
+			\q[◇斗和,Ontowa1,%(reference0),%(reference1),%(reference2),%(reference3),%(reference4),%(reference5),%(reference6)]\n/
 			\n[400]\q[◇返回,Onbackusemagic1]"
 	}
 	elseif (reference2=='回復'||reference2=='輔助') && reference3=='複體'{
@@ -812,7 +812,7 @@ Onkikka1{
 	EP消耗=TOINT(reference5)
 	if hp0>0{
 		if reference6=='HP全回復' && ep1>=EP消耗{
-			"鬥和對橘花使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)\x"
+			"斗和對橘花使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)\x"
 			hp0=hpmax0
 			ep1-=EP消耗
 			--
@@ -825,7 +825,7 @@ Onkikka1{
 		}
 		elseif reference6=='完全防禦一次' && ep1>=EP消耗{
 			kikkadefend=1
-			"鬥和對橘花使用了%(魔法名稱)\x"
+			"斗和對橘花使用了%(魔法名稱)\x"
 			ep1-=EP消耗
 			--
 			TowaUsedMagic
@@ -836,7 +836,7 @@ Onkikka1{
 			if hp0>hpmax0
 				hp0=hpmax0
 			ep1-=EP消耗
-			"鬥和對橘花使用了%(魔法名稱)，橘花HP回復%(hp0-_hp)\x"
+			"斗和對橘花使用了%(魔法名稱)，橘花HP回復%(hp0-_hp)\x"
 			--
 			TowaUsedMagic
 		}
@@ -847,7 +847,7 @@ Onkikka1{
 		}
 	}
 	elseif hp0==0 && reference6=='戰鬥不能解除' && ep1>=EP消耗{
-		"鬥和對橘花使用了%(魔法名稱)，橘花恢復戰鬥能力，橘花HP回復%(hpmax0-hp0)\x"
+		"斗和對橘花使用了%(魔法名稱)，橘花恢復戰鬥能力，橘花HP回復%(hpmax0-hp0)\x"
 		hp0=hpmax0
 		ep1-=EP消耗
 		--
@@ -870,7 +870,7 @@ Ontowa0{
 	EP消耗=TOINT(reference5)
 	if hp1>0{
 		if reference6=='HP全回復' && ep0>=EP消耗{
-			"橘花對鬥和使用了%(魔法名稱)，鬥和HP回復%(hpmax1-hp1)\x"
+			"橘花對斗和使用了%(魔法名稱)，斗和HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
 			ep0-=EP消耗
 			--
@@ -884,7 +884,7 @@ Ontowa0{
 		elseif reference6=='完全防禦一次' && ep0>=EP消耗{
 			towadefend=1
 			ep0-=EP消耗
-			"橘花對鬥和使用了%(魔法名稱)\x"
+			"橘花對斗和使用了%(魔法名稱)\x"
 			--
 			KikkaUsedMagic
 		}
@@ -894,7 +894,7 @@ Ontowa0{
 			if hp1>hpmax1
 				hp1=hpmax1
 			ep0-=EP消耗
-			"橘花對鬥和使用了%(魔法名稱)，鬥和HP回復%(hp1-_hp)\x"
+			"橘花對斗和使用了%(魔法名稱)，斗和HP回復%(hp1-_hp)\x"
 			--
 			KikkaUsedMagic
 		}
@@ -905,7 +905,7 @@ Ontowa0{
 		}
 	}
 	elseif hp1==0 && reference6=='戰鬥不能解除' && ep0>=EP消耗{
-		"橘花對鬥和使用了%(魔法名稱)，鬥和恢復戰鬥能力，鬥和HP回復%(hpmax1-hp1)\x"
+		"橘花對斗和使用了%(魔法名稱)，斗和恢復戰鬥能力，斗和HP回復%(hpmax1-hp1)\x"
 		hp1=hpmax1
 		ep0-=EP消耗
 		--
@@ -917,7 +917,7 @@ Ontowa0{
 		KikkaUsedFall
 	}
 	else{
-		"不能對失去戰鬥能力的鬥和使用%(魔法名稱)\x"
+		"不能對失去戰鬥能力的斗和使用%(魔法名稱)\x"
 		--
 		KikkaUsedFall
 	}
@@ -927,7 +927,7 @@ Ontowa1{
 	效果數值=TOINT(reference6)
 	EP消耗=TOINT(reference5)
 	if reference6=='HP全回復' && ep1>=EP消耗{
-		"鬥和對自己使用了%(魔法名稱)，鬥和HP回復%(hpmax1-hp1)\x"
+		"斗和對自己使用了%(魔法名稱)，斗和HP回復%(hpmax1-hp1)\x"
 		hp1=hpmax1
 		ep1-=EP消耗
 		--
@@ -941,7 +941,7 @@ Ontowa1{
 	elseif reference6=='完全防禦一次' && ep1>=EP消耗{
 		towadefend=1
 		ep1-=EP消耗
-		"鬥和對自己使用了%(魔法名稱)\x"
+		"斗和對自己使用了%(魔法名稱)\x"
 		--
 		TowaUsedMagic
 	}
@@ -951,7 +951,7 @@ Ontowa1{
 		if hp1>hpmax1
 			hp1=hpmax1
 		ep1-=EP消耗
-		"鬥和對自己使用了%(魔法名稱)，鬥和HP回復%(hp1-_hp)\x"
+		"斗和對自己使用了%(魔法名稱)，斗和HP回復%(hp1-_hp)\x"
 		--
 		TowaUsedMagic
 	}
@@ -967,7 +967,7 @@ Ondouble0{
 	EP消耗=TOINT(_argv[5])
 	if hp1>0{
 		if _argv[6]=='HP全回復' && ep0>=EP消耗{
-			"橘花使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)，鬥和HP回復%(hpmax1-hp1)\x"
+			"橘花使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)，斗和HP回復%(hpmax1-hp1)\x"
 			hp0=hpmax0
 			hp1=hpmax1
 			ep0-=EP消耗
@@ -992,7 +992,7 @@ Ondouble0{
 			if hp1>hpmax1
 				hp1=hpmax1
 			ep0-=EP消耗
-			"橘花使用了%(魔法名稱)，橘花HP回復%(hp0-_hp0)，鬥和HP回復%(hp1-_hp1)\x"
+			"橘花使用了%(魔法名稱)，橘花HP回復%(hp0-_hp0)，斗和HP回復%(hp1-_hp1)\x"
 			--
 			KikkaUsedMagic
 		}
@@ -1033,7 +1033,7 @@ Ondouble1{
 	EP消耗=TOINT(_argv[5])
 	if hp0>0{
 		if _argv[6]=='HP全回復' && ep1>=EP消耗{
-			"鬥和使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)，鬥和HP回復%(hpmax1-hp1)\x"
+			"斗和使用了%(魔法名稱)，橘花HP回復%(hpmax0-hp0)，斗和HP回復%(hpmax1-hp1)\x"
 			hp0=hpmax0
 			hp1=hpmax1
 			ep1-=EP消耗
@@ -1044,7 +1044,7 @@ Ondouble1{
 			kikkadefend=1
 			towadefend=1
 			ep1-=EP消耗
-			"鬥和使用了%(魔法名稱)\x"
+			"斗和使用了%(魔法名稱)\x"
 			--
 			TowaUsedMagic
 		}
@@ -1058,7 +1058,7 @@ Ondouble1{
 			if hp1>hpmax1
 				hp1=hpmax1
 			ep1-=EP消耗
-			"鬥和使用了%(魔法名稱)，橘花HP回復%(hp0-_hp0)，鬥和HP回復%(hp1-_hp1)\x"
+			"斗和使用了%(魔法名稱)，橘花HP回復%(hp0-_hp0)，斗和HP回復%(hp1-_hp1)\x"
 			--
 			TowaUsedMagic
 		}
@@ -1070,7 +1070,7 @@ Ondouble1{
 	}
 	elseif hp0==0{
 		if _argv[6]=='HP全回復' && ep1>=EP消耗{
-			"鬥和使用了%(魔法名稱)，鬥和HP回復%(hpmax1-hp1)\x"
+			"斗和使用了%(魔法名稱)，斗和HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
 			ep1-=EP消耗
 			--
@@ -1082,7 +1082,7 @@ Ondouble1{
 			if hp1>hpmax1
 				hp1=hpmax1
 			ep1-=EP消耗
-			"鬥和使用了%(魔法名稱)，鬥和HP回復%(hp1-_hp)\x"
+			"斗和使用了%(魔法名稱)，斗和HP回復%(hp1-_hp)\x"
 			--
 			TowaUsedMagic
 		}
@@ -1117,7 +1117,7 @@ Ondouble1{
 	magicready1=0
 	mhp-=魔法傷害1
 	ep1-=EP消耗
-	"鬥和對%(怪物名字)使用了%(魔法名稱1)，%(怪物名字)損血%(魔法傷害1)\x"
+	"斗和對%(怪物名字)使用了%(魔法名稱1)，%(怪物名字)損血%(魔法傷害1)\x"
 	--
 	if 魔法傷害1>=TOINT(0.33*mhpmax){
 		cp1+=3
@@ -1199,7 +1199,7 @@ Onmagicatk1{
 		}
 		magicready1=1
 		魔法傷害1=魔法傷害
-		'鬥和正在準備魔法\x'
+		'斗和正在準備魔法\x'
 		--
 		怪物反擊
 	}
@@ -1236,19 +1236,19 @@ On道具列表{
 Onuseitemselect{
 	"給誰使用\n/
 	\q[◇橘花,Onuseitem0,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
-	\q[◇鬥和,Onuseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
+	\q[◇斗和,Onuseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
 	\n[half]\q[◇返回,OnRpgGame,3]"
 }
 Onuseitemselect0{
 	"給誰使用\n/
 	\q[◇橘花,Onkikkauseitem0,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
-	\q[◇鬥和,Onkikkauseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
+	\q[◇斗和,Onkikkauseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
 	\n[half]\q[◇返回,item0]"
 }
 Onuseitemselect1{
 	"給誰使用\n/
 	\q[◇橘花,Ontowauseitem0,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
-	\q[◇鬥和,Ontowauseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
+	\q[◇斗和,Ontowauseitem1,%(reference0),%(reference1),%(reference2),%(reference3)]\n/
 	\n[half]\q[◇返回,item1]"
 }
 Onuseitem0{
@@ -1322,52 +1322,52 @@ Onuseitem1{
 	效果數值=TOINT(reference3)
 	if 道具類型=='itemA'{
 		if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
-			"對鬥和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
+			"對斗和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
 			itemAnum[道具代碼]-=1
 		}
 		elseif '經驗丹' _in_ 道具名稱{
-			"當前鬥和經驗為%(exp1)\n"
+			"當前斗和經驗為%(exp1)\n"
 			--
 			exp1+=效果數值
 			exptotal1+=效果數值
 			itemAnum[道具代碼]-=1
-			"對鬥和使用了%(道具名稱),鬥和經驗增加%(效果數值)，鬥和經驗為%(exp1)\n"
+			"對斗和使用了%(道具名稱),斗和經驗增加%(效果數值)，斗和經驗為%(exp1)\n"
 			--
-			鬥和升級+'\x'
+			斗和升級+'\x'
 		}
 		elseif '轉生丹' _in_ 道具名稱{
-			"當前鬥和轉生修為為%(expcircle1)\n"
+			"當前斗和轉生修為為%(expcircle1)\n"
 			--
 			expcircle1+=效果數值
 			itemAnum[道具代碼]-=1
-			"對鬥和使用了%(道具名稱),鬥和轉生修為增加%(效果數值)，鬥和轉生修為為%(expcircle1)\x"
+			"對斗和使用了%(道具名稱),斗和轉生修為增加%(效果數值)，斗和轉生修為為%(expcircle1)\x"
 		}
 		elseif hp1+效果數值>=hpmax1{
-			"對鬥和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
+			"對斗和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
 			itemAnum[道具代碼]-=1
 		}
 		elseif hp1+效果數值<hpmax1{
 			hp1+=效果數值
-			"對鬥和使用了%(道具名稱),HP回復%(效果數值)\x"
+			"對斗和使用了%(道具名稱),HP回復%(效果數值)\x"
 			itemAnum[道具代碼]-=1
 		}
 	}
 	elseif 道具類型=='itemB'{
 		if reference3=='EP全回復'{
-			"對鬥和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
+			"對斗和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 			ep1=epmax1
 			itemBnum[道具代碼]-=1
 		}
 		elseif ep1+效果數值>=epmax1{
-			"對鬥和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
+			"對斗和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 			ep1=epmax1
 			itemBnum[道具代碼]-=1
 		}
 		elseif ep1+效果數值<epmax1{
 			ep1+=效果數值
-			"對鬥和使用了%(道具名稱),EP回復%(效果數值)\x"
+			"對斗和使用了%(道具名稱),EP回復%(效果數值)\x"
 			itemBnum[道具代碼]-=1
 		}
 	}
@@ -1434,35 +1434,35 @@ Onkikkauseitem1{
 	if hp1>0{
 		if 道具類型=='itemA'{
 			if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
-				"橘花對鬥和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
+				"橘花對斗和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 				hp1=hpmax1
 				itemAnum[道具代碼]-=1
 			}
 			elseif hp1+效果數值>=hpmax1{
-				"橘花對鬥和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
+				"橘花對斗和使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 				hp1=hpmax1
 				itemAnum[道具代碼]-=1
 			}
 			elseif hp1+效果數值<hpmax1{
 				hp1+=效果數值
-				"橘花對鬥和使用了%(道具名稱),HP回復%(效果數值)\x"
+				"橘花對斗和使用了%(道具名稱),HP回復%(效果數值)\x"
 				itemAnum[道具代碼]-=1
 			}
 		}
 		elseif 道具類型=='itemB'{
 			if reference3=='EP全回復'{
-				"橘花對鬥和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
+				"橘花對斗和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 				ep1=epmax1
 				itemBnum[道具代碼]-=1
 			}
 			elseif ep1+效果數值>=epmax1{
-				"橘花對鬥和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
+				"橘花對斗和使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 				ep1=epmax1
 				itemBnum[道具代碼]-=1
 			}
 			elseif ep1+效果數值<epmax1{
 				ep1+=效果數值
-				"橘花對鬥和使用了%(道具名稱),EP回復%(效果數值)\x"
+				"橘花對斗和使用了%(道具名稱),EP回復%(效果數值)\x"
 				itemBnum[道具代碼]-=1
 			}
 		}
@@ -1470,13 +1470,13 @@ Onkikkauseitem1{
 	elseif hp1==0{
 		if 道具類型=='itemA'{
 			if reference3=='戰鬥不能解除'{
-				"橘花對鬥和使用了%(道具名稱),鬥和恢復戰鬥能力，並且HP回復%(hpmax1-hp1)\x"
+				"橘花對斗和使用了%(道具名稱),斗和恢復戰鬥能力，並且HP回復%(hpmax1-hp1)\x"
 				hp1=hpmax1
 				itemAnum[道具代碼]-=1
 			}
 		}
 		else{
-			"不能對失去戰鬥能力鬥和使用%(道具名稱)\x"
+			"不能對失去戰鬥能力斗和使用%(道具名稱)\x"
 			--
 			Onbattleselect0
 			return
@@ -1498,35 +1498,35 @@ Ontowauseitem0{
 	if hp0>0{
 		if 道具類型=='itemA'{
 			if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
-				"鬥和對橘花使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
+				"斗和對橘花使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
 				hp0=hpmax0
 				itemAnum[道具代碼]-=1
 			}
 			elseif hp0+效果數值>=hpmax0{
-				"鬥和對橘花使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
+				"斗和對橘花使用了%(道具名稱),HP回復%(hpmax0-hp0)\x"
 				hp0=hpmax0
 				itemAnum[道具代碼]-=1
 			}
 			elseif hp0+效果數值<hpmax0{
 				hp0+=效果數值
-				"鬥和對橘花使用了%(道具名稱),HP回復%(效果數值)\x"
+				"斗和對橘花使用了%(道具名稱),HP回復%(效果數值)\x"
 				itemAnum[道具代碼]-=1
 			}
 		}
 		elseif 道具類型=='itemB'{
 			if reference3=='EP全回復'{
-				"鬥和對橘花使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
+				"斗和對橘花使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
 				ep0=epmax0
 				itemBnum[道具代碼]-=1
 			}
 			elseif ep0+效果數值>=epmax0{
-				"鬥和對橘花使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
+				"斗和對橘花使用了%(道具名稱),EP回復%(epmax0-ep0)\x"
 				ep0=epmax0
 				itemBnum[道具代碼]-=1
 			}
 			elseif ep0+效果數值<epmax0{
 				ep0+=效果數值
-				"鬥和對橘花使用了%(道具名稱),EP回復%(效果數值)\x"
+				"斗和對橘花使用了%(道具名稱),EP回復%(效果數值)\x"
 				itemBnum[道具代碼]-=1
 			}
 		}
@@ -1534,7 +1534,7 @@ Ontowauseitem0{
 	elseif hp0==0{
 		if 道具類型=='itemA'{
 			if reference3=='戰鬥不能解除'{
-				"鬥和對橘花使用了%(道具名稱),橘花恢復戰鬥能力，並且HP回復%(hpmax0-hp0)\x"
+				"斗和對橘花使用了%(道具名稱),橘花恢復戰鬥能力，並且HP回復%(hpmax0-hp0)\x"
 				hp0=hpmax0
 				itemAnum[道具代碼]-=1
 			}
@@ -1556,35 +1556,35 @@ Ontowauseitem1{
 	效果數值=TOINT(reference3)
 	if 道具類型=='itemA'{
 		if reference3=='HP全回復'||reference3=='戰鬥不能解除'{
-			"鬥和對自己使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
+			"斗和對自己使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
 			itemAnum[道具代碼]-=1
 		}
 		elseif hp1+效果數值>=hpmax1{
-			"鬥和對自己使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
+			"斗和對自己使用了%(道具名稱),HP回復%(hpmax1-hp1)\x"
 			hp1=hpmax1
 			itemAnum[道具代碼]-=1
 		}
 		elseif hp1+效果數值<hpmax1{
 			hp1+=效果數值
-			"鬥和對自己使用了%(道具名稱),HP回復%(效果數值)\x"
+			"斗和對自己使用了%(道具名稱),HP回復%(效果數值)\x"
 			itemAnum[道具代碼]-=1
 		}
 	}
 	elseif 道具類型=='itemB'{
 		if reference3=='EP全回復'{
-			"鬥和對自己使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
+			"斗和對自己使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 			ep1=epmax1
 			itemBnum[道具代碼]-=1
 		}
 		elseif ep1+效果數值>=epmax1{
-			"鬥和對自己使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
+			"斗和對自己使用了%(道具名稱),EP回復%(epmax1-ep1)\x"
 			ep1=epmax1
 			itemBnum[道具代碼]-=1
 		}
 		elseif ep1+效果數值<epmax1{
 			ep1+=效果數值
-			"鬥和對自己使用了%(道具名稱),EP回復%(效果數值)\x"
+			"斗和對自己使用了%(道具名稱),EP回復%(效果數值)\x"
 			itemBnum[道具代碼]-=1
 		}
 	}
@@ -1740,7 +1740,7 @@ Circle{
 	魔法防禦：%(TOINT(_circleinfo0[6])) \_l[160]魔法防禦：%(TOINT(_newcircleinfo0[6]))\n/
 	生命上限：%(TOINT(_circleinfo0[2])) \_l[160]生命上限：%(TOINT(_newcircleinfo0[2]))\n/
 	\n[half]消耗修為：%(GetExp(20+10*circle0))    \_l[160]擁有修為：%(expcircle0)\n/
-	\n\_l[80]鬥和當前轉生等級：%(circle1)\n/
+	\n\_l[80]斗和當前轉生等級：%(circle1)\n/
 	%(lvl1)級時當前轉生屬性 \_l[180]%(lvl1)級時下階轉生屬性\n/
 	物理攻擊：%(TOINT(_circleinfo1[3]))  \_l[160]物理攻擊：%(TOINT(_newcircleinfo1[3]))\n/
 	魔法攻擊：%(TOINT(_circleinfo1[5])) \_l[160]魔法攻擊：%(TOINT(_newcircleinfo1[5]))\n/
@@ -1762,7 +1762,7 @@ Circle{
 	_txt=REPLACE(_txt,"%(lvl0)級時",ColorText("%(lvl0)級時","color=%(ColorIdx(12))"))
 	_txt=REPLACE(_txt,"%(lvl1)級時",ColorText("%(lvl1)級時","color=%(ColorIdx(12))"))
 	_txt=REPLACE(_txt,"橘花當前轉生等級：%(circle0)",ColorText("橘花當前轉生等級：%(circle0)","color=%(ColorIdx(13))"))
-	_txt=REPLACE(_txt,"鬥和當前轉生等級：%(circle1)",ColorText("鬥和當前轉生等級：%(circle1)","color=%(ColorIdx(13))"))
+	_txt=REPLACE(_txt,"斗和當前轉生等級：%(circle1)",ColorText("斗和當前轉生等級：%(circle1)","color=%(ColorIdx(13))"))
 	_txt
 }
 OnCircleIntro{
@@ -1809,7 +1809,7 @@ OnCircle{
 	}
 	_level1=GetLevel(_exp)
 	_expcircle1=_expcircle
-	"確定要轉生嗎？注意轉生後橘花等級會變成%(_level0)級，橘花可得修為%(_expcircle0)，鬥和等級會變成%(_level1)級，鬥和可得修為%(_expcircle1)\n/
+	"確定要轉生嗎？注意轉生後橘花等級會變成%(_level0)級，橘花可得修為%(_expcircle0)，斗和等級會變成%(_level1)級，斗和可得修為%(_expcircle1)\n/
 	\q[◇是,OnCircleConfirm]\n/
 	\q[◇否,OnCircleCancel]"
 }
@@ -1834,7 +1834,7 @@ Onlodging{
 }
 Onyeslodging{
 	if money>=100+5*(lvl0-1){
-		'橘花和鬥和休息了一晚上,體力和精力全恢復了\x'
+		'橘花和斗和休息了一晚上,體力和精力全恢復了\x'
 		hp0=hpmax0
 		ep0=epmax0
 		hp1=hpmax1
@@ -1889,10 +1889,10 @@ OnCircleRecoverConfirm{
 		circle1=0
 		expcircle1=0
 		exp1=exptotal1%GetExp(lvl1)
-		"恢復成功，當前鬥和等級為%(lvl1)級\x"
+		"恢復成功，當前斗和等級為%(lvl1)級\x"
 	}
 	else
-		'鬥和轉生等級為0，不能恢復\x'
+		'斗和轉生等級為0，不能恢復\x'
 	--
 	OpenRpgGameMenu(4)
 }
@@ -1962,13 +1962,13 @@ OnCircleConfirm{
 			lvl1=GetLevel(_exp)
 			exp1=_exp%GetExp(lvl1)
 			if _n{
-				"轉生成功，鬥和轉生等級為%(circle1)級\x"
+				"轉生成功，斗和轉生等級為%(circle1)級\x"
 			}
 			else
-				"轉生失敗，還差%(_expnext)轉生修為繼續轉生，下級修為%(_circle)，鬥和轉生等級為%(circle1)級\x"
+				"轉生失敗，還差%(_expnext)轉生修為繼續轉生，下級修為%(_circle)，斗和轉生等級為%(circle1)級\x"
 		}
 		else{
-			'鬥和轉生失敗，未達到20級，不能轉生\x'
+			'斗和轉生失敗，未達到20級，不能轉生\x'
 		}
 	}
 	else{
@@ -2447,37 +2447,37 @@ Onmission{
 	mnum=0
 	award=0
 	if level==1{
-		'橘花和鬥和來到了農場\x'
+		'橘花和斗和來到了農場\x'
 	}
 	elseif level==1.1{
-		'橘花和鬥和來到了平原\x'
+		'橘花和斗和來到了平原\x'
 	}
 	elseif level==1.2{
-		'橘花和鬥和來到了山地\x'
+		'橘花和斗和來到了山地\x'
 	}
 	elseif level==1.3{
-		'橘花和鬥和來到了河谷\x'
+		'橘花和斗和來到了河谷\x'
 	}
 	elseif level==1.4{
-		'橘花和鬥和來到了山谷\x'
+		'橘花和斗和來到了山谷\x'
 	}
 	elseif level==1.5{
-		'橘花和鬥和來到了濕地\x'
+		'橘花和斗和來到了濕地\x'
 	}
 	elseif level==1.6{
-		'橘花和鬥和來到了地下封印區入口\x'
+		'橘花和斗和來到了地下封印區入口\x'
 	}
 	elseif level==1.7{
-		'橘花和鬥和來到了在地下封印區上層\x'
+		'橘花和斗和來到了在地下封印區上層\x'
 	}
 	elseif level==1.8{
-		'橘花和鬥和來到了地下封印區中層\x'
+		'橘花和斗和來到了地下封印區中層\x'
 	}
 	elseif level==1.9{
-		'橘花和鬥和來到了地下封印區下層\x'
+		'橘花和斗和來到了地下封印區下層\x'
 	}
 	elseif level==2{
-		'橘花和鬥和來到了地下封印區核心\x'
+		'橘花和斗和來到了地下封印區核心\x'
 	}
 	--
 	Onbattle
@@ -2660,7 +2660,7 @@ battleinfo{
 	戰技0=('0,助威,輔助,複體,3,20,STR+50%','1,雙管齊下,攻擊,單體,15,20,-100,2','2,列波三連射,攻擊,單體,20,20,325,3','3,金剛擊,攻擊,單體,25,20,驅動解除,1','4,歡樂激發,回復,複體,26,20,3000','5,櫻花排擊炮,攻擊S,單體,3,100,1000,10','6,橘花排擊炮,攻擊S,單體,24,100,1200,12','7,真・雙管齊下,攻擊,單體,43,30,600,6','8,真・列波三連射,攻擊,單體,67,40,900,9','9,真・金剛擊,攻擊,單體,70,50,驅動解除,9','10,歡樂激發2,回復,複體,67,25,6000','11,真・櫻花排擊炮,攻擊S,單體,80,100,2800,28','13,真・橘花排擊炮,攻擊S,單體,100,100,3200,32','14,奧義・天下無雙,攻擊S,單體,120,100,4800,48')
 	戰技1=('0,雙連擊,攻擊,單體,3,20,-100,2','1,烈火取栗,攻擊,單體,15,20,-100,3','2,愛的軌跡,攻擊,單體,26,20,325,3','3,安魂曲,攻擊S,單體,3,100,1000,10','4,女王之怒,攻擊S,單體,24,100,1200,12','5,真・烈火取栗,攻擊,單體,43,30,600,6','6,真・愛的軌跡,攻擊,單體,67,40,900,9','7,真・安魂曲,攻擊S,單體,80,100,2800,28','8,真・女王之怒,攻擊S,單體,100,100,3200,32','9,奧義・量子風暴,攻擊S,單體,120,100,4800,48')
 	--
-	"\![quicksession,true]\1\![set,choicetimeout,0]\_l[0,0]橘花%(kikka)\f[color,231,171,109]等級\f[color,default]%(lvl0) \f[color,231,171,109]Next\f[color,default]%(nextexp0) \_l[150,-]鬥和%(towa)\f[color,231,171,109]等級\f[color,default]%(lvl1) \f[color,231,171,109]Next\f[color,default]%(nextexp1)\n/
+	"\![quicksession,true]\1\![set,choicetimeout,0]\_l[0,0]橘花%(kikka)\f[color,231,171,109]等級\f[color,default]%(lvl0) \f[color,231,171,109]Next\f[color,default]%(nextexp0) \_l[150,-]斗和%(towa)\f[color,231,171,109]等級\f[color,default]%(lvl1) \f[color,231,171,109]Next\f[color,default]%(nextexp1)\n/
 	\f[color,231,171,109]HP\f[color,default]\_l[30,-]%(hp0)/%(hpmax0) %(ColorBar(6,20,hp0,hpmax0)) \_l[150,-]\f[color,231,171,109]HP\f[color,default]\_l[180,-]%(hp1)/%(hpmax1) %(ColorBar(6,170,hp1,hpmax1))\n/
 	\f[color,231,171,109]EP\f[color,default]\_l[30,-]%(ep0)/%(epmax0) %(ColorBar(3,20,ep0,epmax0)) \_l[150,-]\f[color,231,171,109]EP\f[color,default]\_l[180,-]%(ep1)/%(epmax1) %(ColorBar(3,170,ep1,epmax1))\n/
 	\f[color,231,171,109]CP\f[color,default]\_l[30,-]%(cp0)/%(cpmax0) %(ColorBar(9,20,cp0,cpmax0)) \_l[150,-]\f[color,231,171,109]CP\f[color,default]\_l[180,-]%(cp1)/%(cpmax1) %(ColorBar(9,170,cp1,cpmax1))\n/
@@ -2793,7 +2793,7 @@ Onbattleselect{
 		hp1=0
 		losehpnum+=1
 		magicready1=0
-		_txt+='鬥和失去戰鬥能力\x'
+		_txt+='斗和失去戰鬥能力\x'
 	}
 	if battleturn==0 && hp0>0  && mhp>0{
 		kikka=1
@@ -2864,7 +2864,7 @@ Onbattleselect1{
 	}
 	else{
 		if towashell==0{
-			'\0\s[26]當前鬥和形態為人形態,鬥和應該\n'
+			'\0\s[26]當前斗和形態為人形態,斗和應該\n'
 			--
 			if SILENT==1
 				'\f[color,192,192,192]攻擊\f[color,default]\n'
@@ -2883,7 +2883,7 @@ Onbattleselect1{
 			\q[◇逃跑,escape]'
 		}
 		if towashell==1{
-			'\0\s[26]當前鬥和形態為動物形態,鬥和應該\n'
+			'\0\s[26]當前斗和形態為動物形態,斗和應該\n'
 			--
 			if SILENT==1
 				'\f[color,192,192,192]攻擊\f[color,default]\n'
@@ -2901,7 +2901,7 @@ Onbattleselect1{
 			\q[◇逃跑,escape]'
 		}
 		if towashell==2{
-			'\0\s[26]當前鬥和形態為半獸形態,鬥和應該\n'
+			'\0\s[26]當前斗和形態為半獸形態,斗和應該\n'
 			--
 			if SILENT==1
 				'\f[color,192,192,192]攻擊\f[color,default]\n'
@@ -2932,46 +2932,46 @@ Select.smoke{
 	if towashell==0{
 		if smoke==NULL{
 			smoke=1
-			'鬥和正在抽煙，尼古丁含量上升中。\x'
+			'斗和正在抽煙，尼古丁含量上升中。\x'
 		}
 		elseif smoke==1{
 			smoke=2
-			"鬥和正在抽煙，尼古丁含量50%。\x"
+			"斗和正在抽煙，尼古丁含量50%。\x"
 		}
 		elseif smoke==2{
 			towashell=1
 			smoke=NULL
-			"鬥和正在抽煙，尼古丁含量100%。鬥和轉變形態,當前為動物形態。\x"
+			"斗和正在抽煙，尼古丁含量100%。斗和轉變形態,當前為動物形態。\x"
 		}
 	}
 	elseif towashell==1{
 		if smoke==NULL{
 			smoke=1
-			'鬥和正在抽煙，尼古丁含量上升中。\x'
+			'斗和正在抽煙，尼古丁含量上升中。\x'
 		}
 		elseif smoke==1{
 			smoke=2
-			"鬥和正在抽煙，尼古丁含量50%。\x"
+			"斗和正在抽煙，尼古丁含量50%。\x"
 		}
 		elseif smoke==2{
 			towashell=2
 			smoke=NULL
-			"鬥和正在抽煙，尼古丁含量100%。鬥和轉變形態，當前為半獸形態。\x"
+			"斗和正在抽煙，尼古丁含量100%。斗和轉變形態，當前為半獸形態。\x"
 		}
 	}
 	elseif towashell==2{
 		if smoke==NULL{
 			smoke=1
-			'鬥和正在抽煙，尼古丁含量上升中。\x'
+			'斗和正在抽煙，尼古丁含量上升中。\x'
 		}
 		elseif smoke==1{
 			smoke=2
-			"鬥和正在抽煙，尼古丁含量50%。\x"
+			"斗和正在抽煙，尼古丁含量50%。\x"
 		}
 		elseif smoke==2{
 			towashell=0
 			smoke=NULL
-			"鬥和正在抽煙，尼古丁含量100%。鬥和轉變形態，當前為人形態\x"
+			"斗和正在抽煙，尼古丁含量100%。斗和轉變形態，當前為人形態\x"
 		}
 	}
 	--
@@ -3034,7 +3034,7 @@ Select.attack1{
 			mdefend=0
 		}
 		mhp-=傷害
-		"\0\s[26]鬥和命中目標，%(怪物名字)損血%(傷害)\x"
+		"\0\s[26]斗和命中目標，%(怪物名字)損血%(傷害)\x"
 	}
 	else{
 		傷害 = TOINT(1.5*ANG*(3.9*str1-2.82*mdef))
@@ -3045,7 +3045,7 @@ Select.attack1{
 			mdefend=0
 		}
 		mhp-=傷害
-		"\0\s[26]鬥和對目標發動會心一擊，%(怪物名字)損血%(傷害)\x"
+		"\0\s[26]斗和對目標發動會心一擊，%(怪物名字)損血%(傷害)\x"
 	}
 	--
 	if 傷害>=TOINT(0.33*mhpmax){
@@ -3110,31 +3110,31 @@ Onusesp0{
 			cp0-=CP消耗
 			STRADD=1.5
 			助威回合=3
-			"橘花發動了%(戰技名稱)，橘花STR上升50%，鬥和STR上升50%。\x"
+			"橘花發動了%(戰技名稱)，橘花STR上升50%，斗和STR上升50%。\x"
 		}
 		elseif 屬性=='回復'{
 			效果數值=TOINT(效果數值)
 			if hp1>0{
 				if hp0+效果數值>=hpmax0 &&  hp1+效果數值>=hpmax1 && cp1>=CP消耗{
-					"橘花發動了%(戰技名稱)，橘花HP回復%(hpmax0-hp0)，鬥和HP回復%(hpmax1-hp1)\x"
+					"橘花發動了%(戰技名稱)，橘花HP回復%(hpmax0-hp0)，斗和HP回復%(hpmax1-hp1)\x"
 					hp0=hpmax0
 					hp1=hpmax1
 					cp0-=CP消耗
 				}
 				elseif hp0+效果數值<hpmax0 && hp1+效果數值<hpmax1 && cp1>=CP消耗{
-					"橘花發動了%(戰技名稱)，橘花HP回復%(效果數值)，鬥和HP回復%(效果數值)\x"
+					"橘花發動了%(戰技名稱)，橘花HP回復%(效果數值)，斗和HP回復%(效果數值)\x"
 					hp0+=效果數值
 					hp1+=效果數值
 					cp0-=CP消耗
 				}
 				elseif hp0+效果數值>=hpmax0 &&  hp1+效果數值<hpmax1 && cp1>=CP消耗{
-					"橘花發動了%(戰技名稱)，橘花HP回復%(hpmax0-hp0)，鬥和HP回復%(效果數值)\x"
+					"橘花發動了%(戰技名稱)，橘花HP回復%(hpmax0-hp0)，斗和HP回復%(效果數值)\x"
 					hp0=hpmax0
 					hp1+=效果數值
 					cp0-=CP消耗
 				}
 				elseif hp0+效果數值<hpmax0 &&  hp1+效果數值>=hpmax1 && cp1>=CP消耗{
-					"橘花發動了%(戰技名稱)，橘花HP回復%(效果數值)，鬥和HP回復%(hpmax1-hp1)\x"
+					"橘花發動了%(戰技名稱)，橘花HP回復%(效果數值)，斗和HP回復%(hpmax1-hp1)\x"
 					hp0+=效果數值
 					hp1=hpmax1
 					cp0-=CP消耗
@@ -3282,7 +3282,7 @@ Onusesp1{
 			}
 			mhp-=戰技傷害
 			cp1-=CP消耗
-			"鬥和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
+			"斗和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 			--
 			if 戰技傷害>=(1/3)*mhpmax{
 				cp1+=3
@@ -3303,7 +3303,7 @@ Onusesp1{
 				}
 				mhp-=戰技傷害
 				cp1-=CP消耗
-				"鬥和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
+				"斗和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 				--
 				if 戰技傷害>=(1/3)*mhpmax{
 					cp1+=3
@@ -3328,7 +3328,7 @@ Onusesp1{
 				}
 				mhp-=戰技傷害
 				cp1-=200
-				"鬥和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
+				"斗和對%(怪物名字)使用了%(戰技名稱)，%(怪物名字)損血%(戰技傷害)\x"
 				--
 				if 戰技傷害>=(1/3)*mhpmax{
 					cp1+=3
@@ -3374,42 +3374,42 @@ Onusebeastsp{
 				mdefend=0
 			}
 			mhp-=獸技傷害
-			"鬥和對%(怪物名字)使用了貓爪三連擊，%(怪物名字)損血%(獸技傷害)\x"
+			"斗和對%(怪物名字)使用了貓爪三連擊，%(怪物名字)損血%(獸技傷害)\x"
 		}
 		elseif 獸技ID==1{
 			DEFADD=1.5
 			嚎叫回合=3
-			"鬥和使用了嚎叫，DEF提升50%。\x"
+			"斗和使用了嚎叫，DEF提升50%。\x"
 		}
 		elseif 獸技ID==2{
 			IGN=0
 			示威回合=1
-			"鬥和使用了示威，%(怪物名字)DEF被無視了。\x"
+			"斗和使用了示威，%(怪物名字)DEF被無視了。\x"
 		}
 		elseif 獸技ID==3{
 			MDEFMINUS=0.5
 			黑暗詛咒回合=3
-			"鬥和使用了黑暗詛咒，%(怪物名字)DEF降低50%。\x"
+			"斗和使用了黑暗詛咒，%(怪物名字)DEF降低50%。\x"
 		}
 		elseif 獸技ID==4{
 			ANG=2
 			噬血詛咒回合=1
-			'鬥和使用了噬血詛咒\x'
+			'斗和使用了噬血詛咒\x'
 		}
 		elseif 獸技ID==5{
 			hp1=TOINT(0.5*hp1)
 			mhp=TOINT(0.5*mhp)
-			"鬥和使用了犧牲，鬥和HP減少%(TOINT(0.5*hp1)),%(怪物名字)HP減少%(TOINT(0.5*mhp))\x"
+			"斗和使用了犧牲，斗和HP減少%(TOINT(0.5*hp1)),%(怪物名字)HP減少%(TOINT(0.5*mhp))\x"
 		}
 		elseif 獸技ID==6{
 			if hp1+0.2*mhp>=hpmax1{
-				"鬥和使用了偷取，鬥和HP增加%(TOINT(hpmax1-hp1)),%(怪物名字)HP減少%(TOINT(0.2*mhp))\x"
+				"斗和使用了偷取，斗和HP增加%(TOINT(hpmax1-hp1)),%(怪物名字)HP減少%(TOINT(0.2*mhp))\x"
 				--
 				hp1=hpmax1
 			}
 			else{
 				hp1+=0.2*mhp
-				"鬥和使用了偷取，鬥和HP增加%(TOINT(0.2*mhp)),%(怪物名字)HP減少%(TOINT(0.2*mhp))\x"
+				"斗和使用了偷取，斗和HP增加%(TOINT(0.2*mhp)),%(怪物名字)HP減少%(TOINT(0.2*mhp))\x"
 			}
 			--
 			mhp=TOINT(0.8*mhp)
@@ -3460,7 +3460,7 @@ Onusebeastsp{
 		嚎叫回合=-1
 		--
 		DEFADD=1
-		'鬥和使用的嚎叫技能失效了\x'
+		'斗和使用的嚎叫技能失效了\x'
 	}
 	--
 	if 示威回合>0{
@@ -3470,7 +3470,7 @@ Onusebeastsp{
 		示威回合=-1
 		--
 		IGN=1
-		'鬥和使用的示威技能失效了\x'
+		'斗和使用的示威技能失效了\x'
 	}
 	--
 	if 黑暗詛咒回合>0{
@@ -3480,7 +3480,7 @@ Onusebeastsp{
 		黑暗詛咒回合=-1
 		--
 		MDEFMINUS=1
-		'鬥和使用的黑暗詛咒技能失效了\x'
+		'斗和使用的黑暗詛咒技能失效了\x'
 	}
 	--
 	if 噬血詛咒回合>0{
@@ -3490,7 +3490,7 @@ Onusebeastsp{
 		噬血詛咒回合=-1
 		--
 		ANG=1
-		'鬥和使用的噬血詛咒技能失效了\x'
+		'斗和使用的噬血詛咒技能失效了\x'
 	}
 	--
 	RpgGameVar
@@ -3606,7 +3606,7 @@ Select.escape{
 		towadefend=0
 	}
 	hp1-=反擊魔法傷害
-	"\0%(怪物名字)對鬥和發動了%(反擊魔法名稱)，鬥和損血%(反擊魔法傷害)\x"
+	"\0%(怪物名字)對斗和發動了%(反擊魔法名稱)，斗和損血%(反擊魔法傷害)\x"
 	--
 	Onbattleselect
 }
@@ -3636,7 +3636,7 @@ Select.escape{
 		towadefend=0
 	}
 	hp1-=反擊魔法傷害
-	"鬥和損血%(反擊魔法傷害)\x"
+	"斗和損血%(反擊魔法傷害)\x"
 	--
 	Onbattleselect
 }
@@ -3962,7 +3962,7 @@ Select.escape{
 			towadefend=0
 		}
 		hp1 -= 怪傷害1
-		"%(怪物名字)對鬥和發動會心一擊，鬥和損血%(怪傷害1)\x"
+		"%(怪物名字)對斗和發動會心一擊，斗和損血%(怪傷害1)\x"
 	}
 	else{
 		if _target==0{
@@ -3987,7 +3987,7 @@ Select.escape{
 				towadefend=0
 			}
 			hp1 -= 怪傷害1
-			"鬥和被攻擊了，損血%(怪傷害1)\x"
+			"斗和被攻擊了，損血%(怪傷害1)\x"
 		}
 	}
 	--
@@ -3999,11 +3999,11 @@ Onmspattack{
 	戰技ID=reference0
 	_target=TOINT(reference1)
 	if hp0<=0
-		指定人格='鬥和'
+		指定人格='斗和'
 	elseif hp1<=0
 		指定人格='橘花'
 	else
-		指定人格='橘花和鬥和'
+		指定人格='橘花和斗和'
 	if 戰技ID==0{
 		MSTRADD=1.5
 		威脅回合=3
@@ -4030,7 +4030,7 @@ Onmspattack{
 				towadefend=0
 			}
 			hp1-=戰技傷害
-			指定人格='鬥和'
+			指定人格='斗和'
 		}
 		"%(怪物名字)對%(指定人格)使用了雙連擊，%(指定人格)損血%(戰技傷害)\x"
 	}
@@ -4258,11 +4258,11 @@ Onmspattack{
 		armorBnum[i]=TOINT(armorBnum[i]+1)
 	}
 	--
-	"橘花獲得經驗%(TOINT(2*_reward))，鬥和獲得經驗%(TOINT(2*_reward))\n"
+	"橘花獲得經驗%(TOINT(2*_reward))，斗和獲得經驗%(TOINT(2*_reward))\n"
 	--
 	"獲得金錢%(TOINT(4*_reward))\n"
 	--
-	橘花升級+鬥和升級
+	橘花升級+斗和升級
 	--
 	if mnum<10{
 		'\t\0\q[◇繼續逛,Onbattle]\n/
@@ -4307,7 +4307,7 @@ Select.back{
 	}
 	_txt
 }
-鬥和升級{
+斗和升級{
 	nextexp1 = expmax1 - exp1
 	_txt=''
 	while nextexp1<=0{
@@ -4317,16 +4317,16 @@ Select.back{
 		RpgGameVar
 		hp1=hpmax1
 		ep1=epmax1
-		_txt+="\0\s[5]鬥和升級了！\n\w9目前等級：%(lvl1)\n"
+		_txt+="\0\s[5]斗和升級了！\n\w9目前等級：%(lvl1)\n"
 		_魔法1 = (水系魔法,火系魔法,土系魔法,風系魔法)
 		foreach _魔法1; _i{
 			if lvl1==TOINT(_i[5]){
-				_txt+="鬥和學得新魔法%(_i[2])\n"
+				_txt+="斗和學得新魔法%(_i[2])\n"
 			}
 		}
 		foreach 戰技1; _i{
 			if lvl1==TOINT(_i[4]){
-				_txt+="\0\s[5]鬥和學得新戰技%(_i[1])\n"
+				_txt+="\0\s[5]斗和學得新戰技%(_i[1])\n"
 			}
 		}
 		nextexp1 = expmax1 - exp1

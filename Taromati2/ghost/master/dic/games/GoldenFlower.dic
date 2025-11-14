@@ -19,13 +19,13 @@ OnGoldenFlower{
 	deskmoney=0//當局全部賭注數額
 	wager=50//賭注大小
 	cardturn=0//說話順序
-	banker=0//莊家（0：橘花；2：用戶；1；鬥和）
+	banker=0//莊家（0：橘花；2：用戶；1；斗和）
 	user.numcard=IARRAY//用戶牌型
-	towa.numcard=IARRAY//鬥和牌型
+	towa.numcard=IARRAY//斗和牌型
 	kikka.numcard=IARRAY//橘花牌型
-	opentowa=0//鬥和開牌
+	opentowa=0//斗和開牌
 	openkikka=0//橘花開牌
-	towapass=0//鬥和棄牌
+	towapass=0//斗和棄牌
 	kikkapass=0//橘花棄牌
 	circle=0//單局回合數
 	kikkaflowermoney=kikkacoin
@@ -49,7 +49,7 @@ OnCardHelp{
 	A.每個牌局允許付出的金幣總和上限為10000，達到或超過上限則系統自動開牌。\n/
 	B.當用戶所剩的金幣不夠下次付出時，則封頂，系統自動開牌。\n/
 	跟牌：投入押注金額同樣大小的金幣。\n/
-	開牌：如果人數為三人用戶開牌選擇橘花或鬥和。付出的金幣為押注金額。當只剩下兩個人時，可以隨時選擇開牌，但要付出當前押注金額的雙倍數量，如果牌型大小相同，則先開牌的一方判輸。 \n/
+	開牌：如果人數為三人用戶開牌選擇橘花或斗和。付出的金幣為押注金額。當只剩下兩個人時，可以隨時選擇開牌，但要付出當前押注金額的雙倍數量，如果牌型大小相同，則先開牌的一方判輸。 \n/
 	棄牌：放棄當前付出的所有金幣，判輸。\n/
 	3.牌型 \n/
 	豹子：三張同樣大小的牌。\n/
@@ -174,7 +174,7 @@ GoldenFlowerInit{//使用者介面
 		_txt+=ShowCard
 	}
 	elseif cardwin==1{
-		mess='鬥和贏了。\n'
+		mess='斗和贏了。\n'
 		banker=1
 		cardmode=1
 		cardturn=-1
@@ -214,7 +214,7 @@ GoldenFlowerInit{//使用者介面
 OnUseropen{//用戶開牌
 	_txt=''
 	if towapass==0&&kikkapass==0{
-		mess='\q[◇開橘花的牌,OnOpenKikka]\_l[180,0]\q[◇開鬥和的牌,OnOpenTowa]\n'
+		mess='\q[◇開橘花的牌,OnOpenKikka]\_l[180,0]\q[◇開斗和的牌,OnOpenTowa]\n'
 	}
 	elseif towapass==1&&kikkapass==0{
 		_txt+=OnOpenKikka
@@ -263,14 +263,14 @@ OnOpenKikka{//開橘花牌
 	_txt+=GoldenFlowerInit
 	_txt
 }
-OnOpenTowa{//開鬥和牌
+OnOpenTowa{//開斗和牌
 	_txt=''
 	opentowa=1
 	if kikkapass==0{
 		deskmoney+=TOINT(wager)
 		usercoin-=TOINT(wager)
 		if operator("%(user.numcard)","%(towa.numcard)")<=0{
-			_txt+="\1鬥和PASS了%(username)\x"
+			_txt+="\1斗和PASS了%(username)\x"
 			if operator("%(towa.numcard)","%(kikka.numcard)")<=0
 				cardwin=0
 			else
@@ -287,11 +287,11 @@ OnOpenTowa{//開鬥和牌
 		deskmoney+=2*wager
 		usercoin-=2*wager
 		if operator("%(user.numcard)","%(towa.numcard)")<=0{
-			_txt+="\1鬥和贏了%(username)\x"
+			_txt+="\1斗和贏了%(username)\x"
 			cardwin=1
 		}
 		else{
-			_txt+='\1呀，鬥和輸了\x'
+			_txt+='\1呀，斗和輸了\x'
 			cardwin=2
 		}
 	}
@@ -302,7 +302,7 @@ OnOpenTowa{//開鬥和牌
 	_txt+=GoldenFlowerInit
 	_txt
 }
-TowaFollow{//鬥和跟牌
+TowaFollow{//斗和跟牌
 	_txt='\0\c\b[-1]\1'
 	_k=10-towacoin*0.001
 	if _k>=6
@@ -329,7 +329,7 @@ TowaFollow{//鬥和跟牌
 				towapass=1
 			}
 			else{
-				_txt+='\1\s[110]鬥和PASS了橘花\x'
+				_txt+='\1\s[110]斗和PASS了橘花\x'
 				kikkapass=1
 			}
 		}
@@ -343,7 +343,7 @@ TowaFollow{//鬥和跟牌
 				towapass=1
 			}
 			else{
-				_txt+="\1\s[110]%(username)的牌沒有鬥和大啊\x"
+				_txt+="\1\s[110]%(username)的牌沒有斗和大啊\x"
 				if operator("%(towa.numcard)","%(kikka.numcard)")<=0
 					cardwin=0
 				else
@@ -356,11 +356,11 @@ TowaFollow{//鬥和跟牌
 			towacoin-=2*wager
 			_txt+="\1我和%(username)決戰啊，那就開牌吧\x"
 			if operator("%(towa.numcard)","%(user.numcard)")<=0{
-				_txt+='\1\s[111]鬥和輸了\x'
+				_txt+='\1\s[111]斗和輸了\x'
 				cardwin=2
 			}
 			else{
-				_txt+="\1\s[110]%(username)的牌沒有鬥和大啊\x"
+				_txt+="\1\s[110]%(username)的牌沒有斗和大啊\x"
 				cardwin=1
 			}
 		}
@@ -407,13 +407,13 @@ KikkaFollow{//橘花跟牌
 		if _k==1 &&towapass==0{
 			deskmoney+=TOINT(wager)
 			kikkacoin-=TOINT(wager)
-			_txt+='\0\s[7]開鬥和的牌\x'
+			_txt+='\0\s[7]開斗和的牌\x'
 			if operator("%(kikka.numcard)","%(towa.numcard)")<=0{
-				_txt+='\0\s[9]唔，橘花被鬥和PASS了\x'
+				_txt+='\0\s[9]唔，橘花被斗和PASS了\x'
 				kikkapass=1
 			}
 			else{
-				_txt+='\0\s[5]橘花PASS了鬥和\x'
+				_txt+='\0\s[5]橘花PASS了斗和\x'
 				towapass=1
 			}
 		}
@@ -489,7 +489,7 @@ ShowCard{
 		_txt+=winstring("%(kikka.numcard)")+' '+maxcard("%(kikka.numcard)")+DrawCard("%(kikka.numcard)")
 	cardX=180
 	cardY=116
-	_txt+="\_l[%(cardX),%(cardY-20)]鬥和"
+	_txt+="\_l[%(cardX),%(cardY-20)]斗和"
 	if opentowa!=1
 		_txt+=DrawBk
 	else

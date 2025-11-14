@@ -36,7 +36,7 @@ OnAITalk{
 	}
 	else{
 		_talk = AITalk
-		while specialmode == 'smoking' && '\1' _in_ _talk{//鬥和不在家.avi
+		while specialmode == 'smoking' && '\1' _in_ _talk{//斗和不在家.avi
 			_talk = AITalk
 		}
 		SETDELIM(_talk, ':talkmemo=')

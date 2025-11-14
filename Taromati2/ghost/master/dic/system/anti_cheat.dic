@@ -84,7 +84,7 @@ OnValueCheatted{
 		when 'intimacy'{
 			if _var_cheatting_to>_var_should_have{
 				intimacy=MIN(-10,-_var_should_have/2,_var_should_have*10)
-				"\![enter,passivemode]\0\s[30]鬥和，問你一個問題。\w9\n/
+				"\![enter,passivemode]\0\s[30]斗和，問你一個問題。\w9\n/
 				\1\s[11]什麼？\w9\n/
 				\0如果有人強行要把你和他的關係拉好\w9，而且不顧你的意願的話要怎麼辦呢？\w9\w9\n/
 				\1這種人一般會被叫做渣男吧？\w9\n/
@@ -99,7 +99,7 @@ OnValueCheatted{
 						"\0\s[26]%(username)是不是討厭我了呢?\w9\w9\n/
 						\s[3]可以的話直說就好\w9.\w9.\w9.\w9.\w9."
 					when 3-2{
-						'\0\s[20]唔\w9…\w9…\s[30]鬥和，\w9人會在什麼樣的情況下要讓一個關係本來不錯的人關係變差呢？\w9\w9\n/
+						'\0\s[20]唔\w9…\w9…\s[30]斗和，\w9人會在什麼樣的情況下要讓一個關係本來不錯的人關係變差呢？\w9\w9\n/
 						\1\s[10]你是在說想要分手卻又不肯明說的人嗎？\n'
 						--
 						if !RAND(4){

@@ -40,7 +40,7 @@ OnGetUsernameFirst.Fin{
 	OnGetUsernameFirst.End
 }
 OnGetUsernameFirst.End{
-	'\w9\w9\w9\n[150]\0\s[6]那麼再一次…\w9\s[26]\n[150]橘花和鬥和、以後請多多指教。\1\s[10]多指教啦。\w9\0\s[30]\n[150]…終於開口了。\w9\w9\c'
+	'\w9\w9\w9\n[150]\0\s[6]那麼再一次…\w9\s[26]\n[150]橘花和斗和、以後請多多指教。\1\s[10]多指教啦。\w9\0\s[30]\n[150]…終於開口了。\w9\w9\c'
 }
 GetSteamUserName{
 	CALLSAORI('steam_api','GetMostRecentUserPersonaName')
@@ -61,10 +61,10 @@ OnUserNameInput{
 				\1\s[10]會讓人分不清是在叫哪個人所以禁止。\w9\w9\w9\n/
 				\0\s[0]請您想一個其他的名字吧。\w9\n[150]'
 			}
-			when '鬥和','towa'{
-				'\0\s[0]鬥和嗎\w9…\w9…\w9…？\w9\n\s[8]和她重名會讓我們在談話時很困擾\w9，可以想一個其他的名字嗎？\w9\n[150]'
+			when '斗和','towa'{
+				'\0\s[0]斗和嗎\w9…\w9…\w9…？\w9\n\s[8]和她重名會讓我們在談話時很困擾\w9，可以想一個其他的名字嗎？\w9\n[150]'
 				if nurturance.Darkness >= 200
-					'\0\s[20]兩個鬥和啊\w9，會叫混唉？\n\w9\w9\1\s[12]換一個不行嗎？\w9\w9\n/
+					'\0\s[20]兩個斗和啊\w9，會叫混唉？\n\w9\w9\1\s[12]換一個不行嗎？\w9\w9\n/
 					\0\s[32]說的有道理。\w9\w9\w9\n/
 					\1\s[11]\w9是說換一個名字不是換一個人的意思\w9\n/
 					\0\s[2]啊\w9\s[20]、是這個意思嗎？\w9\w9\n/
@@ -258,7 +258,7 @@ OnUserName.IsTooClose{
 OnUserName.IsCharacterName{
 	_simplified_name = TOLOWER(TOSIMPLIFIED(reference.raw[0]))
 	case _simplified_name {
-		when '橘花','kikka','鬥和','towa'{
+		when '橘花','kikka','斗和','towa'{
 			1
 			return
 		}

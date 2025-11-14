@@ -237,7 +237,7 @@ Select.lovech{
 	elseif intimacy>=70
 		"\0\s[1]嗯.....\w\n\0\s[5]應該說喜歡 還是很喜歡呢?\w8\1\s[10]反正就是很喜歡吧......\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=50
-		"\0\s[2]阿...?\w8\n\0\s[30]鬥和...\w8\n你覺得呢?\w8\1\s[12]你跟%(username)很不錯吧?\w8個人感覺....\w9\n[180]好感度: %(intimacy)"
+		"\0\s[2]阿...?\w8\n\0\s[30]斗和...\w8\n你覺得呢?\w8\1\s[12]你跟%(username)很不錯吧?\w8個人感覺....\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=30
 		"\0\s[20]嗯......\w8\n\0\s[41]好像還不錯吧!\w9\n[180]好感度: %(intimacy)"
 	elseif intimacy>=10

@@ -1,7 +1,7 @@
 ﻿/////////文
 /////////User與Ghost對話部分(包括對話教學)
 /////////written by KikkaAIdb.[2009-01-27初版]★
-//欄位scope 為2時的資料為正常的對話內容,scope為-1時是被刪除了的內容(其實是想用做對橘花[0]或對鬥和[1]的談話內容的)
+//欄位scope 為2時的資料為正常的對話內容,scope為-1時是被刪除了的內容(其實是想用做對橘花[0]或對斗和[1]的談話內容的)
 //obligate1和2 為保留欄位
 //*************************************************************************************
 //[2009-01-27初版]
@@ -96,7 +96,7 @@ OnTeach{
 				while _g[_i] {
 					_b=SQLite('-j',"SELECT * FROM KikkaAIdb WHERE ID='%(_g[_i])' AND scope!=-1")
 					_i++
-					_b=REPLACE(_b,'\1','鬥和：')
+					_b=REPLACE(_b,'\1','斗和：')
 					_x=_b[2]
 					_y=_b[3]
 					_z=_b[0]
@@ -392,7 +392,7 @@ UPDateshow{
 		while _i<_next && _i<=_t {
 			_b=SQLite('-j',"SELECT * FROM KikkaAIdb WHERE ID='%(_i)' AND scope!=-1")
 			_i++
-			_b=REPLACE(_b,'\1','鬥和：')
+			_b=REPLACE(_b,'\1','斗和：')
 			_b=REPLACE(_b,'\w','[等待]')
 			_b=REPLACE(_b,'\s','[表情]')
 			_b=REPLACE(_b,'[','<')
@@ -415,7 +415,7 @@ UPDateshow{
 			_b=SQLite('-j',"SELECT * FROM KikkaAIdb WHERE ID='%(_g[_i])' AND scope!=-1")
 			_i++
 			_b=REPLACE(_b,'\,','，')
-			_b=REPLACE(_b,'\1','鬥和：')
+			_b=REPLACE(_b,'\1','斗和：')
 			_b=REPLACE(_b,'\w','[等待]')
 			_b=REPLACE(_b,'\s','[表情]')
 			_b=REPLACE(_b,'[','<')
@@ -468,7 +468,7 @@ OnAIdbUpdate{
 	elseif temp01=='修改該詞條' {
 		temp01=NULL
 		_b=SQLite('-j',"SELECT * FROM KikkaAIdb WHERE ID=%(reference0)")
-		_b=REPLACE(_b,'\1','鬥和：')
+		_b=REPLACE(_b,'\1','斗和：')
 		_b=REPLACE(_b,'\w','[等待]')
 		_b=REPLACE(_b,'\s','[表情]')
 		_b=REPLACE(_b,'[','<')
@@ -491,7 +491,7 @@ OnAIdbUpdate{
 	}
 	else {
 		reference0=REPLACE(reference0,',','<英文逗號>')
-		reference0=REPLACE(reference0,'鬥和：','\1')
+		reference0=REPLACE(reference0,'斗和：','\1')
 		reference0=REPLACE(reference0,'<','[')
 		reference0=REPLACE(reference0,'>',']')
 		reference0=REPLACE(reference0,'%<username>',"%(username)")

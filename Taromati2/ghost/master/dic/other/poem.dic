@@ -141,8 +141,8 @@ OnPoesywrite_1{
 		ERASEVAR('Poesywritedegree')
 		ERASEVAR('Poesywritemode')
 		"\0\s[1]對了哦,%(username)好厲害呢,橘花好開心!"
-		"\0\s[1]對啦,%(username)真的好厲害呢,\w9\1難道不是去查書了嗎?\w9\0\n鬥和真是的,\w9%(username)才不會那樣呢..."
-		"\0\s[1]對啦,%(username)真的好厲害呢,\w9\1難道不是去查書了嗎?\w9\0\n鬥和真是的,\w9%(username)才不會那樣呢...\w9\n%(username)最多是去穀歌一下而已啦..\w9\1\n這難道有什麼不同嗎...."
+		"\0\s[1]對啦,%(username)真的好厲害呢,\w9\1難道不是去查書了嗎?\w9\0\n斗和真是的,\w9%(username)才不會那樣呢..."
+		"\0\s[1]對啦,%(username)真的好厲害呢,\w9\1難道不是去查書了嗎?\w9\0\n斗和真是的,\w9%(username)才不會那樣呢...\w9\n%(username)最多是去穀歌一下而已啦..\w9\1\n這難道有什麼不同嗎...."
 		"\0\s[1]怎麼說呢,\w9對了呢,%(username)好厲害呢,\w9沒有去查資料吧?\w9\w9\n就算查了橘花也好開心!\w9\1喂喂,\w9你沒在做什麼奇怪的幻想吧..."
 		--
 		if Poesywritedegree==1 {
