@@ -335,7 +335,7 @@ file,ghost/master/dic/communicate/H/H.dic4c73f88638642ef3e159c6cfc630fa46size=
 file,ghost/master/dic/communicate/talk/learn.dic67d682ebc314b4ddb216f02fde0cbbb3size=16601date=2012-12-21T00:00:00
 file,ghost/master/dic/communicate/talk/other_ghost.diccfedb0d28931fad3160a8d4bcc83911asize=3294date=2012-12-21T00:00:00
 file,ghost/master/dic/communicate/talk/pseudoAI.dic97859d2f23b7c644800202f4b0571501size=60147date=2012-12-21T00:00:00
-file,ghost/master/dic/communicate/talk/talk.dic3d7be3c6310cec6a14af2cc4797cad7asize=172104date=2012-12-21T00:00:00
+file,ghost/master/dic/communicate/talk/talk.dicb9ad63ca8cc35fda80c3df8e1ff0bf2size=172104date=2012-12-21T00:00:00
 file,ghost/master/dic/communicate/talk/talk_t.dicc5982e02c9c5798e6763572fbddd0813size=8932date=2012-12-21T00:00:00
 file,ghost/master/dic/communicate/touch/touch.dicd0eb1515baa0abdd0f02bcee351b2984size=13863date=2012-12-21T00:00:00
 file,ghost/master/dic/dev/ayccoder.aycd7df86b0547b9b3e98b581643b9cfd2bsize=595date=2012-12-21T00:00:00
