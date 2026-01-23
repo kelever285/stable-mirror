@@ -284,7 +284,7 @@ file,ghost/master/dic/aya/master/baseware.dicf38ecf1ce37a91875f9a1b0e7608058cs
 file,ghost/master/dic/aya/master/cmd.dicdf3d1094c662c8b0d0d0375d5e2104acsize=520date=2012-12-21T00:00:00
 file,ghost/master/dic/aya/master/file.dic36ff3b088205888e2aa86202ed1eafffsize=4565date=2012-12-21T00:00:00
 file,ghost/master/dic/aya/master/ghost.dicb5f1a69854bea5e501d160bd5597dd4esize=1337date=2012-12-21T00:00:00
-file,ghost/master/dic/aya/master/last_time.dic1e7bd3023ae0f9e5f2da3f439c0afdcasize=129date=2012-12-21T00:00:00
+file,ghost/master/dic/aya/master/last_time.dic0ef938945afbff3cc7dd5d6d2576ed4bsize=129date=2012-12-21T00:00:00
 file,ghost/master/dic/aya/master/shiori.dic4be1a8d34dca15eb096c2c83d361ea11size=54284date=2012-12-21T00:00:00
 file,ghost/master/dic/aya/master/string.dic94b78188422d9d86352f0361a083ff95size=2425date=2012-12-21T00:00:00
 file,ghost/master/dic/aya/master/sysex.dic21de2065de4b84d69983dc39cbf31e32size=1421date=2012-12-21T00:00:00
@@ -424,3 +424,4 @@ file,ghost/master/sound/tea.mp333dc524916fdceeb55459374eca427a9size=80296date
 file,ghost/master/sound/tinkle.wavf115303b37f10d103980434f5662f405size=123650date=2012-12-21T00:00:00
 file,ghost/master/thumbnail.png58e963279c6503e92e7f5b1079a41545size=28127date=2012-12-21T00:00:00
 file,install.txte2f789a753a12026f59362e5c6856f48size=76date=2012-12-21T00:00:00
+
